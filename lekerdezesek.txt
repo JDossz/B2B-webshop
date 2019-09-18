@@ -44,3 +44,17 @@ Functional recovery and axonal regeneration will be assessed at both stages, and
 This exciting project builds on an existing collaboration between two world-leading teams who will apply their combined expertise and skills to advance our understanding of the mechanisms involved in nerve regeneration. This will underpin efforts to develop interventions that can promote repair of the spinal cord and enable people with spinal cord injuries to recover function.
 “This is an exciting and innovative project that is sure to generate findings highly relevant to spinal cord repair in humans.” External reviewer.','Imperial College London','Professor Simone Di Giovanni','Professor Simone Di Giovanni, Professor Gregoire Courtine','https://www.brainresearchuk.org.uk/our-research/our-research/professor-simone-di-giovanni-imperial-college-london/','neurology'
 ),
+(
+  'Biogas upgrading by means of cyclic adsorption processes',
+  '',
+  'Global warming is one of the most worldwide current challenges facing humanity, a direct consequence of the increasing CO2 emissions generated from the combustion of fossil fuels. To confront the current energy production footprint, research on transformative and more efficient technologies to produce energy from renewables, and cleaner energy from fossil fuels (Carbon Capture Utilisation & Storage, CCUS) is unquestionably needed. Biogas produced from the anaerobic digestion of organic waste is a clean and renewable source of energy, considered as one of the most environmentally friendly technologies for replacing fossil fuels.',
+  'Accordingly, this project will study alternative biogas upgrading strategies based on the separation by adsorption, targeting at increasing the efficiency of the overall separation process, and hence reduce the energy required per m3 of biogas upgraded, as well as the purity and recovery of the biomethane produced.
+  Candidates should have (or expect to achieve) a UK honours degree at 2.1 or above (or equivalent) in Chemical Engineering or any related discipline, such as BSc in Chemistry, Physics, Materials Science along with knowledge of:
+  Materials science, materials characterisation: textural characterisation: BET, micropore volume, total pore volume, average pore diameter, …; understanding the experimental characterisation techniques, such as gas chromatograph, FTIR, TGA, porosimeter…), organic chemistry, physical chemistry, reactor dynamics, thermodynamics and heat transfer, gas separation processes, adsorption principles, kinetics of adsorption and desorption, etc.
+  Microsoft Office package (specially Excel). The knowledge of any other software such as Matlab, Aspen Hysys (Adsorption) will be valuable.',
+  'Aberdeen University School of Engineering',
+  'cfmartin@abdn.ac.uk',
+  'Dr. C Fernandez Martin, Dr. D Dionisi',
+  'https://www.abdn.ac.uk/study/international/tuition-fees-and-living-costs-287.php',
+  'Chemistry',
+),
