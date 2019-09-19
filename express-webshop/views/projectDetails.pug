@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-12
+        table.table.table-striped.table-responsive
+          thead
+            tr
+              th #
+              th title
+              th seo
+              th price
+              th contact
+              th link
+              th category
+              th shortd
+              th longd
+              th picture
+              th institution
+              th &nbsp;
+
+          tbody
+            tr
+              td #{project.id}
+              td #{project.title}
+              td #{project.seo}
+              td #{project.price}
+              td #{project.contact}
+              td #{project.link}
+              td #{project.category}
+              td #{project.shortd}
+              td #{project.longd}
+              td #{project.picture}
+              td #{project.institution}
+              td 
+                .btn-group
+                  a.btn.btn-info(href="/projects") Go back!
