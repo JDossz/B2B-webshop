@@ -7,7 +7,7 @@ block content
     table.table.table-striped
       thead
         tr
-          th # 
+          th ID 
           th User ID
           th Insdate
           th Projekt ID
@@ -18,10 +18,10 @@ block content
         each order in orders
           tr
             td #{order.id}
-            td User ID: #{order.name}
-            td Insdate: #{order.insdate}
-            td Projekt ID: #{order.projectid}
-            td Projekt price: #{order.projectprice}
-            td Quantity: #{order.quantity} 
-            td Status: #{order.status} 
+            td #{order.userid}
+            td #{order.insdate}
+            td #{order.projectid}
+            td #{order.projectprice}
+            td #{order.quantity} 
+            td #{order.status} 
           

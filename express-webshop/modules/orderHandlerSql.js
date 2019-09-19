@@ -7,7 +7,7 @@ const pool = mariadb.createPool({
   connectionLimit: 5,
 });
 
-module.exports = class orderHandlerSql {
+module.exports = class OrderHandlerSql {
   constructor() {
     pool.getConnection().then(conn => this.conn = conn);
   }

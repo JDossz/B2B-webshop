@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const orderHandlerSql = require('./../modules/orderHandlerSql');
-const orderHS = new orderHandlerSql();
+const OrderHandlerSql = require('./../modules/orderHandlerSql');
+const orderHS = new OrderHandlerSql();
 
 
 // get all
