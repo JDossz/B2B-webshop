@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { OrdersComponent } from './page/orders/orders.component';
 import { UpdateOrdersComponent } from './page/update-orders/update-orders.component';
 import { CreateOrdersComponent } from './page/create-orders/create-orders.component';
+import { UsersComponent } from './page/users/users.component';
+import { UpdateUsersComponent } from './page/update-users/update-users.component';
+import { CreateUsersComponent } from './page/create-users/create-users.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { CreateOrdersComponent } from './page/create-orders/create-orders.compon
     OrdersComponent,
     UpdateOrdersComponent,
     CreateOrdersComponent,
+    UsersComponent,
+    UpdateUsersComponent,
+    CreateUsersComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateOrdersComponent implements OnInit {
   order: Order
-  
+
   constructor(
     private orderService: OrderService,
     private router: Router,
@@ -26,7 +26,7 @@ export class UpdateOrdersComponent implements OnInit {
     ev.preventDefault();
     this.orderService.update(this.order).subscribe(
       order => {
-        this.router.navigateByUrl("/")
+        this.router.navigateByUrl("/orders")
 
       }, err => console.error(err)
 

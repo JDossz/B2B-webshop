@@ -15,7 +15,7 @@ export class OrderService {
 
   access(): void {
     this.http.get(this.url).subscribe(data =>
-      console.log(data))
+      data)
   }
   read(): Observable<any> {
     return this.http.get(this.url);
