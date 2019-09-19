@@ -32,9 +32,13 @@ html
             a.nav-link(href='#') About Us
           li.nav-item
             a.nav-link(href='#') Contact
+        ul.navbar-nav.mr-5
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
+            button.btn.btn-outline-secondary(type="submit") Search
         ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='#') Log In
+          li
+            a.btn.btn-outline-primary(href='/login') Log In
 
     block content
 
