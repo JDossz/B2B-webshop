@@ -2,9 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-/* GET home page. */
+/* GET Terms page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Index Page' });
+  res.render('termsAndConditions', { title: 'Terms and Conditions' });
 });
 
 module.exports = router;
