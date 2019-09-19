@@ -18,9 +18,9 @@ module.exports = class MainQuery {
 
   }
 
-  async read() {
+  async read(table) {
     const id = 15;
-    return await this.connection.query(`select * from projects where id = ${id}`);
+    return await this.connection.query(`select * from ${table} where id = ${id}`);
   }
 
   /**

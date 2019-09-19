@@ -27,9 +27,8 @@ module.exports = class Updateer {
 
   generateSet(query) {
     // Splits the query into set? and the remainder
-    query = query.split('?')
+    query = query.split('?');
     query.shift();
-    this.setString = this.setString.concat('SET ');
     // Parts the string at every given condition
     query = query.split('&');
     query.forEach(element => {
@@ -37,9 +36,21 @@ module.exports = class Updateer {
       this.setString = this.setString.concat(element.split('=')[0]);
       this.setString = this.setString.concat(' = ')
       this.setString = this.setString.concat(element.split('=')[1]);
+      this.setString = this.setString.concat(' AND ');
     });
+    this.setString.replace(/\sAND\s$/, '');
   }
 
-
+  generateWhere(query) {
+    // Splits the query into where? and the remainder
+    query = query.split('?');
+    query.shift();
+    // Parts the string at every given condition
+    query = query.split('&');
+    query.forEach(element => {
+      this.whereString = this.whereString.concat(element.split('=')[0]);
+      this.
+    });
+  }
 
 }
