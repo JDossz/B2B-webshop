@@ -34,11 +34,11 @@ module.exports = class Updateer {
     query.forEach(element => {
       // Element should look like: category=Chemistry
       this.setString = this.setString.concat(element.split('=')[0]);
-      this.setString = this.setString.concat(' = ')
+      this.setString = this.setString.concat(' = ');
       this.setString = this.setString.concat(element.split('=')[1]);
-      this.setString = this.setString.concat(' AND ');
+      this.setString = this.setString.concat(', ');
     });
-    this.setString.replace(/\sAND\s$/, '');
+    this.setString.replace(/,\s$/, '');
   }
 
   generateWhere(query) {
@@ -49,8 +49,11 @@ module.exports = class Updateer {
     query = query.split('&');
     query.forEach(element => {
       this.whereString = this.whereString.concat(element.split('=')[0]);
-      this.
+      this.whereString = this.whereString.concat(' = ');
+      this.whereString = this.whereString.concat(element.split('=')[1]);
+      this.whereString = this.whereString.concat(' AND ');
     });
+    this.whereString.replace(/\sAND\s$/, '');
   }
 
 }
