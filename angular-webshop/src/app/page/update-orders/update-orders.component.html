@@ -1,0 +1,65 @@
+<h2>Update order</h2>
+
+<div *ngIf="order">
+  <form (submit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <!-- <p>{{order.id}}</p> -->
+      <input name="id"
+             class="form-control"
+             type="hidden"
+             [(ngModel)]="order.id">
+    </div>
+    <div class="form-group">
+      <label for="">User ID</label>
+      <!-- <p>{{order.userid}}</p> -->
+      <input name="userid"
+             class="form-control"
+             type="text"
+             [(ngModel)]="order.userid">
+    </div>
+    <div class="form-group">
+      <label for="">Insdate</label>
+      <!-- <p>{{order.insdate}}</p> -->
+      <input name="insdate"
+             class="form-control"
+             type="hidden"
+             [(ngModel)]="order.insdate">
+    </div>
+    <div class="form-group">
+      <label for="">Project ID</label>
+      <!-- <p>{{order.projectid}}</p> -->
+      <input name="projectid"
+             class="form-control"
+             type="text"
+             [(ngModel)]="order.projectid">
+    </div>
+    <div class="form-group">
+      <label for="">Project price</label>
+      <!-- <p>{{order.projectprice}}</p> -->
+      <input name="projectprice"
+             type="text"
+             class="form-control"
+             [(ngModel)]="order.projectprice">
+    </div>
+    <div class="form-group">
+      <label for="">Quantity</label>
+      <input name="quantity"
+             type="text"
+             class="form-control"
+             [(ngModel)]="order.quantity">
+    </div>
+    <div class="form-group">
+      <label for="">Status</label>
+      <input name="status"
+             type="text"
+             class="form-control"
+             [(ngModel)]="order.status">
+    </div>
+    <button class="btn btn-primary"
+            type="submit">
+      Update
+    </button>
+
+  </form>
+</div>
