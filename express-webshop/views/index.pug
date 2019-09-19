@@ -2,12 +2,14 @@ extends layout
 
 block content
   main(role='main')
+    // carousel for recommended projects
     #indexCarousel.carousel.slide(data-ride='carousel')
       ol.carousel-indicators
         li.active(data-target='#indexCarousel' data-slide-to='0')
         li(data-target='#indexCarousel' data-slide-to='1')
         li(data-target='#indexCarousel' data-slide-to='2')
       .carousel-inner
+
         .carousel-item.active
           svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
             rect(width='100%' height='100%' fill='#777')
@@ -18,6 +20,7 @@ block content
                 | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
               p
                 a.btn.btn-lg.btn-primary(href='#' role='button') Sign up today
+
         .carousel-item
           svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
             rect(width='100%' height='100%' fill='#777')
@@ -28,6 +31,7 @@ block content
                 | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
               p
                 a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
+
         .carousel-item
           svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
             rect(width='100%' height='100%' fill='#777')
@@ -38,18 +42,22 @@ block content
                 | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
               p
                 a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
+
       a.carousel-control-prev(href='#indexCarousel' role='button' data-slide='prev')
         span.carousel-control-prev-icon(aria-hidden='true')
         span.sr-only Previous
       a.carousel-control-next(href='#indexCarousel' role='button' data-slide='next')
         span.carousel-control-next-icon(aria-hidden='true')
         span.sr-only Next
-    //
-      Marketing messaging and featurettes
-      ==================================================
-    // Wrap the rest of the page in another container to center all the content.
+
+    // what this page is about
+    .container
+      .row
+        .col
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque harum sint laborum, sunt, praesentium exercitationem odit totam quasi repellendus aut adipisci ipsum. Ratione rerum cumque aut commodi eum in maxime!
+
+    // the 3 most generous funders of the month
     .container.marketing
-      // Three columns of text below the carousel
       .row
         .col-lg-4
           svg.bd-placeholder-img.rounded-circle(width='140' height='140' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 140x140')
@@ -61,7 +69,7 @@ block content
             | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
           p
             a.btn.btn-secondary(href='#' role='button') View details &raquo;
-        // /.col-lg-4
+
         .col-lg-4
           svg.bd-placeholder-img.rounded-circle(width='140' height='140' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 140x140')
             title Placeholder
@@ -72,7 +80,7 @@ block content
             | Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
           p
             a.btn.btn-secondary(href='#' role='button') View details &raquo;
-        // /.col-lg-4
+
         .col-lg-4
           svg.bd-placeholder-img.rounded-circle(width='140' height='140' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 140x140')
             title Placeholder
@@ -83,10 +91,9 @@ block content
             | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
           p
             a.btn.btn-secondary(href='#' role='button') View details &raquo;
-        // /.col-lg-4
-      // /.row
-      // START THE FEATURETTES
       hr.featurette-divider
+
+      // hot projects
       .row.featurette
         .col-md-7
           h2.featurette-heading
@@ -100,6 +107,7 @@ block content
             rect(width='100%' height='100%' fill='#eee')
             text(x='50%' y='50%' fill='#aaa' dy='.3em') 500x500
       hr.featurette-divider
+
       .row.featurette
         .col-md-7.order-md-2
           h2.featurette-heading
