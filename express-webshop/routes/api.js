@@ -17,12 +17,12 @@ router.get('/:query', async (req, res, next) => {
   res.json(result);
 });
 
-/**
- * Post request Handler
- */
-router.post('/', (req, res, next) => {
-
-});
+router.post('/:table/:insertInto/:values', (req, res, next) => {
+  const table = req.params.table;
+  const insertInto = req.params.insertInto;
+  const values = req.params.values;
+  queryGenerator.create(table, insertInto, values);
+})
 
 /**
  * Put request Handler
