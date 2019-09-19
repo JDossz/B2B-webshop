@@ -2,9 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-/* GET home page. */
+/* GET Privacy Policy page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Index Page' });
+  res.render('privacyPolicy', { title: 'Privacy Policy' });
 });
 
 module.exports = router;
