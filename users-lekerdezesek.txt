@@ -1,0 +1,113 @@
+
+create table users (
+	id INT,
+	admin TINYINT(1) DEFAULT 0,
+	name VARCHAR(500),
+	email VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	balance INT,
+	address VARCHAR(500) NOT NULL,
+	picture VARCHAR(100),
+  PRIMARY KEY (id)
+);
+
+insert into users (id, admin, name, email, password, balance, address, picture) values (1, false, 'Alis Egleton', 'aegleton0@goo.gl', 'mf5dH36t', 1097, '574 Crest Line Street', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (2, false, 'Krystyna Flavelle', 'kflavelle1@cdc.gov', 'EYhwGLIRQNef', 9028, '14878 Chive Pass', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (3, false, 'Olympie Bridie', 'obridie2@ox.ac.uk', 'ESoKDET', 5970, '8 Clarendon Crossing', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (4, true, 'Wilburt Marcone', 'wmarcone3@tinyurl.com', 'IB2BIc', 7470, '940 Kensington Pass', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (5, false, 'Valina Innman', 'vinnman4@ocn.ne.jp', 'HqJxKrUacKF', 5945, '89 Kenwood Junction', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (6, false, 'Del Melburg', 'dmelburg5@nasa.gov', 'j9468V5W', 8359, '54440 Erie Hill', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (7, false, 'Kai Whimpenny', 'kwhimpenny6@amazon.co.jp', 'RdGxRy9dQ9Ec', 163, '6 Surrey Point', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (8, true, 'Tremayne Atter', 'tatter7@chronoengine.com', 'il3unf8', 2081, '34 Oak Valley Court', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (9, false, 'Joela Brimilcombe', 'jbrimilcombe8@latimes.com', 'ffTfCKtkKr', 8337, '746 Eastlawn Parkway', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (10, true, 'Hilliard Nannoni', 'hnannoni9@artisteer.com', 'xXP3XFxiXL7D', 8785, '75 Lerdahl Trail', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (11, false, 'Netti Varnam', 'nvarnama@i2i.jp', '4po7gZn', 9102, '0036 Del Mar Plaza', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (12, false, 'Austin Benoiton', 'abenoitonb@geocities.jp', 'mqLvxLoU', 6859, '3 Cordelia Trail', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (13, false, 'Samuel Harhoff', 'sharhoffc@clickbank.net', 'byOOXW', 9381, '688 Artisan Place', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (14, true, 'Cassie Pickvance', 'cpickvanced@facebook.com', 'BXUhiLb5jw', 2533, '128 Atwood Point', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (15, true, 'Erminia Nutt', 'enutte@bbc.co.uk', 'QhH3BK', 3812, '830 Fair Oaks Point', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (16, false, 'Skell Hedge', 'shedgef@imgur.com', 'bHFgTHg', 9170, '25367 Fair Oaks Way', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (17, false, 'Carree Fourcade', 'cfourcadeg@globo.com', 'is1QzdptM', 7878, '8689 North Way', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (18, true, 'Clair Water', 'cwaterh@blogtalkradio.com', 'onqTfVXl', 3033, '2 Chive Lane', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (19, false, 'Chickie Aylmer', 'caylmeri@cmu.edu', 'ra295nWkf', 7435, '8 Darwin Crossing', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (20, false, 'Morena Walbrun', 'mwalbrunj@macromedia.com', 'MAOX3B', 1833, '807 Maple Drive', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (21, true, 'Jobey Sartain', 'jsartaink@mapquest.com', 'B282TyyQR', 8649, '44 Sommers Junction', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (22, false, 'Mahmoud Hackin', 'mhackinl@china.com.cn', 'Wsrq42l', 5822, '962 Spohn Way', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (23, false, 'Geoffry Barz', 'gbarzm@comcast.net', 'BZYKPxL1', 7972, '134 Jenifer Court', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (24, true, 'Holli Jeffcock', 'hjeffcockn@google.nl', '0GUtIQ2dwIZf', 6874, '070 Sheridan Park', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (25, false, 'Gussie Elleyne', 'gelleyneo@gravatar.com', 'mKdgq7szgD', 1960, '5 International Circle', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (26, true, 'Velvet Baine', 'vbainep@ehow.com', 'LygSg550', 6188, '3 Green Ridge Terrace', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (27, true, 'Zorah Drawmer', 'zdrawmerq@163.com', 'Ur4YVgiQC', 4462, '22679 Bayside Drive', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (28, true, 'Marcelia Ellul', 'mellulr@amazon.de', 'lgpeZlh1', 8304, '7430 Blaine Hill', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (29, true, 'Rowan Minghetti', 'rminghettis@pen.io', 'AWEGBjXUwsA', 1719, '2 Lighthouse Bay Way', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (30, false, 'Elwin Verrills', 'everrillst@gravatar.com', 'HhwWO3nGzMA', 4274, '04 Mayer Point', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (31, true, 'Alexis Prott', 'aprottu@bluehost.com', 'TQ9h1N3J', 9594, '885 Pennsylvania Road', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (32, true, 'Sibella Ziemsen', 'sziemsenv@behance.net', 'jqgDtb3Wjxno', 473, '33611 Ruskin Street', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (33, true, 'Fanechka Huntress', 'fhuntressw@digg.com', 'DpzAKUJX59eK', 8714, '86611 Bellgrove Avenue', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (34, true, 'Kaylyn Stollenbeck', 'kstollenbeckx@mlb.com', 'vv7uqZTTaa', 3689, '23343 Mockingbird Plaza', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (35, false, 'Sanford Erb', 'serby@hostgator.com', 'PMfBpfJOZ', 2189, '672 Nelson Pass', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (36, true, 'Gretel Stroobant', 'gstroobantz@va.gov', 'pb8LfqJ7tL7K', 7747, '5679 Elgar Way', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (37, false, 'Janaya Hubbins', 'jhubbins10@chronoengine.com', 'YEZ6SJdtz5s', 7418, '1 Bunting Park', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (38, false, 'Joyous Bruun', 'jbruun11@vimeo.com', 'KcT0WhLtD7', 5258, '54 Kings Pass', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (39, false, 'Linoel Roloff', 'lroloff12@epa.gov', 'P3ewss', 6589, '5587 Mesta Trail', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (40, false, 'Benny MacPake', 'bmacpake13@is.gd', 'RaTDW6H1Tpgr', 1352, '30 Forster Place', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (41, true, 'Modestia Trevascus', 'mtrevascus14@unesco.org', 'CPamHKn2', 4183, '17008 Marquette Parkway', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (42, false, 'Gwenny Grigorio', 'ggrigorio15@engadget.com', 'gX75TI', 3901, '02 Maple Terrace', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (43, false, 'Lotte Frugier', 'lfrugier16@hp.com', 'oGobQ1w6d', 4635, '3134 Amoth Crossing', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (44, true, 'Brett Sedwick', 'bsedwick17@cdbaby.com', 'eUXiByO8', 814, '7212 Coolidge Avenue', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (45, true, 'Zilvia Malatalant', 'zmalatalant18@newyorker.com', 'UTJv8Nf', 3244, '78 Bay Crossing', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (46, false, 'Rhoda Glasser', 'rglasser19@businesswire.com', 'F8msp3', 3920, '139 Oakridge Park', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (47, false, 'Nancie Bettridge', 'nbettridge1a@free.fr', 'pm3XFqfZ40q', 6377, '32452 Fairfield Plaza', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (48, true, 'Ambrosio Sawdon', 'asawdon1b@chron.com', '9nR4VZXXtY', 4777, '84750 Del Sol Avenue', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (49, false, 'Chelsie O''Giany', 'cogiany1c@shutterfly.com', 'Gm5ZMXRc7cBD', 4429, '62185 Arkansas Lane', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (50, false, 'Shani Stoffer', 'sstoffer1d@dion.ne.jp', 'BZ2lZ0qg', 9547, '307 Merrick Junction', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (51, false, 'Pet Robinett', 'probinett1e@cloudflare.com', '9gbBduAQcHva', 584, '97 Dovetail Lane', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (52, true, 'Harriet Plom', 'hplom1f@yolasite.com', 'GL8mRooj3S', 1876, '07941 Magdeline Court', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (53, true, 'Isaak Greenhow', 'igreenhow1g@latimes.com', 'VoBDxIaQ8aH', 5641, '19 Shelley Way', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (54, true, 'Tatiania Kilshaw', 'tkilshaw1h@yelp.com', 'asNxhWsxjb', 8845, '479 Debs Street', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (55, false, 'Rabbi Livesey', 'rlivesey1i@example.com', 'RYxsrDySN', 708, '43 Vidon Court', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (56, true, 'Jordon Beekmann', 'jbeekmann1j@hao123.com', '3kzUMk', 9017, '065 Cordelia Trail', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (57, false, 'Calvin Mitchelhill', 'cmitchelhill1k@oaic.gov.au', 'kYBCLa', 7052, '9988 Homewood Drive', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (58, true, 'Kylie Fiddeman', 'kfiddeman1l@posterous.com', 'KDZEFlRcMo', 7530, '51 Mandrake Terrace', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (59, true, 'Chadwick Ivankin', 'civankin1m@usda.gov', '3K5qDR4d7y', 5960, '9 Dixon Road', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (60, true, 'King Tome', 'ktome1n@topsy.com', 'EMHehjiwv', 2531, '825 Moland Avenue', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (61, false, 'Rosco Fuentes', 'rfuentes1o@spotify.com', 'zmQWQBzIAJCW', 571, '46 Red Cloud Center', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (62, true, 'Melodie Bebbington', 'mbebbington1p@eepurl.com', 'L2fbMtjmFO', 6458, '43301 Declaration Hill', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (63, false, 'Earle Atwill', 'eatwill1q@intel.com', 'xuwXGQJ0L', 5519, '6 Birchwood Lane', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (64, false, 'Felice Farnan', 'ffarnan1r@sogou.com', 'GTMUHf', 4639, '49208 Novick Hill', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (65, true, 'Alexia Corringham', 'acorringham1s@phpbb.com', '2v3ajHh0dM', 6367, '234 Pepper Wood Center', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (66, false, 'Eb Sleightholm', 'esleightholm1t@sciencedirect.com', 'KNhIFRq42jZ', 5122, '44303 Logan Avenue', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (67, true, 'Franciska Roman', 'froman1u@narod.ru', 'sFzeVhoabYy', 642, '50973 Ilene Street', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (68, false, 'Annetta Dominey', 'adominey1v@ow.ly', '1uCjyOfe', 7544, '13 Cambridge Court', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (69, false, 'Aluino Loukes', 'aloukes1w@mit.edu', '7OAgfhkz', 8894, '31171 Lerdahl Hill', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (70, true, 'Valera Jados', 'vjados1x@army.mil', 'pBPsYlVi', 6873, '0545 Macpherson Court', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (71, true, 'Sharla MacDavitt', 'smacdavitt1y@tripadvisor.com', 'nlakXDEC', 461, '2 Schlimgen Park', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (72, false, 'Alvan Keeler', 'akeeler1z@netscape.com', 'Z5Qb6Hj', 7455, '3777 Columbus Crossing', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (73, false, 'Fernando Finch', 'ffinch20@phoca.cz', 'kTNP11jgpu6h', 1671, '545 Northland Park', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (74, true, 'Rickert Beebee', 'rbeebee21@ebay.com', 'bln6o6wRK3tx', 4367, '2 Macpherson Drive', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (75, true, 'Spencer Ladlow', 'sladlow22@foxnews.com', 'gwel6X', 5054, '05 Farmco Avenue', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (76, false, 'Redford Di Franceshci', 'rdi23@bizjournals.com', '58Se0d4ue', 2067, '56914 Katie Center', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (77, false, 'Margarete Schuck', 'mschuck24@topsy.com', 'ngVWblZGNnq', 5600, '605 Cordelia Way', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (78, true, 'Fionna Roughsedge', 'froughsedge25@ask.com', 'zz9RjhmtynL', 460, '08 Tennyson Circle', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (79, true, 'Arlee Zanni', 'azanni26@tuttocitta.it', '2Jh2nj', 4553, '516 Chinook Junction', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (80, false, 'Wendi Ofener', 'wofener27@boston.com', 'R3zvUVdGlqB', 1472, '4097 Lakewood Gardens Lane', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (81, false, 'Celisse Geaveny', 'cgeaveny28@howstuffworks.com', 'BFBMD4k2oC', 3110, '561 Columbus Point', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (82, true, 'Davin Haskell', 'dhaskell29@umn.edu', 'dRkOPUvXd2F', 6077, '66230 Rutledge Trail', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (83, true, 'Sharity Pearman', 'spearman2a@pen.io', 'z0zAOe4', 5405, '57042 Gateway Circle', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (84, false, 'Leona Biaggiotti', 'lbiaggiotti2b@ovh.net', 'FCUVuFT', 3063, '269 Roxbury Road', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (85, true, 'Lorrie Darthe', 'ldarthe2c@plala.or.jp', 'HhfzjvVYYM', 2302, '1 Sloan Crossing', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (86, true, 'Baxy Nicholas', 'bnicholas2d@foxnews.com', 'xWfIIhA', 9987, '551 Springs Alley', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (87, false, 'Bradly Grebbin', 'bgrebbin2e@indiegogo.com', 'GJMwnnoQ2K8e', 5675, '768 Clemons Hill', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (88, true, 'Kyle Brinkworth', 'kbrinkworth2f@phpbb.com', 'fHNo7z', 7438, '5 Carberry Center', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (89, false, 'Dode Ketteridge', 'dketteridge2g@vimeo.com', 'uuSQTQL', 3171, '58299 6th Road', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (90, false, 'Vilma Atkinson', 'vatkinson2h@wix.com', 'lfYpRp', 316, '9544 Sunbrook Place', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (91, true, 'Levi Tilston', 'ltilston2i@instagram.com', 'HaJGG8', 4679, '52792 Loomis Circle', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (92, false, 'Coraline Biddulph', 'cbiddulph2j@engadget.com', 'YHrZZwy', 8855, '93080 Lakewood Parkway', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (93, true, 'Salvador Deinert', 'sdeinert2k@imgur.com', 'QCHajkSnr', 8285, '36 Northfield Avenue', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (94, false, 'Rachele Sebyer', 'rsebyer2l@nba.com', 'WLfGszufv', 6103, '550 Fair Oaks Plaza', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (95, true, 'Rey Staddom', 'rstaddom2m@aol.com', 'VfNf4bYdDJdK', 6970, '9323 Southridge Junction', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (96, false, 'Petronia Ferro', 'pferro2n@cnn.com', 'bJo6mcjB', 1643, '6882 Kingsford Parkway', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (97, true, 'Sonny Lavens', 'slavens2o@chronoengine.com', '6aWCqd', 2610, '59870 Surrey Trail', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (98, false, 'Lonnie Worden', 'lworden2p@apple.com', 'DU5KkuBbWSf', 917, '1 Forest Dale Court', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (99, false, 'Susana Maginn', 'smaginn2q@last.fm', 'fBIYXi4afEZq', 6607, '3 Beilfuss Lane', null);
+insert into users (id, admin, name, email, password, balance, address, picture) values (100, false, 'Kareem Lefeuvre', 'klefeuvre2r@domainmarket.com', 'JBrHt2K', 1589, '2958 Tomscot Plaza', null);
