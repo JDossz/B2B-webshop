@@ -1,39 +1,28 @@
 extends layout
 
 block content
-  .container
-    .row
-      .col-4
-        table.table.table-striped.table-responsive
-          thead
-            tr
-              th #
-              th title
-              th seo
-              th price
-              th contact
-              th link
-              th category
-              th shortd
-              th longd
-              th picture
-              th institution
-              th &nbsp;
 
-          tbody
-            each project in projects
-              tr
-                td #{project.id}
-                td #{project.title}
-                td #{project.seo}
-                td #{project.price}
-                td #{project.contact}
-                td #{project.link}
-                td #{project.category}
-                td #{project.shortd}
-                td #{project.longd}
-                td #{project.picture}
-                td #{project.institution}
-                td 
-                  .btn-group
-                    a.btn.btn-info(href=`/projects/${project.id}`) Show
+  .container.containerProjects
+    .row
+      .col-3
+        .sidebar
+          h1 Categories
+          a.active(href="/projects/arts") Arts
+          a(href="/projects/biology") Biology
+          a(href="/projects/gender") Gender
+          a(href="/projects/neurology") Neurology
+          a(href="/projects/technology") Technology
+          input.form-control(type='text', placeholder='Search..')
+      .col-8
+        each project in projects
+          .card.mb-3(style='max-width: 850px;')
+            .row.no-gutters
+              .col-md-4
+                img.card-img(src='http://www.ict-coherent.eu/coherent/wp-content/uploads/2015/10/project-motivation-img.jpg', alt='...')
+              .col-md-8
+                .card-body
+                  h5.card-title #{project.title}
+                  p.card-text #{project.shortd}
+                  p.card-text
+                    small.text-muted Last funded 3 mins ago
+                  a.btn.btn-info(href=`/projects/${project.id}`) Show more!
