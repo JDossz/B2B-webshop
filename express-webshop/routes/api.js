@@ -11,37 +11,45 @@ router.get('/', (req, res, next) => {
   res.json('Hello.');
 });
 
-router.get('/:query', async (req, res, next) => {
-  const table = req.params.query;
+/**
+ * 
+ */
+router.get('/:from/:query', async (req, res) => {
+  const table = req.params.from;
   const result = await queryGenerator.read(table);
   res.json(result);
 });
 
-router.post('/:table/:insertInto/:values', (req, res, next) => {
+/**
+ * Post request Handler
+ * /:table/fields?field1&field2&field3/values?val1&val2&val3
+ */
+router.post('/:from/:fields/:values', async (req) => {
   const table = req.params.table;
-  const insertInto = req.params.insertInto;
+  const insertInto = req.params.fields;
   const values = req.params.values;
-  queryGenerator.create(table, insertInto, values);
+  return await queryGenerator.create(table, insertInto, values);
 })
 
 /**
  * Put request Handler
- * /users/where?id=7/set?admin=1&name=Jani
+ * /:table/where?id=7/set?admin=1&name=Jani
  */
-router.put('/:table/:where/:set', (req, res) => {
+router.put('/:from/:where/:set', async (req) => {
   const table = req.params.table;
   const where = req.params.where;
   const set = req.params.set;
-  queryGenerator.update(table, where, set);
+  await queryGenerator.update(table, where, set);
 });
 
 /**
  * Delete request Handler
+ * /:table/where?condition1=value1&condition2=value2
  */
-router.delete('/:table/:query', (req, res) => {
-  const table = req.params.table;
-  const queryString = req.params.query;
-  queryGenerator.delete(table, queryString);
+router.delete('/:from/:where', async (req) => {
+  const table = req.params.from;
+  const queryString = req.params.where;
+  await queryGenerator.delete(table, queryString);
 });
 
 module.exports = router;
