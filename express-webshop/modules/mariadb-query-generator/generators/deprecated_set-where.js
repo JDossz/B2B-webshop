@@ -32,14 +32,14 @@ module.exports = class SetWhere {
   }
 
   _generateSet(query) {
-    this._splitQueryIntoConditions.forEach(element => {
+    this._splitQueryIntoConditions(query).forEach(element => {
       this.setString = this.setString.concat(this._concatArrayIntoSQLQuery(element));
     });
     this.setString.replace(/,\s$/, '');
   }
 
   _generateWhere(query) {
-    this._splitQueryIntoConditions.forEach(element => {
+    this._splitQueryIntoConditions(query).forEach(element => {
       this.whereString = this.whereString.concat(this._concatArrayIntoSQLQuery(element, ' AND '));
     });
     this.whereString.replace(/\sAND\s$/, '');

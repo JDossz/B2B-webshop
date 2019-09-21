@@ -15,8 +15,9 @@ router.get('/', (req, res, next) => {
  * 
  */
 router.get('/:from/:query', async (req, res) => {
+  const query = req.params.query;
   const table = req.params.from;
-  const result = await queryGenerator.read(table);
+  const result = await queryGenerator.read(table, query);
   res.json(result);
 });
 
@@ -35,21 +36,19 @@ router.post('/:from/:fields/:values', async (req) => {
  * Put request Handler
  * /:table/where?id=7/set?admin=1&name=Jani
  */
-router.put('/:from/:where/:set', async (req) => {
-  const table = req.params.table;
-  const where = req.params.where;
-  const set = req.params.set;
-  await queryGenerator.update(table, where, set);
+router.put('/:from/:id', async (req) => {
+
 });
 
 /**
  * Delete request Handler
  * /:table/where?condition1=value1&condition2=value2
  */
-router.delete('/:from/:where', async (req) => {
+router.delete('/:from/:id', async (req) => {
   const table = req.params.from;
-  const queryString = req.params.where;
-  await queryGenerator.delete(table, queryString);
+  const id = Number.parseInt(req.params.id, 10);
+  const result = await queryGenerator.delete(table, id);
+  res.json(result);
 });
 
 module.exports = router;

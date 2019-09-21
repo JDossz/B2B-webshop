@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DbTestService } from 'src/app/services/db-test.service';
 
 @Component({
   selector: 'app-db-test',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DbTestComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private testService: DbTestService
+  ) { }
 
   ngOnInit() {
+  }
+
+  testClick(id) {
+    this.testService.testDelete(id);
   }
 
 }

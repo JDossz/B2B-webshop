@@ -8,8 +8,8 @@ const pool = mariadb.createPool({
 const Adder = require('./generators/post');
 const adder = new Adder();
 
-const SetWhere = require('./generators/set-where');
-const converter = new SetWhere();
+const Set = require('./generators/set');
+const converter = new Set();
 
 module.exports = class MainQuery {
 
@@ -36,8 +36,7 @@ module.exports = class MainQuery {
    * @param {*} query eg. "where?condition=valueorder?asc"
    */
   async read(table, query) {
-    const id = 15;
-    return await this.connection.query(`select * from ${table} where id = ${id}`);
+    return await this.connection.query(`select * from ${table} where ${query}`);
   }
 
   /**
@@ -57,12 +56,12 @@ module.exports = class MainQuery {
   /**
    * Deletes a record from the given table based on ID
    * @param {string} table: Name of the table, from which you want to delete
-   * @param {string} query: "id=6" format, the id of the element you want to delete 
+   * @param {string} id: "number" format. The id of the record you want to delete
    */
-  async delete(table, query) {
+  async delete(table, id) {
     return await this.connection.query(`
       DELETE FROM ${table}
-      WHERE ${converter.getWhereString()};
+      WHERE id=${id};
     `);
   }
 
