@@ -26,4 +26,15 @@ export class TestService {
     });
   }
 
+  updateRecord() {
+    return this.http.put('http://localhost:3000/api/users/?id=100', {
+      admin: 1,
+      name: "Updated Man Kek Bur Lol",
+      email: "mylifeforayur@gmail.com",
+      password: "42069",
+      balance: 0,
+      address: "A galaxy far far away",
+    })
+  }
+
 }

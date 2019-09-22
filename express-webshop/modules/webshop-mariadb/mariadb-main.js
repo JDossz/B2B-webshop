@@ -10,6 +10,8 @@ const WhereGenerator = require('./tools/where-generator');
 const whereGenerator = new WhereGenerator();
 const ListGenerator = require('./tools/list-generator');
 const listGenerator = new ListGenerator();
+const SetGenerator = require('./tools/set-generator');
+const setGenerator = new SetGenerator();
 
 module.exports = class BetagDB {
 
@@ -41,8 +43,20 @@ module.exports = class BetagDB {
     return await this.connection.query(query.concat(';'));
   }
 
-  async updateRecord() {
-
+  /**
+   * Updates the values of an existing record.
+   * @param {*} tableName The MySQL table, where you want to change a record
+   * @param {req.query} queryObject The URL query string object.
+   * @param {req.body} data The data to be changed in your table.
+   * @returns The result of your update query 
+   */
+  async updateRecord(tableName, queryObject, data) {
+    let query = `UPDATE ${tableName} SET ${setGenerator.getSetString(data)}`;
+    query = query.concat(whereGenerator.getWhereString(queryObject));
+    if (!query.includes('WHERE')) {
+      return;
+    }
+    return await this.connection.query(query.concat(';'));
   }
 
   /**

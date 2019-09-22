@@ -23,4 +23,8 @@ export class TestComponent implements OnInit {
     this.test.createRecord().subscribe();
   }
 
+  onUpdate() {
+    this.test.updateRecord().subscribe();
+  }
+
 }
