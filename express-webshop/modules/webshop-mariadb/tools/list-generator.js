@@ -60,10 +60,10 @@ module.exports = class ListGenerator {
   }
 
   _apostropheByType(key) {
-    if (typeof this.data[key] === string) {
+    if (typeof this.data[key] === 'string') {
       return `'${this.data[key]}'`;
     }
-    if (typeof this.data[key] === number) {
+    if (typeof this.data[key] === 'number') {
       return `${this.data[key]}`;
     }
   }

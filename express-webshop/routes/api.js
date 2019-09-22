@@ -8,6 +8,7 @@ const database = new Database();
  * Executes POST requests at http://localhost
  */
 router.post('/:table', async (req, res) => {
+  res.json(req.body);
   res.json(await database.createRecord(req.params.table, req.body));
 });
 
