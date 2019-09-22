@@ -1,53 +1,32 @@
 var express = require('express');
 var router = express.Router();
 
-const MainQuery = require('./../modules/mariadb-query-generator');
-const queryGenerator = new MainQuery();
+const Database = require('./../modules/webshop-mariadb');
+const database = new Database();
 
-/**
- * Get request Handler
- */
-router.get('/', (req, res, next) => {
-  res.json('Hello.');
+router.post('/:table', (req, res) => {
+
 });
 
-/**
- * 
- */
-router.get('/:from/:query', async (req, res) => {
-  const query = req.params.query;
-  const table = req.params.from;
-  const result = await queryGenerator.read(table, query);
+router.get('/', (req, res) => {
+  res.json("Hello");
+});
+
+router.get('/:table', async (req, res) => {
+  const table = req.params.table;
+  const urlQuery = req.query;
+  const result = await database.readRecord(table, urlQuery);
   res.json(result);
 });
 
-/**
- * Post request Handler
- * /:table/fields?field1&field2&field3/values?val1&val2&val3
- */
-router.post('/:from/:fields/:values', async (req) => {
-  const table = req.params.table;
-  const insertInto = req.params.fields;
-  const values = req.params.values;
-  return await queryGenerator.create(table, insertInto, values);
-})
-
-/**
- * Put request Handler
- * /:table/where?id=7/set?admin=1&name=Jani
- */
-router.put('/:from/:id', async (req) => {
+router.put('/:table', (req, res) => {
 
 });
 
-/**
- * Delete request Handler
- * /:table/where?condition1=value1&condition2=value2
- */
-router.delete('/:from/:id', async (req) => {
-  const table = req.params.from;
+router.delete('/:table/:query', async (req, res) => {
+  const table = req.params.table;
   const id = Number.parseInt(req.params.id, 10);
-  const result = await queryGenerator.delete(table, id);
+  const result = await database.deleteRecord(table, id);
   res.json(result);
 });
 

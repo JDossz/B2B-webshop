@@ -4,12 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DbTestComponent } from './components/db-test/db-test.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DbTestComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

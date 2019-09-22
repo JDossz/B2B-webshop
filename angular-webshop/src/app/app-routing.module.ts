@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DbTestComponent } from './components/db-test/db-test.component';
-
+import { TestComponent } from './components/test/test.component';
 
 const routes: Routes = [
   {
     path: '**',
-    component: DbTestComponent
+    component: TestComponent
   }
 ];
 
