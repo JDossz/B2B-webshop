@@ -8,6 +8,8 @@ const pool = mariadb.createPool({
 
 const WhereGenerator = require('./tools/where-generator');
 const whereGenerator = new WhereGenerator();
+const ListGenerator = require('./tools/list-generator');
+const listGenerator = new ListGenerator();
 
 module.exports = class BetagDB {
 
@@ -15,8 +17,16 @@ module.exports = class BetagDB {
     pool.getConnection().then(conn => this.connection = conn);
   }
 
-  async createRecord() {
-
+  /**
+   * Concats the query and adds a record to your MySQL database table.
+   * @param {string} tableName The MySQL table, you want to post to.
+   * @param {req.body} data The data to be inserted into the table.
+   * @returns The result of your post query.
+   */
+  async createRecord(tableName, data) {
+    let query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)} 
+                 VALUES (${listGenerator.getFieldValues(data)})`;
+    return await this.connection.query(query.concat(';'));
   }
 
   /**
@@ -39,7 +49,7 @@ module.exports = class BetagDB {
    * Concats the query and deletes the given record from your MySQL table.
    * @param {string} tableName The MySQL table, you want to read from.
    * @param {queryObject} queryObject The request URL query string object.
-   * @returns {undefined} If your query object doesn't include any conditions
+   * @returns {undefined} If your query object doesn't include any conditions.
    * @returns {Promise} The result of your deletion query.
    */
   async deleteRecord(tableName, queryObject) {

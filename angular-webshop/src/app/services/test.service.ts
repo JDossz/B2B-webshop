@@ -14,4 +14,10 @@ export class TestService {
     return this.http.delete('http://localhost:3000/api/users/?id=99');
   }
 
+  createRecord() {
+    return this.http.post('http://localhost:3000/api/users', {
+
+    });
+  }
+
 }

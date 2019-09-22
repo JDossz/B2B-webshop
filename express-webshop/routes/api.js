@@ -4,8 +4,11 @@ var router = express.Router();
 const Database = require('./../modules/webshop-mariadb');
 const database = new Database();
 
+/**
+ * Executes POST requests at http://localhost
+ */
 router.post('/:table', (req, res) => {
-
+  res.json(await database.createRecord(req.params.table, req.body));
 });
 
 /**
@@ -15,8 +18,11 @@ router.get('/:table', async (req, res) => {
   res.json(await database.readRecord(req.params.table, req.query));
 });
 
+/**
+ * 
+ */
 router.put('/:table', (req, res) => {
-
+  res.json(await database.updateRecord(req.params.table, req.query, req.body));
 });
 
 /**
