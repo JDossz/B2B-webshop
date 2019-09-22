@@ -23,11 +23,8 @@ router.put('/:table', (req, res) => {
 
 });
 
-router.delete('/:table/:query', async (req, res) => {
-  const table = req.params.table;
-  const id = Number.parseInt(req.params.id, 10);
-  const result = await database.deleteRecord(table, id);
-  res.json(result);
+router.delete('/:table/', async (req, res) => {
+
 });
 
 module.exports = router;

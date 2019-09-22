@@ -6,6 +6,9 @@ const pool = mariadb.createPool({
   connectionLimit: 5,
 });
 
+const WhereGenerator = require('./tools/where-generator');
+const whereGenerator = new WhereGenerator();
+
 module.exports = class BetagDB {
 
   constructor() {
@@ -22,11 +25,8 @@ module.exports = class BetagDB {
     let query = `
       SELECT * FROM ${table}
     `;
-    if (urlQuery) {
-      query = query.concat(`
-      WHERE id=${urlQuery.id}
-      `);
-    }
+    console.log(urlQuery);
+    query = query.concat(whereGenerator.getWhereString(urlQuery));
     return await this.connection.query(query.concat(';'));
   }
 
