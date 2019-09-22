@@ -16,7 +16,11 @@ export class TestComponent implements OnInit {
   }
 
   onDelete() {
-    this.test.deleteRecord();
+    this.test.deleteRecord().subscribe();
+  }
+
+  onCreate() {
+    this.test.createRecord().subscribe();
   }
 
 }

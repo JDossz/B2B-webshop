@@ -14,6 +14,9 @@ module.exports = class WhereGenerator {
     this._setQuery(queryObject);
     this._setQueryKeys();
     this._generateWhereString();
+    if (this.queryKeys.length === 0) {
+      return '';
+    }
     return this.whereString;
   }
 

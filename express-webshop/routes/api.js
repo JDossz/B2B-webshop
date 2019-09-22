@@ -7,7 +7,7 @@ const database = new Database();
 /**
  * Executes POST requests at http://localhost
  */
-router.post('/:table', (req, res) => {
+router.post('/:table', async (req, res) => {
   res.json(await database.createRecord(req.params.table, req.body));
 });
 
@@ -21,7 +21,7 @@ router.get('/:table', async (req, res) => {
 /**
  * 
  */
-router.put('/:table', (req, res) => {
+router.put('/:table', async (req, res) => {
   res.json(await database.updateRecord(req.params.table, req.query, req.body));
 });
 
