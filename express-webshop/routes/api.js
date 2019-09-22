@@ -8,23 +8,22 @@ router.post('/:table', (req, res) => {
 
 });
 
-router.get('/', (req, res) => {
-  res.json("Hello");
-});
-
+/**
+ * Answers GET requests at http://localhost:3000/api/tablename/querystring
+ */
 router.get('/:table', async (req, res) => {
-  const table = req.params.table;
-  const urlQuery = req.query;
-  const result = await database.readRecord(table, urlQuery);
-  res.json(result);
+  res.json(await database.readRecord(req.params.table, req.query));
 });
 
 router.put('/:table', (req, res) => {
 
 });
 
+/**
+ * Runs DELETE requests from http://localhost:3000/api/tablename/querystring
+ */
 router.delete('/:table/', async (req, res) => {
-
+  res.json(await database.deleteRecord(req.params.table, req.query));
 });
 
 module.exports = router;

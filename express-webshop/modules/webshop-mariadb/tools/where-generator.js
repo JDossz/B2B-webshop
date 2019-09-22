@@ -5,12 +5,13 @@ module.exports = class WhereGenerator {
   }
 
   /**
-   * 
-   * @param {*} urlQuery 
+   * Generates a MySQL WHERE syntax based on the url query string.
+   * @param {req.query} queryObject request query object from the request url.
+   * @returns {string} A MySQL compatible "WHERE cond1=val1 AND cond2=val2" string. 
    */
-  getWhereString(urlQuery) {
+  getWhereString(queryObject) {
     this._emptyPreviousQuery();
-    this._setQuery(urlQuery);
+    this._setQuery(queryObject);
     this._setQueryKeys();
     this._generateWhereString();
     return this.whereString;
@@ -20,10 +21,10 @@ module.exports = class WhereGenerator {
     this.queryKeys.forEach((key, index) => {
       if (index !== 0) {
         this.whereString = this.whereString
-          .concat(` AND`);
+          .concat(` AND `);
       }
       this.whereString = this.whereString
-        .concat(` ${key} = ${this.query[key]}`);
+        .concat(`${key} = ${this.query[key]}`);
     });
   }
 
@@ -31,8 +32,8 @@ module.exports = class WhereGenerator {
     this.whereString = ' WHERE ';
   }
 
-  _setQuery(urlQuery) {
-    this.query = urlQuery;
+  _setQuery(queryObject) {
+    this.query = queryObject;
   }
 
   _setQueryKeys() {
