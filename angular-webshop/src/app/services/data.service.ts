@@ -42,7 +42,7 @@ export class DataService {
    * @returns Response observable containing the read record.
    */
   readTableBySeoName(tableName: string, seoName: string): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/${seoName}`);
+    return this.http.get(`${this.restApiURL}/${tableName}/%27${seoName}%27`);
   }
 
   /**
