@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-3
+        p Keresés és szűrők
+      .col-8
+        // projekt kártyák
+        each project in projects
+          .card.mb-3(style='max-width: 540px;')
+            .row.no-gutters
+              .col-md-4
+                img.card-img(src='#{project.picture}' alt='')
+              .col-md-8
+                .card-body
+                  h5.card-title #{project.title}
+                  p.card-text #{project.shortd}
+                  p.card-text
+                    small.text-muted A projekt létrehozásának/kifutásának dátuma
+                  a.btn.btn-primary(href="")
+
+      .col-1
+        p Rendezés meg egyéb gombok
