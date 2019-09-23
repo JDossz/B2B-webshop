@@ -12,6 +12,9 @@ import { ProjectEditComponent } from './project-edit/project-edit.component';
 
 
 const routes: Routes = [
+  { path: 'api/projects', component: ProjectsComponent },
+  { path: 'projectAdd', component: ProjectAddComponent },
+  { path: 'projectEdit/:seo', component: ProjectEditComponent },
   {
     path: '',
     component: OrdersComponent
@@ -36,22 +39,8 @@ const routes: Routes = [
     path: 'create-user',
     component: CreateOrdersComponent
   },
-  {
-    path: 'projects',
-    component: ProjectsComponent
-  },
-  {
-    path: 'projectAdd',
-    component: ProjectAddComponent
-  },
-  {
-    path: 'projectEdit/:id',
-    component: ProjectEditComponent
-  },
-  {
-    path: '**',
-    component: AppComponent
-  },
+  
+  { path: '**', component: AppComponent }
 ];
 
 

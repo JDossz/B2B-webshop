@@ -17,10 +17,12 @@ module.exports = class SetGenerator {
   _generateSetString(data) {
     this._emptyString();
     Object.keys(data).forEach((key, index) => {
-      if (index !== 0) {
-        this.setString = this.setString.concat(', ');
+      if (key !== 'id') {
+        if (index !== 0) {
+          this.setString = this.setString.concat(', ');
+        }
+        this.setString = this.setString.concat(`${key}=${this._apostropheByType(data[key])}`);
       }
-      this.setString = this.setString.concat(`${key}=${this._apostropheByType(data[key])}`);
     });
   }
 
