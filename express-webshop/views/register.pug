@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  main(role='main')
+    form.form
+      .form-group
+        label(for="email") Email address
+        input#exampleInputEmail1.form-control(type="email" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email")
+        small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+      .form-group
+        label(for="password") Password
+        input#exampleInputPassword1.form-control(type="password" id="password" name="password" placeholder="Password")
+      .form-group.form-check
+        input#exampleCheck1.form-check-input(type="checkbox")
+        label.form-check-label(for="exampleCheck1") I want to recieve the newsletter
+      button.btn.btn-primary(type="submit") Submit
