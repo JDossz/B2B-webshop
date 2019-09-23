@@ -25,7 +25,7 @@ router.get('/:table', async (req, res) => {
 router.get('/:table/:seo', async (req, res) => {
   res.json(await database.readRecord(req.params.table, {
     "seo": req.params.seo,
-  }))
+  })[0]);
 });
 
 /**

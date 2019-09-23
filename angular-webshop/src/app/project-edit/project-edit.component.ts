@@ -18,7 +18,7 @@ export class ProjectEditComponent implements OnInit {
   constructor(private ds: DataService, private ar: ActivatedRoute, private router: Router) {
     this.ar.params.forEach(params => {
       this.ds.readTableBySeoName('projects', params.seo).subscribe(
-        project => this.project = project[0]
+        project => this.project = project
       )
     });
   }
