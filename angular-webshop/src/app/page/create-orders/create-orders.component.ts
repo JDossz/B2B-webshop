@@ -11,7 +11,7 @@ import { Order } from 'src/app/model/order';
 })
 export class CreateOrdersComponent implements OnInit {
 
-  order: Order = new Order;
+  order: Order = new Order();
 
   constructor(
     private orderService: OrderService,

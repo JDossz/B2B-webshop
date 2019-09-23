@@ -11,8 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CreateUsersComponent implements OnInit {
 
-  user: User = new User;
-  
+  user: User = new User();
+
 
   constructor(
     private userService: UserService,
@@ -26,7 +26,7 @@ export class CreateUsersComponent implements OnInit {
     ev.preventDefault();
     this.userService.create(this.user).subscribe(
       user => {
-        
+
         this.router.navigateByUrl("/")
 
       }, err => console.error(err)
