@@ -28,10 +28,8 @@ export class ProjectEditComponent implements OnInit {
     if (this.project.seo === '' || this.project.contact === '' || this.project.link === '' || this.project.category === '' || this.project.shortd === '' || this.project.longd === '' || this.project.picture === '' || this.project.institution === '') {
       alert('pls write something')
     } else {
-      delete this.project.id;
-      this.router.navigate(["/api/projects"])
-
       this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
+        () => this.router.navigate(["/api/projects"])
       )
     }
   }
