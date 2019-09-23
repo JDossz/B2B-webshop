@@ -1,5 +1,8 @@
 const express = require('express');
+const MariaDBmain = require('../modules/webshop-mariadb');
+const PugData = require('../modules/pug-data');
 
+const database = new MariaDBmain();
 
 const router = express.Router();
 const ProjectsDB = require('../modules/projectsDB');
@@ -8,7 +11,7 @@ const projectsDB = new ProjectsDB();
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
-  const projectsSorted = await projectsDB.read();
+  const projectsSorted = await database.readRecord('projects', {});
   projectsSorted.sort((a, b) => {
     if (a.title < b.title) {
       return -1;
@@ -117,10 +120,13 @@ router.get('/neurology', async (req, res, next) => {
     projects: projects.filter(project => project.category === 'neurology'),
   });
 });
-router.get('/:id', async (req, res, next) => {
-  const selectedProject = await projectsDB.read(req.params.id);
+// :3000/projects/:table/?id=7
+router.get('/:seo', async (req, res, next) => {
+  const pugData = new PugData(req);
+  const selectedProject = await pugData.readRecordBySeoName(req.params.seo);
+  console.log(selectedProject);
   res.render('projectDetails', {
-    project: selectedProject[0],
+    project: selectedProject,
   });
 });
 
