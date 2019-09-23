@@ -1,7 +1,9 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+
+let router = express.Router();
 
 const Database = require('./../modules/webshop-mariadb');
+
 const database = new Database();
 
 /**
@@ -23,9 +25,10 @@ router.get('/:table', async (req, res) => {
  * Gets a specific product from the database, based on seo property.
  */
 router.get('/:table/:seo', async (req, res) => {
-  res.json(await database.readRecord(req.params.table, {
+  const result = await database.readRecord(req.params.table, {
     "seo": req.params.seo,
-  })[0]);
+  });
+  res.json(result[0]);
 });
 
 /**
