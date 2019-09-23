@@ -1,0 +1,39 @@
+extends layout
+
+block content
+html
+  head
+  body
+    #cartContainer.col-5
+    
+      table.table.table-secondary
+        tbody
+          tr
+            td Project name
+            td #{project.title }
+          tr
+            td Quantity
+            td #{counter}
+          tr
+            td
+              button.btn.btn-danger((click)='removeItem(id)') Empty cart
+    br
+    div 
+      
+        h3 Please add the details of your order:
+        form((submit)='onSubmit($event)', action='')
+          .form-group
+            label(for='userName') Username
+            input.form-control(name='userName', required='', type='text', [(ngmodel)]='order.userName')
+          .form-group
+            label(for='userEmail') User Email
+            input.form-control(name='userEmail', required='', type='email', [(ngmodel)]='order.userEmail')
+          .form-group
+            label(for='shippingAddress') Shipping Address
+            input.form-control(name='shippingAddress', required='', type='text', [(ngmodel)]='order.shippingAddress')
+          .form-group
+            label(for='quantity') Quantity
+            input.form-control(name='quantity', type='text', [(ngmodel)]='counter')
+          br
+          button.btn.btn-warning
+            | Order
