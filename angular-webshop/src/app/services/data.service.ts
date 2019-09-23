@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UrlConcatenatorService } from './url-concatenator.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class DataService {
   restApiURL: string = 'http://localhost:3000/api';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private url: UrlConcatenatorService,
   ) { }
 
   /**
@@ -30,7 +32,7 @@ export class DataService {
    * @returns Response observable containing the read data.
    */
   readTableByQuery(tableName: string, query: Object): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/${/* TODO */}`);
+    return this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`);
   }
 
   /**
@@ -51,7 +53,7 @@ export class DataService {
    * @returns Response observable
    */
   updateRecordByQuery(tableName: string, query: Object, data: Object): Observable<any> {
-    return this.http.put(`${this.restApiURL}/${tableName}`, data);
+    return this.http.put(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`, data);
   }
 
   /**
@@ -61,7 +63,7 @@ export class DataService {
    * @returns Response observable
    */
   deleteRecordByQuery(tableName: string, query: Object): Observable<any> {
-    return this.http.delete(`${this.restApiURL}/${/* TODO */}`);
+    return this.http.delete(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`);
   }
 
 }
