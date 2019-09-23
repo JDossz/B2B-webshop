@@ -1,11 +1,11 @@
 
 create table users (
-	id INT,
-	admin TINYINT(1) DEFAULT 0,
-	name VARCHAR(500),
+	id INT NOT NULL AUTO_INCREMENT,
+	admin TINYINT(1) NOT NULL DEFAULT 0,
+	name VARCHAR(500) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
-	balance INT,
+	balance INT NOT NULL DEFAULT 0,
 	address VARCHAR(500) NOT NULL,
 	picture VARCHAR(100),
   PRIMARY KEY (id)
