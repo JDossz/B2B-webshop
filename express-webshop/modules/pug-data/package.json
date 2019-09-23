@@ -1,0 +1,14 @@
+{
+  "name": "pug-data",
+  "version": "0.0.1",
+  "description": "",
+  "main": "pug-data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mariadb": "^2.1.1"
+  }
+}
