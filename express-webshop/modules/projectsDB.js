@@ -49,4 +49,10 @@ WHERE id=${id}`;
     const result = await this.conn.query(sql);
     return result;
   }
+
+  async searchTitle(searchedWord) {
+    const sql = `SELECT * from projects WHERE title like "%${searchedWord}%"`;
+    const result = await this.conn.query(sql);
+    return result;
+  }
 };

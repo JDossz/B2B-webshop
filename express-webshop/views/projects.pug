@@ -12,17 +12,38 @@ block content
           a(href="/projects/gender") Gender
           a(href="/projects/neurology") Neurology
           a(href="/projects/technology") Technology
+          a.categories(href="/projects") Go back         
           input.form-control(type='text', placeholder='Search..')
-      .col-8
-        each project in projects
-          .card.mb-3(style='max-width: 850px;')
-            .row.no-gutters
-              .col-md-4
-                img.card-img(src='http://www.ict-coherent.eu/coherent/wp-content/uploads/2015/10/project-motivation-img.jpg', alt='...')
-              .col-md-8
-                .card-body
-                  h5.card-title #{project.title}
-                  p.card-text #{project.shortd}
-                  p.card-text
-                    small.text-muted Last funded 3 mins ago
-                  a.btn.btn-info(href=`/projects/${project.id}`) Show more!
+
+      .col-8               
+        each project , index in projects
+          if index < 10
+            .card.mb-3(style='max-width: 850px;')
+              .row.no-gutters
+                .col-md-4
+                  img.card-img(src='http://www.ict-coherent.eu/coherent/wp-content/uploads/2015/10/project-motivation-img.jpg', alt='...')
+                .col-md-8
+                  .card-body
+                    h5.card-title #{project.title}
+                    p.card-text #{project.shortd}
+                    p.card-text
+                      small.text-muted Last funded 3 mins ago
+                    a.btn.btn-info(href=`/projects/${project.id}`) Show more! 
+    .row
+      .col-4.offset-4                      
+        if numberOfproducts > 10
+          nav(aria-label='Page navigation')
+            ul.pagination.justify-content-center
+              - let x = 1;
+              - let y = Math.round(numberOfproducts/10) 
+                li.page-item
+                  a.page-link(href=`/projects?page=${prevPage || 1 }&limit=${10}` aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                    span.sr-only Previous
+                while x <= y
+                  li.page-item
+                    a.page-link(href=`/projects?page=${x}&limit=${10}`) #{x++}    
+                li.page-item                          
+                  a.page-link(href=`/projects?page=${nextPage || 1 }&limit=${10}` aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+                    span.sr-only Next    
