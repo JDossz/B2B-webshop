@@ -2,7 +2,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'ROOT',
+  password: 'root',
   connectionLimit: 5,
 });
 
@@ -33,9 +33,9 @@ module.exports = class BetagDB {
 
   /**
    * Concats the query and reads the MySQL database table accordingly.
-   * @param {string} tableName The MySQL table, you want to read from. 
+   * @param {string} tableName The MySQL table, you want to read from.
    * @param {req.query} queryObject The request URL query string object.
-   * @returns The read data from your MySQL database. 
+   * @returns The read data from your MySQL database.
    */
   async readRecord(tableName, queryObject) {
     let query = `SELECT * FROM ${tableName}`;
@@ -48,7 +48,7 @@ module.exports = class BetagDB {
    * @param {*} tableName The MySQL table, where you want to change a record
    * @param {req.query} queryObject The URL query string object.
    * @param {req.body} data The data to be changed in your table.
-   * @returns The result of your update query 
+   * @returns The result of your update query
    */
   async updateRecord(tableName, queryObject, data) {
     let query = `UPDATE ${tableName} SET ${setGenerator.getSetString(data)}`;
@@ -75,4 +75,4 @@ module.exports = class BetagDB {
     return await this.connection.query(query.concat(';'));
   }
 
-}
+};
