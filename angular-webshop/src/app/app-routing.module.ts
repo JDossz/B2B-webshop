@@ -37,21 +37,24 @@ const routes: Routes = [
     component: CreateOrdersComponent
   },
   {
+    path: 'projects',
+    component: ProjectsComponent
+  },
+  {
+    path: 'projectAdd',
+    component: ProjectAddComponent
+  },
+  {
+    path: 'projectEdit/:id',
+    component: ProjectEditComponent
+  },
+  {
     path: '**',
-    component: OrdersComponent
+    component: AppComponent
   },
 ];
 
 
-
-
-const routes: Routes = [
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'projectAdd', component: ProjectAddComponent },
-  { path: 'projectEdit/:id', component: ProjectEditComponent },
-  { path: '**', component: AppComponent },
-
-];
 
 
 @NgModule({

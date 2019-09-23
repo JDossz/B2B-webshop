@@ -17,7 +17,7 @@ module.exports = class BasketHandlerSql {
   async readOne(user) {
     const sql = `
   SELECT * FROM orders
-  WHERE id = ${user.id}
+  WHERE userid = ${user.id}
   `;
     const result = await this.conn.query(sql);
     return result;
@@ -42,3 +42,4 @@ module.exports = class BasketHandlerSql {
     }
 
   }
+}
