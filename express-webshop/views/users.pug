@@ -2,27 +2,26 @@ extends layout
 
 block content
   .row
-    .col-md-3.offset
-    .row
-    table.table.table-striped
-      thead
-        tr
-          th ID 
-          th Admin
-          th Name
-          th Email
-          th Password
-          th Balance
-          th Address
-          th Picture
-      tbody
-        each user in users
+    .col-10.offset-1
+      table.table.table-striped
+        thead
           tr
-            td #{user.id}
-            td #{user.admin}
-            td #{user.name}
-            td #{user.email}
-            td #{user.password}
-            td #{user.balance} 
-            td #{user.address} 
-            td #{user.picture} 
+            th ID 
+            th Admin
+            th Name
+            th Email
+            th Password
+            th Balance
+            th Address
+            th Picture
+        tbody
+          each user in users
+            tr
+              td #{user.id}
+              td #{user.admin}
+              td #{user.name}
+              td #{user.email}
+              td #{user.password}
+              td #{user.balance} 
+              td #{user.address} 
+              td #{user.picture}
