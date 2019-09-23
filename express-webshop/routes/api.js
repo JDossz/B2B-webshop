@@ -1,33 +1,45 @@
-const express = require('express');
+var express = require('express');
+var router = express.Router();
 
-const router = express.Router();
-const ProjectsDB = require('../modules/projectsDB');
+const Database = require('./../modules/webshop-mariadb');
+const database = new Database();
 
-const projectsDB = new ProjectsDB();
-
-router.get('/projects', async (req, res, next) => {
-  const projects = await projectsDB.read();
-  res.json(projects);
-});
-router.get('/projects/:id', async (req, res, next) => {
-  const project = await projectsDB.read(req.params.id);
-  res.json(project[0]);
+/**
+ * Executes POST requests at http://localhost:3000/tablename
+ */
+router.post('/:table', async (req, res) => {
+  res.json(req.body);
+  res.json(await database.createRecord(req.params.table, req.body));
 });
 
-router.post('/projects', async (req, res, next) => {
-  const result = await projectsDB.create(req.body);
-  res.json(result);
+/**
+ * Answers GET requests at http://localhost:3000/api/tablename/querystring
+ */
+router.get('/:table', async (req, res) => {
+  res.json(await database.readRecord(req.params.table, req.query));
 });
 
-router.post('/projects/:id', async (req, res, next) => {
-  console.log(req.body);
-  const result = await projectsDB.update(req.body);
-  console.log(result);
-  res.json(result);
+/**
+ * Gets a specific product from the database, based on seo property.
+ */
+router.get('/:table/:seo', async (req, res) => {
+  res.json(await database.readRecord(req.params.table, {
+    "seo": req.params.seo,
+  }))
 });
 
-router.delete('/projects/:id', async (req, res, next) => {
-  const result = await projectsDB.delete(req.params.id);
-  res.json(result);
+/**
+ * Executes PUT requests at http://localhost:3000/tablename
+ */
+router.put('/:table', async (req, res) => {
+  res.json(await database.updateRecord(req.params.table, req.query, req.body));
 });
+
+/**
+ * Runs DELETE requests from http://localhost:3000/api/tablename/querystring
+ */
+router.delete('/:table/', async (req, res) => {
+  res.json(await database.deleteRecord(req.params.table, req.query));
+});
+
 module.exports = router;

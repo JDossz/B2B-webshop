@@ -1,3 +1,9 @@
+// LEGVÉGÉN:
+
+  update table 
+
+// ELEJÉN:
+
 create table projects (
 	id INT NOT NULL AUTO_INCREMENT,
 	title VARCHAR(255) NOT NULL,
