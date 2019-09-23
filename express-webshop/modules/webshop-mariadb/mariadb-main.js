@@ -8,13 +8,11 @@ const pool = mariadb.createPool({
 });
 
 const WhereGenerator = require('./tools/where-generator');
-
-const whereGenerator = new WhereGenerator();
 const ListGenerator = require('./tools/list-generator');
-
-const listGenerator = new ListGenerator();
 const SetGenerator = require('./tools/set-generator');
 
+const whereGenerator = new WhereGenerator();
+const listGenerator = new ListGenerator();
 const setGenerator = new SetGenerator();
 
 module.exports = class BetagDB {
@@ -78,5 +76,4 @@ module.exports = class BetagDB {
     }
     return await this.connection.query(query.concat(';'));
   }
-
 };

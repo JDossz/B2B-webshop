@@ -22,7 +22,7 @@ module.exports = class SetGenerator {
         this.setString = this.setString.concat(', ');
       }
     });
-    this.setString = this.setString.replace(/,\s$/ , '');
+    this.setString = this.setString.replace(/,\s$/, '');
   }
 
   _emptyString() {
