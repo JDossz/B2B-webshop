@@ -28,8 +28,7 @@ module.exports = class BetagDB {
    * @returns The result of your post query.
    */
   async createRecord(tableName, data) {
-    const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) 
-                 VALUES (${listGenerator.getFieldValues(data)})`;
+    const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) VALUES (${listGenerator.getFieldValues(data)})`;
     return await this.connection.query(query.concat(';'));
   }
 
@@ -40,9 +39,7 @@ module.exports = class BetagDB {
    * @returns The read data from your MySQL database.
    */
   async readRecord(tableName, queryObject) {
-    let query = SELECT * FROM $ {
-      tableName
-    };
+    let query = `SELECT * FROM ${tableName}`;
     query = query.concat(whereGenerator.getWhereString(queryObject));
     return await this.connection.query(query.concat(';'));
   }
@@ -55,12 +52,8 @@ module.exports = class BetagDB {
    * @returns The result of your update query
    */
   async updateRecord(tableName, queryObject, data) {
-    let query = UPDATE $ {
-      tableName
-    }
-    SET $ {
-      setGenerator.getSetString(data)
-    };
+    let query = `UPDATE ${tableName}
+    SET ${setGenerator.getSetString(data)}`;
     query = query.concat(whereGenerator.getWhereString(queryObject));
     if (!query.includes('WHERE')) {
       return;
@@ -76,9 +69,7 @@ module.exports = class BetagDB {
    * @returns {Promise} The result of your deletion query.
    */
   async deleteRecord(tableName, queryObject) {
-    let query = DELETE FROM $ {
-      tableName
-    };
+    let query = `DELETE FROM ${tableName}`;
     query = query.concat(whereGenerator.getWhereString(queryObject));
     if (!query.includes('WHERE')) {
       return;
