@@ -17,6 +17,29 @@ const setGenerator = new SetGenerator();
 
 module.exports = class BetagDB {
 
+  /*
+    Full select syntax:
+    SELECT columns, AVG(column), SUM(column)
+    FROM ((table1
+      INNER JOIN table2 ON table1.id = table2.id )
+      INNER JOIN table3 ON table1.id = table3.id
+    )
+    WHERE condition1 = value1 AND condition2 LIKE pattern
+    GROUP BY column1
+    HAVING condition
+    LIMIT number
+    
+    queryObject:
+    {
+      select: * /'avg' / 'sum'
+      join: tableName
+      secondJoin: tableName
+      groupBy: columnName
+      having: condition
+      limit: number
+    }
+  */
+
   constructor() {
     pool.getConnection().then(conn => this.connection = conn);
   }
@@ -33,6 +56,7 @@ module.exports = class BetagDB {
   }
 
   /**
+   * NE EZT HASZNÁLD, HA USER INPUTOT DOLGOZUNK FEL!
    * Concats the query and reads the MySQL database table accordingly.
    * @param {string} tableName The MySQL table, you want to read from.
    * @param {req.query} queryObject The request URL query string object.
@@ -45,8 +69,9 @@ module.exports = class BetagDB {
   }
 
   /**
+   * NE EZT HASZNÁLD, HA USER INPUTOT DOLGOZUNK FEL!
    * Updates the values of an existing record.
-   * @param {*} tableName The MySQL table, where you want to change a record
+   * @param {string} tableName The MySQL table, where you want to change a record
    * @param {req.query} queryObject The URL query string object.
    * @param {req.body} data The data to be changed in your table.
    * @returns The result of your update query
