@@ -1,16 +1,29 @@
 extends layout
 
 block content
-  main(role='main')
-    form.form
-      .form-group
-        label(for="email") Email address
-        input#exampleInputEmail1.form-control(type="email" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email")
-        small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
-      .form-group
-        label(for="password") Password
-        input#exampleInputPassword1.form-control(type="password" id="password" name="password" placeholder="Password")
-      .form-group.form-check
-        input#exampleCheck1.form-check-input(type="checkbox")
-        label.form-check-label(for="exampleCheck1") I want to recieve the newsletter
-      button.btn.btn-primary(type="submit") Submit
+  .container
+        .row
+          .col-4.offset-4
+            .card
+              .card-header.bg-primary 
+                h3.text-center Register
+              .card-body
+                form.text-center(method='post', action='/register/users')
+                  .form-group
+                    label(for='inputName') Name
+                    input#inputName.form-control(type='text',name='name', placeholder='Name')
+                  .form-group
+                    label(for='inputName') Address
+                    input#inputName.form-control(type='text',name='address', placeholder='Address')
+                  .form-group
+                    label(for='inputEmail4') Email
+                    input#inputEmail4.form-control(type='email',name='email', placeholder='Email')
+                  .form-group
+                    label(for='inputPassword4') Password
+                    input#inputPassword4.form-control(type='password',name='password', placeholder='Password')
+                  .form-group
+                    .form-check
+                      input#gridCheck.form-check-input(type='checkbox')
+                      label.form-check-label(for='gridCheck')
+                        | SEND ME EVERYTHING
+                  button.btn.btn-primary(type='submit') Register
