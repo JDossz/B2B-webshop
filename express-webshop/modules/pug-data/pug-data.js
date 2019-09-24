@@ -14,7 +14,7 @@ module.exports = class PugData {
     const seoName = urlParts[urlParts.length - 1];
     const tableName = urlParts[urlParts.length - 2];
     return await betagDB.readRecord(tableName, {
-      seo: `'${seoName}'`,
+      seo: `${seoName}`,
     });
   }
 
