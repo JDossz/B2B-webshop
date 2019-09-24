@@ -1,7 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="collapse navbar-collapse"
-       id="navbarColor01">
+  <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{exact: true}">Home</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link"
            routerLink="/users"
@@ -13,6 +18,18 @@
            routerLink="/orders"
            routerLinkActive=""
            [routerLinkActiveOptions]="{exact: true}">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/about"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{exact: true}">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/contact"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{exact: true}">Contact</a>
       </li>
     </ul>
   </div>
