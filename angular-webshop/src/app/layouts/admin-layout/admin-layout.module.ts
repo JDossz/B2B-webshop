@@ -5,16 +5,17 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 import { AdminLayoutRoutes } from "./admin-layout.routing";
-import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
-import { IconsComponent } from "../../pages/icons/icons.component";
-import { MapComponent } from "../../pages/map/map.component";
-import { NotificationsComponent } from "../../pages/notifications/notifications.component";
-import { UserComponent } from "../../pages/user/user.component";
-import { TablesComponent } from "../../pages/tables/tables.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { UsersComponent } from 'src/app/pages/users/users.component';
+import { OrdersComponent } from 'src/app/pages/orders/orders.component';
+import { StatisticsComponent } from 'src/app/pages/statistics/statistics.component';
+import { RiportsComponent } from 'src/app/pages/riports/riports.component';
+import { DiaryComponent } from 'src/app/pages/diary/diary.component';
+import { MainDashboardComponent } from 'src/app/pages/main-dashboard/main-dashboard.component';
+import { DatabaseTablesComponent } from 'src/app/pages/database-tables/database-tables.component';
+import { ErrorPageComponent } from 'src/app/pages/error-page/error-page.component';
 
 @NgModule({
   imports: [
@@ -25,14 +26,16 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     NgbModule,
   ],
   declarations: [
-    DashboardComponent,
-    UserComponent,
-    TablesComponent,
-    IconsComponent,
-    TypographyComponent,
-    NotificationsComponent,
-    MapComponent,
+    UsersComponent,
+    OrdersComponent,
+    StatisticsComponent,
+    RiportsComponent,
+    DiaryComponent,
+    MainDashboardComponent,
+    DatabaseTablesComponent,
+    ErrorPageComponent,
+
     // RtlComponent
   ]
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
