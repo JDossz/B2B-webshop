@@ -1,10 +1,27 @@
 const express = require('express');
+const PugData = require('../modules/pug-data');
 
 const router = express.Router();
 
+const pugData = new PugData();
+
 /* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Index Page' });
+router.get('/', async (req, res, next) => {
+  // res.json(await pugData.readSpecificTable('projects', { contact: 'Katerine Genney' }));
+  const projectsList = await pugData.readSpecificTable('projects');
+  const projectsToCarousel = [];
+  const projectsToFeature = [];
+  while (projectsToCarousel.length < 5) {
+    const index = Math.floor(Math.random() * 100 + 1);
+    if (projectsList[index]) {
+      projectsToCarousel.push(projectsList[index]);
+    }
+  }
+
+  return res.render('index', {
+    title: 'Entryway - BETAG Team',
+    carousel: projectsToCarousel,
+  });
 });
 
 module.exports = router;
