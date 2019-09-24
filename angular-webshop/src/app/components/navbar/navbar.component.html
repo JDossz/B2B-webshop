@@ -1,114 +1,137 @@
-<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-wrapper">
-          <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
-        </div>
-        <button mat-raised-button class="navbar-toggler" type="button" (click)="sidebarToggle()">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
+<nav class=" navbar navbar-expand-lg navbar-absolute navbar-transparent">
+  <div class=" container-fluid">
+    <div class=" navbar-wrapper">
+      <div class=" navbar-toggle d-inline">
+        <button class=" navbar-toggler" type="button" (click)="sidebarToggle()">
+          <span class=" navbar-toggler-bar bar1"> </span>
+          <span class=" navbar-toggler-bar bar2"> </span>
+          <span class=" navbar-toggler-bar bar3"> </span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form class="navbar-form">
-                <div class="input-group no-border">
-                    <input type="text" value="" class="form-control" placeholder="Search...">
-                    <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                    </button>
-                </div>
-            </form>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="material-icons">dashboard</i>
-                        <p>
-                            <span class="d-lg-none d-md-block">Stats</span>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">notifications</i>
-                        <span class="notification">5</span>
-                        <p>
-                            <span class="d-lg-none d-md-block">Some Actions</span>
-                        </p>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
-                        <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
-                        <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
-                        <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
-                        <a class="dropdown-item" href="javascript:void(0)">Another One</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="material-icons">person</i>
-                        <p>
-                            <span class="d-lg-none d-md-block">Account</span>
-                        </p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+      </div>
+      <a class=" navbar-brand" href="javascript:void(0)"> {{ getTitle() }} </a>
     </div>
+    <button
+      aria-label="Toggle navigation"
+      class=" navbar-toggler"
+      (click)="collapse()"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseExample"
+      id="navigation"
+      type="button"
+    >
+      <span class=" navbar-toggler-bar navbar-kebab"> </span>
+      <span class=" navbar-toggler-bar navbar-kebab"> </span>
+      <span class=" navbar-toggler-bar navbar-kebab"> </span>
+    </button>
+    <div class=" navbar-collapse" [ngbCollapse]="isCollapsed" id="navigation">
+      <ul class=" navbar-nav ml-auto">
+        <li class=" search-bar input-group">
+          <button
+            class=" btn btn-link"
+            data-target="#searchModal"
+            data-toggle="modal"
+            (click)="open(content)"
+            id="search-button"
+          >
+            <i class=" tim-icons icon-zoom-split"> </i>
+            <span class=" d-lg-none d-md-block"> Search </span>
+          </button>
+        </li>
+        <li class=" nav-item" ngbDropdown>
+          <a
+            class=" nav-link"
+            data-toggle="dropdown"
+            href="javascript:void(0)"
+            ngbDropdownToggle
+          >
+            <div class=" notification d-none d-lg-block d-xl-block"></div>
+            <i class=" tim-icons icon-sound-wave"> </i>
+            <p class=" d-lg-none">Notifications</p>
+          </a>
+          <ul class=" dropdown-menu-right dropdown-navbar" ngbDropdownMenu>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                Mike John responded to your email
+              </a>
+            </li>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                You have 5 more tasks
+              </a>
+            </li>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                Your friend Michael is in town
+              </a>
+            </li>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                Another notification
+              </a>
+            </li>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                Another one
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class=" nav-item" ngbDropdown>
+          <a
+            class=" nav-link"
+            data-toggle="dropdown"
+            href="javascript:void(0)"
+            ngbDropdownToggle
+          >
+            <div class=" photo">
+              <img alt="Profile Photo" src="assets/img/anime3.png" />
+            </div>
+            <b class=" caret d-none d-lg-block d-xl-block"> </b>
+            <p class=" d-lg-none">Log out</p>
+          </a>
+          <ul class=" dropdown-navbar" ngbDropdownMenu>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                Profile
+              </a>
+            </li>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                Settings
+              </a>
+            </li>
+            <li class=" dropdown-divider"></li>
+            <li class=" nav-link">
+              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+                Log out
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class=" separator d-lg-none"></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<!--
+<ng-template #content let-modal>
+  <div class=" modal-header">
+    <input
+      class=" form-control"
+      id="inlineFormInputGroup"
+      placeholder="SEARCH"
+      type="text"
+    />
 
-<nav class="navbar navbar-transparent navbar-absolute">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button mat-raised-button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="material-icons">dashboard</i>
-                        <p class="hidden-lg hidden-md">Dashboard</p>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="material-icons">notifications</i>
-                        <span class="notification">5</span>
-                        <p class="hidden-lg hidden-md">Notifications</p>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Mike John responded to your email</a></li>
-                        <li><a href="javascript:void(0)">You have 5 new tasks</a></li>
-                        <li><a href="javascript:void(0)">You're now friend with Andrew</a></li>
-                        <li><a href="javascript:void(0)">Another Notification</a></li>
-                        <li><a href="javascript:void(0)">Another One</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                       <i class="material-icons">person</i>
-                       <p class="hidden-lg hidden-md">Profile</p>
-                    </a>
-                </li>
-            </ul>
+    <button
+      aria-label="Close"
+      class=" close"
+      data-dismiss="modal"
+      type="button"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <i class=" tim-icons icon-simple-remove"> </i>
+    </button>
+  </div>
 
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group form-black is-empty">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="material-input"></span>
-                </div>
-                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
-                    <i class="material-icons">search</i><div class="ripple-container"></div>
-                </button>
-            </form>
-        </div>
-    </div>
-</nav> -->
+</ng-template>
