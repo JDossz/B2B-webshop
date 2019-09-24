@@ -91,42 +91,53 @@ router.post('/', (req, res, next) => {
 
 
 router.get('/arts', async (req, res, next) => {
-  const projects = await projectsDB.read();
+  const projects = await database.readRecord('projects', {
+    'category': '"arts"',
+  });
   res.render('projects', {
-    projects: await projects.filter(project => project.category === 'arts'),
+    projects: await projects,
   });
 });
 router.get('/biology', async (req, res, next) => {
-  const projects = await projectsDB.read();
+  const projects = await database.readRecord('projects', {
+    'category': '"biology"',
+  });
   res.render('projects', {
-    projects: projects.filter(project => project.category === 'biology'),
+    projects: await projects,
   });
 });
 router.get('/gender', async (req, res, next) => {
-  const projects = await projectsDB.read();
+  const projects = await database.readRecord('projects', {
+    'category': '"technology"',
+  });
   res.render('projects', {
-    projects: projects.filter(project => project.category === 'gender'),
+    projects: await projects,
   });
 });
 router.get('/technology', async (req, res, next) => {
-  const projects = await projectsDB.read();
+  const projects = await database.readRecord('projects', {
+    'category': '"technology"',
+  });
   res.render('projects', {
-    projects: projects.filter(project => project.category === 'technology'),
+    projects: await projects,
   });
 });
 router.get('/neurology', async (req, res, next) => {
-  const projects = await projectsDB.read();
+  const projects = await database.readRecord('projects', {
+    'category': '"neurology"',
+  });
   res.render('projects', {
-    projects: projects.filter(project => project.category === 'neurology'),
+    projects: await projects,
   });
 });
+
 // :3000/projects/:table/?id=7
 router.get('/:seo', async (req, res, next) => {
   const pugData = new PugData(req);
-  const selectedProject = await pugData.readRecordBySeoName(req.params.seo);
-  console.log(selectedProject);
+  const selectedProject = await pugData.readRecordBySeoName('projects', req.params.seo);
+  console.log(selectedProject[0]);
   res.render('projectDetails', {
-    project: selectedProject,
+    project: selectedProject[0],
   });
 });
 
