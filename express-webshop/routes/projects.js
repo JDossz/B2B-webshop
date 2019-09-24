@@ -1,7 +1,7 @@
 const express = require('express');
 const MariaDBmain = require('../modules/webshop-mariadb');
 const PugData = require('../modules/pug-data');
-
+const pugdb=new PugData();
 const database = new MariaDBmain();
 
 const router = express.Router();
@@ -133,8 +133,7 @@ router.get('/neurology', async (req, res, next) => {
 
 // :3000/projects/:table/?id=7
 router.get('/:seo', async (req, res, next) => {
-  const pugData = new PugData(req);
-  const selectedProject = await pugData.readRecordBySeoName('projects', req.params.seo);
+  const selectedProject = await pugdb.readRecordBySEO(req);
   console.log(selectedProject[0]);
   res.render('projectDetails', {
     project: selectedProject[0],

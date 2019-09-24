@@ -22,7 +22,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  const result = await database.readRecord('users',{'email':`'${req.body.email}'`,'password':`'${req.body.password}'`});
+  const result = await database.readRecord('users',{'email':req.body.email,'password':req.body.password});
   if (result.length === 1) {
     let token = getToken();
     res.cookie('userID', token);

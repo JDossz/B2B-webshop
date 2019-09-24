@@ -14,7 +14,7 @@ const getToken = (l = 20) => {
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('register', {
-    title: 'Register',
+    title: 'Register'
   });
 });
 

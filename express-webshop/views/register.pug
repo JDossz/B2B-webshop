@@ -3,24 +3,28 @@ extends layout
 block content
   .container
         .row
-          .col-4.offset-4
+          .col-6.offset-3
             .card
               .card-header.bg-primary 
-                h3.text-center Register
+                h2.text-center.text-light Register
               .card-body
-                form.text-center(method='post', action='/register/users')
+                form(method='post', action='/register/users')
                   .form-group
-                    label(for='inputName') Name
-                    input#inputName.form-control(type='text',name='name', placeholder='Name')
+                    label(for='inputName')
+                      h5  Name
+                    input#inputName.form-control(type='text',name='name', placeholder='Name', required)
                   .form-group
-                    label(for='inputName') Address
-                    input#inputName.form-control(type='text',name='address', placeholder='Address')
+                    label(for='inputName') 
+                      h5 Address
+                    input#inputName.form-control(type='text',name='address', placeholder='Address',required)
                   .form-group
-                    label(for='inputEmail4') Email
-                    input#inputEmail4.form-control(type='email',name='email', placeholder='Email')
+                    label(for='inputEmail4')
+                      h5 Email
+                    input#inputEmail4.form-control(type='email',name='email', placeholder='Email', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", required)
                   .form-group
-                    label(for='inputPassword4') Password
-                    input#inputPassword4.form-control(type='password',name='password', placeholder='Password')
+                    label(for='inputPassword4')
+                      h5 Password
+                    input#inputPassword4.form-control(type='password',name='password', placeholder='Password', pattern='(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters')
                   .form-group
                     .form-check
                       input#gridCheck.form-check-input(type='checkbox')
