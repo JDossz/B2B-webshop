@@ -11,6 +11,7 @@ router.get('/', async (req, res, next) => {
   const projectsList = await pugData.readSpecificTable('projects');
   const projectsToCarousel = [];
   const projectsToFeature = [];
+
   while (projectsToCarousel.length < 5) {
     const index = Math.floor(Math.random() * 100 + 1);
     if (projectsList[index]) {
@@ -18,9 +19,17 @@ router.get('/', async (req, res, next) => {
     }
   }
 
+  while (projectsToFeature.length < 3) {
+    const index = Math.floor(Math.random() * 100 + 1);
+    if (projectsList[index]) {
+      projectsToFeature.push(projectsList[index]);
+    }
+  }
+
   return res.render('index', {
     title: 'Entryway - BETAG Team',
     carousel: projectsToCarousel,
+    featurette: projectsToFeature,
   });
 });
 
