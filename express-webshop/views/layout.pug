@@ -36,6 +36,10 @@ html
               a.nav-link(href='#') About Us
             li.nav-item
               a.nav-link(href='#') Contact
+            if user
+              if user.admin == 1
+                li.nav-item
+                  a.nav-link(href='#') Admin
           ul.navbar-nav.mr-5
             form.form-inline.my-2.my-lg-0
               input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
