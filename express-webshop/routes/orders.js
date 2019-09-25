@@ -8,7 +8,7 @@ const orderHS = new OrderHandlerSql();
 router.get('/', async (req, res, next) => {
   let orderData = await orderHS.read();
   res.render('orders', {
-    title: 'Orders', orders: orderData
+    title: 'Orders', orders: orderData,user: req.user || {}
   });
 });
 
