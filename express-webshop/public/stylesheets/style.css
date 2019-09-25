@@ -19,7 +19,10 @@ a.np:hover {
 }
 
 footer {
-  background-color: #000;
+  position: absolute;
+  bottom: -2%;
+  width: 100%;
+  height: auto;
 }
 
 footer > .container {
@@ -31,6 +34,11 @@ footer > .container {
 .next {
   background-color: #4CAF50;
   color: white;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
 }
 
 .previous {

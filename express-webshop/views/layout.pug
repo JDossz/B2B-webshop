@@ -14,46 +14,47 @@ html
     link(rel='stylesheet', href='/stylesheets/carousel.css')
 
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
-      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-          li.nav-item.active
-            a.nav-link(href='#') Home
-          li.nav-item
-            a.nav-link(href='/projects') Projects
-          li.nav-item.dropdown
-            a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-            .dropdown-menu(aria-labelledby='navbarDropdown')
-              a.dropdown-item(href='/projects/arts') Arts
-              a.dropdown-item(href='/projects/biology') Biology
-              a.dropdown-item(href='/projects/gender') Gender
-              a.dropdown-item(href='/projects/neurology') Neurology
-              a.dropdown-item(href='/projects/technology') Technology
-          li.nav-item
-            a.nav-link(href='#') About Us
-          li.nav-item
-            a.nav-link(href='#') Contact
-        ul.navbar-nav.mr-5
-          form.form-inline.my-2.my-lg-0
-            input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
-            button.btn.btn-outline-secondary(type="submit") Search
-        ul.navbar-nav
-          li
-            a.btn.btn-outline-primary(href='/login') Log In
-    div.mt-5
-      block content
+    #page-container
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item.active
+              a.nav-link(href='/') Home
+            li.nav-item
+              a.nav-link(href='/projects') Projects
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                a.dropdown-item(href='/projects/arts') Arts
+                a.dropdown-item(href='/projects/biology') Biology
+                a.dropdown-item(href='/projects/gender') Gender Studies
+                a.dropdown-item(href='/projects/neurology') Neurology
+                a.dropdown-item(href='/projects/technology') Technology
+            li.nav-item
+              a.nav-link(href='#') About Us
+            li.nav-item
+              a.nav-link(href='#') Contact
+          ul.navbar-nav.mr-5
+            form.form-inline.my-2.my-lg-0
+              input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
+              button.btn.btn-outline-secondary(type="submit") Search
+          ul.navbar-nav
+            li
+              a.btn.btn-outline-primary(href='/login') Log In
+      div.mt-5
+        block content
 
-    footer.footer.mt-auto.py-3
-      .container
-        .row
-          .col.text-muted
-            a(href='#') Frequently Asked Questions
-          .col.text-muted
-            a(href='#') Privacy Policy
-          .col.text-muted
-            a(href='#') Terms and Conditions
+      footer.footer.mt-auto.py-3.bg-light
+        .container-fluid
+          .row
+            .col-4.text-muted.text-center
+              a(href='#') Frequently Asked Questions
+            .col-4.text-muted.text-center
+              a(href='#') Privacy Policy
+            .col-4.text-muted.text-center
+              a(href='#') Terms and Conditions
     
     script(src="/javascripts/jquery-3.3.1.slim.min.js")
     script(src="/bootstrap/dist/js/bootstrap.bundle.min.js")

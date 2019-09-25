@@ -5,12 +5,14 @@ const router = express.Router();
 
 const pugData = new PugData();
 
-/* GET home page. */
+/* GET kérés küldésekor home page-re: */
 router.get('/', async (req, res, next) => {
   // res.json(await pugData.readSpecificTable('projects', { contact: 'Katerine Genney' }));
   const projectsList = await pugData.readSpecificTable('projects');
+  const usersList = await pugData.readSpecificTable('users');
   const projectsToCarousel = [];
   const projectsToFeature = [];
+  let usersToShow = [];
 
   while (projectsToCarousel.length < 5) {
     const index = Math.floor(Math.random() * 100 + 1);
@@ -26,10 +28,18 @@ router.get('/', async (req, res, next) => {
     }
   }
 
+  while (usersToShow.length < 3) {
+    const index = Math.floor(Math.random() * 100 + 1);
+    if (usersList[index]) {
+      usersToShow.push(usersList[index]);
+    }
+  }
+
   return res.render('index', {
     title: 'Entryway - BETAG Team',
     carousel: projectsToCarousel,
     featurette: projectsToFeature,
+    funders: usersToShow,
   });
 });
 
