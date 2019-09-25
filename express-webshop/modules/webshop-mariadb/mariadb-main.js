@@ -13,6 +13,12 @@ const pool = mariadb.createPool({
 });
 
 const WhereGenerator = require('./tools/where-generator');
+<<<<<<< HEAD
+const ListGenerator = require('./tools/list-generator');
+const SetGenerator = require('./tools/set-generator');
+const QueryGenerator = require('./tools/query-generator');
+=======
+>>>>>>> dc73a6d208e2a3e7c266b7b8fc163da7567510cb
 
 const whereGenerator = new WhereGenerator();
 const ListGenerator = require('./tools/list-generator');
@@ -21,6 +27,7 @@ const listGenerator = new ListGenerator();
 const SetGenerator = require('./tools/set-generator');
 
 const setGenerator = new SetGenerator();
+const queryGenerator = new QueryGenerator();
 
 module.exports = class BetagDB {
 
@@ -70,10 +77,12 @@ module.exports = class BetagDB {
    * @param {req.query} queryObject The request URL query string object.
    * @returns The read data from your MySQL database.
    */
-  async readRecord(tableName, queryObject) {
-    let query = `SELECT * FROM ${tableName}`;
-    query = query.concat(whereGenerator.getWhereString(queryObject));
-    return await this.connection.query(query.concat(';'));
+  async readRecord(tableName, queryObject = {}) {
+    // query = query.concat(whereGenerator.getWhereString(queryObject));
+    // return await this.connection.query(queryGenerator.getQueryString(tableName, queryObject));
+    // return query;
+    // return queryGenerator.getQueryString(tableName, queryObject);
+    return await this.connection.query(queryGenerator.getQueryString(tableName, queryObject));
   }
 
   /**
