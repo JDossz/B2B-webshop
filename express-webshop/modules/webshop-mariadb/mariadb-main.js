@@ -3,8 +3,13 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
+<<<<<<< HEAD
   password: 'ROOT',
   connectionLimit: 100,
+=======
+  password: 'root',
+  connectionLimit: 5,
+>>>>>>> a238693afec934986d5a4912a9cfd4cd931c18b3
 });
 
 const WhereGenerator = require('./tools/where-generator');
