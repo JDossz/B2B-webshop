@@ -1,4 +1,5 @@
 const express = require('express');
+const sha1 = require('sha1');
 const MariaDB = require('../modules/webshop-mariadb');
 
 const database = new MariaDB();
@@ -6,7 +7,7 @@ const router = express.Router();
 const getToken = (l = 20) => {
   let result = '';
   for (let i = 0; i < l; i++) {
-    const index = Math.round(Math.random() * 50 + 65);
+    const index = Math.round(Math.random() * 25 + 65);
     result += String.fromCharCode(index);
   }
   return result;
@@ -14,7 +15,7 @@ const getToken = (l = 20) => {
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('register', {
-    title: 'Register'
+    title: 'Register',
   });
 });
 
@@ -26,8 +27,8 @@ router.post('/users', async (req, res, next) => {
     'email': req.body.email,
     'address': req.body.address,
     'name': req.body.name,
-    'password': req.body.password,
-    'token': token,
+    'password': sha1(req.body.password),
+    'token':token,
   });
   return res.redirect('/');
 });
