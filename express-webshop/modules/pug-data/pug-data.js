@@ -25,7 +25,16 @@ module.exports = class PugData {
     return await betagDB.readRecord(tableName, {});
   }
 
-  async readSpecificTable(tableName, query = {}) {
-    return await betagDB.readRecord(tableName, query);
+  async readSpecificTable(tableName, queryObject) {
+    return await betagDB.readRecord(tableName, queryObject);
   }
+
+  async updateSpecificTable(tableName, queryObject, data) {
+    return await betagDB.updateRecord(tableName, queryObject, data);
+  }
+
+  async deleteSpecificRecord(tableName, queryObject) {
+    return await betagDB.deleteRecord(tableName, queryObject);
+  }
+
 };
