@@ -3,8 +3,13 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
+<<<<<<< HEAD
   password: 'ROOT',
+  connectionLimit: 100,
+=======
+  password: 'root',
   connectionLimit: 5,
+>>>>>>> a238693afec934986d5a4912a9cfd4cd931c18b3
 });
 
 const WhereGenerator = require('./tools/where-generator');
@@ -37,7 +42,7 @@ module.exports = class BetagDB {
     GROUP BY column1
     HAVING condition
     LIMIT number
-    
+
     queryObject:
     {
       select: * /'avg' / 'sum'
@@ -60,6 +65,7 @@ module.exports = class BetagDB {
    * @returns The result of your post query.
    */
   async createRecord(tableName, data) {
+    console.log(data)
     const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) VALUES (${listGenerator.getFieldValues(data)})`;
     return await this.connection.query(query.concat(';'));
   }
@@ -114,19 +120,18 @@ module.exports = class BetagDB {
   }
 
 
-
   async checkLogin(req) {
     if (!req.cookies.userID) {
-      return false
+      return false;
     }
 
-    let sql = `
+    const sql = `
   SELECT * 
   FROM users
   WHERE token='${req.cookies.userID}'`;
 
-    let result = await this.connection.query(sql);
-    return result[0]
+    const result = await this.connection.query(sql);
+    return result[0];
 
   }
 };
