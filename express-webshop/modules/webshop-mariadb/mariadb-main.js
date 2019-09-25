@@ -3,23 +3,18 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'ROOT',
-  connectionLimit: 100,
+  password: 'root',
+  connectionLimit: 5,
 });
 
 const WhereGenerator = require('./tools/where-generator');
-<<<<<<< HEAD
 const ListGenerator = require('./tools/list-generator');
 const SetGenerator = require('./tools/set-generator');
 const QueryGenerator = require('./tools/query-generator');
-=======
->>>>>>> dc73a6d208e2a3e7c266b7b8fc163da7567510cb
 
 const whereGenerator = new WhereGenerator();
-const ListGenerator = require('./tools/list-generator');
 
 const listGenerator = new ListGenerator();
-const SetGenerator = require('./tools/set-generator');
 
 const setGenerator = new SetGenerator();
 const queryGenerator = new QueryGenerator();
