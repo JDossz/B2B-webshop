@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row mt-5 mb-5">
-    <div class="col-4 offset-4">
+    <div class="col-6">
       <a class="btn btn-info btn-block" routerLink="/projectAdd">Add new project</a>
+    </div>
+    <div class="col-6">
+        <input id="search" type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchedPhrase">
     </div>
   </div>
   <div class="row">
@@ -24,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let project of projects|async">
+          <tr *ngFor="let project of projects|async |search:searchedPhrase">
             <td>{{project.id}}</td>
             <td>{{project.title}}</td>
             <td>{{project.seo}}</td>
