@@ -3,7 +3,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'ROOT',
+  password: 'root',
   connectionLimit: 5,
 });
 
