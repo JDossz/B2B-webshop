@@ -45,7 +45,7 @@ module.exports = class WhereGenerator {
 
   _apostropheByType(value) {
     if (typeof value === 'string') {
-      return `'${value}'`
+      return `'${value}'`;
     }
     if (typeof value === 'number') {
       return `${value}`;
