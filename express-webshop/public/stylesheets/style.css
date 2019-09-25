@@ -46,6 +46,10 @@ footer > .container {
   color: white;
 }
 
+#profile-pic {
+  height: 2.2em;
+}
+
 .round {
   border-radius: 50%;
 }
