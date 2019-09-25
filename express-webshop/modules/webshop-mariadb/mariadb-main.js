@@ -4,7 +4,7 @@ const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
   password: 'root',
-  connectionLimit: 5,
+  connectionLimit: 100,
 });
 
 const WhereGenerator = require('./tools/where-generator');
