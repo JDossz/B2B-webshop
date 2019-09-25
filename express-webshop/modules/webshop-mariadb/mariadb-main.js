@@ -78,4 +78,20 @@ module.exports = class BetagDB {
     return await this.connection.query(query.concat(';'));
   }
 
+
+
+  async checkLogin(req) {
+    if (!req.cookies.userID) {
+      return false
+    }
+
+    let sql = `
+  SELECT * 
+  FROM users
+  WHERE token='${req.cookies.userID}'`;
+
+    let result = await this.connection.query(sql);
+    return result[0]
+
+  }
 };

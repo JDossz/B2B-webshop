@@ -20,7 +20,7 @@ html
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
           li.nav-item.active
-            a.nav-link(href='#') Home
+            a.nav-link(href='/') Home
           li.nav-item
             a.nav-link(href='/projects') Projects
           li.nav-item.dropdown
@@ -40,8 +40,19 @@ html
             input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
             button.btn.btn-outline-secondary(type="submit") Search
         ul.navbar-nav
-          li
-            a.btn.btn-outline-primary(href='/login') Log In
+          if user
+            if user.id
+              li.nav-item.dropdown
+                a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                .dropdown-menu(aria-labelledby='navbarDropdown')
+                  a.dropdown-item(href='#') My Profile
+                  a.dropdown-item(href='#') Settings
+                  a.dropdown-item(href='/logout') Log out
+              li
+                span #{user.name}
+            else
+              li
+                a.btn.btn-primary(href='/login') Log In
     div.mt-5
       block content
 

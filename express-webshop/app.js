@@ -3,6 +3,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const path = require('path');
+const MariaDB = require('./modules/webshop-mariadb');
+
+const database = new MariaDB();
 const api = require('./routes/api');
 const basket = require('./routes/basket');
 const indexRouter = require('./routes/index');
@@ -33,7 +36,13 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(async (req, res, next) => {
+  const user = await database.checkLogin(req);
+  if (user) {
+    req.user = user;
+  }
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/api', api);
@@ -46,6 +55,11 @@ app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
 app.use('/privacy', require('./routes/privacyPolicy'));
 app.use('/terms', require('./routes/termsAndConditions'));
+
+app.use('/logout', (req, res, next) => {
+  res.clearCookie('userID');
+  res.redirect('/');
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

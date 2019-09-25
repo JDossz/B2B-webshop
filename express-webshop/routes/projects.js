@@ -7,7 +7,7 @@ const database = new MariaDBmain();
 
 const router = express.Router();
 
-//Sorts by title and institution
+// Sorts by title and institution
 const sortByTitle = function (projects) {
   projects.sort((a, b) => {
     if (a.title < b.title) {
@@ -27,7 +27,7 @@ const sortByTitle = function (projects) {
   });
 };
 
-//Limits to 10 projects/page, makes pagination
+// Limits to 10 projects/page, makes pagination
 const pagination = function (projects, req, res) {
 
   const resultSize = projects.length;
@@ -50,6 +50,7 @@ const pagination = function (projects, req, res) {
         numberOfproducts: resultSize,
         prevPage: previosPage,
         nextPage: nextOnePage,
+        user: req.user || {},
         displaySize: viewSize,
       });
     }
@@ -62,6 +63,7 @@ const pagination = function (projects, req, res) {
         numberOfproducts: resultSize,
         prevPage: previosPage,
         nextPage: nextOnePage,
+        user: req.user || {},
         displaySize: viewSize,
       });
     }
@@ -74,6 +76,7 @@ const pagination = function (projects, req, res) {
       prevPage: previosPage,
       nextPage: nextOnePage,
       displaySize: viewSize,
+      user: req.user || {},
     });
   }
 
@@ -81,18 +84,20 @@ const pagination = function (projects, req, res) {
     projects,
     numberOfproducts: resultSize,
     displaySize: viewSize,
+    user: req.user || {},
   });
 };
 
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
-  const projects = await database.readRecord('projects', {});
+  const projects = await database.readRecord('projects', {
+  });
   sortByTitle(projects);
   pagination(projects, req, res);
 });
 
-//Creates cookie with viewSize
+// Creates cookie with viewSize
 router.post('/', (req, res, next) => {
   res.cookie('viewSize', req.body.limit, {
     maxAge: 900000,
@@ -100,7 +105,7 @@ router.post('/', (req, res, next) => {
 });
 
 
-//Get art projects
+// Get art projects
 router.get('/arts', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
     category: 'arts',
@@ -109,7 +114,7 @@ router.get('/arts', async (req, res, next) => {
   pagination(projects, req, res);
 });
 
-//Get biology projects
+// Get biology projects
 router.get('/biology', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
     category: 'biology',
@@ -118,7 +123,7 @@ router.get('/biology', async (req, res, next) => {
   pagination(projects, req, res);
 });
 
-//Get gender projects
+// Get gender projects
 router.get('/gender', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
     category: 'gender',
@@ -127,7 +132,7 @@ router.get('/gender', async (req, res, next) => {
   pagination(projects, req, res);
 });
 
-//Get Technology projects
+// Get Technology projects
 router.get('/technology', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
     category: 'technology',
@@ -136,7 +141,7 @@ router.get('/technology', async (req, res, next) => {
   pagination(projects, req, res);
 });
 
-//Get neurologist projects
+// Get neurologist projects
 router.get('/neurology', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
     category: 'neurology',
@@ -151,6 +156,7 @@ router.get('/:seo', async (req, res, next) => {
   console.log(selectedProject[0]);
   res.render('projectDetails', {
     project: selectedProject[0],
+    user: req.user || {},
   });
 });
 
