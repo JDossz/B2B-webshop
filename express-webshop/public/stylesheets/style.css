@@ -31,6 +31,10 @@ footer > .container {
   padding: 0 15px;
 }
 
+.nav-link {
+  font-size: 1.3em;
+}
+
 .next {
   background-color: #4CAF50;
   color: white;
@@ -93,7 +97,7 @@ footer > .container {
 #username {
   font-size: 1.5em;
   position: relative;
-  top: 12%;
+  top: 17%;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
