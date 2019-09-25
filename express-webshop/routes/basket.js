@@ -7,14 +7,14 @@ const counter = 0;
 router.get('/', async (req, res, next) => {
   let basketData = await basketHS.read();
   res.render('basket', {
-    title: 'Basket', basketItems: basketData
+    title: 'Basket', basketItems: basketData,user: req.user || {}
   });
 });
 
 
 router.get('/post/:id', async (req, res, next) => {
   let selectedItem = await basketHS.readOne(req.params.id);
-  res.render('basket', { basket: selectedItem[0] });
+  res.render('basket', { basket: selectedItem[0],user: req.user || {} });
 });
 
 router.post('/cart', async (req, res, next) => {

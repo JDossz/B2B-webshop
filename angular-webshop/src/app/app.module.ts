@@ -15,6 +15,7 @@ import { UsersComponent } from './page/users/users.component';
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component'
 import { ProjectsComponent } from './projects/projects.component';
+import { IndexComponent } from './page/index/index.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProjectsComponent } from './projects/projects.component';
     UpdateUsersComponent,
     CreateUsersComponent,
     NavComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

@@ -43,7 +43,7 @@ export class UrlConcatenatorService {
    */
   private apostropheValue(value: any): string {
     if (typeof value === 'string') {
-      return `%27${value}%27`;
+      return `${value}`;
     }
     if (typeof value === 'number') {
       return `${value}`;
