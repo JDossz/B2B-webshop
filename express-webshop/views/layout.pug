@@ -42,22 +42,23 @@ html
               button.btn.btn-outline-secondary(type="submit") Search
           ul.navbar-nav.col-2
             if user
-              li
-                if user.picture
-                  img#profile-pic(src=`${user.picture}`)
-                else
-                  img#profile-pic(src="/images/user_default.png")
-              li.nav-item.dropdown
-                a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                .dropdown-menu(aria-labelledby='navbarDropdown')
-                  a.dropdown-item(href='#') My Profile
-                  a.dropdown-item(href='#') Settings
-                  a.dropdown-item(href='/logout') Log out
-              li
-                span #{user.name}
-            else
-              li
-                a.btn.btn-primary(href='/login') Log In
+              if user.id
+                li
+                  if user.picture
+                    img#profile-pic(src=`${user.picture}`)
+                  else
+                    img#profile-pic(src="/images/user_default.png")
+                li.nav-item.dropdown
+                  a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                  .dropdown-menu(aria-labelledby='navbarDropdown')
+                    a.dropdown-item(href='') My Profile
+                    a.dropdown-item(href='') Settings
+                    a.dropdown-item(href='/logout') Log out
+                li
+                  span #{user.name}
+              else
+                li
+                  a.btn.btn-primary(href='/login') Log In
       div.mt-5
         block content
 
