@@ -12,7 +12,7 @@ router.get('/', async (req, res, next) => {
   const usersList = await pugData.readSpecificTable('users');
   const projectsToCarousel = [];
   const projectsToFeature = [];
-  let usersToShow = [];
+  const usersToShow = [];
 
   while (projectsToCarousel.length < 5) {
     const index = Math.floor(Math.random() * 100 + 1);
