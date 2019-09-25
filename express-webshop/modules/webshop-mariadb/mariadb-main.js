@@ -3,20 +3,21 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'root',
+  password: 'ROOT',
   connectionLimit: 5,
 });
 
 const WhereGenerator = require('./tools/where-generator');
-const ListGenerator = require('./tools/list-generator');
-const SetGenerator = require('./tools/set-generator');
 
 const whereGenerator = new WhereGenerator();
+const ListGenerator = require('./tools/list-generator');
+
 const listGenerator = new ListGenerator();
+const SetGenerator = require('./tools/set-generator');
+
 const setGenerator = new SetGenerator();
 
 module.exports = class BetagDB {
-
   constructor() {
     pool.getConnection().then(conn => this.connection = conn);
   }
@@ -28,8 +29,7 @@ module.exports = class BetagDB {
    * @returns The result of your post query.
    */
   async createRecord(tableName, data) {
-    const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) 
-                 VALUES (${listGenerator.getFieldValues(data)})`;
+    const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) VALUES (${listGenerator.getFieldValues(data)})`;
     return await this.connection.query(query.concat(';'));
   }
 
@@ -53,7 +53,8 @@ module.exports = class BetagDB {
    * @returns The result of your update query
    */
   async updateRecord(tableName, queryObject, data) {
-    let query = `UPDATE ${tableName} SET ${setGenerator.getSetString(data)}`;
+    let query = `UPDATE ${tableName}
+    SET ${setGenerator.getSetString(data)}`;
     query = query.concat(whereGenerator.getWhereString(queryObject));
     if (!query.includes('WHERE')) {
       return;
@@ -75,5 +76,22 @@ module.exports = class BetagDB {
       return;
     }
     return await this.connection.query(query.concat(';'));
+  }
+
+
+
+  async checkLogin(req) {
+    if (!req.cookies.userID) {
+      return false
+    }
+
+    let sql = `
+  SELECT * 
+  FROM users
+  WHERE token='${req.cookies.userID}'`;
+
+    let result = await this.connection.query(sql);
+    return result[0]
+
   }
 };

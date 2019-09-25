@@ -40,6 +40,7 @@ router.get('/', async (req, res, next) => {
     carousel: projectsToCarousel,
     featurette: projectsToFeature,
     funders: usersToShow,
+    user: req.user || {},
   });
 });
 
