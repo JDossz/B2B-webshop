@@ -2,7 +2,7 @@ const mariadb = require('mariadb');
 
 const pool = mariadb.createPool({
   user: 'root',
-  password: 'root',
+  password: 'Renoir123',
   database: 'betag',
   connectionLimit: 5,
 });
@@ -23,7 +23,7 @@ module.exports = class BasketHandlerSql {
     return result;
   }
 
-  
+
   async readCartForUser(user) {
 
     if (req.cookies.uuid) {
