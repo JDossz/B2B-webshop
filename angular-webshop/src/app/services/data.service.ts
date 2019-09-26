@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { UrlConcatenatorService } from './url-concatenator.service';
 
 @Injectable({
@@ -9,12 +9,12 @@ import { UrlConcatenatorService } from './url-concatenator.service';
 export class DataService {
 
   restApiURL: string = 'http://localhost:3000/api';
+  list: BehaviorSubject<any> = new BehaviorSubject([]);
 
   constructor(
     private http: HttpClient,
     private url: UrlConcatenatorService,
   ) { }
-
   /**
    * Creates a record from the given data.
    * @param tableName Name of the database table.
@@ -31,8 +31,10 @@ export class DataService {
    * @param query Contains the parts of the url query as properites
    * @returns Response observable containing the read data.
    */
-  readTableByQuery(tableName: string, query: Object): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`);
+  readTableByQuery(tableName: string, query: Object): void {
+     this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
+      data => this.list.next(data)
+    );
   }
 
   /**
@@ -62,8 +64,11 @@ export class DataService {
    * @param query Contains the parts of the url query as properites
    * @returns Response observable
    */
-  deleteRecordByQuery(tableName: string, query: Object): Observable<any> {
-    return this.http.delete(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`);
+  deleteRecordByQuery(tableName: string, query: Object): void {
+   this.http.delete(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
+      done => this.readTableByQuery(tableName,{})
+    );
+
   }
 
 }
