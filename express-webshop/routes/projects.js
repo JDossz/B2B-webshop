@@ -88,6 +88,11 @@ const pagination = function (projects, req, res) {
   });
 };
 
+// set specific sidebar link to active
+let setActive = (id) => {
+  const element = document.getElementById(`${id}`);
+  element.classList.add('active');
+}
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
@@ -112,6 +117,7 @@ router.get('/arts', async (req, res, next) => {
   });
   sortByTitle(projects);
   pagination(projects, req, res);
+  setActive('arts');
 });
 
 // Get biology projects

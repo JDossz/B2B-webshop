@@ -48,14 +48,16 @@ app.use('/', indexRouter);
 app.use('/api', api);
 app.use('/basket', basket);
 app.use('/login', loginRouter);
-app.use('/register', registerRouter);
-
 app.use('/orders', ordersRouter);
-app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
+app.use('/register', registerRouter);
+app.use('/users', usersRouter);
+app.use('/about', require('./routes/about'));
+app.use('/contact', require('./routes/contact'));
 app.use('/privacy', require('./routes/privacyPolicy'));
 app.use('/terms', require('./routes/termsAndConditions'));
 
+// clear userID cookie when logging out
 app.use('/logout', (req, res, next) => {
   res.clearCookie('userID');
   res.redirect('/');
