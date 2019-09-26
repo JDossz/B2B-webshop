@@ -19,11 +19,12 @@ export class BasketComponent implements OnInit {
     this.ds.readTableByQuery('basket', {})
   }
 
+  // törlés egyedi projekt id alapján
   onDelete(id: number): void {
     this.ds.deleteRecordByQuery('basket', { 'id': id }).forEach(
       data => console.log(data))
   }
-
+  // azonos user-hez tartozó projekteket töröl
   DeleteAll(id: number): void {
     this.ds.deleteRecordByQuery('basket', { 'userid': id }).forEach(
       data => console.log(data))
