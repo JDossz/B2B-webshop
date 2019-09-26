@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const UserHandlerSql = require('../modules/userHandlerSql');
-const userHS = new UserHandlerSql();
 
 
 // get all

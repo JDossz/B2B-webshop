@@ -160,4 +160,5 @@ router.get('/:seo', async (req, res, next) => {
   });
 });
 
+
 module.exports = router;

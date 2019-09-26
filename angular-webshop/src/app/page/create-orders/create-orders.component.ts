@@ -27,7 +27,7 @@ export class CreateOrdersComponent implements OnInit {
     this.orderService.create(this.order).subscribe(
       order => {
 
-        this.router.navigateByUrl("/")
+        this.router.navigateByUrl("/orders")
 
       }, err => console.error(err)
 

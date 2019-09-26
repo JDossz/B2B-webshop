@@ -124,4 +124,52 @@ module.exports = class BetagDB {
     return result[0];
 
   }
+
+  // async getPrice(req) {
+  //   let sql = `
+  //   SELECT SUM(projects.price*basket.quantity) as amount 
+  //   FROM projects JOIN basket ON projects.id = basket.projectid
+  //   WHERE userid = ${req.user.id}
+  //   `;
+  //   let result = await this.connection.query(sql);
+  //   return result;
+  // }
+
+  async nameToProjectId(project) {
+    let sql = `
+    SELECT projects.title FROM projects JOIN basket ON projects.id = basket.projectid
+    WHERE projectid = ${project.id}
+    `
+    let result = await this.connection.query(sql);
+    return result;
+  }
+
+  async priceToProjectId(project) {
+    let sql = `
+    SELECT projects.price FROM projects JOIN basket ON projects.id = basket.projectid
+    WHERE projectid = ${project.id}
+    `
+    let result = await this.connection.query(sql);
+    return result;
+  }
+
+  async getTotalPrice(req) {
+    let sql = `
+    SELECT SUM(projects.price*basket.quantity) as amount 
+    FROM projects JOIN basket ON projects.id = basket.projectid
+    WHERE basket.userid = ${req.user.id}
+    `;
+    let result = await this.connection.query(sql);
+    return result;
+  }
+
+  // async getBasketData(userId) {
+  //   let sql = `
+  //   SELECT *
+  //   FROM projects JOIN basket ON projects.id = basket.projectid
+  //   WHERE userid = ${userId}
+  //   `;
+  //   let result = await this.connection.query(sql);
+  //   return result;
+  // }
 };

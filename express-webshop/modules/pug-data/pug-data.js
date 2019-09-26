@@ -29,6 +29,10 @@ module.exports = class PugData {
     return await betagDB.readRecord(tableName, queryObject);
   }
 
+  async createRecord(tableName, data) {
+    return await betagDB.createRecord(tableName, data)
+  }
+
   async updateSpecificTable(tableName, queryObject, data) {
     return await betagDB.updateRecord(tableName, queryObject, data);
   }

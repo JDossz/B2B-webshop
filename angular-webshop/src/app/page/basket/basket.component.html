@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-12">
+
+  </div>
+  <h1>Basket</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Project ID</th>
+        <th>Unique project ID</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let basket of list$ | async">
+        <td>{{basket.userid}}</td>
+        <td>{{basket.projectid}}</td>
+        <td>{{basket.id}}</td>
+        <td>{{basket.quantity}}</td>
+
+
+        <td>
+          <div class="btn-group">
+            <a class="btn btn-danger"
+               (click)="DeleteAll(basket.userid)">Delete All From This User</a>
+            <a class="btn btn-warning"
+               (click)="onDelete(basket.id)">Delete</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

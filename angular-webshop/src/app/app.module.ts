@@ -15,12 +15,14 @@ import { UsersComponent } from './page/users/users.component';
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component'
 import { ProjectsComponent } from './projects/projects.component';
+import { BasketComponent } from './page/basket/basket.component';
 import { IndexComponent } from './page/index/index.component';
 import { SearchPipe } from './pipe/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BasketComponent,
     OrdersComponent,
     ProjectsComponent,
     ProjectAddComponent,
