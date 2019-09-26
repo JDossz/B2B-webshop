@@ -10,6 +10,7 @@ import { UsersComponent } from './page/users/users.component';
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'create-user',
     component: CreateOrdersComponent
+  },
+  {
+    path: 'statistics-basic',
+    component: StatisticsBasicComponent
   },
 
   { path: '**', component: AppComponent }

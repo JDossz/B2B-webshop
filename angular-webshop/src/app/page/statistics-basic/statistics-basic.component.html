@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>UserID</th>
+            <th>InsDate</th>
+            <th>ProjectID</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orderList$ | async">
+            <td>{{order.id}}</td>
+            <td>{{order.userid}}</td>
+            <td>{{order.insdate}}</td>
+            <td>{{order.projectid}}</td>
+            <td>{{order.projectprice}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
