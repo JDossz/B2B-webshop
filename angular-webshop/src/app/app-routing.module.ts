@@ -1,76 +1,52 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { BrowserModule } from "@angular/platform-browser";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { AppComponent } from './app.component';
+import { CreateOrdersComponent } from './page/create-orders/create-orders.component';
+import { OrdersComponent } from './page/orders/orders.component';
+import { UpdateOrdersComponent } from './page/update-orders/update-orders.component';
+import { UpdateUsersComponent } from './page/update-users/update-users.component';
+import { UsersComponent } from './page/users/users.component';
+import { ProjectAddComponent } from './project-add/project-add.component';
+import { ProjectEditComponent } from './project-edit/project-edit.component';
+import { ProjectsComponent } from './projects/projects.component';
+
 
 const routes: Routes = [
+  { path: 'api/projects', component: ProjectsComponent },
+  { path: 'projectAdd', component: ProjectAddComponent },
+  { path: 'projectEdit/:seo', component: ProjectEditComponent },
   {
-    path: "",
-    redirectTo: "main-dashboard",
-    pathMatch: "full"
-  },
-  {
-    path: "",
-    component: AdminLayoutComponent,
-    children: [
-      {
-        path: "",
-        loadChildren:
-          "./layouts/admin-layout/admin-layout.module#AdminLayoutModule"
-      }
-    ]
-  }, {
     path: '',
-    component: AuthLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
-      }
-    ]
-  },
-
-  //Error
-  {
-    path: "**",
-    redirectTo: "error-page",
-    pathMatch: "full"
+    component: OrdersComponent
   },
   {
-    path: "**",
-    component: AdminLayoutComponent,
-    children: [
-      {
-        path: "**",
-        loadChildren:
-          "./layouts/admin-layout/admin-layout.module#AdminLayoutModule"
-      }
-    ]
-  }, {
-    path: '**',
-    component: AuthLayoutComponent,
-    children: [
-      {
-        path: '**',
-        loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
-      }
-    ]
+    path: 'orders/:id',
+    component: UpdateOrdersComponent
+  },
+  {
+    path: 'create-order',
+    component: CreateOrdersComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent
+  },
+  {
+    path: 'users/:id',
+    component: UpdateUsersComponent
+  },
+  {
+    path: 'create-user',
+    component: CreateOrdersComponent
   },
 
+  { path: '**', component: AppComponent }
 ];
 
+
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

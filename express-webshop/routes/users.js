@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const UserHandlerSql = require('../modules/userHandlerSql');
+const userHS = new UserHandlerSql();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+
+// get all
+router.get('/', async (req, res, next) => {
+  let userData = await userHS.readUser();
+  res.render('users', {
+    title: 'Users', users: userData,
+  });
 });
 
 module.exports = router;

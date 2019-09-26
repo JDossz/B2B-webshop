@@ -7,7 +7,7 @@ module.exports = class SetGenerator {
   /**
    * Gets a MySQL compatible query string.
    * @param {req.body} data An object representing the data to be changed
-   * @returns {string} A MySQL compatible SET string "field1 = value1, field2 = value2" 
+   * @returns {string} A MySQL compatible SET string "field1 = value1, field2 = value2"
    */
   getSetString(data) {
     this._generateSetString(data);
@@ -17,11 +17,12 @@ module.exports = class SetGenerator {
   _generateSetString(data) {
     this._emptyString();
     Object.keys(data).forEach((key, index) => {
-      if (index !== 0) {
+      if (key !== 'id') {
+        this.setString = this.setString.concat(`${key}=${this._apostropheByType(data[key])}`);
         this.setString = this.setString.concat(', ');
       }
-      this.setString = this.setString.concat(`${key}=${this._apostropheByType(data[key])}`);
     });
+    this.setString = this.setString.replace(/,\s$/, '');
   }
 
   _emptyString() {
@@ -37,4 +38,4 @@ module.exports = class SetGenerator {
     }
   }
 
-}
+};

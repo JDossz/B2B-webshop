@@ -1,15 +1,15 @@
 const express = require('express');
+const MariaDBmain = require('../modules/webshop-mariadb');
+const PugData = require('../modules/pug-data');
 
+const pugdb = new PugData();
+const database = new MariaDBmain();
 
 const router = express.Router();
-const ProjectsDB = require('../modules/projectsDB');
 
-const projectsDB = new ProjectsDB();
-
-/* GET users listing. */
-router.get('/', async (req, res, next) => {
-  const projectsSorted = await projectsDB.read();
-  projectsSorted.sort((a, b) => {
+// Sorts by title and institution
+const sortByTitle = function (projects) {
+  projects.sort((a, b) => {
     if (a.title < b.title) {
       return -1;
     }
@@ -25,13 +25,18 @@ router.get('/', async (req, res, next) => {
       }
     }
   });
-  const resultSize = projectsSorted.length;
+};
+
+// Limits to 10 projects/page, makes pagination
+const pagination = function (projects, req, res) {
+
+  const resultSize = projects.length;
   const viewSize = 10;
 
   /* If you have query string, then this will run, if not just normal render */
   if (req.query.limit && req.query.page !== undefined) {
     const getData = [];
-    projectsSorted.forEach((data, index) => {
+    projects.forEach((data, index) => {
       if (index < (req.query.page * req.query.limit)) {
         getData.push(data);
       }
@@ -45,6 +50,7 @@ router.get('/', async (req, res, next) => {
         numberOfproducts: resultSize,
         prevPage: previosPage,
         nextPage: nextOnePage,
+        user: req.user || {},
         displaySize: viewSize,
       });
     }
@@ -57,6 +63,7 @@ router.get('/', async (req, res, next) => {
         numberOfproducts: resultSize,
         prevPage: previosPage,
         nextPage: nextOnePage,
+        user: req.user || {},
         displaySize: viewSize,
       });
     }
@@ -69,58 +76,87 @@ router.get('/', async (req, res, next) => {
       prevPage: previosPage,
       nextPage: nextOnePage,
       displaySize: viewSize,
+      user: req.user || {},
     });
   }
 
   res.render('projects', {
-    projects: projectsSorted,
+    projects,
     numberOfproducts: resultSize,
     displaySize: viewSize,
+    user: req.user || {},
   });
+};
+
+
+/* GET users listing. */
+router.get('/', async (req, res, next) => {
+  const projects = await database.readRecord('projects', {
+  });
+  sortByTitle(projects);
+  pagination(projects, req, res);
 });
 
+// Creates cookie with viewSize
 router.post('/', (req, res, next) => {
   res.cookie('viewSize', req.body.limit, {
     maxAge: 900000,
   });
-  res.redirect('/projects');
 });
 
 
+// Get art projects
 router.get('/arts', async (req, res, next) => {
-  const projects = await projectsDB.read();
-  res.render('projects', {
-    projects: await projects.filter(project => project.category === 'arts'),
+  const projects = await database.readRecord('projects', {
+    category: 'arts',
   });
+  sortByTitle(projects);
+  pagination(projects, req, res);
 });
+
+// Get biology projects
 router.get('/biology', async (req, res, next) => {
-  const projects = await projectsDB.read();
-  res.render('projects', {
-    projects: projects.filter(project => project.category === 'biology'),
+  const projects = await database.readRecord('projects', {
+    category: 'biology',
   });
+  sortByTitle(projects);
+  pagination(projects, req, res);
 });
+
+// Get gender projects
 router.get('/gender', async (req, res, next) => {
-  const projects = await projectsDB.read();
-  res.render('projects', {
-    projects: projects.filter(project => project.category === 'gender'),
+  const projects = await database.readRecord('projects', {
+    category: 'gender',
   });
+  sortByTitle(projects);
+  pagination(projects, req, res);
 });
+
+// Get Technology projects
 router.get('/technology', async (req, res, next) => {
-  const projects = await projectsDB.read();
-  res.render('projects', {
-    projects: projects.filter(project => project.category === 'technology'),
+  const projects = await database.readRecord('projects', {
+    category: 'technology',
   });
+  sortByTitle(projects);
+  pagination(projects, req, res);
 });
+
+// Get neurologist projects
 router.get('/neurology', async (req, res, next) => {
-  const projects = await projectsDB.read();
-  res.render('projects', {
-    projects: projects.filter(project => project.category === 'neurology'),
+  const projects = await database.readRecord('projects', {
+    category: 'neurology',
   });
+  sortByTitle(projects);
+  pagination(projects, req, res);
 });
-router.get('/:id', async (req, res, next) => {
-  const selectedProject = await projectsDB.read(req.params.id);
+
+// :3000/projects/:table/?id=7
+router.get('/:seo', async (req, res, next) => {
+  const selectedProject = await pugdb.readRecordBySEO(req);
+  console.log(selectedProject[0]);
   res.render('projectDetails', {
     project: selectedProject[0],
+    user: req.user || {},
   });
 });
 

@@ -1,7 +1,6 @@
 extends layout
 
 block content
-
   .container.containerProjects
     .row
       .col-3
@@ -28,7 +27,7 @@ block content
                     p.card-text #{project.shortd}
                     p.card-text
                       small.text-muted Last funded 3 mins ago
-                    a.btn.btn-info(href=`/projects/${project.id}`) Show more! 
+                    a.btn.btn-info(href=`/projects/${project.seo}`) Show more! 
     .row
       .col-4.offset-4                      
         if numberOfproducts > 10

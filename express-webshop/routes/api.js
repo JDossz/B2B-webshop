@@ -1,14 +1,15 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+
+let router = express.Router();
 
 const Database = require('./../modules/webshop-mariadb');
+
 const database = new Database();
 
 /**
  * Executes POST requests at http://localhost:3000/tablename
  */
 router.post('/:table', async (req, res) => {
-  res.json(req.body);
   res.json(await database.createRecord(req.params.table, req.body));
 });
 
@@ -16,6 +17,7 @@ router.post('/:table', async (req, res) => {
  * Answers GET requests at http://localhost:3000/api/tablename/querystring
  */
 router.get('/:table', async (req, res) => {
+  console.log(req.query);
   res.json(await database.readRecord(req.params.table, req.query));
 });
 
@@ -23,9 +25,10 @@ router.get('/:table', async (req, res) => {
  * Gets a specific product from the database, based on seo property.
  */
 router.get('/:table/:seo', async (req, res) => {
-  res.json(await database.readRecord(req.params.table, {
+  const result = await database.readRecord(req.params.table, {
     "seo": req.params.seo,
-  }))
+  });
+  res.json(result[0]);
 });
 
 /**

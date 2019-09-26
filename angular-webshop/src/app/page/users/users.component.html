@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-10 offset-1">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Admin</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Balance</th>
+          <th>Address</th>
+          <th>Picture</th>
+          <th>
+            <div class="btn-group">
+              <a class="btn btn-primary"
+                 [routerLink]="create-user">Add New User</a>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of list$ | async">
+          <td>{{user.id}}</td>
+          <td>{{user.admin}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.balance}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.picture}}</td>
+          <td>
+            <div class="btn-group">
+              <a class="btn btn-info"
+                 [routerLink]="['/users', user.id]">Edit</a>
+              <a class="btn btn-danger"
+                 (click)="onDelete(user.id)">Delete</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
