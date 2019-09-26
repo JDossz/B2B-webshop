@@ -24,8 +24,6 @@ block content
                 a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
 
         .carousel-item
-          //- svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
-          //-   rect(width='100%' height='100%' fill='#777')
           img(src=`${carousel[1].picture}`)
           .container
             .carousel-caption
@@ -35,8 +33,6 @@ block content
                 a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
 
         .carousel-item
-          //- svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
-          //-   rect(width='100%' height='100%' fill='#777')
           img(src=`${carousel[2].picture}`)
           .container
             .carousel-caption
@@ -46,8 +42,6 @@ block content
                 a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
 
         .carousel-item
-          //- svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
-          //-   rect(width='100%' height='100%' fill='#777')
           img(src=`${carousel[3].picture}`)
           .container
             .carousel-caption
@@ -57,8 +51,6 @@ block content
                 a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
 
         .carousel-item
-          //- svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
-          //-   rect(width='100%' height='100%' fill='#777')
           img(src=`${carousel[4].picture}`)
           .container
             .carousel-caption.text-right
@@ -78,7 +70,10 @@ block content
     .container
       .row
         .col
-          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque harum sint laborum, sunt, praesentium exercitationem odit totam quasi repellendus aut adipisci ipsum. Ratione rerum cumque aut commodi eum in maxime!
+          h1.text-center Our mission is to help people achieve their goals, bring creative projects to life
+          p Entryway helps scientists, artists, musicians, filmmakers, designers, and other creators find the resources and support they need to make their ideas a reality. To date, tens of thousands of creative projects — big and small — have come to life with the support of the BETAG community.
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque harum sint laborum, sunt, praesentium exercitationem odit totam quasi repellendus aut adipisci ipsum. Ratione rerum cumque aut commodi eum in maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, commodi a. Fugiat distinctio atque error harum odio, tempora similique cumque ex molestias commodi veritatis vel asperiores maxime! Temporibus, veniam deserunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse molestias optio sint excepturi tempore, quas totam veniam quam ea sed dolore officiis eius exercitationem voluptas quod omnis ratione nostrum laboriosam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta corrupti quas voluptatum aut excepturi? Consequuntur rem, debitis fugit eaque dolor atque. Vel ipsum ullam quae corporis enim quis odit eveniet.
+      hr.featurette-divider
 
     // the 3 most generous funders of the month
     .container.marketing
@@ -93,11 +88,11 @@ block content
           p
             | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
           p
-            a.btn.btn-secondary(href='#' role='button') View details &raquo;
+            a.btn.btn-success(href='#' role='button') View details &raquo;
             //- if #{funders[0].gender} == 0
-            //-   a.btn.btn-secondary(href='#' role='button') Follow her lead &raquo;
+            //-   a.btn.btn-success(href='#' role='button') Follow her lead &raquo;
             //- else
-            //-   a.btn.btn-secondary(href='#' role='button') Follow his lead &raquo;
+            //-   a.btn.btn-success(href='#' role='button') Follow his lead &raquo;
         .col-lg-4
           svg.bd-placeholder-img.rounded-circle(width='140' height='140' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 140x140')
             title Placeholder
@@ -108,7 +103,7 @@ block content
           p
             | Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
           p
-            a.btn.btn-secondary(href='#' role='button') View details &raquo;
+            a.btn.btn-success(href='#' role='button') View details &raquo;
         .col-lg-4
           svg.bd-placeholder-img.rounded-circle(width='140' height='140' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 140x140')
             title Placeholder
@@ -119,7 +114,7 @@ block content
           p
             | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
           p
-            a.btn.btn-secondary(href='#' role='button') View details &raquo;
+            a.btn.btn-success(href='#' role='button') View details &raquo;
       hr.featurette-divider
 
       // hot projects
@@ -128,6 +123,7 @@ block content
           h2.featurette-heading #{featurette[0].title}
             // span.text-muted It&rsquo;ll blow your mind.
           p.lead #{featurette[0].shortd}
+          a.btn.btn-primary(href='') Tell me more
         .col-md-5
           //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
           //-   title Placeholder
@@ -141,6 +137,7 @@ block content
           h2.featurette-heading #{featurette[1].title}
             // span.text-muted See for yourself.
           p.lead #{featurette[1].shortd}
+          a.btn.btn-primary(href='') Tell me more
         .col-md-5.order-md-1
           //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
           //-   title Placeholder
@@ -154,6 +151,7 @@ block content
           h2.featurette-heading #{featurette[2].title}
             // span.text-muted Checkmate.
           p.lead #{featurette[2].shortd}
+          a.btn.btn-primary(href='') Tell me more
         .col-md-5
           //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
           //-   title Placeholder
@@ -165,8 +163,11 @@ block content
     // hírlevél feliratkozás
     .grid-container.mb-5
       .py8.px0.px8-md.bg-white
-        h3.type-21.type-24-md.type-28-lg.soft-black.text-center.cooper-light Discover the best and brightest projects on BETAG.
-        p.type-14.type-18-md.soft-black.text-center.my4.cooper-light Sign up to receive our weekly Projects We Love newsletter.
+        h3.text-center.cooper-light Discover the best and brightest projects on Entryway.
+        p.type-14.type-18-md.soft-black.text-center.my4.cooper-light
+          | Sign up to receive our weekly 
+          mark  Projects We Love
+          |  newsletter.
         .max-w100.mx-auto.justify-content.text-center
           form
             .flex.flex-column.flex-row-sm.items-stretch
@@ -176,4 +177,4 @@ block content
                 .relative.w100p
                   .h5.clip.absolute.l0.t0.w100p
                     .absolute.l0.t1.w100p
-              button.bttn.bttn-medium.bttn-black.keyboard-focusable.maison-book(type="submit") Subscribe
+              button.btn.btn-md.btn-black.btn-dark(type="submit") Subscribe

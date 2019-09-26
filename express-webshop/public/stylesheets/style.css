@@ -31,6 +31,10 @@ footer > .container {
   padding: 0 15px;
 }
 
+.nav-link {
+  font-size: 1.3em;
+}
+
 .next {
   background-color: #4CAF50;
   color: white;
@@ -41,9 +45,18 @@ footer > .container {
   min-height: 100vh;
 }
 
+.portfolio img {
+  max-width: 100%;
+  height: auto;
+}
+
 .previous {
   background-color: #4CAF50;
   color: white;
+}
+
+#profile-pic {
+  height: 2.2em;
 }
 
 .round {
@@ -84,6 +97,12 @@ footer > .container {
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
+}
+
+#username {
+  font-size: 1.5em;
+  position: relative;
+  top: 17%;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
