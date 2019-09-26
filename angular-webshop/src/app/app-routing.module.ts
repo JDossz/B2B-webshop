@@ -40,7 +40,7 @@ const routes: Routes = [
     path: 'create-user',
     component: CreateOrdersComponent
   },
-  
+
   { path: '**', component: AppComponent }
 ];
 

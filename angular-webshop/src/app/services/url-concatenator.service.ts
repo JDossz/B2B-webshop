@@ -25,7 +25,7 @@ export class UrlConcatenatorService {
   private generateQueryString(query: Object): void {
     this.emptyPreviousString();
     Object.keys(query).forEach(key => {
-      this.queryString = this.queryString.concat(`${key}=${this.apostropheValue(query[key])}`);
+      this.queryString = this.queryString.concat(`${key}=${query[key]}`);
     });
   }
 
@@ -34,20 +34,6 @@ export class UrlConcatenatorService {
    */
   private emptyPreviousString(): void {
     this.queryString = '?';
-  }
-
-  /**
-   * Puts strings between URL apostrophe encoding characters.
-   * @param value query object property value
-   * @returns the value in apostrophes, if needed based on its type.
-   */
-  private apostropheValue(value: any): string {
-    if (typeof value === 'string') {
-      return `${value}`;
-    }
-    if (typeof value === 'number') {
-      return `${value}`;
-    }
   }
 
 }
