@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/service/user.service';
+import { DataService } from '../../services/data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/model/user';
 
@@ -12,22 +12,23 @@ export class UpdateUsersComponent implements OnInit {
   user: User;
 
   constructor(
-    private userService: UserService,
+    private ds: DataService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
-    const id = (this.activatedRoute.snapshot.params['id'])
-    this.userService.getOne(id).subscribe(user => { this.user = user[0] });
+    const userID = (this.activatedRoute.snapshot.params['id'])
+    this.ds.readTableByQuery('users', { id: Number.parseInt(userID, 10) })
+;
   }
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
-    this.userService.update(this.user).subscribe(
+    this.ds.updateRecordByQuery('users', { id: this.user.id }, this.user).subscribe(
       user => {
-        this.router.navigateByUrl("/users")
-
+        this.router.navigateByUrl("/users");
+        this.user = user;
       }, err => console.error(err)
 
     )

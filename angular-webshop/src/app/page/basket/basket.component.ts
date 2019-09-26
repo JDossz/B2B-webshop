@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
 import { Basket } from '../../model/basket';
@@ -11,7 +11,7 @@ import { Basket } from '../../model/basket';
 })
 export class BasketComponent implements OnInit {
 
-  list$: Observable<any> = this.ds.readTableByQuery('basket', {});
+  list$: BehaviorSubject<any> = this.ds.list
 
   constructor(
     private ds: DataService,
@@ -21,16 +21,15 @@ export class BasketComponent implements OnInit {
 
   // törlés egyedi projekt id alapján
   onDelete(id: number): void {
-    this.ds.deleteRecordByQuery('basket', { 'id': id }).forEach(
-      data => console.log(data))
+    this.ds.deleteRecordByQuery('basket', { 'id': id })
   }
   // azonos user-hez tartozó projekteket töröl
   DeleteAll(id: number): void {
-    this.ds.deleteRecordByQuery('basket', { 'userid': id }).forEach(
-      data => console.log(data))
+    this.ds.deleteRecordByQuery('basket', { 'userid': id })
   }
 
   ngOnInit() {
+    this.ds.readTableByQuery('basket', {});
   }
 
 }

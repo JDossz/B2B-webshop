@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'
-import { Observable } from 'rxjs';
-import { UserService } from 'src/app/service/user.service';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-users',
@@ -10,23 +9,17 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UsersComponent implements OnInit {
 
-  list$: Observable<any> = this.userService.read();
   
+  list$: BehaviorSubject<any> = this.ds.list
 
-  constructor(
-    private userService: UserService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router) {
-    userService.access()
-  }
-
-
+  constructor(private ds: DataService) { 
+      this.ds.readTableByQuery('users', {})}
+  
+      onDelete(id: number): void {
+        this.ds.deleteRecordByQuery('users',{ 'id':id })
+      }
   ngOnInit() {
-
-  }
-
-  onDelete(id: number): void {
-    this.userService.delete(id).forEach(data => console.log(data))
+    this.ds.readTableByQuery('users', {});
   }
 
 }

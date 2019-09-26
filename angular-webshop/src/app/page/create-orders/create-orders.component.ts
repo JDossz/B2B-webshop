@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from 'src/app/service/order.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Order } from 'src/app/model/order';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -14,9 +14,8 @@ export class CreateOrdersComponent implements OnInit {
   order: Order = new Order();
 
   constructor(
-    private orderService: OrderService,
+    private ds: DataService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -24,10 +23,10 @@ export class CreateOrdersComponent implements OnInit {
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
-    this.orderService.create(this.order).subscribe(
-      order => {
+    this.ds.createRecord('orders', this.order).subscribe(
+      () => {
 
-        this.router.navigateByUrl("/orders")
+        this.router.navigateByUrl("/")
 
       }, err => console.error(err)
 

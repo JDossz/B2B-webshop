@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
-import { UserService } from 'src/app/service/user.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,8 +15,7 @@ export class CreateUsersComponent implements OnInit {
 
 
   constructor(
-    private userService: UserService,
-    private activatedRoute: ActivatedRoute,
+    private ds: DataService,
     private router: Router
   ) { }
 
@@ -24,10 +23,10 @@ export class CreateUsersComponent implements OnInit {
   }
   onSubmit(ev: Event): void {
     ev.preventDefault();
-    this.userService.create(this.user).subscribe(
-      user => {
+    this.ds.createRecord('users', this.user).subscribe(
+      () => {
 
-        this.router.navigateByUrl("/users")
+        this.router.navigateByUrl('/users')
 
       }, err => console.error(err)
 

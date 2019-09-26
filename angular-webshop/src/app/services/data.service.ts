@@ -32,9 +32,13 @@ export class DataService {
    * @returns Response observable containing the read data.
    */
   readTableByQuery(tableName: string, query: Object): void {
-     this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
+    this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
       data => this.list.next(data)
     );
+  }
+
+  readTableById(tableName: string, id: number): Observable<any> {
+    return this.http.get(`${this.restApiURL}/${tableName}/${id}`);
   }
 
   /**
@@ -65,8 +69,8 @@ export class DataService {
    * @returns Response observable
    */
   deleteRecordByQuery(tableName: string, query: Object): void {
-   this.http.delete(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
-      done => this.readTableByQuery(tableName,{})
+    this.http.delete(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
+      done => this.readTableByQuery(tableName, {})
     );
 
   }

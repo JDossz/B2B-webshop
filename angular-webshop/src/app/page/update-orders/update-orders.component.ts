@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/model/order';
-import { OrderService } from '../../service/order.service'
+import { DataService } from '../../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,25 +9,29 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./update-orders.component.css']
 })
 export class UpdateOrdersComponent implements OnInit {
-  order: Order
+
+  order: Order;
 
   constructor(
-    private orderService: OrderService,
+    private ds: DataService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    const id = (this.activatedRoute.snapshot.params['id'])
-    this.orderService.getOne(id).subscribe(order => { this.order = order[0] });
+    const orderID = (this.activatedRoute.snapshot.params['id'])
+    this.ds.readTableByQuery('orders', { id: Number.parseInt(orderID, 10) })
+;
+
   }
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
-    this.orderService.update(this.order).subscribe(
+    console.log(this.order)
+    this.ds.updateRecordByQuery('orders', { id: this.order.id }, this.order).subscribe(
       order => {
-        this.router.navigateByUrl("/orders")
-
+        this.router.navigateByUrl("/orders");
+        this.order = order;
       }, err => console.error(err)
 
     )
