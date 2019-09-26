@@ -1,10 +1,10 @@
 <div class="container-fluid">
-
-  <!--Orders table-->
   <div class="row">
+
+    <!--Orders table-->
     <div class="col">
       <h1 class="text-center">Orders - basic</h1>
-      <table class="table table-responsive table-hover">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>ID</th>
@@ -32,80 +32,76 @@
 
 
     <!--Orders table-->
-    <div class="row">
-      <div class="col">
-        <h1 class="text-center">Users - basic</h1>
-        <table class="table table-responsive table-hover">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Admin?</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>InsDate</th>
-              <th>Balance</th>
-              <th>Address</th>
-              <th>Picture</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of userList$ | async">
-              <td>{{user.id}}</td>
-              <td>{{user.admin}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.email}}</td>
-              <td>{{user.password}}</td>
-              <td>{{user.insdate}}</td>
-              <td>{{user.balance}}</td>
-              <td>{{user.address}}</td>
-              <td>{{user.picture}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="col">
+      <h1 class="text-center">Users - basic</h1>
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Admin?</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>InsDate</th>
+            <th>Balance</th>
+            <th>Address</th>
+            <th>Picture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList$ | async">
+            <td>{{user.id}}</td>
+            <td>{{user.admin}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.insdate}}</td>
+            <td>{{user.balance}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.picture}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
 
     <!--Projects table-->
-    <div class="row">
-      <div class="col">
-        <h1 class="text-center">Projects - basic</h1>
-        <table class="table table-responsive table-hover">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>SEO</th>
-              <th>Price</th>
-              <th>InsDate</th>
-              <th>contact</th>
-              <th>Link</th>
-              <th>Category</th>
-              <th>Shortd</th>
-              <th>Longd</th>
-              <th>Picture</th>
-              <th>Institution</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let project of projectList$ | async">
-              <td>{{project.id}}</td>
-              <td>{{project.title}}</td>
-              <td>{{project.seo}}</td>
-              <td>{{project.price}}</td>
-              <td>{{project.insdate}}</td>
-              <td>{{project.contact}}</td>
-              <td>{{project.link}}</td>
-              <td>{{project.category}}</td>
-              <td>{{project.shortd}}</td>
-              <td>{{project.longd}}</td>
-              <td>{{project.picture}}</td>
-              <td>{{project.institution}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="col">
+      <h1 class="text-center">Projects - basic</h1>
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>SEO</th>
+            <th>Price</th>
+            <th>InsDate</th>
+            <th>contact</th>
+            <th>Link</th>
+            <th>Category</th>
+            <th>Shortd</th>
+            <th>Longd</th>
+            <th>Picture</th>
+            <th>Institution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of projectList$ | async">
+            <td>{{project.id}}</td>
+            <td>{{project.title}}</td>
+            <td>{{project.seo}}</td>
+            <td>{{project.price}}</td>
+            <td>{{project.insdate}}</td>
+            <td>{{project.contact}}</td>
+            <td>{{project.link}}</td>
+            <td>{{project.category}}</td>
+            <td>{{project.shortd}}</td>
+            <td>{{project.longd}}</td>
+            <td>{{project.picture}}</td>
+            <td>{{project.institution}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
