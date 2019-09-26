@@ -45,6 +45,11 @@ footer > .container {
   min-height: 100vh;
 }
 
+.portfolio img {
+  max-width: 100%;
+  height: auto;
+}
+
 .previous {
   background-color: #4CAF50;
   color: white;
