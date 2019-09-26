@@ -14,8 +14,8 @@ export class StatisticsBasicComponent implements OnInit {
   /*Variables*/
   orderList: any
   orderList$: Observable<any> = this.dataService.readTableByQuery('orders', {});
-  countOrderList$: Observable<any> = this.dataService.readTableByQuery('orders', { select: 'COUNT(orders)' });
   countOrderList: any
+  balanceOfOrders: any
 
 
   userList: any
@@ -50,5 +50,13 @@ export class StatisticsBasicComponent implements OnInit {
       console.log('Count orders: ', this.countOrderList);
       err => console.error(err)
     })
+
+    //Balance of ORders
+    //  this.dataService.readTableByQuery('orders', { select: 'COUNT(id) AS ordercount' }).subscribe(orders => {
+    //   this.balanceOfOrders = orders[0].ordercount;
+    //   console.log('Count orders: ', this.balanceOfOrders);
+    //   err => console.error(err)
+    // })
+
   }
 }
