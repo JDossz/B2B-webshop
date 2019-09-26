@@ -12,6 +12,7 @@ CREATE TABLE projects (
     longd varchar(255),
     contact varchar(255) NOT NULL,
     category varchar(255),
+    price int,
     picture varchar(255),
     link varchar(255),
     PRIMARY KEY (id)
@@ -24,6 +25,7 @@ CREATE TABLE users (
     lastname varchar(255) NOT NULL,
     emailaddress varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
+    admin int,
     address varchar(255),
     token varchar(255),
     PRIMARY KEY (id)
