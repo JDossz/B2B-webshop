@@ -12,6 +12,8 @@ import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { CreateUsersComponent } from './page/create-users/create-users.component';
 import { BasketComponent } from './page/basket/basket.component';
+import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
+
 
 const routes: Routes = [
   { path: 'api/projects', component: ProjectsComponent },
@@ -44,6 +46,10 @@ const routes: Routes = [
   {
     path: 'basket',
     component: BasketComponent
+  },
+  {
+    path: 'statistics-basic',
+    component: StatisticsBasicComponent
   },
 
   { path: '**', component: AppComponent }

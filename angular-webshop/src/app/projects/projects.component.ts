@@ -9,7 +9,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  projects: BehaviorSubject<any> = this.ds.list;
+  projects: BehaviorSubject<any> = this.ds.projectList;
   constructor(private ds: DataService) {
     this.ds.readTableByQuery('projects', {})
   }

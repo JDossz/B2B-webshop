@@ -18,6 +18,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { BasketComponent } from './page/basket/basket.component';
 import { IndexComponent } from './page/index/index.component';
 import { SearchPipe } from './pipe/search.pipe';
+import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SearchPipe } from './pipe/search.pipe';
     NavComponent,
     IndexComponent,
     SearchPipe,
+    StatisticsBasicComponent,
   ],
   imports: [
     BrowserModule,

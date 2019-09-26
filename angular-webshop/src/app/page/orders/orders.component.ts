@@ -11,7 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class OrdersComponent implements OnInit {
 
-  list$: BehaviorSubject<any> = this.ds.list
+  list$: BehaviorSubject<any> = this.ds.orderList
   
   constructor(private ds: DataService) { 
    }

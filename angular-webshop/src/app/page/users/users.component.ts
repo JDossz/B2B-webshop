@@ -10,7 +10,7 @@ import { DataService } from '../../services/data.service';
 export class UsersComponent implements OnInit {
 
   
-  list$: BehaviorSubject<any> = this.ds.list
+  list$: BehaviorSubject<any> = this.ds.userList
 
   constructor(private ds: DataService) { 
       this.ds.readTableByQuery('users', {})}

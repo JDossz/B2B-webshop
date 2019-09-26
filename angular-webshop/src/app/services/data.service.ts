@@ -9,7 +9,10 @@ import { UrlConcatenatorService } from './url-concatenator.service';
 export class DataService {
 
   restApiURL: string = 'http://localhost:3000/api';
-  list: BehaviorSubject<any> = new BehaviorSubject([]);
+  orderList: BehaviorSubject<any> = new BehaviorSubject([]);
+  userList: BehaviorSubject<any> = new BehaviorSubject([]);
+  projectList: BehaviorSubject<any> = new BehaviorSubject([]);
+  basketList: BehaviorSubject<any> = new BehaviorSubject([]);
 
   constructor(
     private http: HttpClient,
@@ -33,12 +36,15 @@ export class DataService {
    */
   readTableByQuery(tableName: string, query: Object): void {
     this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
-      data => this.list.next(data)
+      data => { if (tableName === 'orders') { this.orderList.next(data) }
+                else if(tableName === 'users') { this.userList.next(data) }
+                else if(tableName === 'basket') { this.basketList.next(data) }
+              else if (tableName === 'projects') { this.projectList.next(data) }}
     );
   }
 
   readTableById(tableName: string, id: number): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/${id}`);
+    return this.http.get(`${this.restApiURL}/${tableName}/?id=${id}`);
   }
 
   /**

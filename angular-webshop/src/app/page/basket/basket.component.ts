@@ -11,7 +11,7 @@ import { Basket } from '../../model/basket';
 })
 export class BasketComponent implements OnInit {
 
-  list$: BehaviorSubject<any> = this.ds.list
+  list$: BehaviorSubject<any> = this.ds.basketList
 
   constructor(
     private ds: DataService,
