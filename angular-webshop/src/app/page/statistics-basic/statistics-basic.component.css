@@ -1,3 +1,5 @@
-/* .col {
-  max-width: 100vmax;
-} */
+td {
+  height: 20px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}

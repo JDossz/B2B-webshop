@@ -14,8 +14,14 @@ export class StatisticsBasicComponent implements OnInit {
   /*Variables*/
   orderList: any
   orderList$: Observable<any> = this.dataService.readTableByQuery('orders', {});
+  countOrderList$: Observable<any> = this.dataService.readTableByQuery('orders', { select: 'COUNT(orders)' });
+  countOrderList: any
+
+
   userList: any
   userList$: Observable<any> = this.dataService.readTableByQuery('users', {});
+
+
   projectList: any
   projectList$: Observable<any> = this.dataService.readTableByQuery('projects', {});
 
@@ -23,23 +29,26 @@ export class StatisticsBasicComponent implements OnInit {
     /*Orders*/
     this.dataService.readTableByQuery('orders', {}).subscribe(orders => {
       this.orderList = orders;
-      console.log(this.orderList);
       err => console.error(err)
     })
 
     /*Users*/
     this.dataService.readTableByQuery('orders', {}).subscribe(users => {
       this.userList = users;
-      console.log(this.userList);
       err => console.error(err)
     })
 
     /*Projects*/
     this.dataService.readTableByQuery('projects', {}).subscribe(projects => {
       this.orderList = projects;
-      console.log(this.orderList);
+      err => console.error(err)
+    })
+
+    //Count
+    this.dataService.readTableByQuery('orders', { select: 'COUNT(id) AS ordercount' }).subscribe(orders => {
+      this.countOrderList = orders[0].ordercount;
+      console.log('Count orders: ', this.countOrderList);
       err => console.error(err)
     })
   }
-
 }
