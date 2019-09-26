@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { ProjectService } from '../service/project.service';
 import { DataService } from '../services/data.service';
 
@@ -9,16 +9,16 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-
-  projects: Observable<any> = this.ds.readTableByQuery('projects', {});
+  projects: BehaviorSubject<any> = this.ds.list;
   constructor(private ds: DataService) {
     this.ds.readTableByQuery('projects', {})
   }
   onDelete(id: number): void {
-    this.ds.deleteRecordByQuery('projects',{ 'id':id }).forEach(data => console.log(data))
+    this.ds.deleteRecordByQuery('projects', { 'id': id })
   }
 
   ngOnInit() {
+    this.ds.readTableByQuery('projects', {});
   }
 
 }
