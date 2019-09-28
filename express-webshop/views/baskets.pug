@@ -24,8 +24,8 @@ block content
       - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
       a.btn.btn-danger(href=empty) Empty basket
     div
-      -let donationMessage = {}
-      p #{donationMessage}
+      -let donationMessage = ''
+      p
     div
       form(action=`/orders/${basketItemsWithNamesAndPrices.projectid}`, method="post")
         button.btn-block.btn.btn-info Donate

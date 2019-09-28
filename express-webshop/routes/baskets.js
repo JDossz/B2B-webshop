@@ -1,17 +1,18 @@
 const express = require('express');
-const router = express.Router();
 const MariaDBmain = require('../modules/webshop-mariadb');
+
+const router = express.Router();
 const database = new MariaDBmain();
 
 router.get('/', async (req, res) => {
   await database.readRecord('baskets', { userid: req.user.id });
   const totalPrice = await database.getTotalPrice(req);
-  const projectName = await database.namingAndPricingProjects(req);
+  const basketItemsWithNamesAndPrices = await database.namingAndPricingProjects(req);
 
   if (req.user.id) {
     res.render('baskets', {
       title: 'Baskets',
-      basketItemsWithNamesAndPrices: projectName,
+      basketItemsWithNamesAndPrices,
       totalPrice: totalPrice[0].amount,
       user: req.user || {},
     })
