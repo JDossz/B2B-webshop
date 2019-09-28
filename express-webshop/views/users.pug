@@ -8,20 +8,22 @@ block content
           tr
             th ID 
             th Admin
-            th Name
+            th Firstname
+            th Lastname
+            th Username
             th Email
             th Password
-            th Balance
             th Address
-            th Picture
+            th Token
         tbody
           each user in users
             tr
               td #{user.id}
               td #{user.admin}
-              td #{user.name}
-              td #{user.email}
+              td #{user.firstname}
+              td #{user.lastname}
+              td #{user.username}
+              td #{user.emailaddress}
               td #{user.password}
-              td #{user.balance} 
               td #{user.address} 
-              td #{user.picture}
+              td #{user.token}

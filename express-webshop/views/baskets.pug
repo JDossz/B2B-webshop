@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .container
+    table.table.table-secondary
+      thead
+        th Project ID
+        th Project name 
+        th Amount of donation
+        th Quantity
+        th
+      tbody
+        each item in basketItemsWithNames
+          tr
+            td #{item.pid}      
+            td #{item.title}
+            td #{item.donation}
+            td #{item.quantity} 
+            td
+              - let del = `baskets/del/${item.id}`
+              a.btn.btn-danger(href=del) Delete         
+    div
+      p Total: #{totalPrice}
+      - let empty = `baskets/empty/${basketItems.userid}`  
+      a.btn.btn-danger(href=empty) Empty basket
+    div
+      -let donationMessage = {}
+      p #{donationMessage}
+    div
+      form(action=`/orders/${basketItems.projectid}`, method="post")
+        button.btn-block.btn.btn-info Donate
+              

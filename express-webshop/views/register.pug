@@ -10,17 +10,25 @@ block content
           .card-body
             form(method='post', action='/register/users')
               .form-group
-                label(for='inputName')
-                  h5 Name
-                input#inputName.form-control(type='text',name='name', placeholder='Please enter your name', required)
+                label(for='inputFirstname')
+                  h5 Firstname
+                input#inputFirstname.form-control(type='text',name='firstname', placeholder='Please enter your firstname', required)
               .form-group
-                label(for='inputName') 
+                label(for='inputLastname')
+                  h5 Lastname
+                input#inputLastname.form-control(type='text',name='lastname', placeholder='Please enter your lastname', required)
+              .form-group
+                label(for='inputUsername')
+                  h5 Username
+                input#inputUsername.form-control(type='text',name='username', placeholder='Please enter your username', required)
+              .form-group
+                label(for='inputAddress') 
                   h5 Address
-                input#inputName.form-control(type='text',name='address', placeholder='Please enter your address',required)
+                input#inputAddress.form-control(type='text',name='address', placeholder='Please enter your address',required)
               .form-group
                 label(for='inputEmail4')
                   h5 Email address
-                input#inputEmail4.form-control(type='email',name='email', placeholder='Please enter your email address', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", required)
+                input#inputEmail4.form-control(type='email',name='emailaddress', placeholder='Please enter your email address', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", required)
               .form-group
                 label(for='inputPassword4')
                   h5 Password

@@ -109,7 +109,6 @@ module.exports = class BetagDB {
     return await this.connection.query(query.concat(';'));
   }
 
-
   async checkLogin(req) {
     if (!req.cookies.userID) {
       return false;
@@ -125,29 +124,16 @@ module.exports = class BetagDB {
 
   }
 
-  // async getPrice(req) {
-  //   let sql = `
-  //   SELECT SUM(projects.price*basket.quantity) as amount 
-  //   FROM projects JOIN basket ON projects.id = basket.projectid
-  //   WHERE userid = ${req.user.id}
-  //   `;
-  //   let result = await this.connection.query(sql);
-  //   return result;
-  // }
-
-  async nameToProjectId(project) {
+  async nameToProjectId(req) {
     let sql = `
-    SELECT projects.title FROM projects JOIN basket ON projects.id = basket.projectid
-    WHERE projectid = ${project.id}
-    `
-    let result = await this.connection.query(sql);
-    return result;
-  }
-
-  async priceToProjectId(project) {
-    let sql = `
-    SELECT projects.price FROM projects JOIN basket ON projects.id = basket.projectid
-    WHERE projectid = ${project.id}
+    SELECT 
+    projects.title, 
+    projects.donation, 
+    projects.id as pid, 
+    baskets.quantity, 
+    baskets.id 
+    FROM projects JOIN baskets ON projects.id = baskets.projectid
+    WHERE baskets.userid = ${req.user.id}
     `
     let result = await this.connection.query(sql);
     return result;
@@ -155,21 +141,12 @@ module.exports = class BetagDB {
 
   async getTotalPrice(req) {
     let sql = `
-    SELECT SUM(projects.price*basket.quantity) as amount 
-    FROM projects JOIN basket ON projects.id = basket.projectid
-    WHERE basket.userid = ${req.user.id}
+    SELECT SUM(projects.donation*baskets.quantity) as amount 
+    FROM projects JOIN baskets ON projects.id = baskets.projectid
+    WHERE baskets.userid = ${req.user.id}
     `;
-    let result = await this.connection.query(sql);
+    const result = await this.connection.query(sql);
     return result;
   }
 
-  // async getBasketData(userId) {
-  //   let sql = `
-  //   SELECT *
-  //   FROM projects JOIN basket ON projects.id = basket.projectid
-  //   WHERE userid = ${userId}
-  //   `;
-  //   let result = await this.connection.query(sql);
-  //   return result;
-  // }
 };
