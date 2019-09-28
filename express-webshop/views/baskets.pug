@@ -10,7 +10,7 @@ block content
         th Quantity
         th
       tbody
-        each item in basketItemsWithNames
+        each item in basketItemsWithNamesAndPrices
           tr
             td #{item.pid}      
             td #{item.title}
@@ -21,12 +21,12 @@ block content
               a.btn.btn-danger(href=del) Delete         
     div
       p Total: #{totalPrice}
-      - let empty = `baskets/empty/${basketItems.userid}`  
+      - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
       a.btn.btn-danger(href=empty) Empty basket
     div
       -let donationMessage = {}
       p #{donationMessage}
     div
-      form(action=`/orders/${basketItems.projectid}`, method="post")
+      form(action=`/orders/${basketItemsWithNamesAndPrices.projectid}`, method="post")
         button.btn-block.btn.btn-info Donate
               

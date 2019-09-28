@@ -124,14 +124,16 @@ module.exports = class BetagDB {
 
   }
 
-  async nameToProjectId(req) {
+  async namingAndPricingProjects(req) {
     let sql = `
     SELECT 
     projects.title, 
     projects.donation, 
     projects.id as pid, 
     baskets.quantity, 
-    baskets.id 
+    baskets.id, 
+    baskets.projectid,
+    baskets.userid
     FROM projects JOIN baskets ON projects.id = baskets.projectid
     WHERE baskets.userid = ${req.user.id}
     `
