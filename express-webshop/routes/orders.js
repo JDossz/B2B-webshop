@@ -5,27 +5,21 @@ const router = express.Router();
 const database = new MariaDBmain();
 
 router.post('/:projectid', async (req, res) => {
-  const basketData = await database.readRecord('baskets', { userid: req.user.id });
-  const basketItemsWithNamesAndPrices = await database.namingAndPricingProjects(req);
-  console.log(projectName.length)
-
   if (req.user.id) {
-    for (let k in basketItemsWithNamesAndPrices) {
-      if (basketItemsWithNamesAndPrices.length > 0) {
+    const basketItemsWithNamesAndPrices = await database.namingAndPricingProjects(req);
 
-        await database.createRecord('orders', {
-          projectid: basketItemsWithNamesAndPrices[0].projectid,
-          userid: req.user.id || 0,
-          quantity: 1,
-          status: 1
-        });
-
-        basketItemsWithNamesAndPrices.shift();
-        basketData.shift();
-      }
+    while (basketItemsWithNamesAndPrices.length) {
+      const basketItem = basketItemsWithNamesAndPrices.shift();
+      await database.createRecord('orders', {
+        projectid: basketItem.projectid,
+        userid: req.user.id || 0,
+        quantity: 1,
+        status: 1
+      });
     }
+
+    await database.deleteRecord('baskets', { userid: req.user.id });
     res.redirect('/baskets');
-    res.render('baskets')
   }
 });
 
