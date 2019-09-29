@@ -130,16 +130,31 @@ module.exports = class BetagDB {
     projects.title, 
     projects.donation, 
     projects.id as pid, 
-    baskets.quantity, 
+    sum(baskets.quantity) as quantity, 
     baskets.id, 
     baskets.projectid,
     baskets.userid
     FROM projects JOIN baskets ON projects.id = baskets.projectid
     WHERE baskets.userid = ${req.user.id}
+    group by projects.id
     `
     let result = await this.connection.query(sql);
     return result;
   }
+
+  // async addAnotherProjectToBasket(req) {
+  //   let sql = `
+  //   SELECT 
+  //   projects.id as pid, 
+  //   sum(baskets.quantity) as quantity 
+    
+  //   FROM projects JOIN baskets ON projects.id = baskets.projectid
+  //   WHERE baskets.userid = ${req.user.id} AND projects.id = ${}
+  //   group by projects.id
+  //   `
+  //   let result = await this.connection.query(sql);
+  //   return result;
+  // }
 
   async getTotalPrice(req) {
     let sql = `

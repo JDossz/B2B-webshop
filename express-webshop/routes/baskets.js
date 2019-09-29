@@ -19,9 +19,22 @@ router.get('/', async (req, res) => {
   };
 });
 
+router.post('/update/:pid', async (req, res) => {
+  const basketItemsWithNamesAndPrices = await database.namingAndPricingProjects(req);
+  if (req.user.id) {
+    database.updateRecord('baskets', { projectid: req.params.pid }, {
+      quantity: 2,
+    });
+    console.log(basketItemsWithNamesAndPrices)
+
+    res.redirect('/baskets');
+  }
+})
+
 // törlés projektek egyedi id-je alapján
 router.get('/del/:id', async (req, res) => {
   database.deleteRecord('baskets', { id: req.params.id });
+  console.log(req.params.id)
   res.redirect('/baskets');
 });
 
