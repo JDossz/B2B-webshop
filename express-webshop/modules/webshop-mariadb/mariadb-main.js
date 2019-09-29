@@ -3,7 +3,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'root',
+  password: 'ROOT',
   connectionLimit: 100,
 });
 
@@ -32,7 +32,7 @@ module.exports = class BetagDB {
    * @returns The result of your post query.
    */
   async createRecord(tableName, data) {
-    console.log(data)
+    console.log(data);
     const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) VALUES (${listGenerator.getFieldValues(data)})`;
     return await this.connection.query(query.concat(';'));
   }
@@ -100,7 +100,7 @@ module.exports = class BetagDB {
 
   // async getPrice(req) {
   //   let sql = `
-  //   SELECT SUM(projects.price*basket.quantity) as amount 
+  //   SELECT SUM(projects.price*basket.quantity) as amount
   //   FROM projects JOIN basket ON projects.id = basket.projectid
   //   WHERE userid = ${req.user.id}
   //   `;
@@ -109,30 +109,30 @@ module.exports = class BetagDB {
   // }
 
   async nameToProjectId(project) {
-    let sql = `
+    const sql = `
     SELECT projects.title FROM projects JOIN basket ON projects.id = basket.projectid
     WHERE projectid = ${project.id}
-    `
-    let result = await this.connection.query(sql);
+    `;
+    const result = await this.connection.query(sql);
     return result;
   }
 
   async priceToProjectId(project) {
-    let sql = `
+    const sql = `
     SELECT projects.price FROM projects JOIN basket ON projects.id = basket.projectid
     WHERE projectid = ${project.id}
-    `
-    let result = await this.connection.query(sql);
+    `;
+    const result = await this.connection.query(sql);
     return result;
   }
 
   async getTotalPrice(req) {
-    let sql = `
+    const sql = `
     SELECT SUM(projects.price*basket.quantity) as amount 
     FROM projects JOIN basket ON projects.id = basket.projectid
     WHERE basket.userid = ${req.user.id}
     `;
-    let result = await this.connection.query(sql);
+    const result = await this.connection.query(sql);
     return result;
   }
 
