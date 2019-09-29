@@ -11,7 +11,7 @@ import { DataService } from '../services/data.service';
 })
 export class ProjectEditComponent implements OnInit {
 
-  project: any;
+  project: Project;
 
   ngOnInit() {
   }
@@ -24,13 +24,12 @@ export class ProjectEditComponent implements OnInit {
   }
 
   onUpdate() {
-
-    if (this.project.seo === '' || this.project.contact === '' || this.project.link === '' || this.project.category === '' || this.project.shortd === '' || this.project.longd === '' || this.project.picture === '' || this.project.institution === '') {
-      alert('pls write something')
+    if (this.project.title === '' || this.project.seo === '' || this.project.institution === '' || this.project.shortd === '' || this.project.longd === '' || this.project.contact === '' || this.project.category === '' || this.project.donation === 0|| this.project.goal === 0 || this.project.balance ===0|| this.project.pictureurl===''||this.project.link==='') {
+      alert('Please write something to every inputbox')
     } else {
-      this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
-        () => this.router.navigate(["/api/projects"])
-      )
+    this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
+      () => this.router.navigate(["/api/projects"])
+    )
     }
   }
 }
