@@ -39,12 +39,13 @@ import { StatisticsComponent } from './page/statistics/statistics.component';
     SearchPipe,
     StatisticsBasicComponent,
     StatisticsComponent,
+    Line1Component,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
