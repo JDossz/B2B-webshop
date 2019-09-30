@@ -19,6 +19,7 @@ CREATE TABLE projects (
     balance int,
     pictureurl nvarchar(255),
     link nvarchar(1000),
+    isactive boolean NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
 
