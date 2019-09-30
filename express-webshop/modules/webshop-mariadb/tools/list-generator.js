@@ -44,7 +44,7 @@ module.exports = class ListGenerator {
     this._initData(data);
     this.dataKeys.forEach((key) => {
       if (key === 'id') {
-        continue;
+        return;
       }
       if (key === 'username' || key === 'password') {
         if (this.list !== '') {
