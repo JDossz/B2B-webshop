@@ -25,6 +25,7 @@
             <th>balance</th>
             <th>pictureurl</th>
             <th>link</th>
+            <th>isactive</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -43,10 +44,11 @@
             <td>{{project.balance}}</td>
             <td>{{project.pictureurl}}</td>
             <td>{{project.link}}</td>
+            <td>{{project.isactive}}</td>
             <td>
               <div class="btn-group">
                 <a routerLink="/projectEdit/{{project.seo}}" class="btn btn-info">Edit</a>
-                <button (click)="onDelete(project.id)" class="btn btn-danger">Delete</button>
+                <button (click)="onDelete(project.seo)" class="btn btn-danger">Delete</button>
               </div>
             </td>
           </tr>

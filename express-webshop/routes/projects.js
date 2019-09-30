@@ -89,14 +89,15 @@ const pagination = function (projects, req, res) {
 };
 
 // set specific sidebar link to active
-let setActive = (id) => {
+const setActive = (id) => {
   const element = document.getElementById(`${id}`);
   element.classList.add('active');
-}
+};
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
+    'isactive': 1,
   });
   sortByTitle(projects);
   pagination(projects, req, res);
@@ -113,7 +114,8 @@ router.post('/', (req, res, next) => {
 // Get art projects
 router.get('/arts', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
-    category: 'arts',
+    'category': 'arts',
+      'isactive': 1,
   });
   sortByTitle(projects);
   pagination(projects, req, res);
@@ -123,7 +125,9 @@ router.get('/arts', async (req, res, next) => {
 // Get biology projects
 router.get('/biology', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
-    category: 'biology',
+    'category': 'biology',
+    'isactive': 1,
+
   });
   sortByTitle(projects);
   pagination(projects, req, res);
@@ -132,7 +136,9 @@ router.get('/biology', async (req, res, next) => {
 // Get gender projects
 router.get('/gender', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
-    category: 'gender',
+    'category': 'gender',
+    'isactive': 1,
+
   });
   sortByTitle(projects);
   pagination(projects, req, res);
@@ -141,7 +147,9 @@ router.get('/gender', async (req, res, next) => {
 // Get Technology projects
 router.get('/technology', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
-    category: 'technology',
+    'category': 'technology',
+    'isactive': 1,
+
   });
   sortByTitle(projects);
   pagination(projects, req, res);
@@ -150,7 +158,9 @@ router.get('/technology', async (req, res, next) => {
 // Get neurologist projects
 router.get('/neurology', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
-    category: 'neurology',
+    'category': 'neurology',
+    'isactive': 1,
+
   });
   sortByTitle(projects);
   pagination(projects, req, res);

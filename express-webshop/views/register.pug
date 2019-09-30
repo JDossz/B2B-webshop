@@ -20,11 +20,13 @@ block content
               .form-group
                 label(for='inputUserName') 
                   h5 Username
-                input#inputUserName.form-control(type='text',name='username', placeholder='Please enter your username',required)
+                input#inputUserName.form-control(type='text',name='username', pattern='(?=.*[a-z]).{5,}',title='Must contain at least 5 or more characters', placeholder='Please enter your username',required)
               .form-group
                 label(for='inputEmail4')
                   h5 Email address
                 input#inputEmail4.form-control(type='email',name='emailaddress', placeholder='Please enter your email address', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", required)
+                if wrong
+                  p.text-danger #{wrong}
               .form-group
                 label(for='inputPassword4')
                   h5 Password
