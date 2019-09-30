@@ -13,11 +13,12 @@ import { ProjectsComponent } from './projects/projects.component';
 import { CreateUsersComponent } from './page/create-users/create-users.component';
 import { BasketComponent } from './page/basket/basket.component';
 import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
-
+import { StatisticsTest1 } from 'projects/Test1/src/app/app.module';
 
 const routes: Routes = [
   { path: 'api/projects', component: ProjectsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
+  { path: 'statistics', component: StatisticsTest1 },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
   {
     path: 'orders',

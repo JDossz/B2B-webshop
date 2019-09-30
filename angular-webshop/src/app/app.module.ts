@@ -19,6 +19,7 @@ import { BasketComponent } from './page/basket/basket.component';
 import { IndexComponent } from './page/index/index.component';
 import { SearchPipe } from './pipe/search.pipe';
 import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
+import { StatisticsTest1 } from 'projects/Test1/src/app/app.module';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,12 @@ import { StatisticsBasicComponent } from './page/statistics-basic/statistics-bas
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StatisticsTest1,
   ],
+  exports: [StatisticsTest1],
   providers: [],
+  entryComponents: [StatisticsTest1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
