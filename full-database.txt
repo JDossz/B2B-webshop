@@ -466,6 +466,13 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
+INSERT INTO users (firstname, lastname, username, emailaddress, password, admin)
+VALUES ('Dorottya', 'Juhász', 'JDorka', 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 1),
+('Sára', 'Pál', 'PSári', 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 1),
+('Dániel', 'Oláh', 'OláhD', 'olah.daniel95@gmail.com', SHA1('Oláh2019'), 1),
+('Szilvia', 'Kapuvári', 'KSzilvi', 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 1),
+('Ágoston', 'Zajkás', 'ZÁgoston', 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 1);
+
 CREATE TABLE orders (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),

@@ -449,4 +449,3 @@ In this project, the successful candidate, in collaboration with supervisors and
 UPDATE projects
 SET `shortd`=''
 WHERE `shortd`='shortd';
-
