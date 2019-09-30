@@ -1,3 +1,24 @@
+CREATE DATABASE betag;
+
+CREATE TABLE projects (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    title nvarchar(255) NOT NULL,
+    seo nvarchar(255) NOT NULL,
+    institution nvarchar(255) NOT NULL,
+    shortd nvarchar(500),
+    longd nvarchar(10000),
+    contact nvarchar(255) NOT NULL,
+    category nvarchar(255) DEFAULT 'Other',
+    donation int NOT NULL DEFAULT 5,
+    goal int NOT NULL,
+    balance int DEFAULT 0,
+    pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png,
+    link nvarchar(1000),
+    isactive boolean NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+);
+
 INSERT INTO projects (title, seo, institution, shortd, longd, contact, category, goal, link)
 VALUES (
 'New calcium phosphate bone cements for potential biomaterial applications; bone repair and/or scaffold fabrication',
@@ -309,65 +330,37 @@ Of particular interest are compositions that are constructed via similarity, To 
 'William Turner',
 'Mathematics',
 100,
-'https://www.findaphd.com/phds/project/algebraic-methods-in-musical-composition/?p107827'),
+'https://www.findaphd.com/phds/project/algebraic-methods-in-musical-composition/?p107827');
 
-('Applied Algebraic Topology in Geometry',
-'seo',
-'Aberdeen University',
-'Persistent homology is a very computational subject, and there are many programming tools for the study of persistent homology. This project offers an opportunity to learn and apply some of these tools, especially in the study of specific examples.',
-'In recent years the techniques of algebraic topology have been applied to data analysis with great success, and the resulting subject areas of Applied Algebraic Topology and Topological Data Analysis have seen rapid growth. This project will apply these new techniques to pure mathematics itself, in order to study geometric objects.
+CREATE TABLE users (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    firstname nvarchar(255) NOT NULL,
+    lastname nvarchar(255) NOT NULL,
+    username nvarchar(255) NOT NULL,
+    emailaddress nvarchar(255) NOT NULL,
+    password nvarchar(255) NOT NULL,
+    admin boolean NOT NULL DEFAULT 0,
+    address nvarchar(1000),
+    token nvarchar(255),
+    PRIMARY KEY (id)
+);
 
-Topological data analysis studies point clouds, in which each point of the cloud represents a single piece of data. It tries to answer the question “What is the shape of the point cloud?”. It does this by allowing points of the cloud that are close together to merge, and then examining the resulting space. The features of the space that last for a long time as more and more points merge are called the persistent features, and give us a meaningful measurement of the shape of the point cloud. The result is called the Persistent Homology of the point cloud.
+CREATE TABLE orders (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    projectid int NOT NULL,
+    quantity int NOT NULL,
+    status tinyint  NOT NULL,
+    PRIMARY KEY (id)
+);
 
-Topological data analysis has been used to great effect in applications, but has seen little use in pure mathematics itself. This project will seek out applications of topological data analysis in pure mathematics. For example, persistent homology can be applied to the cloud of points in a manifold. In this case, when points that are very close together are merged, the result is an accurate picture of the topology of the manifold. But the persistent features remain to be analysed, and it is hoped that they will encode geometric properties such as volume, diameter and curvature.',
-'Richard Hepworth',
-'Mathematics',
-100,
-'https://www.findaphd.com/phds/project/applied-algebraic-topology-in-geometry/?p107822'),
-
-('Topological methods for image recognition',
-'seo',
-'Aberdeen University',
-'shortd',
-'The aim of this project is to develop mathematical algorithms for manipulating and classifying medical images. Images from medical scans are typically presented as a collection of voxels (three-dimensional analogues of pixels); one wants to develop automated algorithms to determine from the scan whether, say, an organ is diseased. An efficient way has been found recently to represent voxel images, using ideas from graph theory and topology. In this project, theoretical and practical aspects of this representation will be explored further and the algorithms will be tested on some sample data sets.',
-'Ben Martin',
-'Mathematics',
-100,
-'https://www.findaphd.com/phds/project/topological-methods-for-image-recognition/?p107826'),
-
-('Enhancing predictability in chaotic systems',
-'seo',
-'Aberdeen University',
-'shortd',
-'The goal of this research program – which involves theoretical analysis and numerical simulations -- is to apply fundamental results and recent developments (to which the supervisors significantly contributed) of dynamical system theory to enhance our ability to predict the future evolution of complex and chaotic dynamical systems -- such as weather and climate systems.
-
-Predictability is the degree to which we are able to correctly forecast the future state of a system given the (imperfect) knowledge of its present state. While our ability to accurately describe many physical systems via a deterministic set of equations may naively lead one to the impression that the future of such systems can be determined with a high predictability, this is dramatically untrue for a large class of deterministic system displaying chaos.
-
-Chaos theory is amongst the most fundamental conceptual advances in our
-understanding of the physical world, and the fact that general nonlinear dynamical systems are exponentially sensitive to initial conditions strongly constraints our ability to predict the future evolution of chaotic physical systems. Any (unavoidable) imprecision in our knowledge of the present state gets exponentially amplified in time according to the well-known largest Lyapunov exponent. It is clear that after a sufficiently long time any original uncertainty on the initial state, for how small it could be, will have been amplified out of proportion, making the predicted state completely different from the “real” one. This leaves us with a relatively short time window in which our predictions are reliable, a typical predictability timescale roughly given by the inverse of the Lyapunov exponent.
-
-Weather forecasting and climate prediction are amongst the most typical examples of this predictability shortfall. In weather forecasting, for instance, one is faced with an incomplete and noisy knowledge of the present atmospheric state and with an approximate knowledge of the fluid dynamics equations governing its evolution. These equations, as the one governing other typical complex systems, are chaotic and extremely high-dimensional. These systems are characterized by different instabilities, each one corresponding to a different uncertainty direction in configuration space and
-each one characterized by a different exponential growth rate (the so-called spectrum of Lyapunov exponents).
-Intuitively, one can hope to improve the predictability timescale by identifying these directions and controlling the evolution along specific ones.
-
-We will consider the so-called covariant Lyapunov vectors (CLVs), that
-precisely span these unstable directions (as much as the stable ones, also present in such systems). Technically speaking, CLVs are associated to LEs (in a relation that resembles the eigenvectors-eigenvalues pairing), and provide an intrinsic decomposition of the tangent space that links growth (or decay) rates of (small) perturbations to physically based directions in configuration space. They can be used to associate instabilities timescales (the inverse of LEs) to the spatial scales and spatial structures of state perturbations or uncertainties.
-
-CLVs have been recently used to study a simple multiscale systems (Lorenz 96), revealing the presence of a slow bundle in tangent space, composed by a set of vectors with a significant projection on the slow degrees of freedom; they correspond to the smallest (in absolute sense) Lyapunov exponents and thereby to the longer time scales. In this research project, we will explore how these results may find practical applications to ensemble forecasting and data assimilations in weather and climate models.',
-'Francesco Ginelli',
-'Physics',
-100,
-'https://www.findaphd.com/phds/project/enhancing-predictability-in-chaotic-systems/?p107831'),
-
-('Fast, reliable and secure wireless IoT chaos-based communication',
-'seo',
-'Aberdeen University',
-'shortd',
-'This PhD project tackles scientific issues aimed at creating and laying the mathematical foundations of an innovative Wireless IoT Communication System that is reliable (information arrives), fast and light (less power, less hardware, less computation, higher bit rates), universal (to mainly function underwater, but also appropriated to other wireless media), secure (not disclosing information to untrusted agents).
-
-This PhD project will be separated in 2 main scientific challenges. The first challenge will be to understand under which conditions and configurations chaotic signals propagating in non-ideal channels can naturally support networked underwater communication systems involving several agents. The innovation here is to extend previous works that have shown the use of chaos for communication systems involving two agents in ideal channels to networked communication in the non-ideal channel. The second challenge is focused on network communication in non-ideal channels with trusted agents, knowledge required for the creation of the IoT Communication chaos-based system proposed. In the non-ideal channel, the received signal is a composition by interference of strongly distorted signals coming from several transmitters and propagating over several paths. The goal is to show that fast and light neural networks can be trained to recover information from a unique trusted transmitter, potentially enable “smart” data analytics about the information received. Communication can be done only by the trusted agents who know specifics of the training, knowledge that will provide support for the creation of a secure IoT communication system.',
-'Murilo S. Baptista',
-'Physics',
-100,
-'https://www.findaphd.com/phds/project/fast-reliable-and-secure-wireless-iot-chaos-based-communication/?p107828')
-;
+CREATE TABLE baskets (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    projectid int,
+    quantity int,
+    PRIMARY KEY (id)
+);
