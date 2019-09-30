@@ -1,3 +1,22 @@
+CREATE TABLE projects (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    title nvarchar(255) NOT NULL,
+    seo nvarchar(255) NOT NULL,
+    institution nvarchar(255) NOT NULL,
+    shortd nvarchar(500),
+    longd nvarchar(10000),
+    contact nvarchar(255) NOT NULL,
+    category nvarchar(255) DEFAULT 'Other',
+    donation int NOT NULL DEFAULT 5,
+    goal int NOT NULL,
+    balance int DEFAULT 0,
+    pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png',
+    link nvarchar(1000),
+    isactive boolean NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+);
+
 INSERT INTO projects (title, seo, institution, shortd, longd, contact, category, goal, link)
 VALUES (
 'New calcium phosphate bone cements for potential biomaterial applications; bone repair and/or scaffold fabrication',
@@ -201,6 +220,7 @@ This work has particular relevance in today’s world with the advent of self dr
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/autonomous-learning-with-artificial-intelligence/?p109583'),
+
 ('Using CRISPR genome editing to determine the effects of obesity and hypertension associated polymorphisms',
 'seo',
 'Aberdeen University',
@@ -247,7 +267,7 @@ The ideal study design to investigate prognosis in PD is the long-term follow-up
 'D. McLernon',
 'Biology',
 100,
-'https://www.findaphd.com/phds/project/dynamic-prediction-modelling-in-parkinson-s-disease/?p105979')
+'https://www.findaphd.com/phds/project/dynamic-prediction-modelling-in-parkinson-s-disease/?p105979'),
 
 ('Compressed learning and analytics at edge cloud',
 'seo',
@@ -261,7 +281,7 @@ Our group operates at the intersection of theory and implementation of communica
 'Daniel Enrique Lucani Rötter',
 'Computer Science',
 100,
-'https://www.findaphd.com/phds/project/compressed-learning-and-analytics-at-edge-cloud/?p112116')
+'https://www.findaphd.com/phds/project/compressed-learning-and-analytics-at-edge-cloud/?p112116'),
 
 ('Accountable autonomy of software agents',
 'seo',
@@ -271,7 +291,7 @@ Our group operates at the intersection of theory and implementation of communica
 'W. Vasoncelos',
 'Computer Science',
 100,
-'https://www.findaphd.com/phds/project/accountable-autonomy-of-software-agents/?p107816')
+'https://www.findaphd.com/phds/project/accountable-autonomy-of-software-agents/?p107816'),
 
 ('Complex Norm Synthesis via Deep Learning',
 'seo',
@@ -488,5 +508,9 @@ In this project, the successful candidate, in collaboration with supervisors and
 'Keith Burnham',
 'Engineering',
 100,
-'https://www.findaphd.com/phds/project/simulation-and-modelling-of-innovative-mobility-services/?p111502')
-;
+'https://www.findaphd.com/phds/project/simulation-and-modelling-of-innovative-mobility-services/?p111502');
+
+UPDATE projects
+SET `shortd`=''
+WHERE `shortd`='shortd';
+
