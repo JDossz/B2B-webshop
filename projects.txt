@@ -39,9 +39,10 @@ The focus of the project, therefore, is to synthesise and control the doping of 
 'Chemistry',
 100,
 'https://www.findaphd.com/phds/project/new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication/?p107807'),
+
 ('Boundary Effects in Active Matter Systems',
 'seo',
-'Aberdeen University,
+'Aberdeen University',
 'shortd',
 'The study of collective properties of active matter is a fast-emerging interdisciplinary research field. Collections of interacting active particles describe the collective motion - or “flocking” - observed in systems as diverse as vertebrate groups - bird flocks, fish schools, mammal herds -, insect swarms, colonies of bacteria, molecular motors, as well as driven granular matter.
 
@@ -67,9 +68,10 @@ In this project, we will study the effects that both free and hard boundaries ha
 'Physics',
 100,
 'https://www.findaphd.com/phds/project/boundary-effects-in-active-matter-systems/?p107830'),
+
 ('How to make molecular machines: modelling ribosome biogenesis',
 'seo',
-'Aberdeen University,
+'Aberdeen University',
 'shortd',
 'Ribosomes are arguably the most important biological molecular machines.
 
@@ -80,6 +82,7 @@ The main aim of this project is to develop a mathematical model of ribosome biog
 'Physics',
 100,
 'https://www.findaphd.com/phds/project/how-to-make-molecular-machines-modelling-ribosome-biogenesis/?p107836'),
+
 ('Modelling the deformation of cells',
 'seo',
 'Aberdeen University',
@@ -108,6 +111,7 @@ For example, the geographical spread of infectious disease is generally insuffic
 'Physics',
 100,
 'https://www.findaphd.com/phds/project/modelling-the-deformation-of-cells/?p107835'),
+
 ('Noisy translation: modelling of stochastic effects on protein production',
 'seo',
 'Aberdeen University',
@@ -122,6 +126,7 @@ In particular, we will focus on stochastic effects of the process of translation
 'Physics',
 100,
 'https://www.findaphd.com/phds/project/noisy-translation-modelling-of-stochastic-effects-on-protein-production/?p107837'),
+
 ('Statistical physics of DNA replication',
 'seo',
 'Aberdeen University',
@@ -133,6 +138,7 @@ The replication of DNA is executed by molecular machines called DNA polymerase, 
 'Physics',
 100,
 'https://www.findaphd.com/phds/project/statistical-physics-of-dna-replication/?p107833'),
+
 ('The mathematics behind the smartness of neural networks',
 'seo',
 'Aberdeen University',
@@ -142,6 +148,7 @@ The replication of DNA is executed by molecular machines called DNA polymerase, 
 'Physics',
 100,
 'https://www.findaphd.com/phds/project/the-mathematics-behind-the-smartness-of-neural-networks/?p107829'),
+
 ('Ecology of Dynamic Seasonal Salt Lakes',
 'seo',
 'Aberdeen University',
@@ -153,6 +160,7 @@ The project will involve both fieldwork, as well as lab work and statistical mod
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/ecology-of-dynamic-seasonal-salt-lakes/?p111116'),
+
 ('Fostering Sustainability Through Organic Waste Re-Use in Sub Saharan Africa',
 'seo',
 'Aberdeen University',
@@ -184,6 +192,7 @@ The student will gain training in
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/fostering-sustainability-through-organic-waste-re-use-in-sub-saharan-africa/?p111119'),
+
 ('Supporting Healthy Honey Bees Against Varroa and Viruses: a Scientific Understanding for Practical Solutions',
 'seo',
 'Aberdeen University',
@@ -194,6 +203,7 @@ The project investigates the underlying reasons for poor honey bee health and wh
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/supporting-healthy-honey-bees-against-varroa-and-viruses-a-scientific-understanding-for-practical-solutions/?p111113'),
+
 ('Images in the medical and life sciences',
 'seo',
 'Aberdeen University',
@@ -205,6 +215,7 @@ An interdisciplinary approach to this topic is welcome, e.g. by combining philos
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/images-in-the-medical-and-life-sciences/?p110978'),
+
 ('Autonomous learning with Artificial Intelligence',
 'seo',
 'Aberdeen University',
@@ -231,6 +242,7 @@ Methods. The successful student candidate will test the effects of removing enha
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/using-crispr-genome-editing-to-determine-the-effects-of-obesity-and-hypertension-associated-polymorphisms/?p105977'),
+
 ('A 3D in vitro model of wound healing incorporating skin, nerves and immune cells',
 'seo',
 'Aberdeen University',
@@ -246,6 +258,7 @@ Impact: This model will expedite preclinical testing of new therapies for recalc
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/a-3d-in-vitro-model-of-wound-healing-incorporating-skin-nerves-and-immune-cells/?p105982'),
+
 ('Dynamic prediction modelling in Parkinson’s disease',
 'seo',
 'Aberdeen University',
@@ -261,10 +274,6 @@ The ideal study design to investigate prognosis in PD is the long-term follow-up
 'Biology',
 100,
 'https://www.findaphd.com/phds/project/dynamic-prediction-modelling-in-parkinson-s-disease/?p105979');
-
-
-
-
 
 
 
