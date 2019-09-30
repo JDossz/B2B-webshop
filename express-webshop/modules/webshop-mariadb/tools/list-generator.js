@@ -43,7 +43,15 @@ module.exports = class ListGenerator {
     this._emptyList();
     this._initData(data);
     this.dataKeys.forEach((key) => {
-      if (key !== 'id') {
+      if (key === 'id') {
+        continue;
+      }
+      if (key === 'username' || key === 'password') {
+        if (this.list !== '') {
+          this.list = this.list.concat(', ');
+        }
+        this.list = this.list.concat(`SHA1(${this._apostropheByType(key)})`);
+      } else {
         if (this.list !== '') {
           this.list = this.list.concat(', ');
         }

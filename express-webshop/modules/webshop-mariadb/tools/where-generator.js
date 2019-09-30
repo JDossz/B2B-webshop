@@ -26,8 +26,13 @@ module.exports = class WhereGenerator {
         this.whereString = this.whereString
           .concat(' AND ');
       }
-      this.whereString = this.whereString
-        .concat(`${key} = ${this._apostropheByType(this.query[key])}`);
+      if (key === 'password' || key === 'username') {
+        this.whereString = this.whereString
+          .concat(`${key} = SHA1(${this._apostropheByType(this.query[key])})`);
+      } else {
+        this.whereString = this.whereString
+          .concat(`${key} = ${this._apostropheByType(this.query[key])}`);
+      }
     });
   }
 
