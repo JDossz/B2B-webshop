@@ -30,7 +30,7 @@
           <td>{{user.address}}</td>
           <td>
             <div class="btn-group">
-              <a class="btn btn-info" [routerLink]="['/users', user.id]">Edit</a>
+              <a class="btn btn-info" routerLink="/users/{{user.id}}">Edit</a>
               <a class="btn btn-danger" (click)="onDelete(user.id)">Delete</a>
             </div>
           </td>

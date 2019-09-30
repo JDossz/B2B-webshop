@@ -11,17 +11,24 @@ import { Router } from '@angular/router';
 })
 export class ProjectsComponent implements OnInit {
   projects: BehaviorSubject<any> = this.ds.projectList;
-  constructor(private ds: DataService,private router:Router) {
-    this.ds.readTableByQuery('projects', {})
+  constructor(private ds: DataService) {
+    this.ds.readTableByQuery('projects', {'isactive': 1 })
   }
-  onDelete(seo:string): void {
+  onDelete(seo: string): void {
     this.ds.updateRecordByQuery('projects', { 'seo': seo }, { 'isactive': 0 }).subscribe(
-      () => this.ds.readTableByQuery('projects', {})
+      () => this.ds.readTableByQuery('projects', { 'isactive': 1 })
     )
   }
 
   ngOnInit() {
-    this.ds.readTableByQuery('projects', {});
+    this.ds.readTableByQuery('projects', {'isactive': 1 });
+  }
+  readAll() {
+    this.ds.readTableByQuery('projects', {})
   }
 
+  readActive() {
+    this.ds.readTableByQuery('projects', {'isactive': 1 });
+
+  }
 }

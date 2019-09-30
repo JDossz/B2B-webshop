@@ -136,6 +136,25 @@ module.exports = class BetagDB {
     return result;
   }
 
+  async readRecordWithLike(req) {
+    const sql = `
+    SELECT *
+    FROM projects
+    WHERE title LIKE '%${req.query.search}%'`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+  
+  async readProjectsByCategory(category) {
+    const sql = `
+    SELECT *
+    FROM projects
+    INNER JOIN categories
+    ON projects.categoryid=categories.id
+    WHERE category='${category}'`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
   // async getBasketData(userId) {
   //   let sql = `
   //   SELECT *

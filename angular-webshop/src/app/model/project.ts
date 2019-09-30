@@ -1,13 +1,12 @@
 export class Project {
   id: number;
-  insdate?: Date;
   title: string;
   seo: string;
   institution: string;
   shortd: string;
   longd: string;
   contact: string;
-  category: string;
+  categoryid: string;
   donation: number;
   goal: number;
   balance: number;

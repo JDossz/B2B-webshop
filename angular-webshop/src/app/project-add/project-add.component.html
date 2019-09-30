@@ -8,7 +8,7 @@
             id="title" [(ngModel)]="newProject.title" required>
         </div>
         <label for="seo">Seo</label>
-        <input type="text" placeholder="Seo" class="form-control" (keyup)="onKey($event)" name="newProject.seo" id="seo"
+        <input type="text" placeholder="Seo" class="form-control" name="newProject.seo" id="seo"
           [(ngModel)]="newProject.seo" required>
         <div class="form-group">
           <label for="institution">Institution</label>
@@ -31,9 +31,9 @@
             placeholder="Contact" required>
         </div>
         <div class="form-group">
-          <label for="category">Category</label>
-          <input type="text" class="form-control" id="category" name="project.category"
-            [(ngModel)]="newProject.category" placeholder="Category" required>
+          <label for="category">CategoryID</label>
+          <input type="text" class="form-control" id="category" name="project.categoryid"
+            [(ngModel)]="newProject.categoryid" placeholder="Category" required>
         </div>
         <div class="form-group">
           <label for="donation">Donation</label>
