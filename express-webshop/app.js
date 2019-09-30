@@ -7,7 +7,7 @@ const MariaDB = require('./modules/webshop-mariadb');
 
 const database = new MariaDB();
 const api = require('./routes/api');
-const basket = require('./routes/basket');
+const basketRouter = require('./routes/basket');
 const indexRouter = require('./routes/index');
 const ordersRouter = require('./routes/orders');
 const projectsRouter = require('./routes/projects');
@@ -46,7 +46,7 @@ app.use(async (req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/api', api);
-app.use('/basket', basket);
+app.use('/basket', basketRouter);
 app.use('/login', loginRouter);
 app.use('/orders', ordersRouter);
 app.use('/projects', projectsRouter);
