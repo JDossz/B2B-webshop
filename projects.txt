@@ -449,5 +449,44 @@ We would like our interactive systems to offer fulfilling experiences to people 
 'P. Cairns',
 'Computer Science',
 100,
-'https://www.findaphd.com/phds/project/understanding-player-experience-in-digital-games/?p112082')
+'https://www.findaphd.com/phds/project/understanding-player-experience-in-digital-games/?p112082'),
+
+('3D Shape Modelling of the Human Head',
+'seo',
+'University of York',
+'shortd',
+'Research areas: Computer Vision and Image Processing; Machine learning
+
+The proposed PhD project is concerned with the mathematical and computational modelling of human craniofacial 3D form and variation and its clinical application in craniofacial surgery. The work sits in the research areas of Computer Vision and Machine Learning.
+We wish to accurately, reliably and automatically parameterise craniofacial surfaces in children and adults. This will allow us to compare two head surface scans (eg. pre- and post-operative), since current automatic labelling of various head parts is poor and manual annotation is difficult, inaccurate and time-consuming. We aim to develop state-of-the-art automatic landmarking algorithms and shape modelling processes using Machine Learning techniques. The models will allow us to morph the head shape of syndromic patients to unwind the dysmorphia and see what they should look like without the genetic condition (e.g. Apert syndrome), thus providing target shapes for operations.
+
+1) Health technologies priority area.
+The proposed project matches to the EPSRC DTA strategic Health Technologies priority area. The work will be used to develop software tools to aid craniofacial clinicians plan, conduct and assess reconstructive craniofacial interventions.
+
+2) University and Department Research Strategy
+This work aligns with three research themes identified as areas of research excellence by the University: (i) Health and Wellbeing, clearly successsful work in this area will be of great benefit to craniofacial patients and their families in the UK, and more widely; (ii) Risk, Evidence and Decision Making, our software tools will allow craniofacial surgeons to support their planning and decision making with quantitative data around model-generated population norms and variances, this is currently completely lacking, and (iii) Technologies for the Future, our models will be developed using Machine Learning (ML) techniques, which have been identified by the Royal Society as a breakthrough technology that will transform our future. The CS Department is active in ML across at least three research groups (AI, CVPR, ACAG).
+
+3) Building on existing research.
+There is currently one CS PhD student working in this area Hang Dai. He is working on the initial modelling of the Alder Hey Headspace 3D datset of over 1500 3D images. This is the largest, wide demographic dataset of full head (including full cranium) and hence we have a unique opportunity to be first to develop statistical models of the full human head surface. There is far more work to be done than a single PhD and a follow-on PhD will significantly strenghthen our capability and impact in this area.
+
+4) Collaboration with other Departments.
+In terms of 3D face and head modelling, we are collaborating with Prof Paul O’Higgins at the Hull-York Medical School and Dr Rob Jenkins in Psychology. We aim to submit research proposals to augment PhD work with RA-based development. We have a strong collaboration with the Craniofacial Department at Alder Hey Children’s Hospital Liverpool.',
+'N. Pears',
+'Computer Science',
+100,
+'https://www.findaphd.com/phds/project/3d-shape-modelling-of-the-human-head/?p112101'),
+
+('Simulation and modelling of innovative mobility services',
+'seo',
+'University of Wolverhampton',
+'shortd',
+'Modern transportation systems require the utilisation of simulation and modelling approaches for evaluation and impact assessment prior to their deployment. Although such approaches exist for conventional mobility services and infrastructure, innovative services, concepts and technologies (e.g. drive-sharing, ride-sharing, crowd shipping, crowd delivery, connected and automated vehicles, Mobility as a Service) need tools that will allow decision makers to understand better their impact on sustainable development.
+
+The aforementioned tools entail an integrated approach for modelling transport supply and demand, as well as the harnessing of data from Intelligent Transport Systems (ITS) applications. Therefore, a combination of a multi-agent system architecture coupled with big data and machine learning analytics needs to be realised.
+
+In this project, the successful candidate, in collaboration with supervisors and peer researchers will work towards the development of models that can be used for the simulation of modern mobility services in urban areas. The developed models will be integrated to form a simulated and control environment that will interact with real-world ITS through a big-data processing platform. It will allow the assessment of different scenarios of mobility services and have the capacity to produce key performance indicators for decision makers.',
+'Keith Burnham',
+'Engineering',
+100,
+'https://www.findaphd.com/phds/project/simulation-and-modelling-of-innovative-mobility-services/?p111502')
 ;

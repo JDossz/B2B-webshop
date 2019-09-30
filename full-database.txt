@@ -330,7 +330,187 @@ Of particular interest are compositions that are constructed via similarity, To 
 'William Turner',
 'Mathematics',
 100,
-'https://www.findaphd.com/phds/project/algebraic-methods-in-musical-composition/?p107827');
+'https://www.findaphd.com/phds/project/algebraic-methods-in-musical-composition/?p107827'),
+
+('Applied Algebraic Topology in Geometry',
+'seo',
+'Aberdeen University',
+'Persistent homology is a very computational subject, and there are many programming tools for the study of persistent homology. This project offers an opportunity to learn and apply some of these tools, especially in the study of specific examples.',
+'In recent years the techniques of algebraic topology have been applied to data analysis with great success, and the resulting subject areas of Applied Algebraic Topology and Topological Data Analysis have seen rapid growth. This project will apply these new techniques to pure mathematics itself, in order to study geometric objects.
+
+Topological data analysis studies point clouds, in which each point of the cloud represents a single piece of data. It tries to answer the question “What is the shape of the point cloud?”. It does this by allowing points of the cloud that are close together to merge, and then examining the resulting space. The features of the space that last for a long time as more and more points merge are called the persistent features, and give us a meaningful measurement of the shape of the point cloud. The result is called the Persistent Homology of the point cloud.
+
+Topological data analysis has been used to great effect in applications, but has seen little use in pure mathematics itself. This project will seek out applications of topological data analysis in pure mathematics. For example, persistent homology can be applied to the cloud of points in a manifold. In this case, when points that are very close together are merged, the result is an accurate picture of the topology of the manifold. But the persistent features remain to be analysed, and it is hoped that they will encode geometric properties such as volume, diameter and curvature.',
+'Richard Hepworth',
+'Mathematics',
+100,
+'https://www.findaphd.com/phds/project/applied-algebraic-topology-in-geometry/?p107822'),
+
+('Topological methods for image recognition',
+'seo',
+'Aberdeen University',
+'shortd',
+'The aim of this project is to develop mathematical algorithms for manipulating and classifying medical images. Images from medical scans are typically presented as a collection of voxels (three-dimensional analogues of pixels); one wants to develop automated algorithms to determine from the scan whether, say, an organ is diseased. An efficient way has been found recently to represent voxel images, using ideas from graph theory and topology. In this project, theoretical and practical aspects of this representation will be explored further and the algorithms will be tested on some sample data sets.',
+'Ben Martin',
+'Mathematics',
+100,
+'https://www.findaphd.com/phds/project/topological-methods-for-image-recognition/?p107826'),
+
+('Enhancing predictability in chaotic systems',
+'seo',
+'Aberdeen University',
+'shortd',
+'The goal of this research program – which involves theoretical analysis and numerical simulations -- is to apply fundamental results and recent developments (to which the supervisors significantly contributed) of dynamical system theory to enhance our ability to predict the future evolution of complex and chaotic dynamical systems -- such as weather and climate systems.
+
+Predictability is the degree to which we are able to correctly forecast the future state of a system given the (imperfect) knowledge of its present state. While our ability to accurately describe many physical systems via a deterministic set of equations may naively lead one to the impression that the future of such systems can be determined with a high predictability, this is dramatically untrue for a large class of deterministic system displaying chaos.
+
+Chaos theory is amongst the most fundamental conceptual advances in our
+understanding of the physical world, and the fact that general nonlinear dynamical systems are exponentially sensitive to initial conditions strongly constraints our ability to predict the future evolution of chaotic physical systems. Any (unavoidable) imprecision in our knowledge of the present state gets exponentially amplified in time according to the well-known largest Lyapunov exponent. It is clear that after a sufficiently long time any original uncertainty on the initial state, for how small it could be, will have been amplified out of proportion, making the predicted state completely different from the “real” one. This leaves us with a relatively short time window in which our predictions are reliable, a typical predictability timescale roughly given by the inverse of the Lyapunov exponent.
+
+Weather forecasting and climate prediction are amongst the most typical examples of this predictability shortfall. In weather forecasting, for instance, one is faced with an incomplete and noisy knowledge of the present atmospheric state and with an approximate knowledge of the fluid dynamics equations governing its evolution. These equations, as the one governing other typical complex systems, are chaotic and extremely high-dimensional. These systems are characterized by different instabilities, each one corresponding to a different uncertainty direction in configuration space and
+each one characterized by a different exponential growth rate (the so-called spectrum of Lyapunov exponents).
+Intuitively, one can hope to improve the predictability timescale by identifying these directions and controlling the evolution along specific ones.
+
+We will consider the so-called covariant Lyapunov vectors (CLVs), that
+precisely span these unstable directions (as much as the stable ones, also present in such systems). Technically speaking, CLVs are associated to LEs (in a relation that resembles the eigenvectors-eigenvalues pairing), and provide an intrinsic decomposition of the tangent space that links growth (or decay) rates of (small) perturbations to physically based directions in configuration space. They can be used to associate instabilities timescales (the inverse of LEs) to the spatial scales and spatial structures of state perturbations or uncertainties.
+
+CLVs have been recently used to study a simple multiscale systems (Lorenz 96), revealing the presence of a slow bundle in tangent space, composed by a set of vectors with a significant projection on the slow degrees of freedom; they correspond to the smallest (in absolute sense) Lyapunov exponents and thereby to the longer time scales. In this research project, we will explore how these results may find practical applications to ensemble forecasting and data assimilations in weather and climate models.',
+'Francesco Ginelli',
+'Physics',
+100,
+'https://www.findaphd.com/phds/project/enhancing-predictability-in-chaotic-systems/?p107831'),
+
+('Fast, reliable and secure wireless IoT chaos-based communication',
+'seo',
+'Aberdeen University',
+'shortd',
+'This PhD project tackles scientific issues aimed at creating and laying the mathematical foundations of an innovative Wireless IoT Communication System that is reliable (information arrives), fast and light (less power, less hardware, less computation, higher bit rates), universal (to mainly function underwater, but also appropriated to other wireless media), secure (not disclosing information to untrusted agents).
+
+This PhD project will be separated in 2 main scientific challenges. The first challenge will be to understand under which conditions and configurations chaotic signals propagating in non-ideal channels can naturally support networked underwater communication systems involving several agents. The innovation here is to extend previous works that have shown the use of chaos for communication systems involving two agents in ideal channels to networked communication in the non-ideal channel. The second challenge is focused on network communication in non-ideal channels with trusted agents, knowledge required for the creation of the IoT Communication chaos-based system proposed. In the non-ideal channel, the received signal is a composition by interference of strongly distorted signals coming from several transmitters and propagating over several paths. The goal is to show that fast and light neural networks can be trained to recover information from a unique trusted transmitter, potentially enable “smart” data analytics about the information received. Communication can be done only by the trusted agents who know specifics of the training, knowledge that will provide support for the creation of a secure IoT communication system.',
+'Murilo S. Baptista',
+'Physics',
+100,
+'https://www.findaphd.com/phds/project/fast-reliable-and-secure-wireless-iot-chaos-based-communication/?p107828'),
+
+('Research on Exoskeleton Control System based on Brain-Computer Interface',
+'seo',
+'Xi’an Jiaotong-Liverpool University',
+'shortd',
+'To ensure the safe and reliable operation of exoskeleton, the control system based on brain-computer interface is the premise and foundation, which has been discussed in literature. However, no effective solutions are provided for closed-loop control of the exoskeleton system at present. This project proposes a novel convolutional-recurrent neural network method to realize real-time identification of motor imagery signals, and achieves closed-loop control of the exoskeleton system with multi-mode physiological signals based on EEG data and human-machine interaction forces. The proposed method will be validated by simulation and experiment study with a prototype of rehabilitation exoskeleton. The research results will provide theoretical and technical support for improving the safe and reliable exoskeleton control, and show practical significance and engineering value in the research and development of intelligent exoskeleton with application in rehabilitation and other fields.',
+'Mengjie Huang',
+'Computer Science',
+100,
+'https://www.findaphd.com/phds/project/research-on-exoskeleton-control-system-based-on-brain-computer-interface/?p111740'),
+
+('Discovery and characterisation of new antibiotics from uncultivated microbes',
+'seo',
+'Victoria University of Wellington',
+'shortd',
+'Recent developments in DNA sequencing technology have greatly enriched our understanding of the microbial world. By directly sequencing DNA extracted from communities of environmental microbes, we have been able to observe a hidden majority of microbial species that cannot be readily grown in the laboratory. We now know that the soil beneath our feet, and the oceans that surround us are home to a far greater diversity of microbial species than we had previously imagined. In the case of soil, just a single gram can contain more than 10,000 unique bacterial species, the vast majority of which have never been cultivated in a laboratory. Many of these uncultivated microbes harbor the potential to produce as yet unknown chemical entities that they use to kill competing species in their environments. We are surrounded by new antibiotics that are waiting to be discovered with the right approach.
+
+This project will use DNA sequencing and synthetic biology to explore the biochemistry of New Zealand’s uncultivated microbes. By extracting DNA directly from complex microbial communities and storing this as a library of cloned fragments, one can directly access the genes that act as blueprints for producing novel chemical entities, without being limited by the need to cultivate the host bacteria. Delivering these instruction sets to a laboratory host that is able to read and execute them, allows generation diverse collections of new biologically active small molecules that have the potential to be developed into medicines. A particular focus of this research will be the discovery new lead compounds in the fight against antibiotic resistant superbugs.',
+'Jeremy Owen',
+'Biology',
+100,
+'https://www.findaphd.com/phds/project/discovery-and-characterisation-of-new-antibiotics-from-uncultivated-microbes/?p82272'),
+
+('Digital Modeling of Asynchronous Integrated Circuits',
+'seo',
+'Vienna University of Technology',
+'shortd',
+'The project Digital Modeling of Asynchronous Integrated Circuits (DMAC) is devoted to the development of a purely digital model for asynchronous circuits, which enables accurate and fast dynamic timing analysis and is a mandatory prerequisite for any attempt on practical formal verification of such designs. The envisioned model shall be accurate and realistic (= faithful), in the sense that the behavior of circuits described in the model is exactly, i.e., within the modeling accuracy, the same as the behavior of the corresponding real circuit. In contrast to analog models, which are known to be faithful but suffer from excessive simulation times, we target continuous-time discrete-value models here, which essentially boil down to elaborate delay models for gates and/or interconnecting channels.
+
+The project builds on our novel involution model, which considers input-to-output delays as as function of the history in the signal trace. DMAC will fully explore this avenue scientifically, by answering questions such as how to enlarge the class of circuits where the involution model and variants thereof are faithful, how to compose gates with different electrical properties, in particular, different threshold voltage levels, how to accurately model subtle delay variation originating in the Charlie effect in multi-input gates, how to parametrize and characterize the model for a given technology and given operating conditions, and how to possibly further improve the modeling coverage and accuracy. In addition, we will also make the first steps to incorporate our models into existing timing analysis and verification tools for validation purposes.
+
+Keywords: Digital integrated circuits, continuous-time delay modeling, dynamic timing analysis, model composition, correctness proofs, formal verification.
+
+Project duration: 2019-2023',
+'Ulrich Schmid',
+'Engineering',
+100,
+'https://www.findaphd.com/phds/project/digital-modeling-of-asynchronous-integrated-circuits/?p112155'),
+
+('Construction of QSAR models for searching multi-target drug hits beyond similarity-based applicability domains',
+'seo',
+'Xi’an Jiaotong-Liverpool University',
+'shortd',
+'Drugs designed to act against individual molecular targets cannot usually combat multigenic diseases such as cancers in which alternative or compensatory pathways are often activated. Thus, selection of proper multi-target combinations and prediction of new molecules against multi-targets are highly useful for discovering drugs with improved therapeutic efficacies. In silico methods have been extensively explored for the discovery of multi-target drugs. Apart from drug lead optimization, predictive quantitative structure-activity relationship (QSAR) models with well-defined applicability domains (ADs) have shown promising capability in virtual screening large chemical databases for drug candidate selection. However, these models are impeded by their inability in finding highly novel drug hits outside similarity-based ADs. The current project aims to develop an extended QSAR approach via chemspace-wide activity regression which can serve as an effective novel approach for finding novel drug hits outside the similarity-based ADs.',
+'Xin Liu',
+'Biology',
+100,
+'https://www.findaphd.com/phds/project/construction-of-qsar-models-for-searching-multi-target-drug-hits-beyond-similarity-based-applicability-domains/?p111733'),
+
+('Tractable situation coverage for autonomous cars',
+'seo',
+'University of York',
+'In this PhD project, we could:
+
+• Design and justify a situation space model for an autonomous car
+• Implement situation generation (in simulation) based on that
+• Evaluate how effective the resulting testing is at finding seeded faults in a simulated autonomous vehicle',
+'Research areas: Autonomous and self-adaptive systems; Safety analysis, system safety; Safety of autonomous and self-adaptive systems; Software testing
+
+It is hard to test autonomous robot (AR) software because of the range and diversity of external situations (terrain, obstacles, humans, peer robots) that the robots must deal with. AR must interpret a wide variety of stimuli from their world and make decisions that are appropriate given the specific combination of stimuli they are receiving – their relationship with their environment is complex. Many features of the environment that matter are not specific to the mission goals – they are simply present, and must be handled. Beyond merely needing to avoid accidents, AR may need to comply with detailed-yet-ambiguous rules intended to guide human behaviour (such as the UK Highway Code and Rules of the Air).
+
+Situation coverage as a potentially important technique for testing AR. Put simply, situation coverage is a measure of the proportion of all possible situations (that the software under test could conceivably encounter) that have been tested by some test set. Like any coverage criterion, situation coverage can be used to assess the adequacy of a test set, and to guide automated test generation.
+
+There are some existing models of situation spaces for 3D scenes. To date, however, no-one has published a tractable and interesting situation space model for an autonomous vehicle.',
+'Rob Alexander',
+'Computer Science',
+100,
+'https://www.findaphd.com/phds/project/tractable-situation-coverage-for-autonomous-cars/?p111960'),
+
+('Understanding player experience in digital games',
+'seo',
+'University of York',
+'shortd',
+'Research areas: Digital games; Player experience and user experience
+
+We would like our interactive systems to offer fulfilling experiences to people but often they don’t. By contrast, games offer compelling experiences to millions of players every day but we know little about what precisely those experiences are and how games provoke them. I am interested in a range of aspects of player experience including immersion, social presence and engagement in games. When we understand what is happening in games, we may be in a better position to understand experiences in other interactive systems.',
+'P. Cairns',
+'Computer Science',
+100,
+'https://www.findaphd.com/phds/project/understanding-player-experience-in-digital-games/?p112082'),
+
+('3D Shape Modelling of the Human Head',
+'seo',
+'University of York',
+'shortd',
+'Research areas: Computer Vision and Image Processing; Machine learning
+
+The proposed PhD project is concerned with the mathematical and computational modelling of human craniofacial 3D form and variation and its clinical application in craniofacial surgery. The work sits in the research areas of Computer Vision and Machine Learning.
+We wish to accurately, reliably and automatically parameterise craniofacial surfaces in children and adults. This will allow us to compare two head surface scans (eg. pre- and post-operative), since current automatic labelling of various head parts is poor and manual annotation is difficult, inaccurate and time-consuming. We aim to develop state-of-the-art automatic landmarking algorithms and shape modelling processes using Machine Learning techniques. The models will allow us to morph the head shape of syndromic patients to unwind the dysmorphia and see what they should look like without the genetic condition (e.g. Apert syndrome), thus providing target shapes for operations.
+
+1) Health technologies priority area.
+The proposed project matches to the EPSRC DTA strategic Health Technologies priority area. The work will be used to develop software tools to aid craniofacial clinicians plan, conduct and assess reconstructive craniofacial interventions.
+
+2) University and Department Research Strategy
+This work aligns with three research themes identified as areas of research excellence by the University: (i) Health and Wellbeing, clearly successsful work in this area will be of great benefit to craniofacial patients and their families in the UK, and more widely; (ii) Risk, Evidence and Decision Making, our software tools will allow craniofacial surgeons to support their planning and decision making with quantitative data around model-generated population norms and variances, this is currently completely lacking, and (iii) Technologies for the Future, our models will be developed using Machine Learning (ML) techniques, which have been identified by the Royal Society as a breakthrough technology that will transform our future. The CS Department is active in ML across at least three research groups (AI, CVPR, ACAG).
+
+3) Building on existing research.
+There is currently one CS PhD student working in this area Hang Dai. He is working on the initial modelling of the Alder Hey Headspace 3D datset of over 1500 3D images. This is the largest, wide demographic dataset of full head (including full cranium) and hence we have a unique opportunity to be first to develop statistical models of the full human head surface. There is far more work to be done than a single PhD and a follow-on PhD will significantly strenghthen our capability and impact in this area.
+
+4) Collaboration with other Departments.
+In terms of 3D face and head modelling, we are collaborating with Prof Paul O’Higgins at the Hull-York Medical School and Dr Rob Jenkins in Psychology. We aim to submit research proposals to augment PhD work with RA-based development. We have a strong collaboration with the Craniofacial Department at Alder Hey Children’s Hospital Liverpool.',
+'N. Pears',
+'Computer Science',
+100,
+'https://www.findaphd.com/phds/project/3d-shape-modelling-of-the-human-head/?p112101'),
+
+('Simulation and modelling of innovative mobility services',
+'seo',
+'University of Wolverhampton',
+'shortd',
+'Modern transportation systems require the utilisation of simulation and modelling approaches for evaluation and impact assessment prior to their deployment. Although such approaches exist for conventional mobility services and infrastructure, innovative services, concepts and technologies (e.g. drive-sharing, ride-sharing, crowd shipping, crowd delivery, connected and automated vehicles, Mobility as a Service) need tools that will allow decision makers to understand better their impact on sustainable development.
+
+The aforementioned tools entail an integrated approach for modelling transport supply and demand, as well as the harnessing of data from Intelligent Transport Systems (ITS) applications. Therefore, a combination of a multi-agent system architecture coupled with big data and machine learning analytics needs to be realised.
+
+In this project, the successful candidate, in collaboration with supervisors and peer researchers will work towards the development of models that can be used for the simulation of modern mobility services in urban areas. The developed models will be integrated to form a simulated and control environment that will interact with real-world ITS through a big-data processing platform. It will allow the assessment of different scenarios of mobility services and have the capacity to produce key performance indicators for decision makers.',
+'Keith Burnham',
+'Engineering',
+100,
+'https://www.findaphd.com/phds/project/simulation-and-modelling-of-innovative-mobility-services/?p111502')
+;
 
 CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
