@@ -33,15 +33,34 @@ router.get('/empty/:userid', async (req, res) => {
   res.redirect('/baskets');
 });
 
-// post a projekt details oldalról
+// post a project details oldalról
 router.post('/:id', async (req, res) => {
-  await database.createRecord('baskets', {
+  let quantity = await database.readRecord('baskets', {
+    userid: req.user.id,
     projectid: req.params.id,
-    userid: req.user.id || 0,
-    quantity: 1,
+    from: 'INNER JOIN projects ON projects.id = baskets.projectid',
+    select: 'baskets.quantity as quantity',
   });
+
+  if (quantity[0] === undefined) {
+    await database.createRecord('baskets', {
+      projectid: req.params.id,
+      userid: req.user.id || 0,
+      quantity: 1,
+    });
+
+  } else {
+    let incrementedQuantity = quantity[0].quantity + 1;
+    await database.updateRecord('baskets', {
+      projectid: req.params.id,
+      userid: req.user.id || 0,
+    }, {
+      quantity: incrementedQuantity
+    });
+  }
   res.redirect('/baskets');
 });
+
 
 router.post('/updateDel/:id', async (req, res) => {
   let quantity = await database.readRecord('baskets', {
@@ -56,7 +75,7 @@ router.post('/updateDel/:id', async (req, res) => {
   await database.updateRecord('baskets', {
     id: req.params.id
   }, {
-    quantity: decrementedQuantity
+    quantity: decrementedQuantity,
   });
   res.redirect('/baskets');
 });
@@ -65,11 +84,12 @@ router.post('/updateAdd/:id', async (req, res) => {
   let quantity = await database.readRecord('baskets', {
     id: req.params.id
   });
-  let decrementedQuantity = quantity[0].quantity + 1;
+  // console.log(quantity)
+  let incrementedQuantity = quantity[0].quantity + 1;
   await database.updateRecord('baskets', {
     id: req.params.id
   }, {
-    quantity: decrementedQuantity
+    quantity: incrementedQuantity
   });
   res.redirect('/baskets');
 });
