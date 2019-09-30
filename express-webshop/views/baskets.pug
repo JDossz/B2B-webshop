@@ -16,11 +16,11 @@ block content
             td #{item.title}
             td #{item.donation}
             td #{item.quantity} 
-              form(action=`baskets/update/${item.pid}` method="POST")
-                button.btn-block.btn.btn-info(href=update) Add
+              form(action=`/baskets/updateAdd/${item.id}` method="POST")
+                button.btn-block.btn.btn-info Add
             td
-              - let del = `baskets/del/${item.id}`
-              a.btn.btn-danger(href=del) Delete One        
+              form(action=`/baskets/updateDel/${item.id}` method="POST")
+                button.btn-block.btn.btn-danger Del       
     div
       p Total: #{totalPrice}
       - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
