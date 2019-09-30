@@ -109,7 +109,7 @@ router.post('/:id', async (req, res) => {
     await database.createRecord('baskets', {
       projectid: req.params.id,
       userid: req.user.id || 0,
-      quantity: req.body.projectQuantity,
+      quantity: req.body.projectQuantity || 1,
     });
   } else {
     let incrementedQuantity = quantity[0].quantity + parseInt(req.body.projectQuantity, 10);
