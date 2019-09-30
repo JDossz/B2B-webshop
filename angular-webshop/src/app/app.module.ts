@@ -22,6 +22,7 @@ import { StatisticsBasicComponent } from './page/statistics-basic/statistics-bas
 import { CategoryComponent } from './page/category/category.component';
 import { CategoryAddComponent } from './page/category/category-add/category-add.component';
 import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
+import { StatisticsComponent } from './page/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -43,17 +44,15 @@ import { CategoryEditComponent } from './page/category/category-edit/category-ed
     CategoryComponent,
     CategoryAddComponent,
     CategoryEditComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    StatisticsTest1,
+    FormsModule
   ],
-  exports: [StatisticsTest1],
   providers: [],
-  entryComponents: [StatisticsTest1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

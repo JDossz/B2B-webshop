@@ -12,7 +12,7 @@ export class OrdersComponent implements OnInit {
 
   list$: BehaviorSubject<any> = this.ds.orderList
 
-  constructor(private ds: DataService) {
+  constructor (private ds: DataService) {
   }
 
   onDelete(id: number): void {

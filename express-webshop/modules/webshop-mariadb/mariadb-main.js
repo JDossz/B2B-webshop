@@ -122,13 +122,27 @@ module.exports = class BetagDB {
   }
 
   async readProjectsByCategory(category) {
-    const sql = `
+      const sql = `
     SELECT *
     FROM projects
     INNER JOIN categories
     ON projects.categoryid=categories.id
     WHERE category='${category}'`;
-    const result = await this.connection.query(sql);
-    return result;
-  }
-};
+      const result = await this.connection.query(sql);
+      return result;
+    } <<
+    << << < HEAD
+}; ===
+=== =
+
+// async getBasketData(userId) {
+//   let sql = `
+//   SELECT *
+//   FROM projects JOIN basket ON projects.id = basket.projectid
+//   WHERE userid = ${userId}
+//   `;
+//   let result = await this.connection.query(sql);
+//   return result;
+// }
+}; >>>
+>>> > FEAT sub app added with routing problems - not working

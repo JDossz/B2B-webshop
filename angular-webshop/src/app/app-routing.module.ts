@@ -16,49 +16,25 @@ import { StatisticsBasicComponent } from './page/statistics-basic/statistics-bas
 import { CategoryComponent } from './page/category/category.component';
 import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
 import { CategoryAddComponent } from './page/category/category-add/category-add.component';
+import { StatisticsComponent } from './page/statistics/statistics.component';
 
 
 const routes: Routes = [
   { path: 'api/projects', component: ProjectsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
-  { path: 'statistics', component: StatisticsTest1 },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
   { path: 'api/categories', component: CategoryComponent },
   { path: 'category-edit/:id', component: CategoryEditComponent },
   { path: 'category-add', component: CategoryAddComponent },
-  {
-    path: 'orders',
-    component: OrdersComponent
-  },
-  {
-    path: 'orders/:id',
-    component: UpdateOrdersComponent
-  },
-  {
-    path: 'create-order',
-    component: CreateOrdersComponent
-  },
-  {
-    path: 'users',
-    component: UsersComponent
-  },
-  {
-    path: 'users/:id',
-    component: UpdateUsersComponent
-  },
-  {
-    path: 'create-user',
-    component: CreateUsersComponent
-  },
-  {
-    path: 'basket',
-    component: BasketComponent
-  },
-  {
-    path: 'statistics-basic',
-    component: StatisticsBasicComponent
-  },
-
+  { path: 'orders', component: OrdersComponent },
+  { path: 'orders/:id', component: UpdateOrdersComponent },
+  { path: 'create-order', component: CreateOrdersComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id', component: UpdateUsersComponent },
+  { path: 'create-user', component: CreateUsersComponent },
+  { path: 'basket', component: BasketComponent },
+  { path: 'statistics-basic', component: StatisticsBasicComponent },
+  { path: 'statistics', component: StatisticsComponent },
   { path: '**', component: AppComponent }
 ];
 
