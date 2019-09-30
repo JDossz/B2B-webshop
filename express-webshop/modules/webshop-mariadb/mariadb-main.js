@@ -13,9 +13,7 @@ const SetGenerator = require('./tools/set-generator');
 const QueryGenerator = require('./tools/query-generator');
 
 const whereGenerator = new WhereGenerator();
-
 const listGenerator = new ListGenerator();
-
 const setGenerator = new SetGenerator();
 const queryGenerator = new QueryGenerator();
 
