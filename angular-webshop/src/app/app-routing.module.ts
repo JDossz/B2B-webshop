@@ -21,6 +21,7 @@ import { CategoryAddComponent } from './page/category/category-add/category-add.
 const routes: Routes = [
   { path: 'api/projects', component: ProjectsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
+  { path: 'statistics', component: StatisticsTest1 },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
   { path: 'api/categories', component: CategoryComponent },
   { path: 'category-edit/:id', component: CategoryEditComponent },

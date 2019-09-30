@@ -48,9 +48,12 @@ import { CategoryEditComponent } from './page/category/category-edit/category-ed
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StatisticsTest1,
   ],
+  exports: [StatisticsTest1],
   providers: [],
+  entryComponents: [StatisticsTest1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
