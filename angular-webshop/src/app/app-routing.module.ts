@@ -13,46 +13,23 @@ import { ProjectsComponent } from './projects/projects.component';
 import { CreateUsersComponent } from './page/create-users/create-users.component';
 import { BasketComponent } from './page/basket/basket.component';
 import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
-import { StatisticsTest1 } from 'projects/Test1/src/app/app.module';
+import { StatisticsComponent } from './page/statistics/statistics.component';
+
 
 const routes: Routes = [
   { path: 'api/projects', component: ProjectsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
-  { path: 'statistics', component: StatisticsTest1 },
+  { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
-  {
-    path: 'orders',
-    component: OrdersComponent
-  },
-  {
-    path: 'orders/:id',
-    component: UpdateOrdersComponent
-  },
-  {
-    path: 'create-order',
-    component: CreateOrdersComponent
-  },
-  {
-    path: 'users',
-    component: UsersComponent
-  },
-  {
-    path: 'users/:id',
-    component: UpdateUsersComponent
-  },
-  {
-    path: 'create-user',
-    component: CreateUsersComponent
-  },
-  {
-    path: 'basket',
-    component: BasketComponent
-  },
-  {
-    path: 'statistics-basic',
-    component: StatisticsBasicComponent
-  },
-
+  { path: 'orders', component: OrdersComponent },
+  { path: 'orders/:id', component: UpdateOrdersComponent },
+  { path: 'create-order', component: CreateOrdersComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id', component: UpdateUsersComponent },
+  { path: 'create-user', component: CreateUsersComponent },
+  { path: 'basket', component: BasketComponent },
+  { path: 'statistics-basic', component: StatisticsBasicComponent },
+  { path: 'statistics', component: StatisticsComponent },
   { path: '**', component: AppComponent }
 ];
 

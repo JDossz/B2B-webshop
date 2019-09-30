@@ -12,13 +12,12 @@ import { DataService } from 'src/app/services/data.service';
 export class OrdersComponent implements OnInit {
 
   list$: BehaviorSubject<any> = this.ds.orderList
-  
-  constructor(private ds: DataService) { 
-   }
 
-    onDelete(id: number): void {
-      this.ds.deleteRecordByQuery('orders',{ 'id':id })
-    }
+  constructor(private ds: DataService) { }
+
+  onDelete(id: number): void {
+    this.ds.deleteRecordByQuery('orders', { 'id': id })
+  }
 
   ngOnInit() {
     this.ds.readTableByQuery('orders', {});

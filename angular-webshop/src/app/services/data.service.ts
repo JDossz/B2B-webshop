@@ -36,10 +36,12 @@ export class DataService {
    */
   readTableByQuery(tableName: string, query: Object): void {
     this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
-      data => { if (tableName === 'orders') { this.orderList.next(data) }
-                else if(tableName === 'users') { this.userList.next(data) }
-                else if(tableName === 'basket') { this.basketList.next(data) }
-              else if (tableName === 'projects') { this.projectList.next(data) }}
+      data => {
+        if (tableName === 'orders') { this.orderList.next(data) }
+        else if (tableName === 'users') { this.userList.next(data) }
+        else if (tableName === 'basket') { this.basketList.next(data) }
+        else if (tableName === 'projects') { this.projectList.next(data) }
+      }
     );
   }
 
