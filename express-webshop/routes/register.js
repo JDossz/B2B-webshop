@@ -24,12 +24,15 @@ router.post('/users', async (req, res, next) => {
   console.log(req.body);
   console.log(token);
   await database.createRecord('users', {
-    'email': req.body.email,
+    'firstname': req.body.firstname,
+    'lastname': req.body.lastname,
+    'username': req.body.username,
     'address': req.body.address,
-    'name': req.body.name,
+    'emailaddress': req.body.emailaddress,
     'password': sha1(req.body.password),
-    'token':token,
+    'token': token,
   });
+  console.log(req.body)
   return res.redirect('/');
 });
 
