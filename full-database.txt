@@ -464,6 +464,7 @@ CREATE TABLE users (
     admin boolean NOT NULL DEFAULT 0,
     address nvarchar(1000),
     pictureurl nvarchar(255),
+    newsletter boolean NOT NULL DEFAULT 0,
     token nvarchar(255),
     PRIMARY KEY (id)
 );

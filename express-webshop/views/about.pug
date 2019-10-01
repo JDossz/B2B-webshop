@@ -2,14 +2,24 @@ extends layout
 
 block content
   main(role='main')
-    .container
-      //- About
+    .container-fluid
       .row
-        .col-12
-          h1#content.bd-title About
-          p.bd-lead Learn more about the BETAG team maintaining Entryway, how and why the project started, and how to get involved.
+        header
+          video(playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop")
+            source(src="/videos/AboutPage_Final.mp4" type="video/mp4")
+          .container.align-items-center.text-white
+            .row
+              .col-12.mt-4
+                h1.text-center Our mission is to help people achieve their goals, bring creative projects to life
+            .row
+              .col-7.aboutus-greencol
+                p Entryway helps scientists, artists, musicians, filmmakers, designers, and other creators find the resources and support they need to make their ideas a reality. To date, tens of thousands of creative projects — big and small — have come to life with the support of the BETAG community.
+        //- .col-12
+        //-   p Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque harum sint laborum, sunt, praesentium exercitationem odit totam quasi repellendus aut adipisci ipsum. Ratione rerum cumque aut commodi eum in maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, commodi a. Fugiat distinctio atque error harum odio, tempora similique cumque ex molestias commodi veritatis vel asperiores maxime! Temporibus, veniam deserunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse molestias optio sint excepturi tempore, quas totam veniam quam ea sed dolore officiis eius exercitationem voluptas quod omnis ratione nostrum laboriosam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta corrupti quas voluptatum aut excepturi? Consequuntur rem, debitis fugit eaque dolor atque. Vel ipsum ullam quae corporis enim quis odit eveniet.
+      hr.featurette-divider
       
       //- Team
+    .container
       .row
         .col-12
           h2 Team
@@ -28,7 +38,8 @@ block content
             .row
               h4 Juhász Dorka
             .row
-              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio.
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit veniam culpa a dolorem laudantium exercitationem officiis dolorum obcaecati perspiciatis officia quam vero odit praesentium facilis, consectetur, voluptate tempore ipsa? Fuga? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, totam, quibusdam architecto libero blanditiis iure assumenda similique nihil ea perspiciatis maxime itaque repudiandae ex nostrum quasi inventore necessitatibus. Assumenda, cum.
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam magnam, error nesciunt, adipisci consequatur a id, ut veniam aperiam excepturi dolores ratione voluptate. Consequuntur distinctio vero libero voluptatibus optio ipsam!
       hr
       .container
         .row.portfolio#szilvi
@@ -38,7 +49,8 @@ block content
             .row
               h4 Kapuvári Szilvi
             .row
-              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio.
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit veniam culpa a dolorem laudantium exercitationem officiis dolorum obcaecati perspiciatis officia quam vero odit praesentium facilis, consectetur, voluptate tempore ipsa? Fuga? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci quibusdam ducimus, dignissimos error, facilis voluptatibus quae necessitatibus cumque dolore ex numquam. Illo quibusdam eaque, at laudantium nisi similique laborum unde!
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam magnam, error nesciunt, adipisci consequatur a id, ut veniam aperiam excepturi dolores ratione voluptate. Consequuntur distinctio vero libero voluptatibus optio ipsam!
       hr
       .container
         .row.portfolio#olah
@@ -48,7 +60,8 @@ block content
             .row
               h4 Oláh Dániel
             .row
-              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio.
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit veniam culpa a dolorem laudantium exercitationem officiis dolorum obcaecati perspiciatis officia quam vero odit praesentium facilis, consectetur, voluptate tempore ipsa? Fuga? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis asperiores modi doloribus veritatis reprehenderit dolorem voluptas ad libero! Dolores totam laboriosam harum eveniet est eos voluptatem, magnam mollitia voluptatum exercitationem.
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam magnam, error nesciunt, adipisci consequatur a id, ut veniam aperiam excepturi dolores ratione voluptate. Consequuntur distinctio vero libero voluptatibus optio ipsam!
       hr
       .container
         .row.portfolio#sari
@@ -58,7 +71,8 @@ block content
             .row
               h4 Pál Sári
             .row
-              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, ipsum magnam veritatis natus, repudiandae quod perspiciatis quis laborum provident accusamus nihil nesciunt sequi labore veniam unde aperiam autem omnis dignissimos?
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit veniam culpa a dolorem laudantium exercitationem officiis dolorum obcaecati perspiciatis officia quam vero odit praesentium facilis, consectetur, voluptate tempore ipsa? Fuga? Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto numquam odit, in id, voluptatum nihil exercitationem delectus labore minima similique iure explicabo adipisci saepe necessitatibus, cumque voluptas nesciunt vel dolorum?
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, ipsum magnam veritatis natus, repudiandae quod perspiciatis quis laborum provident accusamus nihil nesciunt sequi labore veniam unde aperiam autem omnis dignissimos? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam magnam, error nesciunt, adipisci consequatur a id, ut veniam aperiam excepturi dolores ratione voluptate. Consequuntur distinctio vero libero voluptatibus optio ipsam!
       hr
       .container
         .row.portfolio#ago
@@ -68,7 +82,8 @@ block content
             .row
               h4 Zajkás Ágoston
             .row
-              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio.
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit veniam culpa a dolorem laudantium exercitationem officiis dolorum obcaecati perspiciatis officia quam vero odit praesentium facilis, consectetur, voluptate tempore ipsa? Fuga? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, unde minima? Suscipit nobis quas ipsa sapiente quos? Cupiditate velit eum dicta recusandae, architecto neque magni nihil suscipit, tenetur quod iusto!
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos laboriosam iure accusantium aut asperiores expedita commodi iusto consequuntur sunt. Quia cum magnam eligendi omnis fuga aliquid aliquam cupiditate distinctio. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam magnam, error nesciunt, adipisci consequatur a id, ut veniam aperiam excepturi dolores ratione voluptate. Consequuntur distinctio vero libero voluptatibus optio ipsam!
       hr
 
       //- History
