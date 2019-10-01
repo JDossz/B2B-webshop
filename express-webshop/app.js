@@ -14,6 +14,7 @@ const projectsRouter = require('./routes/projects');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
+const errorPageRouter = require('./routes/register');
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.use('/orders', ordersRouter);
 app.use('/projects', projectsRouter);
 app.use('/register', registerRouter);
 app.use('/users', usersRouter);
+app.use('/error-page', errorPageRouter);
 app.use('/about', require('./routes/about'));
 app.use('/contact', require('./routes/contact'));
 app.use('/privacy', require('./routes/privacyPolicy'));

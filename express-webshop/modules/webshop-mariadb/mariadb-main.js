@@ -3,7 +3,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'ROOT',
+  password: 'root',
   connectionLimit: 100,
 });
 
@@ -121,7 +121,7 @@ module.exports = class BetagDB {
     const result = await this.connection.query(sql);
     return result;
   }
-  
+
   async namingAndPricingProjects(req) {
     let sql = `
     SELECT 
@@ -154,7 +154,7 @@ module.exports = class BetagDB {
     return result;
   }
 
- 
+
   async readRecordWithLike(req) {
     const sql = `
     SELECT *
@@ -163,7 +163,7 @@ module.exports = class BetagDB {
     const result = await this.connection.query(sql);
     return result;
   }
-  
+
   async readProjectsByCategory(category) {
     const sql = `
     SELECT *
