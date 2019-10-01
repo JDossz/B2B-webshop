@@ -4,7 +4,7 @@ CREATE TABLE projects (
     title nvarchar(255) NOT NULL,
     seo nvarchar(255),
     institution nvarchar(255) NOT NULL,
-    shortd nvarchar(500),
+    shortd nvarchar(500) DEFAULT 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex laudantium molestiae earum, aliquid debitis ipsa accusantium labore sapiente quidem blanditiis, voluptate tempora ab, a adipisci libero temporibus eum et.',
     longd nvarchar(10000),
     contact nvarchar(255) NOT NULL,
     categoryid int NOT NULL DEFAULT 0,
@@ -449,3 +449,28 @@ In this project, the successful candidate, in collaboration with supervisors and
 UPDATE projects
 SET `shortd`=''
 WHERE `shortd`='shortd';
+
+UPDATE projects
+SET `pictureurl`='/images/projects/biology.jpg'
+WHERE `categoryid`=2;
+
+UPDATE projects
+SET `pictureurl`='/images/projects/chemistry.jpg'
+WHERE `categoryid`=3;
+
+UPDATE projects
+SET `pictureurl`='/images/projects/computerscience.jpg'
+WHERE `categoryid`=4;
+
+UPDATE projects
+SET `pictureurl`='/images/projects/engineering.jpg'
+WHERE `categoryid`=5;
+
+UPDATE projects
+SET `pictureurl`='/images/projects/mathematics.jpg'
+WHERE `categoryid`=6;
+
+UPDATE projects
+SET `pictureurl`='/images/projects/physics.jpg'
+WHERE `categoryid`=7;
+

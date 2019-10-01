@@ -6,7 +6,7 @@ CREATE TABLE projects (
     title nvarchar(255) NOT NULL,
     seo nvarchar(255),
     institution nvarchar(255) NOT NULL,
-    shortd nvarchar(500),
+    shortd nvarchar(500) DEFAULT 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex laudantium molestiae earum, aliquid debitis ipsa accusantium labore sapiente quidem blanditiis, voluptate tempora ab, a adipisci libero temporibus eum et.',
     longd nvarchar(10000),
     contact nvarchar(255) NOT NULL,
     categoryid int NOT NULL DEFAULT 0,
@@ -457,21 +457,30 @@ CREATE TABLE users (
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     firstname nvarchar(255) NOT NULL,
     lastname nvarchar(255) NOT NULL,
+    gender boolean NOT NULL DEFAULT 0,
     username nvarchar(255) NOT NULL,
     emailaddress nvarchar(255) NOT NULL,
     password nvarchar(255) NOT NULL,
     admin boolean NOT NULL DEFAULT 0,
     address nvarchar(1000),
+    pictureurl nvarchar(255),
     token nvarchar(255),
     PRIMARY KEY (id)
 );
 
-INSERT INTO users (firstname, lastname, username, emailaddress, password, admin)
-VALUES ('Dorottya', 'Juhász', 'JDorka', 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 1),
-('Sára', 'Pál', 'PSári', 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 1),
-('Dániel', 'Oláh', 'OláhD', 'olah.daniel95@gmail.com', SHA1('Oláh2019'), 1),
-('Szilvia', 'Kapuvári', 'KSzilvi', 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 1),
-('Ágoston', 'Zajkás', 'ZÁgoston', 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 1);
+INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
+VALUES ('Dorottya', 'Juhász', 0, 'JDorka', 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 1, '/images/users/JuhaszDorottya.JPG'),
+('Szilvia', 'Kapuvári', 0, 'KSzilvi', 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 1, '/images/users/KapuvariSzilvia.JPG'),
+('Dániel', 'Oláh', 1, 'OláhD', 'olah.daniel95@gmail.com', SHA1('Oláh2019'), 1, '/images/users/OlahDaniel.JPG'),
+('Sára', 'Pál', 0, 'PSári', 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 1, '/images/users/PalSara.jpg'),
+('Ágoston', 'Zajkás', 1, 'ZÁgoston', 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 1, '/images/users/ZajkasAgoston.JPG');
+
+INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
+VALUES ('Dorottya2', 'Juhász', 0, 'JDorka', 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 0, '/images/users/JuhaszDorottya.JPG'),
+('Szilvia2', 'Kapuvári', 0, 'KSzilvi', 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 0, '/images/users/KapuvariSzilvia.JPG'),
+('Dániel2', 'Oláh', 1, 'OláhD', 'olah.daniel95@gmail.com', SHA1('Oláh2019'), 0, '/images/users/OlahDaniel.JPG'),
+('Sára2', 'Pál', 0, 'PSári', 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 0, '/images/users/PalSara.jpg'),
+('Ágoston2', 'Zajkás', 1, 'ZÁgoston', 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 0, '/images/users/ZajkasAgoston.JPG');
 
 CREATE TABLE orders (
     id int NOT NULL AUTO_INCREMENT,
