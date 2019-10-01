@@ -29,7 +29,6 @@ export class UpdateUsersComponent implements OnInit {
         this.user = data;
       }
     );
-    console.log(this.user$);
   }
 
   ngOnInit() {
