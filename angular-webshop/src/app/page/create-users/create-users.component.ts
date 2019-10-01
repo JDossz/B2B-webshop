@@ -24,6 +24,7 @@ export class CreateUsersComponent implements OnInit {
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
+    console.log(this.user);
     this.ds.createRecord('users', this.user).subscribe(
       () => {
 

@@ -1,10 +1,13 @@
 export class User {
-  id: number;
-  admin: boolean;
-  name: string;
-  email: string;
+  id?: number;
+  insdate?: string;
+  firstname: string;
+  lastname: string;
+  gender: number;
+  username: string;
+  emailaddress: string;
   password: string;
-  balance: number;
+  admin: number;
   address: string;
   pictureurl: string;
 }

@@ -3,59 +3,76 @@
 <div>
   <form (submit)="onSubmit($event)">
     <div class="form-group">
-      <input name="id"
-             class="form-control"
-             type="hidden"
-             [(ngModel)]="user.id">
+      <label for="firstname">First Name</label>
+      <input type="text"
+             id="firstname"
+             name="firstname"
+             [(ngModel)]="user.firstname"
+             class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Admin</label>
-      <input name="admin"
-             class="form-control"
-             type="text"
-             [(ngModel)]="user.admin">
+      <label for="lastname">Last Name</label>
+      <input type="text"
+             id="lastname"
+             name="lastname"
+             [(ngModel)]="user.lastname"
+             class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Name</label>
-      <input name="name"
-             class="form-control"
-             type="text"
-             [(ngModel)]="user.name">
+      <label for="gender">Gender</label>
+      <input type="number"
+             id="gender"
+             name="gender"
+             [(ngModel)]="user.gender"
+             class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Email</label>
-      <input name="email"
-             class="form-control"
-             type="email"
-             [(ngModel)]="user.email">
+      <label for="username">Username</label>
+      <input type="text"
+             id="username"
+             name="username"
+             [(ngModel)]="user.username"
+             class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Password</label>
-      <input name="password"
-             type="password"
-             class="form-control"
-             [(ngModel)]="user.password">
+      <label for="emailaddress">E-Mail</label>
+      <input type="text"
+             id="emailaddress"
+             name="emailaddress"
+             [(ngModel)]="user.emailaddress"
+             class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Balance</label>
-      <input name="balance"
-             type="text"
-             class="form-control"
-             [(ngModel)]="user.balance">
+      <label for="password">Password</label>
+      <input type="password"
+             id="password"
+             name="password"
+             [(ngModel)]="user.password"
+             class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Address</label>
-      <input name="address"
-             type="text"
-             class="form-control"
-             [(ngModel)]="user.address">
+      <label for="admin">Admin</label>
+      <input type="number"
+             id="admin"
+             name="admin"
+             [(ngModel)]="user.admin"
+             class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Picture</label>
-      <input name="picture"
-             type="text"
-             class="form-control"
-             [(ngModel)]="user.picture">
+      <label for="address">Address</label>
+      <input type="address"
+             id="address"
+             name="address"
+             [(ngModel)]="user.address"
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="pictureurl">Picture URL</label>
+      <input type="text"
+             id="pictureurl"
+             name="pictureurl"
+             [(ngModel)]="user.pictureurl"
+             class="form-control">
     </div>
     <button class="btn btn-primary"
             type="submit">
