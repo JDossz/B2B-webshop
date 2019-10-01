@@ -6,16 +6,9 @@ block content
       .col-3
         .sidebar
           h1 Categories
-          a#arts(href="/projects/arts") Arts
-          a#biology(href="/projects/biology") Biology
-          a#gender(href="/projects/gender") Gender Studies
-          a#neurology(href="/projects/chemistry") Chemistry
-          a#technology(href="/projects/computerSience") Computer Sience
-          a#technology(href="/projects/engineering") Engineering
-          a#technology(href="/projects/mathematics") Mathematics
-          a#technology(href="/projects/physics") Physics
-          a#technology(href="/projects/other") Other
-          a.categories(href="/projects") Go back         
+          each category, index in categories 
+            a(href=`/projects/categories/${category.category}`) #{category.category}
+          a(href="/projects") Go back         
           .row
             form.form-inline(action='/projects' method="GET")
               .form-group
