@@ -20,19 +20,10 @@ h1 {
   text-align: center;
 }
 
-.unit p {
-  margin-top: 100px;
-  font-family: 'Francois', sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #fff;
-}
-
 .heart {
   position: relative;
   font-size: 0;
-  width: 138px;
+  width: 150px;
 }
 
 [class*="heart-piece-"] {
@@ -42,6 +33,7 @@ h1 {
   height: 10px;
   border-radius: 5px;
 }
+/* összesen 9 féle heart-piece van, és kétoldalról vannak párban */
 
 .heart-piece-4 {
   -webkit-animation: piece-4 3.2s infinite;
@@ -76,63 +68,63 @@ h1 {
   left: 0px;
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
-  background-color: #ec2d73;
+  background-color: #EC2D73;
 }
 
 .heart-piece-1 {
   left: 16px;
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
-  background-color: #eb5324;
+  background-color: #EB5324;
 }
 
 .heart-piece-2 {
   left: 32px;
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
-  background-color: #fdc800;
+  background-color: #FDC800;
 }
 
 .heart-piece-3 {
   left: 48px;
   -webkit-animation-delay: 0.45s;
           animation-delay: 0.45s;
-  background-color: #47b264;
+  background-color: #47B264;
 }
 
 .heart-piece-4 {
   left: 64px;
   -webkit-animation-delay: 0.6s;
           animation-delay: 0.6s;
-  background-color: #1470bd;
+  background-color: #1470BD;
 }
 
 .heart-piece-5 {
   left: 80px;
   -webkit-animation-delay: 0.75s;
           animation-delay: 0.75s;
-  background-color: #76469a;
+  background-color: #76469A;
 }
 
 .heart-piece-6 {
   left: 96px;
   -webkit-animation-delay: 0.9s;
           animation-delay: 0.9s;
-  background-color: #ec2d73;
+  background-color: #EC2D73;
 }
 
 .heart-piece-7 {
   left: 112px;
   -webkit-animation-delay: 1.05s;
           animation-delay: 1.05s;
-  background-color: #eb5324;
+  background-color: #EB5324;
 }
 
 .heart-piece-8 {
   left: 128px;
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
-  background-color: #fdc800;
+  background-color: #FDC800;
 }
 
 @-webkit-keyframes piece-4 {
@@ -142,7 +134,7 @@ h1 {
   }
   45%, 55% {
     height: 94px;
-    top: -23px;
+    top: -25px;
   }
 }
 
@@ -153,7 +145,7 @@ h1 {
   }
   45%, 55% {
     height: 94px;
-    top: -23px;
+    top: -25px;
   }
 }
 
@@ -164,7 +156,7 @@ h1 {
   }
   45%, 55% {
     height: 90px;
-    top: -31px;
+    top: -33px;
   }
 }
 
@@ -175,7 +167,7 @@ h1 {
   }
   45%, 55% {
     height: 90px;
-    top: -31px;
+    top: -33px;
   }
 }
 
@@ -186,7 +178,7 @@ h1 {
   }
   45%, 55% {
     height: 80px;
-    top: -37px;
+    top: -39px;
   }
 }
 
@@ -197,7 +189,7 @@ h1 {
   }
   45%, 55% {
     height: 80px;
-    top: -37px;
+    top: -39px;
   }
 }
 
@@ -208,7 +200,7 @@ h1 {
   }
   45%, 55% {
     height: 60px;
-    top: -31px;
+    top: -33px;
   }
 }
 
@@ -219,7 +211,7 @@ h1 {
   }
   45%, 55% {
     height: 60px;
-    top: -31px;
+    top: -33px;
   }
 }
 
@@ -230,7 +222,7 @@ h1 {
   }
   45%, 55% {
     height: 30px;
-    top: -15px;
+    top: -18px;
   }
 }
 
@@ -241,7 +233,7 @@ h1 {
   }
   45%, 55% {
     height: 30px;
-    top: -15px;
+    top: -18px;
   }
 }
 
@@ -259,4 +251,3 @@ h1 {
   font-family: 'Beyondcontrol';
   src: url('/fonts/BEYONDCONTROL.ttf');
 }
-
