@@ -26,7 +26,6 @@ export class ProjectEditComponent implements OnInit {
     this.project$.subscribe(
       data => {
         this.project = data[0];
-        console.log(this.project);
       }
     );
   }

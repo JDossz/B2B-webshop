@@ -9,15 +9,16 @@ import { DataService } from '../../services/data.service';
 })
 export class UsersComponent implements OnInit {
 
-  
+
   list$: BehaviorSubject<any> = this.ds.userList
 
-  constructor(private ds: DataService) { 
-      this.ds.readTableByQuery('users', {})}
-  
-      onDelete(id: number): void {
-        this.ds.deleteRecordByQuery('users',{ 'id':id })
-      }
+  constructor(private ds: DataService) {
+    this.ds.readTableByQuery('users', {})
+  }
+
+  onDelete(id: number): void {
+    this.ds.deleteRecordByQuery('users', { 'id': id })
+  }
   ngOnInit() {
     this.ds.readTableByQuery('users', {});
   }
