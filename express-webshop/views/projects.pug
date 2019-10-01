@@ -1,14 +1,13 @@
 extends layout
 
 block content
-  .container.containerProjects
+  .container.containerProjects.mt-4
     .row
       .col-3
         .sidebar
           h1 Categories
           each category, index in categories 
-            a(href=`/projects/categories/${category.category}`) #{category.category}
-          a(href="/projects") Go back         
+            a(href=`/projects/categories/${category.category}`) #{category.category}        
           .row
             form.form-inline(action='/projects' method="GET")
               .form-group
@@ -24,7 +23,7 @@ block content
             .card.mb-3(style='max-width: 850px;')
               .row.no-gutters
                 .col-md-4
-                  img.card-img(src='http://www.ict-coherent.eu/coherent/wp-content/uploads/2015/10/project-motivation-img.jpg', alt='...')
+                  img.card-img(src=`${project.pictureurl}`, alt='...')
                 .col-md-8
                   .card-body
                     h5.card-title #{project.title}
