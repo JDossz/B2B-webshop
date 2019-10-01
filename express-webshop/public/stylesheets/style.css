@@ -36,8 +36,8 @@ footer > .container {
 }
 
 .next {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #F9E6B2;
+  color: #000;
 }
 
 #page-container {
@@ -61,11 +61,6 @@ footer > .container {
 
 .round {
   border-radius: 50%;
-}
-
-.row.featurette img {
-  width: 500px;
-  height: 500px;
 }
 
 .sidebar {
