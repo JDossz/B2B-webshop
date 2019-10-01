@@ -3,11 +3,11 @@
 <div *ngIf="order">
   <form (submit)="onSubmit($event)">
     <div class="form-group">
-      <label for="id">ID</label>
-      <input name="id"
+      <label for="">Insdate</label>
+      <input name="insdate"
              class="form-control"
              type="hidden"
-             [(ngModel)]="order.id">
+             [(ngModel)]="order.insdate">
     </div>
     <div class="form-group">
       <label for="">User ID</label>
@@ -17,25 +17,11 @@
              [(ngModel)]="order.userid">
     </div>
     <div class="form-group">
-      <label for="">Insdate</label>
-      <input name="insdate"
-             class="form-control"
-             type="hidden"
-             [(ngModel)]="order.insdate">
-    </div>
-    <div class="form-group">
       <label for="">Project ID</label>
       <input name="projectid"
              class="form-control"
              type="text"
              [(ngModel)]="order.projectid">
-    </div>
-    <div class="form-group">
-      <label for="">Project price</label>
-      <input name="projectprice"
-             type="text"
-             class="form-control"
-             [(ngModel)]="order.projectprice">
     </div>
     <div class="form-group">
       <label for="">Quantity</label>

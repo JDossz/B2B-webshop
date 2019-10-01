@@ -57,10 +57,10 @@ export class DataService {
         else if (tableName === 'users') {
           this.userList.next(data);
         }
-        if (tableName === 'basket' && query.hasOwnProperty('id')) {
+        if (tableName === 'baskets' && query.hasOwnProperty('id')) {
           this.basket.next(data[0]);
         }
-        else if (tableName === 'basket') {
+        else if (tableName === 'baskets') {
           this.basketList.next(data);
         }
         if (tableName === 'projects' && (query.hasOwnProperty('id') || query.hasOwnProperty('seo'))) {
