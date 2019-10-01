@@ -19,12 +19,22 @@ router.get('/', async (req, res) => {
     from: 'INNER JOIN baskets ON projects.id = baskets.projectid'
   });
   price = price[0].amount;
+
+  let actualQuantity = await database.readRecord('baskets', {
+    userid: req.user.id,
+    select: 'SUM(baskets.quantity) as totalQuantity',
+    from: 'baskets'
+  });
+  actualQuantity = actualQuantity[0].totalQuantity;
+
   if (req.user.id) {
     res.render('baskets', {
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
+      showQuantity: actualQuantity,
     });
   }
+
 });
 
 // a bejelentkezett user kosarának ürítése
@@ -36,11 +46,7 @@ router.get('/empty/:userid', async (req, res) => {
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
   let quantity = await database.readRecord('baskets', {
-<<<<<<< HEAD
     userid: req.user.id || 0,
-=======
-    userid: req.user.id,
->>>>>>> develop
     projectid: req.params.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
     select: 'baskets.quantity as quantity',
@@ -88,7 +94,6 @@ router.post('/updateAdd/:id', async (req, res) => {
   let quantity = await database.readRecord('baskets', {
     id: req.params.id
   });
-  // console.log(quantity)
   let incrementedQuantity = quantity[0].quantity + 1;
   await database.updateRecord('baskets', {
     id: req.params.id

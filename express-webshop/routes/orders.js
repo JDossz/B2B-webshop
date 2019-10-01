@@ -29,7 +29,10 @@ router.post('/:projectid', async (req, res) => {
 
     }
     await database.deleteRecord('baskets', { userid: req.user.id });
-    res.redirect('/baskets');
+    
+    res.render('/baskets', {
+
+    });
 
   }
 
