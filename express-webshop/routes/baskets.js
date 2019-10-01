@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 
   if (req.user.id) {
     res.render('baskets', {
+      user: req.user || {},
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
       showQuantity: actualQuantity,
@@ -46,6 +47,7 @@ router.get('/empty/:userid', async (req, res) => {
 
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
+  console.log(req.body.projectQuantity);
   let quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
@@ -57,16 +59,16 @@ router.post('/:id', async (req, res) => {
     await database.createRecord('baskets', {
       projectid: req.params.id,
       userid: req.user.id || 0,
-      quantity: 1,
+      quantity: req.body.projectQuantity,
     });
 
   } else {
-    let incrementedQuantity = quantity[0].quantity + 1;
+    let incrementedQuantity = quantity[0].quantity + parseInt(req.body.projectQuantity, 10);
     await database.updateRecord('baskets', {
       projectid: req.params.id,
       userid: req.user.id || 0,
     }, {
-      quantity: incrementedQuantity
+      quantity: incrementedQuantity,
     });
   }
   res.redirect('/baskets');

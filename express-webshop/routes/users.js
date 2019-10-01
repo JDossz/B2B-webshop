@@ -8,11 +8,11 @@ const pugdb = new PugData();
 
 
 // get all
-router.get('/', async (req, res, next) => {
-  let userData = await database.readRecord('users', {});
-  res.render('users', {
-    title: 'Users', users: userData, user: req.user || {}
-  });
-});
+// router.get('/', async (req, res, next) => {
+//   let userData = await database.readRecord('users', {});
+//   res.render('users', {
+//     title: 'Users', users: userData, user: req.user || {}
+//   });
+// });
 
 module.exports = router;
