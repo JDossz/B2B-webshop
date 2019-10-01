@@ -9,11 +9,18 @@ import { UrlConcatenatorService } from './url-concatenator.service';
 export class DataService {
 
   restApiURL: string = 'http://localhost:3000/api';
+
   orderList: BehaviorSubject<any> = new BehaviorSubject([]);
   userList: BehaviorSubject<any> = new BehaviorSubject([]);
   projectList: BehaviorSubject<any> = new BehaviorSubject([]);
   basketList: BehaviorSubject<any> = new BehaviorSubject([]);
   categoryList: BehaviorSubject<any> = new BehaviorSubject([]);
+
+  order: BehaviorSubject<any> = new BehaviorSubject([]);
+  user: BehaviorSubject<any> = new BehaviorSubject([]);
+  project: BehaviorSubject<any> = new BehaviorSubject([]);
+  basket: BehaviorSubject<any> = new BehaviorSubject([]);
+  category: BehaviorSubject<any> = new BehaviorSubject([]);
 
   constructor(
     private http: HttpClient,
@@ -38,19 +45,34 @@ export class DataService {
   readTableByQuery(tableName: string, query: Object): void {
     this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
       data => {
-        if (tableName === 'orders') {
-          this.orderList.next(data)
+        if (tableName === 'orders' && query.hasOwnProperty('id')) {
+          this.order.next(data[0]);
         }
-        if (tableName === 'users') {
-          this.userList.next(data)
+        else if (tableName === 'orders') {
+          this.orderList.next(data);
         }
-        if (tableName === 'basket') {
-          this.basketList.next(data)
+        if (tableName === 'users' && query.hasOwnProperty('id')) {
+          this.user.next(data[0]);
         }
-        if (tableName === 'projects') {
-          this.projectList.next(data)
+        else if (tableName === 'users') {
+          this.userList.next(data);
         }
-        if (tableName === 'categories') {
+        if (tableName === 'basket' && query.hasOwnProperty('id')) {
+          this.basket.next(data[0]);
+        }
+        else if (tableName === 'basket') {
+          this.basketList.next(data);
+        }
+        if (tableName === 'projects' && (query.hasOwnProperty('id') || query.hasOwnProperty('seo'))) {
+          this.project.next(data);
+        }
+        else if (tableName === 'projects') {
+          this.projectList.next(data);
+        }
+        if (tableName === 'categories' && query.hasOwnProperty('id')) {
+          this.category.next(data[0]);
+        }
+        else if (tableName === 'categories') {
           this.categoryList.next(data)
         }
       });

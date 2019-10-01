@@ -11,7 +11,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ProjectEditComponent implements OnInit {
 
-  project: Project = this.ds.projectList.value;
+  project$: BehaviorSubject<Project> = this.ds.project;
+  project: Project;
 
   ngOnInit() {
   }
@@ -22,6 +23,12 @@ export class ProjectEditComponent implements OnInit {
         seo: params.seo,
       });
     });
+    this.project$.subscribe(
+      data => {
+        this.project = data[0];
+        console.log(this.project);
+      }
+    );
   }
 
   onUpdate() {
