@@ -78,20 +78,6 @@ export class DataService {
       });
   }
 
-  readTableById(tableName: string, id: number): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/?id=${id}`);
-  }
-
-  /**
-   * Gets a specific record based on URL seo name.
-   * @param tableName Name of the database table.
-   * @param seoName 
-   * @returns Response observable containing the read record.
-   */
-  readTableBySeoName(tableName: string, seoName: string): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/${seoName}`);
-  }
-
   /**
    * Updates given records meeting the conditions from the query.
    * @param tableName Name of the database table.
