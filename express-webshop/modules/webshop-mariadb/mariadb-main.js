@@ -21,29 +21,6 @@ const queryGenerator = new QueryGenerator();
 
 module.exports = class BetagDB {
 
-  /*
-    Full select syntax:
-    SELECT columns, AVG(column), SUM(column)
-    FROM ((table1
-      INNER JOIN table2 ON table1.id = table2.id )
-      INNER JOIN table3 ON table1.id = table3.id
-    )
-    WHERE condition1 = value1 AND condition2 LIKE pattern
-    GROUP BY column1
-    HAVING condition
-    LIMIT number
-
-    queryObject:
-    {
-      select: * /'avg' / 'sum'
-      join: tableName
-      secondJoin: tableName
-      groupBy: columnName
-      having: condition
-      limit: number
-    }
-  */
-
   constructor() {
     pool.getConnection().then(conn => this.connection = conn);
   }
@@ -68,10 +45,6 @@ module.exports = class BetagDB {
    * @returns The read data from your MySQL database.
    */
   async readRecord(tableName, queryObject = {}) {
-    // query = query.concat(whereGenerator.getWhereString(queryObject));
-    // return await this.connection.query(queryGenerator.getQueryString(tableName, queryObject));
-    // return query;
-    // return queryGenerator.getQueryString(tableName, queryObject);
     return await this.connection.query(queryGenerator.getQueryString(tableName, queryObject));
   }
 
