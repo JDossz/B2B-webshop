@@ -31,6 +31,18 @@ footer > .container {
   padding: 0 15px;
 }
 
+.aboutus-greencol {
+  background-color: #0AC2C3;
+  color: #FFF;
+  font-family: 'Francois';
+  font-size: 1.9em;
+  padding: 2%;
+  position: relative;
+  top: 2.3em;
+  left: 50%;
+  z-index: 3;
+}
+
 .nav-link {
   font-size: 1.3em;
 }
@@ -120,4 +132,9 @@ footer > .container {
     text-align: center;
     float: none;
   }
+}
+
+@font-face {
+  font-family: 'Francois';
+  src: url('/fonts/FrancoisOne.ttf');
 }
