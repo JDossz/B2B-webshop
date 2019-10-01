@@ -33,10 +33,14 @@ export class ProjectEditComponent implements OnInit {
   onUpdate() {
     if (this.project.title === '' || this.project.seo === '' || this.project.institution === '' || this.project.shortd === '' || this.project.longd === '' || this.project.contact === '' || this.project.categoryid === '' || this.project.donation === 0 || this.project.goal === 0 || this.project.balance === 0 || this.project.pictureurl === '' || this.project.link === '') {
       alert('Please write something to every inputbox')
-    } else {
-      this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
-        () => this.router.navigate(["/api/projects"])
-      )
+    } else if (this.project.goal == 0 || this.project.donation == 0 || this.project.balance == 0 || this.project.goal < 0 || this.project.donation < 0 || this.project.balance < 0 || !Number.isInteger(this.project.goal)|| !Number.isInteger(this.project.donation)|| !Number.isInteger(this.project.balance)) {
+      alert('Please write a positive even number, which is not null!')
+    } else if (typeof this.project.goal !== 'number' || typeof this.project.donation !== 'number' || typeof this.project.donation !== 'number' ) {
+      alert('Please write a number!')
+    }else {
+    this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
+      () => this.router.navigate(["/api/projects"])
+    )
     }
   }
   onKey(event: any) {
