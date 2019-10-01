@@ -57,6 +57,7 @@ router.get('/', async (req, res) => {
 
 // a bejelentkezett user kosarának ürítése
 router.get('/empty/:userid', async (req, res) => {
+  let message = "The basket is empty"
   database.deleteRecord('baskets', { userid: req.user.id });
   res.render('baskets', {
     user: req.user || {},
