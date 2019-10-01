@@ -37,7 +37,7 @@ router.get('/empty/:userid', async (req, res) => {
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
   let quantity = await database.readRecord('baskets', {
-    userid: req.user.id,
+    userid: req.user.id || 0,
     projectid: req.params.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
     select: 'baskets.quantity as quantity',
