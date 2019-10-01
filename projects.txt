@@ -17,9 +17,10 @@ CREATE TABLE projects (
     PRIMARY KEY (id)
 );
 
-INSERT INTO projects (title, institution, shortd, longd, contact, categoryid, link)
+INSERT INTO projects (title, seo, institution, shortd, longd, contact, categoryid, link)
 VALUES (
 'New calcium phosphate bone cements for potential biomaterial applications; bone repair and/or scaffold fabrication',
+'new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication',
 'Aberdeen University',
 'shortd',
 'Calcium phosphates bone cements are widely used for bone-replacement materials due to their chemical similarity to natural bone but also their ability to set and harden in situ and their ability to be injected as a paste. The impetus for such research is the ageing and more active population – the need to keep quality of life and activity, and to provide materials with longer endurance within the body.
@@ -32,6 +33,7 @@ The focus of the project, therefore, is to synthesise and control the doping of 
 'https://www.findaphd.com/phds/project/new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication/?p107807'),
 
 ('Boundary Effects in Active Matter Systems',
+'boundary-effects-in-active-matter-systems',
 'Aberdeen University',
 'shortd',
 'The study of collective properties of active matter is a fast-emerging interdisciplinary research field. Collections of interacting active particles describe the collective motion - or “flocking” - observed in systems as diverse as vertebrate groups - bird flocks, fish schools, mammal herds -, insect swarms, colonies of bacteria, molecular motors, as well as driven granular matter.
@@ -59,6 +61,7 @@ In this project, we will study the effects that both free and hard boundaries ha
 'https://www.findaphd.com/phds/project/boundary-effects-in-active-matter-systems/?p107830'),
 
 ('How to make molecular machines: modelling ribosome biogenesis',
+'how-to-make-molecular-machines-modelling-ribosome-biogenesis',
 'Aberdeen University',
 'shortd',
 'Ribosomes are arguably the most important biological molecular machines.
@@ -71,6 +74,7 @@ The main aim of this project is to develop a mathematical model of ribosome biog
 'https://www.findaphd.com/phds/project/how-to-make-molecular-machines-modelling-ribosome-biogenesis/?p107836'),
 
 ('Modelling the deformation of cells',
+'modelling-the-deformation-of-cells',
 'Aberdeen University',
 'shortd',
 'Cells are the elementary building blocks of living organisms. The correct functioning of living organisms is therefore conditioned to the ability of living cells to withstand forces and deformations and to promptly adapt to their mechanical environment. Alteration of the cell mechanical properties can contribute to disease such as cancer. It is, therefore, crucial to identify the conditions that compromise the mechanical resilience of cells.
@@ -98,6 +102,7 @@ For example, the geographical spread of infectious disease is generally insuffic
 'https://www.findaphd.com/phds/project/modelling-the-deformation-of-cells/?p107835'),
 
 ('Noisy translation: modelling of stochastic effects on protein production',
+'noisy-translation-modelling-of-stochastic-effects-on-protein-production',
 'Aberdeen University',
 'shortd',
 'This project will focus on the mathematical modelling of a fundamental process in the cell: translation of the messenger RNA into a protein. A messenger RNA contains the sequence of nucleotides transcribed from the DNA that encode a certain protein.
@@ -111,6 +116,7 @@ In particular, we will focus on stochastic effects of the process of translation
 'https://www.findaphd.com/phds/project/noisy-translation-modelling-of-stochastic-effects-on-protein-production/?p107837'),
 
 ('Statistical physics of DNA replication',
+'statistical-physics-of-dna-replication',
 'Aberdeen University',
 'This project addresses some fundamental questions on the nature of DNA replication, and we expect it will have high impact in the field.',
 'The goal of this project is to apply statistical physics and probability theory to the problem of DNA replication in living cells. The replication of DNA is one of the most important processes in all of biology. DNA encodes all the information that is passed on to the next generation of cells, and it must be rapidly and faithfully copied when the time comes for cells to divide. Dramatic advances in sequencing technology and microscopy in the last two decades have allowed unprecedented experimental access to the inner workings of cells. We now have quantitative measurements of the dynamics of DNA replication in populations and even in individual cells. This means that the approaches of physics and applied mathematics can be applied to the study of DNA replication, and can be used to gain better understanding and new insights on this crucial phenomenon.
@@ -121,6 +127,7 @@ The replication of DNA is executed by molecular machines called DNA polymerase, 
 'https://www.findaphd.com/phds/project/statistical-physics-of-dna-replication/?p107833'),
 
 ('The mathematics behind the smartness of neural networks',
+'the-mathematics-behind-the-smartness-of-neural-networks',
 'Aberdeen University',
 'shortd',
 'Intelligence is one of the pillars that allows animals to master their environment. Scientific approaches recently proposed have been capable of simulating networked systems that reproduce similar emergent manifestations of behavior as those observed in the brain. This big scientific area was coined as Artificial Intelligence. Our society is today intrinsically connected to it. Why and how a neural network can be trained to process information and produce a logically intelligent output is today still a big mystery, despite the explosive growth in this area. Its success in solving tasks cannot today be fully explained in physical or mathematical terms. Contributing to this challenge is the grand goal of this PhD project: the creation of a general theory that describes the fundamental mathematical rules and physical laws, relevant properties and features behind the “intelligent” functioning of trained neural networks. To this goal, this project will focus in a simpler but also successful type of machine learning approach, named Reservoir Computing. However other more popular approaches will also be considered. In RC, the learning phase to train a dynamical neural network to process information about an input signal only deals with the much easier task of understanding how the neural network needs to be observed, without dealing with the more difficult task of doing structural changes in it - e.g. as no deep learning. We aim at showing with mathematical rigour the contribution of the configurations and emergent behaviour of a dynamical network into the informational processing of an input signal leading to an intelligent response about it. We want to show why chaos in neural networks can enhance the smart behaviour of trained neural networks. Another goal will be to determine how “intelligence” depends on the particular way a network is observed to construct the output functions. Today, output functions are constructed based on the randomly chosen observation of some neurons in the network. The outputs of this project will potentially contribute to a better understanding of how our own brain computes. But, it will also contribute towards industrial exploitation of neural networks, by developing a mathematical formalism to create simpler but smarter neural networks that can process quicker more information with less computational resources.',
@@ -129,6 +136,7 @@ The replication of DNA is executed by molecular machines called DNA polymerase, 
 'https://www.findaphd.com/phds/project/the-mathematics-behind-the-smartness-of-neural-networks/?p107829'),
 
 ('Ecology of Dynamic Seasonal Salt Lakes',
+'ecology-of-dynamic-seasonal-salt-lakes',
 'Aberdeen University',
 'shortd',
 'Seasonal salt lakes present extreme environments, often characterised by low levels of biodiversity and relatively simple food webs. Nevertheless, they are often vital habitats for rare and important species. This study will attempt to characterise seasonal salt lakes in terms of biodiversity, food webs and population dynamics of key species and understand how these vary seasonally as well as long-term.
@@ -139,6 +147,7 @@ The project will involve both fieldwork, as well as lab work and statistical mod
 'https://www.findaphd.com/phds/project/ecology-of-dynamic-seasonal-salt-lakes/?p111116'),
 
 ('Fostering Sustainability Through Organic Waste Re-Use in Sub Saharan Africa',
+'fostering-sustainability-through-organic-waste-re-use-in-sub-saharan-africa',
 'Aberdeen University',
 'shortd',
 'Efficient re-use of organic wastes is of critical importance to the productivity of small-holder farm households in many parts of Sub-Saharan Africa. Organic wastes can provide important and sustainable organic fertilisers that recycle valuable nutrients back to the soil as well as increasing the organic matter content of the soil. This can improve soil structure, nutrient supply and productivity. Organic wastes are also widely used as sources of household fuel, usually by burning - dung or crop residues. Crop residues may also provide an important source of animal feed, while both dung and crop residues are used in building.
@@ -169,6 +178,7 @@ The student will gain training in
 'https://www.findaphd.com/phds/project/fostering-sustainability-through-organic-waste-re-use-in-sub-saharan-africa/?p111119'),
 
 ('Supporting Healthy Honey Bees Against Varroa and Viruses: a Scientific Understanding for Practical Solutions',
+'supporting-healthy-honey-bees-against-varroa-and-viruses-a-scientific-understanding-for-practical-solutions',
 'Aberdeen University',
 'shortd',
 'There is an increasing need for insect pollination for crop production worldwide. At the same time, there is a global crisis in honey bee health resulting in a shortage of managed bee colonies to satisfy the growing needs of food production. The reasons for the decline in honey bee numbers are numerous and differ slightly in different regions of the world, but generally include poor nutrition due to lack of forage, pesticide misuse, parasites, pests and diseases. Of particular note has been the spread of the external parasitic mite Varroa destructor from the Asian honey bee (Apis cerana) to a near global presence on the Western honey bee (A. mellifera) over the past 50 years. More recently, it has been recognized that the high lethality of Varroa infestation in a honey bee colony is not due to Varroa in isolation but due to its interaction with the deformed wing virus (DWV).
@@ -178,6 +188,7 @@ The project investigates the underlying reasons for poor honey bee health and wh
 'https://www.findaphd.com/phds/project/supporting-healthy-honey-bees-against-varroa-and-viruses-a-scientific-understanding-for-practical-solutions/?p111113'),
 
 ('Images in the medical and life sciences',
+'images-in-the-medical-and-life-sciences',
 'Aberdeen University',
 'This project investigates the precise roles of pictorial representations, their unique qualities and limitations, which are still little understood.',
 'Pictorial representations and images (e.g. photographs and diagrams) are common in the medical and life sciences. Examples include fMRI images and micrographs. They are convenient ways to communicate the results of investigations to peers and, potentially, a wider audience. But it is thought that they can also be involved in the process of research itself, e.g. by assisting the development of explanatory models. Furthermore, it has been argued that they can play an evidential role within scientific arguments. This project investigates the precise roles of pictorial representations, their unique qualities and limitations, which are still little understood.
@@ -188,6 +199,7 @@ An interdisciplinary approach to this topic is welcome, e.g. by combining philos
 'https://www.findaphd.com/phds/project/images-in-the-medical-and-life-sciences/?p110978'),
 
 ('Autonomous learning with Artificial Intelligence',
+'autonomous-learning-with-artificial-intelligence',
 'Aberdeen University',
 'shortd',
 'The ability to learn the sensorimotor maps of unknown environments without supervision is a vital capability of any autonomous agent, be it biological or artificial. An accurate sensorimotor map should be able to encode the agent’s world and equip it with the capability to anticipate or predict the results of its actions. However, to design a robust autonomous learning technique for an unknown, dynamic, partially observable or noisy environment remains a daunting task. This project will continue work in this area that focuses on developing solutions to the above problems, particularly with a focus on self-organising learning of an agent’s sensorimotor awareness in noisy environments.
@@ -198,6 +210,7 @@ This work has particular relevance in today’s world with the advent of self dr
 'https://www.findaphd.com/phds/project/autonomous-learning-with-artificial-intelligence/?p109583'),
 
 ('Using CRISPR genome editing to determine the effects of obesity and hypertension associated polymorphisms',
+'using-crispr-genome-editing-to-determine-the-effects-of-obesity-and-hypertension-associated-polymorphisms',
 'Aberdeen University',
 'There is now little doubt that morbid conditions such as obesity, cardiovascular disease and diabetes are mechanistically linked. Collectively, these conditions represent the biggest risk factors for life threatening diseases including stroke, heart attack and cancer.',
 'Introduction. There is now little doubt that morbid conditions such as obesity, cardiovascular disease and diabetes are mechanistically linked. Collectively, these conditions represent the biggest risk factors for life threatening diseases including stroke, heart attack and cancer.
@@ -212,6 +225,7 @@ Methods. The successful student candidate will test the effects of removing enha
 'https://www.findaphd.com/phds/project/using-crispr-genome-editing-to-determine-the-effects-of-obesity-and-hypertension-associated-polymorphisms/?p105977'),
 
 ('A 3D in vitro model of wound healing incorporating skin, nerves and immune cells',
+'a-3d-in-vitro-model-of-wound-healing-incorporating-skin-nerves-and-immune-cells',
 'Aberdeen University',
 'Aim: To develop an improved in vitro 3D skin, sensory neuron, immune cell co-culture model that better recapitulates key aspects of the natural wound environment. To manipulate the environmental conditions to optimise wound closure. To better understand the molecular basis of the interaction and interdependency between skin, neuron and immune cells in the healing process with a view to developing novel clinical therapies.',
 'Diabetes, paralysis, being bed ridden and other conditions can result in chronic wounds that fail to heal, with significant personal consequences for patients and an annual cost of £4.5-5.1 billion annually (Guest et al., 2015) to the National Health Service. Animal models for assessing new wound healing therapies have inherent issues related to animal suffering and in some cases, their relevance to human tissues. ‘Proof of concept’ in vitro testing for new treatments typically uses scratch wounds in monolayer cultures of keratinocytes or fibroblasts but such highly simplified two-dimensional systems fail to account for the complexities of the real wound environment. In particular, the signalling between nerves and epithelial cells, and signalling by the array of immune cells, which collectively promote healing. Additionally, cells behave differently in a 3D environment, changing their sensitivity to the extracellular signals that drive wound closure and interacting with the matrix texture, physical stresses and molecules in their immediate vicinity. A few 3D human skin models have been established recently (using an air water interface to encourage skin-like keratinisation). Some incorporate neuron co-cultures (Lebonvallet et al., 2011; Martorina et al., 2017) but none also incorporate immune cells, which are essential players in the healing process, and these systems have never been used to explore the process of wound closure.
@@ -226,6 +240,7 @@ Impact: This model will expedite preclinical testing of new therapies for recalc
 'https://www.findaphd.com/phds/project/a-3d-in-vitro-model-of-wound-healing-incorporating-skin-nerves-and-immune-cells/?p105982'),
 
 ('Dynamic prediction modelling in Parkinson’s disease',
+'dynamic-prediction-modelling-in-parkinson-s-disease',
 'Aberdeen University',
 'shortd',
 '1. Background to the project:
@@ -240,6 +255,7 @@ The ideal study design to investigate prognosis in PD is the long-term follow-up
 'https://www.findaphd.com/phds/project/dynamic-prediction-modelling-in-parkinson-s-disease/?p105979'),
 
 ('Compressed learning and analytics at edge cloud',
+'compressed-learning-and-analytics-at-edge-cloud',
 'Aarthus University',
 'Our goal is to design and develop compressed learning and analytics at edge cloud for emerging IoT applications.',
 'Machine learning and data analytics are popular and powerful data processing methods to extract knowledge from raw sensor data in IoT. With the fast growing sensor data, data compression near the data source is a key method to minimize energy, transmission and storage cost. However, to perform machine learning and data analytics, the data is often required to be decompressed first, which often causes long delay and is even not practical for the emerging Edge computing based IoT applications. As many IoT applications cannot simply reply on central cloud-based computing infrastructure, due to time criticality, constrained long-distance connectivity and others, Edge computing is a promising paradigm to deploy the storage and computing resource close the end devices, i.e., extend the computing to the edge of the network. One of the challenges is that edge servers do not have large memory and storage as central cloud computing, it calls for efficient methods to allow distributed machine learning and data analytics directly in the compressed data domain, i.e., avoiding data decompression. In the literature, compressed learning have been applied for high-resolution images, video processing and text analysis.
@@ -252,6 +268,7 @@ Our group operates at the intersection of theory and implementation of communica
 'https://www.findaphd.com/phds/project/compressed-learning-and-analytics-at-edge-cloud/?p112116'),
 
 ('Accountable autonomy of software agents',
+'accountable-autonomy-of-software-agents',
 'Aberdeen University',
 'shortd',
 'Many tasks once performed by humans are now carried out by autonomous artificial intelligence systems. An important aspect of such systems is their accountability, that is, how their decisions and behaviours can be recorded, scrutinised and, if necessary, revised. Practical reasoning software agents, in particular, become self-aware of their accountability and should factor in their accountability to change and improve their performance. This research should develop knowledge models and reasoning processes related to accountability and how these may influence practical reasoning of software agents.',
@@ -260,6 +277,7 @@ Our group operates at the intersection of theory and implementation of communica
 'https://www.findaphd.com/phds/project/accountable-autonomy-of-software-agents/?p107816'),
 
 ('Complex Norm Synthesis via Deep Learning',
+'complex-norm-synthesis-via-deep-learning',
 'Aberdeen University',
 'shortd',
 'This project will investigate how agents operating as part of a group should learn behaviours that benefit the group as a whole. These behaviours are commonly referred to as norms, and describe obligations, permissions and prohibitions on actions in specific contexts.
@@ -270,6 +288,7 @@ Existing work on norm synthesis is primarily symbolic, and this project will inv
 'https://www.findaphd.com/phds/project/complex-norm-synthesis-via-deep-learning/?p107813'),
 
 ('Explainable Autonomous AI Systems',
+'explainable-autonomous-ai-systems',
 'Aberdeen University',
 'shortd',
 'This project will investigate how the decisions made by an AI system operating as part of a group can be explained. Such decisions could be based on theories and approaches ranging from machine learning, to automated planning, to game theory, and must consider not only the system’s goals, but also the behaviours of others in the system and the beliefs ascribed to them.
@@ -280,6 +299,7 @@ Initial techniques to be used within the project will include formal argumentati
 'https://www.findaphd.com/phds/project/explainable-autonomous-ai-systems/?p107814'),
 
 ('Algebraic Methods in Musical Composition',
+'algebraic-methods-in-musical-composition',
 'Aberdeen University',
 'The aim of this project is to develop algebraic techniques for musical composition, to be played using modern musical software. Such software presents the possibility of great precision in performance, which means frequencies away from those that correspond to points on the stave can be utilised, as well as frequencies that correspond to points on the stave.',
 'Algebraic operations have been used as compositional tools for centuries. For example, the group theoretical operation of translation on the integers can be identified with the musical operation of transposition. This sort of operation, as well as other more complex operations, are implicit in the fugal form as well as other forms founded on repetition.
@@ -292,6 +312,7 @@ Of particular interest are compositions that are constructed via similarity, To 
 'https://www.findaphd.com/phds/project/algebraic-methods-in-musical-composition/?p107827'),
 
 ('Applied Algebraic Topology in Geometry',
+'applied-algebraic-topology-in-geometry',
 'Aberdeen University',
 'Persistent homology is a very computational subject, and there are many programming tools for the study of persistent homology. This project offers an opportunity to learn and apply some of these tools, especially in the study of specific examples.',
 'In recent years the techniques of algebraic topology have been applied to data analysis with great success, and the resulting subject areas of Applied Algebraic Topology and Topological Data Analysis have seen rapid growth. This project will apply these new techniques to pure mathematics itself, in order to study geometric objects.
@@ -304,6 +325,7 @@ Topological data analysis has been used to great effect in applications, but has
 'https://www.findaphd.com/phds/project/applied-algebraic-topology-in-geometry/?p107822'),
 
 ('Topological methods for image recognition',
+'topological-methods-for-image-recognition',
 'Aberdeen University',
 'shortd',
 'The aim of this project is to develop mathematical algorithms for manipulating and classifying medical images. Images from medical scans are typically presented as a collection of voxels (three-dimensional analogues of pixels); one wants to develop automated algorithms to determine from the scan whether, say, an organ is diseased. An efficient way has been found recently to represent voxel images, using ideas from graph theory and topology. In this project, theoretical and practical aspects of this representation will be explored further and the algorithms will be tested on some sample data sets.',
@@ -312,6 +334,7 @@ Topological data analysis has been used to great effect in applications, but has
 'https://www.findaphd.com/phds/project/topological-methods-for-image-recognition/?p107826'),
 
 ('Enhancing predictability in chaotic systems',
+'enhancing-predictability-in-chaotic-systems',
 'Aberdeen University',
 'shortd',
 'The goal of this research program – which involves theoretical analysis and numerical simulations -- is to apply fundamental results and recent developments (to which the supervisors significantly contributed) of dynamical system theory to enhance our ability to predict the future evolution of complex and chaotic dynamical systems -- such as weather and climate systems.
@@ -334,6 +357,7 @@ CLVs have been recently used to study a simple multiscale systems (Lorenz 96), r
 'https://www.findaphd.com/phds/project/enhancing-predictability-in-chaotic-systems/?p107831'),
 
 ('Fast, reliable and secure wireless IoT chaos-based communication',
+'fast-reliable-and-secure-wireless-iot-chaos-based-communication',
 'Aberdeen University',
 'shortd',
 'This PhD project tackles scientific issues aimed at creating and laying the mathematical foundations of an innovative Wireless IoT Communication System that is reliable (information arrives), fast and light (less power, less hardware, less computation, higher bit rates), universal (to mainly function underwater, but also appropriated to other wireless media), secure (not disclosing information to untrusted agents).
@@ -344,6 +368,7 @@ This PhD project will be separated in 2 main scientific challenges. The first ch
 'https://www.findaphd.com/phds/project/fast-reliable-and-secure-wireless-iot-chaos-based-communication/?p107828'),
 
 ('Research on Exoskeleton Control System based on Brain-Computer Interface',
+'research-on-exoskeleton-control-system-based-on-brain-computer-interface',
 'Xi’an Jiaotong-Liverpool University',
 'shortd',
 'To ensure the safe and reliable operation of exoskeleton, the control system based on brain-computer interface is the premise and foundation, which has been discussed in literature. However, no effective solutions are provided for closed-loop control of the exoskeleton system at present. This project proposes a novel convolutional-recurrent neural network method to realize real-time identification of motor imagery signals, and achieves closed-loop control of the exoskeleton system with multi-mode physiological signals based on EEG data and human-machine interaction forces. The proposed method will be validated by simulation and experiment study with a prototype of rehabilitation exoskeleton. The research results will provide theoretical and technical support for improving the safe and reliable exoskeleton control, and show practical significance and engineering value in the research and development of intelligent exoskeleton with application in rehabilitation and other fields.',
@@ -352,6 +377,7 @@ This PhD project will be separated in 2 main scientific challenges. The first ch
 'https://www.findaphd.com/phds/project/research-on-exoskeleton-control-system-based-on-brain-computer-interface/?p111740'),
 
 ('Discovery and characterisation of new antibiotics from uncultivated microbes',
+'discovery-and-characterisation-of-new-antibiotics-from-uncultivated-microbes',
 'Victoria University of Wellington',
 'shortd',
 'Recent developments in DNA sequencing technology have greatly enriched our understanding of the microbial world. By directly sequencing DNA extracted from communities of environmental microbes, we have been able to observe a hidden majority of microbial species that cannot be readily grown in the laboratory. We now know that the soil beneath our feet, and the oceans that surround us are home to a far greater diversity of microbial species than we had previously imagined. In the case of soil, just a single gram can contain more than 10,000 unique bacterial species, the vast majority of which have never been cultivated in a laboratory. Many of these uncultivated microbes harbor the potential to produce as yet unknown chemical entities that they use to kill competing species in their environments. We are surrounded by new antibiotics that are waiting to be discovered with the right approach.
@@ -362,6 +388,7 @@ This project will use DNA sequencing and synthetic biology to explore the bioche
 'https://www.findaphd.com/phds/project/discovery-and-characterisation-of-new-antibiotics-from-uncultivated-microbes/?p82272'),
 
 ('Digital Modeling of Asynchronous Integrated Circuits',
+'digital-modeling-of-asynchronous-integrated-circuits',
 'Vienna University of Technology',
 'shortd',
 'The project Digital Modeling of Asynchronous Integrated Circuits (DMAC) is devoted to the development of a purely digital model for asynchronous circuits, which enables accurate and fast dynamic timing analysis and is a mandatory prerequisite for any attempt on practical formal verification of such designs. The envisioned model shall be accurate and realistic (= faithful), in the sense that the behavior of circuits described in the model is exactly, i.e., within the modeling accuracy, the same as the behavior of the corresponding real circuit. In contrast to analog models, which are known to be faithful but suffer from excessive simulation times, we target continuous-time discrete-value models here, which essentially boil down to elaborate delay models for gates and/or interconnecting channels.
@@ -376,6 +403,7 @@ Project duration: 2019-2023',
 'https://www.findaphd.com/phds/project/digital-modeling-of-asynchronous-integrated-circuits/?p112155'),
 
 ('Construction of QSAR models for searching multi-target drug hits beyond similarity-based applicability domains',
+'construction-of-qsar-models-for-searching-multi-target-drug-hits-beyond-similarity-based-applicability-domains',
 'Xi’an Jiaotong-Liverpool University',
 'shortd',
 'Drugs designed to act against individual molecular targets cannot usually combat multigenic diseases such as cancers in which alternative or compensatory pathways are often activated. Thus, selection of proper multi-target combinations and prediction of new molecules against multi-targets are highly useful for discovering drugs with improved therapeutic efficacies. In silico methods have been extensively explored for the discovery of multi-target drugs. Apart from drug lead optimization, predictive quantitative structure-activity relationship (QSAR) models with well-defined applicability domains (ADs) have shown promising capability in virtual screening large chemical databases for drug candidate selection. However, these models are impeded by their inability in finding highly novel drug hits outside similarity-based ADs. The current project aims to develop an extended QSAR approach via chemspace-wide activity regression which can serve as an effective novel approach for finding novel drug hits outside the similarity-based ADs.',
@@ -384,6 +412,7 @@ Project duration: 2019-2023',
 'https://www.findaphd.com/phds/project/construction-of-qsar-models-for-searching-multi-target-drug-hits-beyond-similarity-based-applicability-domains/?p111733'),
 
 ('Tractable situation coverage for autonomous cars',
+'tractable-situation-coverage-for-autonomous-cars',
 'University of York',
 'In this PhD project, we could:
 
@@ -402,6 +431,7 @@ There are some existing models of situation spaces for 3D scenes. To date, howev
 'https://www.findaphd.com/phds/project/tractable-situation-coverage-for-autonomous-cars/?p111960'),
 
 ('Understanding player experience in digital games',
+'understanding-player-experience-in-digital-games',
 'University of York',
 'shortd',
 'Research areas: Digital games; Player experience and user experience
@@ -412,6 +442,7 @@ We would like our interactive systems to offer fulfilling experiences to people 
 'https://www.findaphd.com/phds/project/understanding-player-experience-in-digital-games/?p112082'),
 
 ('3D Shape Modelling of the Human Head',
+'3d-shape-modelling-of-the-human-head',
 'University of York',
 'shortd',
 'Research areas: Computer Vision and Image Processing; Machine learning
@@ -435,6 +466,7 @@ In terms of 3D face and head modelling, we are collaborating with Prof Paul O’
 'https://www.findaphd.com/phds/project/3d-shape-modelling-of-the-human-head/?p112101'),
 
 ('Simulation and modelling of innovative mobility services',
+'simulation-and-modelling-of-innovative-mobility-services',
 'University of Wolverhampton',
 'shortd',
 'Modern transportation systems require the utilisation of simulation and modelling approaches for evaluation and impact assessment prior to their deployment. Although such approaches exist for conventional mobility services and infrastructure, innovative services, concepts and technologies (e.g. drive-sharing, ride-sharing, crowd shipping, crowd delivery, connected and automated vehicles, Mobility as a Service) need tools that will allow decision makers to understand better their impact on sustainable development.
