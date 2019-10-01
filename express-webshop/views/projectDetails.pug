@@ -21,10 +21,10 @@ block content
               a(href="#readMore") 
                 small &nbsp;Read more...
             .progress.mt-5
-              .progress-bar.bg-success(role='progressbar',style="width:20%",aria-valuemin="0", aria-valuenow='20', [attr.aria-valuemax]='100') donated
+              .progress-bar.bg-success(role='progressbar',style=`width: ${percentage}%`, aria-valuenow=`${percentage}`,aria-valuemin="0", aria-valuemax=`${project.goal}`) donated
             p
               small  the goal is $ #{project.goal}
-            form(action=`/basket/${project.id}`, method="post")
+            form(action=`/baskets/${project.id}`, method="post")
               button#donate.btn-block.btn.btn-info Donate
         .row.mt-5
           .col-12
@@ -35,12 +35,9 @@ block content
                 p.card-text #{project.contact}
                 h5#about.mt-3 About
                 p.card-text  #{project.longd}
-                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero unde dolores nulla ex laudantium. Consectetur ea est repellendus labore veritatis temporibus natus quo nostrum, nulla unde tempore illum culpa repudiandae.
-                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quasi sapiente delectus illum! Quis doloribus nesciunt esse, laboriosam, quasi vitae accusamus consectetur nostrum illo ad repellendus officiis? Voluptas, ducimus fugit.
-                p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis magni tempore iure esse est laudantium, suscipit at, quas ducimus voluptates tempora quo culpa perspiciatis ipsam illo doloribus? Eaque, deleniti aperiam.
                 h5#about.mt-3 Link
                 p
-                  a.card-text(href='') #{project.link}    
-                form(action=`/basket/${project.id}`, method="post")
+                  a.card-text(href=`${project.link}`) #{project.link}    
+                form(action=`/baskets/${project.id}`, method="post")
                   button.btn.btn-primary.btn-block.mt-5 Donate
                 
