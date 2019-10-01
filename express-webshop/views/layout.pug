@@ -45,14 +45,6 @@ html
               a.nav-link(href='/') Home
             li.nav-item
               a.nav-link(href='/projects') Projects
-            //- li.nav-item.dropdown
-            //-   a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-            //-   .dropdown-menu(aria-labelledby='navbarDropdown')
-            //-     a.dropdown-item(href='/projects/arts') Arts
-            //-     a.dropdown-item(href='/projects/biology') Biology
-            //-     a.dropdown-item(href='/projects/gender') Gender Studies
-            //-     a.dropdown-item(href='/projects/neurology') Neurology
-            //-     a.dropdown-item(href='/projects/technology') Technology
             li.nav-item
               a.nav-link(href='/about') About Us
             li.nav-item
@@ -65,10 +57,10 @@ html
             if user
               if user.id
                 li
-                  if user.picture
-                    img#profile-pic(src=`${user.picture}`)
+                  if user.pictureurl
+                    img#profile-pic(src=`${user.pictureurl}`)
                   else
-                    img#profile-pic(src="/images/user_default.png")
+                    img#profile-pic(src="/images/users/user_default.png")
                 li.nav-item.dropdown
                   a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                   .dropdown-menu(aria-labelledby='navbarDropdown')

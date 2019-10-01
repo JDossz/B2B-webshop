@@ -68,6 +68,23 @@ body {
   margin-left: .75rem;
 }
 
+.marketing .col-lg-4 img {
+  border-radius: 50%;
+  height: 100%;
+}
+
+.col.funder-picture {
+  height: 400px;
+}
+
+.profile-picture {
+  height: 100%;
+}
+
+.row.funders {
+  width: 100%;
+  height: auto;
+}
 
 /* Featurettes
 ------------------------- */
@@ -83,6 +100,10 @@ body {
   letter-spacing: -.05rem;
 }
 
+.row.featurette img {
+  width: 100%;
+  height: auto;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
