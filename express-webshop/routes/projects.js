@@ -1,7 +1,9 @@
 const express = require('express');
+
 const router = express.Router();
 
 const MariaDBmain = require('../modules/webshop-mariadb');
+
 const database = new MariaDBmain();
 
 
@@ -95,7 +97,7 @@ const setActive = (id) => {
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
-    'isactive': 1,
+    isactive: 1,
   });
   sortByTitle(projects);
   pagination(projects, req, res);
@@ -120,7 +122,6 @@ router.get('/arts', async (req, res, next) => {
 // Get biology projects
 router.get('/biology', async (req, res, next) => {
   const projects = await database.readProjectsByCategory('Biology');
-
   sortByTitle(projects);
   pagination(projects, req, res);
 });
@@ -128,7 +129,6 @@ router.get('/biology', async (req, res, next) => {
 // Get gender projects
 router.get('/gender', async (req, res, next) => {
   const projects = await database.readProjectsByCategory('Gender Studies');
-
   sortByTitle(projects);
   pagination(projects, req, res);
 });
@@ -136,7 +136,6 @@ router.get('/gender', async (req, res, next) => {
 // Get chemistry projects
 router.get('/chemistry', async (req, res, next) => {
   const projects = await database.readProjectsByCategory('Chemistry');
-
   sortByTitle(projects);
   pagination(projects, req, res);
 });
@@ -166,6 +165,12 @@ router.get('/physics', async (req, res, next) => {
   pagination(projects, req, res);
 });
 
+router.get('/other', async (req, res, next) => {
+  const projects = await database.readProjectsByCategory('Other');
+  sortByTitle(projects);
+  pagination(projects, req, res);
+});
+
 // :3000/projects/:table/?id=7
 router.get('/:seo', async (req, res, next) => {
   const urlParts = req.originalUrl.split('/');
@@ -173,13 +178,13 @@ router.get('/:seo', async (req, res, next) => {
   const selectedProject = await database.readRecord('projects', {
     seo: seoName,
   });
+  console.log(selectedProject[0]);
+  const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100);
   res.render('projectDetails', {
     project: selectedProject[0],
     user: req.user || {},
+    percentage: progressPercentage,
   });
 });
 
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
 module.exports = router;
