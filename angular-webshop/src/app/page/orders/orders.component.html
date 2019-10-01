@@ -8,10 +8,9 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>User ID</th>
         <th>Insdate</th>
+        <th>User ID</th>
         <th>Project ID</th>
-        <th>Project price</th>
         <th>Quantity</th>
         <th>Status</th>
       </tr>
@@ -19,10 +18,9 @@
     <tbody>
       <tr *ngFor="let order of list$ | async">
         <td>{{order.id}}</td>
-        <td>{{order.userid}}</td>
         <td>{{order.insdate}}</td>
+        <td>{{order.userid}}</td>
         <td>{{order.projectid}}</td>
-        <td>{{order.projectprice}}</td>
         <td>{{order.quantity}}</td>
         <td>{{order.status}}</td>
 

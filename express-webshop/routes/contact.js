@@ -1,53 +1,44 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+const Mariadb = require('../modules/webshop-mariadb')
+const database = new Mariadb();
+let router = express.Router();
 
 router.get('/', async (req, res, next) => {
+  // const reviewList = await database.readRecord('reviews', {});
+  // let newReview = {
+  //   text: '',
+  //   rate: '',
+  //   from: ''
+  // };
+  // let rating;
+  // let itemId;
+  // let ratingClick;
+  // let inputName;
+
+
+  // function onClick(rating) {
+  //   this.newReview.rate = rating;
+  //   this.rating = rating;
+  //   this.ratingClick.emit({
+  //     itemId: this.itemId,
+  //     rating: rating
+  //   });
+  // }
   res.render('contact', {
     title: 'Contacts',
+    reviews: reviewList,
     user: req.user || {},
   });
+});
+router.post('/:id', async (req, res) => {
+  await database.createRecord('baskets', {
+    projectid: req.params.id,
+    userid: req.user.id || 0,
+    quantity: 1,
+  });
+  res.redirect('/baskets');
+});
+router.post('/addReview', async (req,res,next)=>{
+await database.createRecord('reviews',{})
 })
-// const showReview=function() {
-//   // document.getElementById("review").classList.toggle("show");
-// }
-
-// onCancel() {
-//   document.getElementById("review").classList.toggle("show");
-// }
-
-// leaveReview() {
-//   this.product.reviews.push(this.newReview);
-//   this.productService.update(this.product).subscribe(
-//     response => {
-//       document.getElementById("review").classList.toggle("show");
-//       this.newReview = {};
-//       let nList = document.querySelectorAll("input[type=radio]");
-//       console.log(nList);
-//       // for (var checkbox of nList) {
-//       //   checkbox.checked = false;
-//       // };
-//       Array.prototype.forEach.call(nList, function (checkbox) {
-//         checkbox.checked = false;
-//       });
-//       this.avg = this.countAvg(this.product);
-//     },
-//     err => console.error(err)
-//   )
-// }
-
-
-// rating: number;
-// itemId: number;
-// ratingClick: EventEmitter<any> = new EventEmitter<any>();
-
-// inputName: any;
-
-// onClick(rating: number): void {
-//   this.newReview.rate = rating;
-//   this.rating = rating;
-//   this.ratingClick.emit({
-//     itemId: this.itemId,
-//     rating: rating
-//   });
-// }
 module.exports = router;

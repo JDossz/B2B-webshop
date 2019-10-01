@@ -6,20 +6,21 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th>#</th>
+        <th>Insdate</th>
         <th>User ID</th>
         <th>Project ID</th>
-        <th>Unique project ID</th>
         <th>Quantity</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let basket of list$ | async">
+        <td>{{basket.id}}</td>
+        <td>{{basket.insdate}}</td>
         <td>{{basket.userid}}</td>
         <td>{{basket.projectid}}</td>
-        <td>{{basket.id}}</td>
         <td>{{basket.quantity}}</td>
-
-
         <td>
           <div class="btn-group">
             <a class="btn btn-danger"
