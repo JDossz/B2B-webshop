@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../service/project.service';
 import { Project } from '../model/project';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
@@ -19,7 +18,7 @@ export class ProjectAddComponent implements OnInit {
   }
 
   onCreate(): void {
-    if (this.newProject.title === undefined || this.newProject.seo === undefined || this.newProject.institution === undefined || this.newProject.shortd === undefined || this.newProject.longd === undefined || this.newProject.contact === undefined || this.newProject.categoryid === undefined || this.newProject.donation === undefined || this.newProject.goal === undefined || this.newProject.balance ===undefined|| this.newProject.pictureurl===undefined||this.newProject.link===undefined) {
+    if (this.newProject.title === undefined || this.newProject.seo === undefined || this.newProject.institution === undefined || this.newProject.shortd === undefined || this.newProject.longd === undefined || this.newProject.contact === undefined || this.newProject.categoryid === undefined || this.newProject.donation === undefined || this.newProject.goal === undefined || this.newProject.balance === undefined || this.newProject.pictureurl === undefined || this.newProject.link === undefined) {
       alert('Please write something to every inputbox')
     } else {
       this.ds.createRecord('projects', this.newProject).subscribe(

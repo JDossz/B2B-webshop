@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ProjectEditComponent implements OnInit {
 
-  project: Project = this.ds.projectList.getValue();
+  project: Project = this.ds.projectList.value;
 
   ngOnInit() {
   }
