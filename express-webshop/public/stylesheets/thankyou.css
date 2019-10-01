@@ -238,16 +238,6 @@ h1 {
 }
 
 @font-face {
-  font-family: 'Francois';
-  src: url('/fonts/FrancoisOne.ttf');
-}
-
-@font-face {
-  font-family: 'Steelfish';
-  src: url('/fonts/steelfish-outline.ttf');
-}
-
-@font-face {
   font-family: 'Beyondcontrol';
   src: url('/fonts/BEYONDCONTROL.ttf');
 }
