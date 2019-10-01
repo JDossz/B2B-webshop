@@ -2,7 +2,7 @@
 
 // const pool = mariadb.createPool({
 //   user: 'root',
-//   password: 'Renoir123',
+//   password: 'root',
 //   database: 'betag',
 //   connectionLimit: 5,
 // });
@@ -28,7 +28,7 @@
 
 //     if (req.cookies.uuid) {
 //       let sql = `
-      
+
 //     SELECT users.id, 
 //     projects.title, 
 //     projects.price, 

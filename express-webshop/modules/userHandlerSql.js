@@ -1,7 +1,7 @@
 // const mariadb = require('mariadb');
 // const pool = mariadb.createPool({
 //   user: 'root',
-//   password: 'Renoir123',
+//   password: 'root',
 //   database: 'betag'
 // })
 
@@ -58,7 +58,7 @@
 //         balance = ${user.balance}, 
 //         address = '${user.address}', 
 //         picture = '${user.picture}'
-        
+
 //     WHERE id = ${user.id}
 //     `;
 //     let result = await this.conn.query(sql);

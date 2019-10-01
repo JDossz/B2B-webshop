@@ -2,7 +2,7 @@
 
 // const pool = mariadb.createPool({
 //   user: 'root',
-//   password: 'Renoir123',
+//   password: 'root',
 //   database: 'betag',
 //   connectionLimit: 5,
 // });
@@ -51,7 +51,7 @@
 //     SET 
 //         quantity =${order.quantity},
 //         status = ${order.status}
-        
+
 //     WHERE id = ${order.id}
 //     `;
 //     const result = await this.conn.query(sql);
