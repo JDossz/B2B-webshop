@@ -3,59 +3,85 @@
 <div>
   <form (submit)="onSubmit($event)">
     <div class="form-group">
-      <input name="id"
+      <label for="firstname">First Name</label>
+      <input type="text"
+             id="firstname"
+             name="firstname"
+             [(ngModel)]="user.firstname"
              class="form-control"
-             type="hidden"
-             [(ngModel)]="user.id">
+             required>
     </div>
     <div class="form-group">
-      <label for="">Admin</label>
-      <input name="admin"
+      <label for="lastname">Last Name</label>
+      <input type="text"
+             id="lastname"
+             name="lastname"
+             [(ngModel)]="user.lastname"
              class="form-control"
-             type="text"
-             [(ngModel)]="user.admin">
+             required>
     </div>
     <div class="form-group">
-      <label for="">Name</label>
-      <input name="name"
+      <label for="gender">Gender</label>
+      <input type="number"
+             id="gender"
+             name="gender"
+             [(ngModel)]="user.gender"
              class="form-control"
-             type="text"
-             [(ngModel)]="user.name">
+             required>
     </div>
     <div class="form-group">
-      <label for="">Email</label>
-      <input name="email"
+      <label for="username">Username</label>
+      <input type="text"
+             id="username"
+             name="username"
+             [(ngModel)]="user.username"
              class="form-control"
-             type="email"
-             [(ngModel)]="user.email">
+             required>
     </div>
     <div class="form-group">
-      <label for="">Password</label>
-      <input name="password"
-             type="password"
+      <label for="emailaddress">E-Mail</label>
+      <input type="text"
+             id="emailaddress"
+             name="emailaddress"
+             [(ngModel)]="user.emailaddress"
              class="form-control"
-             [(ngModel)]="user.password">
+             required>
     </div>
     <div class="form-group">
-      <label for="">Balance</label>
-      <input name="balance"
-             type="text"
+      <label for="password">Password</label>
+      <input type="password"
+             id="password"
+             name="password"
+             [(ngModel)]="user.password"
              class="form-control"
-             [(ngModel)]="user.balance">
+             required>
     </div>
     <div class="form-group">
-      <label for="">Address</label>
-      <input name="address"
-             type="text"
+      <label for="admin">Admin</label>
+      <input type="number"
+             id="admin"
+             name="admin"
+             [(ngModel)]="user.admin"
              class="form-control"
-             [(ngModel)]="user.address">
+             required>
     </div>
     <div class="form-group">
-      <label for="">Picture</label>
-      <input name="picture"
-             type="text"
+      <label for="address">Address</label>
+      <input type="address"
+             id="address"
+             name="address"
+             [(ngModel)]="user.address"
              class="form-control"
-             [(ngModel)]="user.picture">
+             required>
+    </div>
+    <div class="form-group">
+      <label for="pictureurl">Picture URL</label>
+      <input type="text"
+             id="pictureurl"
+             name="pictureurl"
+             [(ngModel)]="user.pictureurl"
+             class="form-control"
+             required>
     </div>
     <button class="btn btn-primary"
             type="submit">
