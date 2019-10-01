@@ -30,7 +30,7 @@ module.exports = class ListGenerator {
     this._emptyList();
     this._initData(data);
     this.dataKeys.forEach((key) => {
-      if (key !== 'id') {
+      if (key !== 'id' && key !== 'insdate') {
         if (this.list !== '') {
           this.list = this.list.concat(', ');
         }
@@ -43,8 +43,8 @@ module.exports = class ListGenerator {
     this._emptyList();
     this._initData(data);
     this.dataKeys.forEach((key) => {
-      if (key === 'id') {
-        continue;
+      if (key === 'id' || key === 'insdate') {
+        return;
       }
       if (key === 'username' || key === 'password') {
         if (this.list !== '') {

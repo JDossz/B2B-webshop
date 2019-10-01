@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-6">
+      <a class="btn btn-info btn-block" routerLink="/category-add">Add new project</a>
+    </div>
+    <div class="col-6">
+      <input id="search" type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchedPhrase">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped table-responsive table-info">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>category</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories|async |search:searchedPhrase">
+            <td>{{category.id}}</td>
+            <td>{{category.category}}</td>
+            <td>
+              <div class="btn-group">
+                <a routerLink="/category-edit/{{category.id}}" class="btn btn-info">Edit</a>
+                <button (click)="onDelete(category.id)" class="btn btn-danger">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
