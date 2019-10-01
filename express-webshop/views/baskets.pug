@@ -30,4 +30,25 @@ block content
     div
       form(action=`/orders/${basketItemsWithNamesAndPrices.projectid}`, method="post")
         button.btn-block.btn.btn-info Donate
+    div
+      p #{emptyBasketMessage}
+    //- br    
+    //- div
+    //-   table.table.table-secondary
+    //-     thead
+    //-       th Project name
+    //-       th Project donation
+    //-       th Quantity
+    //-       th Amount of donation
+    //-       th Date of order
+    //-     tbody
+    //-       each item in sortByProjectName
+    //-         tr
+    //-           td #{item.title}      
+    //-           td #{item.donation}
+    //-           td #{item.quantity}
+    //-           td #{item.amount} 
+    //-           td #{item.insdate}
+    
               
+              //- a.active(href="#previousOrders") Previous orders

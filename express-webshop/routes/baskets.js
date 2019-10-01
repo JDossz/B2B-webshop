@@ -28,12 +28,30 @@ router.get('/', async (req, res) => {
   });
   actualQuantity = actualQuantity[0].totalQuantity;
 
+  // ez a két lekérdezés és a helyük a basket.pug-ban kísérleti, nem biztos, hogy a basketben kéne legyenek
+
+  let ordersFromThePastSortByOrderID = await database.readRecord('orders', {
+    userid: req.user.id,
+    from: 'INNER JOIN projects ON projects.id = orders.projectid',
+    select: 'SUM(projects.donation*orders.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
+    groupBy: 'orders.id'
+  });
+
+  let ordersFromThePastSortByProjectName = await database.readRecord('orders', {
+    userid: req.user.id,
+    from: 'INNER JOIN projects ON projects.id = orders.projectid',
+    select: 'SUM(projects.donation*orders.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
+    groupBy: 'projects.title'
+  });
+
   if (req.user.id) {
     res.render('baskets', {
       user: req.user || {},
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
       showQuantity: actualQuantity,
+      sortByOrdersID: ordersFromThePastSortByOrderID,
+      sortByProjectName: ordersFromThePastSortByProjectName
     });
   }
 
@@ -41,8 +59,13 @@ router.get('/', async (req, res) => {
 
 // a bejelentkezett user kosarának ürítése
 router.get('/empty/:userid', async (req, res) => {
+  let message = "The basket is empty"
   database.deleteRecord('baskets', { userid: req.user.id });
-  res.redirect('/baskets');
+  res.render('baskets', {
+    user: req.user || {},
+    emptyBasketMessage: message,
+
+  });
 });
 
 // post a project details oldalról
