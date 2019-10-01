@@ -1,20 +1,23 @@
 extends layout
 
 block content
-  .container(style="margin-left:60px")
+  link(rel='stylesheet', href='/stylesheets/projectDetails.css')
+
+  .container-fluid.mb-5(style="margin-left:2%")
     .row
-      .col-2
-        .sidebar.mt-5
-          h4 #{project.title}
-          a.active(href="#about") About
+      .col-3
+        .sidebar.mt-4
+          h5 #{project.title}
           a(href="#contact") Contact
-          a(href="#donate") Donate!
-      .col-lg-10
+          a.active(href="#about") About
+          a(href="#link") Link to the research
+          a(href="#donate") Donate
+      .col-lg-9
         h1.my-4.text-center #{project.title}
         hr
         .row
           .col-10.col-md-6.mr-3
-            img.img-top.img-fluid.mt-5(alt='projectImg', src=project.pictureurl)
+            img.img-top.img-fluid.mt-3(alt='projectImg', src=project.pictureurl)
           .col-10.col-md-5#support
             h2.mt-3.text-center #{project.title}
             p #{project.shortd}
@@ -25,10 +28,11 @@ block content
             p
               small  the goal is $ #{project.goal}
             form(action=`/baskets/${project.id}`, method="post")
-              button#donate.btn-block.btn.btn-info Donate
-        .row.mt-5
-          .col-12
-            .card.mt-5
+              button.btn-block.btn.btn-donate
+                | Donate
+        .row.mt-2
+          .col-12.mb-5
+            .card.mt-4
               .card-body#readMore
                 h1.text-center #{project.title}
                 h5.mt-5.card-title#contact Contact
@@ -37,7 +41,7 @@ block content
                 p.card-text  #{project.longd}
                 h5#about.mt-3 Link
                 p
-                  a.card-text(href=`${project.link}`) #{project.link}    
+                  a#link.card-text(href=`${project.link}`) #{project.link}    
                 form(action=`/baskets/${project.id}`, method="post")
-                  button.btn.btn-primary.btn-block.mt-5 Donate
+                  button#donate.btn.btn-donate.btn-block.mt-5 Donate
                 
