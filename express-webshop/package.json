@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "jasmine"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -14,10 +15,15 @@
     "express-generator": "^4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jquery": "^3.4.1",
     "mariadb": "^2.1.1",
     "morgan": "~1.9.1",
     "pagination": "^0.4.6",
+    "popper.js": "^1.15.0",
     "pug": "^2.0.4",
     "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0"
   }
 }

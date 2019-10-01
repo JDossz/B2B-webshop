@@ -23,14 +23,27 @@ router.post('/users', async (req, res, next) => {
   const token = getToken();
   console.log(req.body);
   console.log(token);
+  if (req.body.emailaddress) {
+    const usersDatabase = await database.readRecord('users', {});
+    for (let i = 0; i < usersDatabase.length; i += 1) {
+      if (usersDatabase[i].emailaddress === req.body.emailaddress) {
+        return res.render('register', {
+          wrong: 'This email is already registered, try to sign in instead!',
+        });
+      }
+    }
+  }
   await database.createRecord('users', {
-    'email': req.body.email,
-    'address': req.body.address,
-    'name': req.body.name,
-    'password': sha1(req.body.password),
-    'token':token,
+    'emailaddress': req.body.emailaddress,
+    'username': req.body.username,
+    'firstname': req.body.firstname,
+    'lastname': req.body.lastname,
+    'password': req.body.password,
+    'token': token,
   });
+  console.log(req.body)
   return res.redirect('/');
+
 });
 
 module.exports = router;

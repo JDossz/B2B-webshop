@@ -15,49 +15,49 @@ block content
         .carousel-item.active
           //- svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img')
           //-   rect(width='100%' height='100%' fill='#777')
-          img(src=`${carousel[0].picture}`)
+          img(src=`${carousel[0].pictureurl}`)
           .container
             .carousel-caption.text-left
               h1 #{carousel[0].title}
               p #{carousel[0].shortd}
               p
-                a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
+                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[0].seo}` role='button') Learn more
 
         .carousel-item
-          img(src=`${carousel[1].picture}`)
+          img(src=`${carousel[1].pictureurl}`)
           .container
             .carousel-caption
               h1 #{carousel[1].title}
               p #{carousel[1].shortd}
               p
-                a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
+                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[1].seo}` role='button') Learn more
 
         .carousel-item
-          img(src=`${carousel[2].picture}`)
+          img(src=`${carousel[2].pictureurl}`)
           .container
             .carousel-caption
               h1 #{carousel[2].title}
               p #{carousel[2].shortd}
               p
-                a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
+                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[2].seo}` role='button') Learn more
 
         .carousel-item
-          img(src=`${carousel[3].picture}`)
+          img(src=`${carousel[3].pictureurl}`)
           .container
             .carousel-caption
               h1 #{carousel[3].title}
               p #{carousel[3].shortd}
               p
-                a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
+                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[3].seo}` role='button') Learn more
 
         .carousel-item
-          img(src=`${carousel[4].picture}`)
+          img(src=`${carousel[4].pictureurl}`)
           .container
             .carousel-caption.text-right
               h1 #{carousel[4].title}
               p #{carousel[4].shortd}
               p
-                a.btn.btn-lg.btn-primary(href='#' role='button') Learn more
+                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[4].seo}` role='button') Learn more
 
       a.carousel-control-prev(href='#indexCarousel' role='button' data-slide='prev')
         span.carousel-control-prev-icon(aria-hidden='true')
@@ -123,13 +123,13 @@ block content
           h2.featurette-heading #{featurette[0].title}
             // span.text-muted It&rsquo;ll blow your mind.
           p.lead #{featurette[0].shortd}
-          a.btn.btn-primary(href='') Tell me more
+          a.btn.btn-primary(href=`/projects/${featurette[0].seo}`) Tell me more
         .col-md-5
           //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
           //-   title Placeholder
           //-   rect(width='100%' height='100%' fill='#eee')
           //-   text(x='50%' y='50%' fill='#aaa' dy='.3em') 500x500
-          img(src=`${featurette[0].picture}`)
+          img(src=`${featurette[0].pictureurl}`)
       hr.featurette-divider
 
       .row.featurette
@@ -137,13 +137,13 @@ block content
           h2.featurette-heading #{featurette[1].title}
             // span.text-muted See for yourself.
           p.lead #{featurette[1].shortd}
-          a.btn.btn-primary(href='') Tell me more
+          a.btn.btn-primary(href=`/projects/${featurette[1].seo}`) Tell me more
         .col-md-5.order-md-1
           //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
           //-   title Placeholder
           //-   rect(width='100%' height='100%' fill='#eee')
           //-   text(x='50%' y='50%' fill='#aaa' dy='.3em') 500x500
-          img(src=`${featurette[1].picture}`)
+          img(src=`${featurette[1].pictureurl}`)
       hr.featurette-divider
       
       .row.featurette
@@ -151,13 +151,13 @@ block content
           h2.featurette-heading #{featurette[2].title}
             // span.text-muted Checkmate.
           p.lead #{featurette[2].shortd}
-          a.btn.btn-primary(href='') Tell me more
+          a.btn.btn-primary(href=`/projects/${featurette[2].seo}`) Tell me more
         .col-md-5
           //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
           //-   title Placeholder
           //-   rect(width='100%' height='100%' fill='#eee')
           //-   text(x='50%' y='50%' fill='#aaa' dy='.3em') 500x500
-          img(src=`${featurette[2].picture}`)
+          img(src=`${featurette[2].pictureurl}`)
       hr.featurette-divider
 
     // hírlevél feliratkozás

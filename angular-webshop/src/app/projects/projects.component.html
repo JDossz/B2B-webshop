@@ -1,10 +1,18 @@
 <div class="container">
   <div class="row mt-5 mb-5">
+    <div class="col-3">
+      <button class="btn btn-success btn-block" (click)='readActive()'>Only active projects</button>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-secondary btn-block" (click)='readAll()' >All projects</button>
+    </div>
+  </div>
+  <div class="row mt-5 mb-5">
     <div class="col-6">
       <a class="btn btn-info btn-block" routerLink="/projectAdd">Add new project</a>
     </div>
     <div class="col-6">
-        <input id="search" type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchedPhrase">
+      <input id="search" type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchedPhrase">
     </div>
   </div>
   <div class="row">
@@ -15,14 +23,17 @@
             <th>#</th>
             <th>title</th>
             <th>seo</th>
-            <th>price</th>
-            <th>contact</th>
-            <th>link</th>
-            <th>category</th>
+            <th>institution</th>
             <th>shortd</th>
             <th>longd</th>
-            <th>picture</th>
-            <th>institution</th>
+            <th>contact</th>
+            <th>categoryid</th>
+            <th>donation</th>
+            <th>goal</th>
+            <th>balance</th>
+            <th>pictureurl</th>
+            <th>link</th>
+            <th>isactive</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -31,18 +42,21 @@
             <td>{{project.id}}</td>
             <td>{{project.title}}</td>
             <td>{{project.seo}}</td>
-            <td>{{project.price}}</td>
-            <td>{{project.contact}}</td>
-            <td>{{project.link}}</td>
-            <td>{{project.category}}</td>
+            <td>{{project.institution}}</td>
             <td>{{project.shortd}}</td>
             <td>{{project.longd}}</td>
-            <td>{{project.picture}}</td>
-            <td>{{project.institution}}</td>
+            <td>{{project.contact}}</td>
+            <td>{{project.categoryid}}</td>
+            <td>{{project.donation}}</td>
+            <td>{{project.goal}}</td>
+            <td>{{project.balance}}</td>
+            <td>{{project.pictureurl}}</td>
+            <td>{{project.link}}</td>
+            <td>{{project.isactive}}</td>
             <td>
               <div class="btn-group">
                 <a routerLink="/projectEdit/{{project.seo}}" class="btn btn-info">Edit</a>
-                <button (click)="onDelete(project.id)" class="btn btn-danger">Delete</button>
+                <button (click)="onDelete(project.seo)" class="btn btn-danger">Delete</button>
               </div>
             </td>
           </tr>

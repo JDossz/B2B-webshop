@@ -9,10 +9,20 @@ block content
           a#arts(href="/projects/arts") Arts
           a#biology(href="/projects/biology") Biology
           a#gender(href="/projects/gender") Gender Studies
-          a#neurology(href="/projects/neurology") Neurology
-          a#technology(href="/projects/technology") Technology
+          a#neurology(href="/projects/chemistry") Chemistry
+          a#technology(href="/projects/computerSience") Computer Sience
+          a#technology(href="/projects/engineering") Engineering
+          a#technology(href="/projects/mathematics") Mathematics
+          a#technology(href="/projects/physics") Physics
           a.categories(href="/projects") Go back         
-          input.form-control(type='text', placeholder='Search..')
+          .row
+            form.form-inline(action='/projects' method="GET")
+              .form-group
+                .col-6
+                    input.form-control(type='text',name="search", placeholder='Search..')
+                .col-6
+                  button.btn.btn-primary(type="submit")
+                    i.fa.fa-search(aria-hidden='true')
 
       .col-8               
         each project , index in projects

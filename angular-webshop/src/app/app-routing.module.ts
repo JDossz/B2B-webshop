@@ -13,12 +13,18 @@ import { ProjectsComponent } from './projects/projects.component';
 import { CreateUsersComponent } from './page/create-users/create-users.component';
 import { BasketComponent } from './page/basket/basket.component';
 import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
+import { CategoryComponent } from './page/category/category.component';
+import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
+import { CategoryAddComponent } from './page/category/category-add/category-add.component';
 
 
 const routes: Routes = [
   { path: 'api/projects', component: ProjectsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
+  { path: 'api/categories', component: CategoryComponent },
+  { path: 'category-edit/:id', component: CategoryEditComponent},
+  { path: 'category-add', component: CategoryAddComponent},
   {
     path: 'orders',
     component: OrdersComponent

@@ -19,6 +19,9 @@ import { BasketComponent } from './page/basket/basket.component';
 import { IndexComponent } from './page/index/index.component';
 import { SearchPipe } from './pipe/search.pipe';
 import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
+import { CategoryComponent } from './page/category/category.component';
+import { CategoryAddComponent } from './page/category/category-add/category-add.component';
+import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { StatisticsBasicComponent } from './page/statistics-basic/statistics-bas
     IndexComponent,
     SearchPipe,
     StatisticsBasicComponent,
+    CategoryComponent,
+    CategoryAddComponent,
+    CategoryEditComponent,
   ],
   imports: [
     BrowserModule,

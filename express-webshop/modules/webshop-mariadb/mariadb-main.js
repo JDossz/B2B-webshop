@@ -3,7 +3,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'root',
+  password: 'ROOT',
   connectionLimit: 100,
 });
 
@@ -13,36 +13,11 @@ const SetGenerator = require('./tools/set-generator');
 const QueryGenerator = require('./tools/query-generator');
 
 const whereGenerator = new WhereGenerator();
-
 const listGenerator = new ListGenerator();
-
 const setGenerator = new SetGenerator();
 const queryGenerator = new QueryGenerator();
 
 module.exports = class BetagDB {
-
-  /*
-    Full select syntax:
-    SELECT columns, AVG(column), SUM(column)
-    FROM ((table1
-      INNER JOIN table2 ON table1.id = table2.id )
-      INNER JOIN table3 ON table1.id = table3.id
-    )
-    WHERE condition1 = value1 AND condition2 LIKE pattern
-    GROUP BY column1
-    HAVING condition
-    LIMIT number
-
-    queryObject:
-    {
-      select: * /'avg' / 'sum'
-      join: tableName
-      secondJoin: tableName
-      groupBy: columnName
-      having: condition
-      limit: number
-    }
-  */
 
   constructor() {
     pool.getConnection().then(conn => this.connection = conn);
@@ -55,7 +30,6 @@ module.exports = class BetagDB {
    * @returns The result of your post query.
    */
   async createRecord(tableName, data) {
-    console.log(data)
     const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) VALUES (${listGenerator.getFieldValues(data)})`;
     return await this.connection.query(query.concat(';'));
   }
@@ -68,10 +42,6 @@ module.exports = class BetagDB {
    * @returns The read data from your MySQL database.
    */
   async readRecord(tableName, queryObject = {}) {
-    // query = query.concat(whereGenerator.getWhereString(queryObject));
-    // return await this.connection.query(queryGenerator.getQueryString(tableName, queryObject));
-    // return query;
-    // return queryGenerator.getQueryString(tableName, queryObject);
     return await this.connection.query(queryGenerator.getQueryString(tableName, queryObject));
   }
 
@@ -109,7 +79,6 @@ module.exports = class BetagDB {
     return await this.connection.query(query.concat(';'));
   }
 
-
   async checkLogin(req) {
     if (!req.cookies.userID) {
       return false;
@@ -127,7 +96,7 @@ module.exports = class BetagDB {
 
   // async getPrice(req) {
   //   let sql = `
-  //   SELECT SUM(projects.price*basket.quantity) as amount 
+  //   SELECT SUM(projects.price*basket.quantity) as amount
   //   FROM projects JOIN basket ON projects.id = basket.projectid
   //   WHERE userid = ${req.user.id}
   //   `;
@@ -136,33 +105,75 @@ module.exports = class BetagDB {
   // }
 
   async nameToProjectId(project) {
-    let sql = `
+    const sql = `
     SELECT projects.title FROM projects JOIN basket ON projects.id = basket.projectid
     WHERE projectid = ${project.id}
-    `
-    let result = await this.connection.query(sql);
+    `;
+    const result = await this.connection.query(sql);
     return result;
   }
 
   async priceToProjectId(project) {
-    let sql = `
+    const sql = `
     SELECT projects.price FROM projects JOIN basket ON projects.id = basket.projectid
     WHERE projectid = ${project.id}
+    `;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+  
+  async namingAndPricingProjects(req) {
+    let sql = `
+    SELECT 
+    projects.title, 
+    projects.donation, 
+    projects.id as pid, 
+    sum(baskets.quantity) as quantity, 
+    baskets.id, 
+    baskets.projectid,
+    baskets.userid
+    FROM projects JOIN baskets ON projects.id = baskets.projectid
+    WHERE baskets.userid = ${req.user.id}
+    group by projects.id
     `
     let result = await this.connection.query(sql);
     return result;
   }
 
-  async getTotalPrice(req) {
+  async addAnotherProjectToBasket(req) {
     let sql = `
-    SELECT SUM(projects.price*basket.quantity) as amount 
-    FROM projects JOIN basket ON projects.id = basket.projectid
-    WHERE basket.userid = ${req.user.id}
-    `;
+    SELECT 
+    projects.id as pid, 
+    sum(baskets.quantity) as quantity 
+    
+    FROM projects JOIN baskets ON projects.id = baskets.projectid
+    WHERE baskets.userid = ${req.user.id} AND projects.id = ${req.params.pid}
+    group by projects.id
+    `
     let result = await this.connection.query(sql);
     return result;
   }
 
+ 
+  async readRecordWithLike(req) {
+    const sql = `
+    SELECT *
+    FROM projects
+    WHERE title LIKE '%${req.query.search}%'`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+  
+  async readProjectsByCategory(category) {
+    const sql = `
+    SELECT *
+    FROM projects
+    INNER JOIN categories
+    ON projects.categoryid=categories.id
+    WHERE category='${category}'`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
   // async getBasketData(userId) {
   //   let sql = `
   //   SELECT *

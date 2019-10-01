@@ -10,17 +10,23 @@ block content
           .card-body
             form(method='post', action='/register/users')
               .form-group
-                label(for='inputName')
-                  h5 Name
-                input#inputName.form-control(type='text',name='name', placeholder='Please enter your name', required)
+                label(for='inputFirstName')
+                  h5 Firstname
+                input#inputFirstName.form-control(type='text',name='firstname', placeholder='Please enter your firstname', required)
               .form-group
-                label(for='inputName') 
-                  h5 Address
-                input#inputName.form-control(type='text',name='address', placeholder='Please enter your address',required)
+                label(for='inputLastName')
+                  h5 Lastname
+                input#inputLastName.form-control(type='text',name='lastname', placeholder='Please enter your lastname', required)
+              .form-group
+                label(for='inputUserName') 
+                  h5 Username
+                input#inputUserName.form-control(type='text',name='username', pattern='(?=.*[a-z]).{5,}',title='Must contain at least 5 or more characters', placeholder='Please enter your username',required)
               .form-group
                 label(for='inputEmail4')
                   h5 Email address
-                input#inputEmail4.form-control(type='email',name='email', placeholder='Please enter your email address', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", required)
+                input#inputEmail4.form-control(type='email',name='emailaddress', placeholder='Please enter your email address', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", required)
+                if wrong
+                  p.text-danger #{wrong}
               .form-group
                 label(for='inputPassword4')
                   h5 Password
