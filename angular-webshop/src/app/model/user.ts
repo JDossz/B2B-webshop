@@ -6,5 +6,5 @@ export class User {
   password: string;
   balance: number;
   address: string;
-  picture: string;
+  pictureurl: string;
 }
