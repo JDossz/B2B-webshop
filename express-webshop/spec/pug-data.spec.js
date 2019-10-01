@@ -24,7 +24,7 @@ describe('Testing pug-data.js', () => {
       originalUrl: 'http://localhost:3000/users',
     }
     const result = await pd.readAllRecordsByURL(req);
-    expect(result.length).toEqual(5);
+    expect(result.length >= 5).toBe(true);
   });
 
 });
