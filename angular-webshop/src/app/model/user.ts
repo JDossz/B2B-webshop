@@ -10,4 +10,5 @@ export class User {
   admin: number;
   address: string;
   pictureurl: string;
+  token: string;
 }

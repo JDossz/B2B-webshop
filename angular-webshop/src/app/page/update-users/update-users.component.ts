@@ -36,6 +36,7 @@ export class UpdateUsersComponent implements OnInit {
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
+    delete this.user.token; // IMPORTANT!
     this.ds.updateRecordByQuery('users', { id: this.user.id }, this.user).subscribe(
       user => {
         this.router.navigateByUrl("/users");
