@@ -5,12 +5,12 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" placeholder="Title" class="form-control" name="project.title" id="title"
-              [(ngModel)]="project.title" (keyup)="onKey($event)" >
+              [(ngModel)]="project.title" (keyup)="onKey($event)" disabled >
           </div>
           <div class="form-group">
             <label for="seo">Seo</label>
             <input type="text" class="form-control" placeholder="Seo" name="project.seo" id="seo"
-              [(ngModel)]="project.seo" >
+              [(ngModel)]="project.seo" disabled>
           </div>
           <div class="form-group">
             <label for="institution">Institution</label>
