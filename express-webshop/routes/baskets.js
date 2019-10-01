@@ -99,6 +99,7 @@ router.post('/donate', async (req, res) => {
 
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
+  console.log(req.body.projectQuantity);
   let quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
