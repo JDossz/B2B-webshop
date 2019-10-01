@@ -17,7 +17,7 @@ block content
         hr
         .row
           .col-10.col-md-6.mr-3
-            img.img-top.img-fluid.mt-5(alt='projectImg', src=project.pictureurl)
+            img.img-top.img-fluid.mt-3(alt='projectImg', src=project.pictureurl)
           .col-10.col-md-5#support
             h2.mt-3.text-center #{project.title}
             p #{project.shortd}
@@ -28,10 +28,11 @@ block content
             p
               small  the goal is $ #{project.goal}
             form(action=`/baskets/${project.id}`, method="post")
-              button.btn-block.btn.btn-info Donate
-        .row.mt-5
+              button.btn-block.btn.btn-donate
+                | Donate
+        .row.mt-2
           .col-12.mb-5
-            .card.mt-5
+            .card.mt-4
               .card-body#readMore
                 h1.text-center #{project.title}
                 h5.mt-5.card-title#contact Contact
@@ -42,5 +43,5 @@ block content
                 p
                   a#link.card-text(href=`${project.link}`) #{project.link}    
                 form(action=`/baskets/${project.id}`, method="post")
-                  button#donate.btn.btn-primary.btn-block.mt-5 Donate
+                  button#donate.btn.btn-donate.btn-block.mt-5 Donate
                 
