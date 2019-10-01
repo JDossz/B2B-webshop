@@ -38,13 +38,22 @@ export class DataService {
   readTableByQuery(tableName: string, query: Object): void {
     this.http.get(`${this.restApiURL}/${tableName}/${this.url.getQueryString(query)}`).forEach(
       data => {
-        if (tableName === 'orders') { this.orderList.next(data) }
-        else if (tableName === 'users') { this.userList.next(data) }
-        else if (tableName === 'basket') { this.basketList.next(data) }
-        else if (tableName === 'projects') { this.projectList.next(data) }
-        else if (tableName === 'categories') { this.categoryList.next(data) }
-      }
-    );
+        if (tableName === 'orders') {
+          this.orderList.next(data)
+        }
+        if (tableName === 'users') {
+          this.userList.next(data)
+        }
+        if (tableName === 'basket') {
+          this.basketList.next(data)
+        }
+        if (tableName === 'projects') {
+          this.projectList.next(data)
+        }
+        if (tableName === 'categories') {
+          this.categoryList.next(data)
+        }
+      });
   }
 
   readTableById(tableName: string, id: number): Observable<any> {
