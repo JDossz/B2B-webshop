@@ -117,6 +117,12 @@ router.get('/categories/:category', async (req, res, next) => {
   pagination(projects, categoryList, req, res);
 });
 
+router.get('/other', async (req, res, next) => {
+  const projects = await database.readProjectsByCategory('Other');
+  sortByTitle(projects);
+  pagination(projects, req, res);
+});
+
 // :3000/projects/:table/?id=7
 router.get('/:seo', async (req, res, next) => {
   const urlParts = req.originalUrl.split('/');
