@@ -30,7 +30,6 @@ module.exports = class BetagDB {
    * @returns The result of your post query.
    */
   async createRecord(tableName, data) {
-    console.log(data);
     const query = `INSERT INTO ${tableName} (${listGenerator.getFieldNames(data)}) VALUES (${listGenerator.getFieldValues(data)})`;
     return await this.connection.query(query.concat(';'));
   }
