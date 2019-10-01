@@ -56,11 +56,11 @@ body {
 header {
   position: relative;
   background-color: #000081;
-  height: 76vh;
+  height: 80vh;
   min-height: 25rem;
   width: 100%;
   overflow: hidden;
-  padding: 13px;
+  padding: 1%;
 }
 
 header video {
