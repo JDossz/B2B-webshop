@@ -1,11 +1,9 @@
 const express = require('express');
-const MariaDBmain = require('../modules/webshop-mariadb');
-const PugData = require('../modules/pug-data');
+const router = express.Router();
 
-const pugdb = new PugData();
+const MariaDBmain = require('../modules/webshop-mariadb');
 const database = new MariaDBmain();
 
-const router = express.Router();
 
 // Sorts by title and institution
 const sortByTitle = function (projects) {
@@ -170,8 +168,11 @@ router.get('/physics', async (req, res, next) => {
 
 // :3000/projects/:table/?id=7
 router.get('/:seo', async (req, res, next) => {
-  const selectedProject = await pugdb.readRecordBySEO(req);
-  console.log(selectedProject[0]);
+  const urlParts = req.originalUrl.split('/');
+  const seoName = urlParts[urlParts.length - 1];
+  const selectedProject = await database.readRecord('projects', {
+    seo: seoName,
+  });
   res.render('projectDetails', {
     project: selectedProject[0],
     user: req.user || {},
