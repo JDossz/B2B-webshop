@@ -5,6 +5,7 @@ const router = express.Router();
 const database = new MariaDBmain();
 
 router.get('/', async (req, res) => {
+
   let data = await database.readRecord('baskets', {
     userid: req.user.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
