@@ -1,5 +1,4 @@
 const express = require('express');
-const sha1 = require('sha1');
 const MariaDB = require('../modules/webshop-mariadb');
 
 const database = new MariaDB();
