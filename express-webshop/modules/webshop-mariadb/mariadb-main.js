@@ -124,23 +124,23 @@ module.exports = class BetagDB {
 
   }
 
-  // async namingAndPricingProjects(req) {
-  //   let sql = `
-  //   SELECT 
-  //   projects.title, 
-  //   projects.donation, 
-  //   projects.id as pid, 
-  //   sum(baskets.quantity) as quantity, 
-  //   baskets.id, 
-  //   baskets.projectid,
-  //   baskets.userid
-  //   FROM projects JOIN baskets ON projects.id = baskets.projectid
-  //   WHERE baskets.userid = ${req.user.id}
-  //   group by projects.id
-  //   `
-  //   let result = await this.connection.query(sql);
-  //   return result;
-  // }
+  async namingAndPricingProjects(req) {
+    let sql = `
+    SELECT 
+    projects.title, 
+    projects.donation, 
+    projects.id as pid, 
+    sum(baskets.quantity) as quantity, 
+    baskets.id, 
+    baskets.projectid,
+    baskets.userid
+    FROM projects JOIN baskets ON projects.id = baskets.projectid
+    WHERE baskets.userid = ${req.user.id}
+    group by projects.id
+    `
+    let result = await this.connection.query(sql);
+    return result;
+  }
 
   // async addAnotherProjectToBasket(req) {
   //   let sql = `
