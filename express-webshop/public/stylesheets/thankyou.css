@@ -1,9 +1,9 @@
 .container-fluid {
-  position: relative;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
 body {
@@ -12,6 +12,10 @@ body {
 
 h1 {
   font-family: 'Beyondcontrol', sans-serif;
+}
+
+.thanks {
+  margin-top: 10%;
 }
 
 .unit {

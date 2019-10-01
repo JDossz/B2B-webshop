@@ -1,5 +1,61 @@
+/* VIDEO BACKGROUND
+-------------------------------------------------- */
+header {
+  position: relative;
+  background-color: #000081;
+  height: 80vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 2%;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}
+
+
+
+/* GENERAL FORMATTING FOR ALL PAGES
+-------------------------------------------------- */
+
 body {
-  /* padding: 20px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -47,11 +103,6 @@ footer > .container {
   font-size: 1.3em;
 }
 
-.next {
-  background-color: #F9E6B2;
-  color: #000;
-}
-
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -60,11 +111,6 @@ footer > .container {
 .portfolio img {
   max-width: 100%;
   height: auto;
-}
-
-.previous {
-  background-color: #4CAF50;
-  color: white;
 }
 
 #profile-pic {
@@ -112,6 +158,9 @@ footer > .container {
   top: 17%;
 }
 
+/* FOR RESPONSIVE CSS
+-------------------------------------------------- */
+
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
@@ -133,6 +182,9 @@ footer > .container {
     float: none;
   }
 }
+
+/* PERSONALISED FONTS
+-------------------------------------------------- */
 
 @font-face {
   font-family: 'Francois';
