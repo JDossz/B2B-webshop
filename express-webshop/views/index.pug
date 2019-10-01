@@ -184,11 +184,11 @@ block content
           mark  Projects We Love
           |  newsletter.
         .max-w100.mx-auto.justify-content.text-center
-          form
+          form(action="/thankyou" method="get")
             .flex.flex-column.flex-row-sm.items-stretch
               .grow-1.mb2.mb0-sm.mr3-sm.mr0
                 .relative.smart-input-group
-                  input#newsletter-signup-input.atomic-text-input(placeholder="Enter email address" type="text" value="")
+                  input#newsletter-signup-input.atomic-text-input(placeholder="Enter email address" type="text" value="" name="emailaddress")
                 .relative.w100p
                   .h5.clip.absolute.l0.t0.w100p
                     .absolute.l0.t1.w100p

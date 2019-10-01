@@ -58,6 +58,8 @@ app.use('/about', require('./routes/about'));
 app.use('/contact', require('./routes/contact'));
 app.use('/privacy', require('./routes/privacyPolicy'));
 app.use('/terms', require('./routes/termsAndConditions'));
+app.use('/thankyou', require('./routes/thankyou'));
+
 app.use('/**', errorPageRouter);
 
 // clear userID cookie when logging out

@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
-
 const BetagDB = require('./../modules/webshop-mariadb');
+
+const router = express.Router();
 const database = new BetagDB();
 
 /* GET kérés küldésekor home page-re: */
