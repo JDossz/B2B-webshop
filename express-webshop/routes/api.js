@@ -1,5 +1,6 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+
+const router = express.Router();
 
 const Database = require('./../modules/webshop-mariadb');
 const database = new Database();
@@ -23,7 +24,7 @@ router.get('/:table', async (req, res) => {
  */
 router.get('/:table/:seo', async (req, res) => {
   const result = await database.readRecord(req.params.table, {
-    "seo": req.params.seo,
+    seo: req.params.seo,
   });
   res.json(result[0]);
 });

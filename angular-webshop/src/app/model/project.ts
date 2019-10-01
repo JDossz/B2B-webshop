@@ -2,12 +2,14 @@ export class Project {
   id: number;
   title: string;
   seo: string;
-  price: number;
-  contact: string;
-  link: string;
-  category: string;
+  institution: string;
   shortd: string;
   longd: string;
-  picture: string;
-  institution: string;
+  contact: string;
+  categoryid: string;
+  donation: number;
+  goal: number;
+  balance: number;
+  pictureurl: string;
+  link: string;
 }

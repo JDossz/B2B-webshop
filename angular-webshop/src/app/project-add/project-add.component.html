@@ -4,33 +4,16 @@
       <form action="http://localhost:3000/api/projects" method="post">
         <div class="form-group">
           <label for="title">Title</label>
-          <input type="text" placeholder="Title" class="form-control" name="project.title" id="title"
-            [(ngModel)]="newProject.title" required>
+          <input type="text" placeholder="Title" class="form-control" (keyup)="onKey($event)" name="project.title"
+            id="title" [(ngModel)]="newProject.title" required>
         </div>
+        <label for="seo">Seo</label>
+        <input type="text" placeholder="Seo" class="form-control" name="newProject.seo" id="seo"
+          [(ngModel)]="newProject.seo" required>
         <div class="form-group">
-          <label for="seo">Seo</label>
-          <input type="text" class="form-control" placeholder="Seo" name="project.seo" id="seo"
-            [(ngModel)]="newProject.seo" required>
-        </div>
-        <div class="form-group">
-          <label for="price">Price</label>
-          <input type="number" class="form-control" name="project.price" id="price" [(ngModel)]="newProject.price"
-            placeholder="Price" required>
-        </div>
-        <div class="form-group">
-          <label for="contact">Contact</label>
-          <input type="text" class="form-control" id="contact" name="project.contact" [(ngModel)]="newProject.contact"
-            placeholder="Contact" required>
-        </div>
-        <div class="form-group">
-          <label for="link">Link</label>
-          <input type="text" class="form-control" id="link" name="project.link" [(ngModel)]="newProject.link"
-            placeholder="Link" required>
-        </div>
-        <div class="form-group">
-          <label for="category">Category</label>
-          <input type="text" class="form-control" id="category" name="project.category"
-            [(ngModel)]="newProject.category" placeholder="Category" required>
+          <label for="institution">Institution</label>
+          <input type="text" class="form-control" id="institution" name="project.institution"
+            [(ngModel)]="newProject.institution" placeholder="Institution" required>
         </div>
         <div class="form-group">
           <label for="shortd">Short description</label>
@@ -43,16 +26,41 @@
             placeholder="Long description" required>
         </div>
         <div class="form-group">
-          <label for="picture">Picture</label>
-          <input type="text" class="form-control" id="picture" name="project.picture" [(ngModel)]="newProject.picture"
-            placeholder="Picture" required>
+          <label for="contact">Contact</label>
+          <input type="text" class="form-control" id="contact" name="project.contact" [(ngModel)]="newProject.contact"
+            placeholder="Contact" required>
         </div>
         <div class="form-group">
-          <label for="institution">Institution</label>
-          <input type="text" class="form-control" id="institution" name="project.institution"
-            [(ngModel)]="newProject.institution" placeholder="Institution" required>
+          <label for="category">CategoryID</label>
+          <input type="text" class="form-control" id="category" name="project.categoryid"
+            [(ngModel)]="newProject.categoryid" placeholder="Category" required>
         </div>
-        <button type="submit" class="btn btn-success" (click)="onCreate()" >Submit</button>
+        <div class="form-group">
+          <label for="donation">Donation</label>
+          <input type="number" class="form-control" name="project.donation" id="donation"
+            [(ngModel)]="newProject.donation" placeholder="Donation" required>
+        </div>
+        <div class="form-group">
+          <label for="goal">Goal</label>
+          <input type="number" class="form-control" name="project.goal" id="goal" [(ngModel)]="newProject.goal"
+            placeholder="Goal" required>
+        </div>
+        <div class="form-group">
+          <label for="balance">Balance</label>
+          <input type="number" class="form-control" name="project.balance" id="balance" [(ngModel)]="newProject.balance"
+            placeholder="Balance" required>
+        </div>
+        <div class="form-group">
+          <label for="pictureUrl">Picture url</label>
+          <input type="text" class="form-control" id="pictureUrl" name="project.pictureurl"
+            [(ngModel)]="newProject.pictureurl" placeholder="Picture url" required>
+        </div>
+        <div class="form-group">
+          <label for="link">Link</label>
+          <input type="text" class="form-control" id="link" name="project.link" [(ngModel)]="newProject.link"
+            placeholder="Link" required>
+        </div>
+        <button type="submit" class="btn btn-success" (click)="onCreate()">Submit</button>
       </form>
     </div>
   </div>

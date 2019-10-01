@@ -3,7 +3,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   database: 'betag',
   user: 'root',
-  password: 'root',
+  password: 'ROOT',
   connectionLimit: 100,
 });
 
@@ -94,6 +94,34 @@ module.exports = class BetagDB {
 
   }
 
+  // async getPrice(req) {
+  //   let sql = `
+  //   SELECT SUM(projects.price*basket.quantity) as amount
+  //   FROM projects JOIN basket ON projects.id = basket.projectid
+  //   WHERE userid = ${req.user.id}
+  //   `;
+  //   let result = await this.connection.query(sql);
+  //   return result;
+  // }
+
+  async nameToProjectId(project) {
+    const sql = `
+    SELECT projects.title FROM projects JOIN basket ON projects.id = basket.projectid
+    WHERE projectid = ${project.id}
+    `;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+  async priceToProjectId(project) {
+    const sql = `
+    SELECT projects.price FROM projects JOIN basket ON projects.id = basket.projectid
+    WHERE projectid = ${project.id}
+    `;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+  
   async namingAndPricingProjects(req) {
     let sql = `
     SELECT 
@@ -126,14 +154,33 @@ module.exports = class BetagDB {
     return result;
   }
 
-  async getTotalPrice(req) {
-    let sql = `
-    SELECT SUM(projects.donation*baskets.quantity) as amount 
-    FROM projects JOIN baskets ON projects.id = baskets.projectid
-    WHERE baskets.userid = ${req.user.id}
-    `;
+ 
+  async readRecordWithLike(req) {
+    const sql = `
+    SELECT *
+    FROM projects
+    WHERE title LIKE '%${req.query.search}%'`;
     const result = await this.connection.query(sql);
     return result;
   }
-
+  
+  async readProjectsByCategory(category) {
+    const sql = `
+    SELECT *
+    FROM projects
+    INNER JOIN categories
+    ON projects.categoryid=categories.id
+    WHERE category='${category}'`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+  // async getBasketData(userId) {
+  //   let sql = `
+  //   SELECT *
+  //   FROM projects JOIN basket ON projects.id = basket.projectid
+  //   WHERE userid = ${userId}
+  //   `;
+  //   let result = await this.connection.query(sql);
+  //   return result;
+  // }
 };

@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   const result = await database.readRecord('users', {
-    emailaddress: req.body.emailaddress,
+    username:sha1(req.body.username),
     password: sha1(req.body.password),
   });
   if (result.length === 1) {
@@ -33,7 +33,7 @@ router.post('/', async (req, res, next) => {
     await database.updateRecord('users', {
       id: result[0].id,
     }, {
-      token: token,
+      'token': token,
     });
     return res.redirect('/');
   }

@@ -11,7 +11,7 @@ import { DataService } from '../services/data.service';
 })
 export class ProjectEditComponent implements OnInit {
 
-  project: any;
+  project: Project;
 
   ngOnInit() {
   }
@@ -24,13 +24,24 @@ export class ProjectEditComponent implements OnInit {
   }
 
   onUpdate() {
-
-    if (this.project.seo === '' || this.project.contact === '' || this.project.link === '' || this.project.category === '' || this.project.shortd === '' || this.project.longd === '' || this.project.picture === '' || this.project.institution === '') {
-      alert('pls write something')
+    if (this.project.title === '' || this.project.seo === '' || this.project.institution === '' || this.project.shortd === '' || this.project.longd === '' || this.project.contact === '' || this.project.categoryid === '' || this.project.donation === 0|| this.project.goal === 0 || this.project.balance ===0|| this.project.pictureurl===''||this.project.link==='') {
+      alert('Please write something to every inputbox')
     } else {
-      this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
-        () => this.router.navigate(["/api/projects"])
-      )
+    this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
+      () => this.router.navigate(["/api/projects"])
+    )
     }
+  }
+  onKey(event: any) {
+    this.project.seo = event.target.value.toString()               // Convert to string
+      .normalize('NFD')               // Change diacritics
+      .replace(/[\u0300-\u036f]/g, '') // Remove illegal characters
+      .replace(/\s+/g, '-')            // Change whitespace to dashes
+      .toLowerCase()                  // Change to lowercase
+      .replace(/&/g, '-and-')          // Replace ampersand
+      .replace(/[^a-z0-9\-]/g, '')     // Remove anything that is not a letter, number or dash
+      .replace(/-+/g, '-')             // Remove duplicate dashes
+      .replace(/^-*/, '')              // Remove starting dashes
+      .replace(/-*$/, '');             // Remove trailing dashes
   }
 }

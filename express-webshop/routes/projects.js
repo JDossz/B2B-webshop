@@ -89,14 +89,15 @@ const pagination = function (projects, req, res) {
 };
 
 // set specific sidebar link to active
-let setActive = (id) => {
+const setActive = (id) => {
   const element = document.getElementById(`${id}`);
   element.classList.add('active');
-}
+};
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
+    'isactive': 1,
   });
   sortByTitle(projects);
   pagination(projects, req, res);
@@ -112,9 +113,7 @@ router.post('/', (req, res, next) => {
 
 // Get art projects
 router.get('/arts', async (req, res, next) => {
-  const projects = await database.readRecord('projects', {
-    category: 'arts',
-  });
+  const projects = await database.readProjectsByCategory('Arts');
   sortByTitle(projects);
   pagination(projects, req, res);
   setActive('arts');
@@ -122,36 +121,49 @@ router.get('/arts', async (req, res, next) => {
 
 // Get biology projects
 router.get('/biology', async (req, res, next) => {
-  const projects = await database.readRecord('projects', {
-    category: 'biology',
-  });
+  const projects = await database.readProjectsByCategory('Biology');
+
   sortByTitle(projects);
   pagination(projects, req, res);
 });
 
 // Get gender projects
 router.get('/gender', async (req, res, next) => {
-  const projects = await database.readRecord('projects', {
-    category: 'gender',
-  });
+  const projects = await database.readProjectsByCategory('Gender Studies');
+
   sortByTitle(projects);
   pagination(projects, req, res);
 });
 
-// Get Technology projects
-router.get('/technology', async (req, res, next) => {
-  const projects = await database.readRecord('projects', {
-    category: 'technology',
-  });
+// Get chemistry projects
+router.get('/chemistry', async (req, res, next) => {
+  const projects = await database.readProjectsByCategory('Chemistry');
+
   sortByTitle(projects);
   pagination(projects, req, res);
 });
 
-// Get neurologist projects
-router.get('/neurology', async (req, res, next) => {
-  const projects = await database.readRecord('projects', {
-    category: 'neurology',
-  });
+// Get computer sience projects
+router.get('/computerSience', async (req, res, next) => {
+  const projects = await database.readProjectsByCategory('Computer Sience');
+  sortByTitle(projects);
+  pagination(projects, req, res);
+});
+
+router.get('/engineering', async (req, res, next) => {
+  const projects = await database.readProjectsByCategory('Engineering');
+  sortByTitle(projects);
+  pagination(projects, req, res);
+});
+
+router.get('/mathematics', async (req, res, next) => {
+  const projects = await database.readProjectsByCategory('Mathematics');
+  sortByTitle(projects);
+  pagination(projects, req, res);
+});
+
+router.get('/physics', async (req, res, next) => {
+  const projects = await database.readProjectsByCategory('Physics');
   sortByTitle(projects);
   pagination(projects, req, res);
 });
@@ -166,5 +178,7 @@ router.get('/:seo', async (req, res, next) => {
   });
 });
 
-
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
 module.exports = router;

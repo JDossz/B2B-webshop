@@ -15,25 +15,28 @@ export class UpdateUsersComponent implements OnInit {
     private ds: DataService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) { }
-
-  ngOnInit() {
-    const userID = (this.activatedRoute.snapshot.params['id'])
-    this.ds.readTableByQuery('users', { id: Number.parseInt(userID, 10) })
-;
+  ) {
+      this.activatedRoute.params.forEach(params => {
+      this.ds.readTableById('users', params.id).subscribe(
+       user => this.user = user
+      )
+    });
   }
+  
+ngOnInit() {
+}
 
-  onSubmit(ev: Event): void {
-    ev.preventDefault();
-    this.ds.updateRecordByQuery('users', { id: this.user.id }, this.user).subscribe(
-      user => {
-        this.router.navigateByUrl("/users");
-        this.user = user;
-      }, err => console.error(err)
+onSubmit(ev: Event): void {
+  ev.preventDefault();
+  this.ds.updateRecordByQuery('users', { id: this.user.id }, this.user).subscribe(
+    user => {
+      this.router.navigateByUrl("/users");
+      this.user = user;
+    }, err => console.error(err)
 
-    )
+  )
 
-  }
+}
 
 }
 
