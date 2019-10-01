@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
   { path: 'api/categories', component: CategoryComponent },
-  { path: 'category-edit/:id', component: CategoryEditComponent},
-  { path: 'category-add', component: CategoryAddComponent},
+  { path: 'category-edit/:id', component: CategoryEditComponent },
+  { path: 'category-add', component: CategoryAddComponent },
   {
     path: 'orders',
     component: OrdersComponent

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/model/order';
 import { DataService } from '../../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-update-orders',
@@ -10,20 +11,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateOrdersComponent implements OnInit {
 
+  order$: BehaviorSubject<Order> = this.ds.order;
   order: Order;
 
   constructor(
     private ds: DataService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) { }
-
-  ngOnInit() {
-    const orderID = (this.activatedRoute.snapshot.params['id'])
-    this.ds.readTableByQuery('orders', { id: Number.parseInt(orderID, 10) })
-;
-
+    private ar: ActivatedRoute,
+  ) {
+    this.ar.params.forEach(params => {
+      this.ds.readTableByQuery('orders', {
+        id: params.id,
+      });
+    });
+    this.order$.subscribe(
+      data => {
+        this.order = data;
+      }
+    );
   }
+
+  ngOnInit() { }
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
