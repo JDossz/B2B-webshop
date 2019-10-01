@@ -3,15 +3,14 @@ var router = express.Router();
 
 const MariaDBmain = require('../modules/webshop-mariadb');
 const database = new MariaDBmain();
-const PugData = require('./../modules/pug-data');
-const pugdb = new PugData();
-
 
 // get all
 router.get('/', async (req, res, next) => {
   let userData = await database.readRecord('users', {});
   res.render('users', {
-    title: 'Users', users: userData, user: req.user || {}
+    title: 'Users',
+    users: userData,
+    user: req.user || {}
   });
 });
 
