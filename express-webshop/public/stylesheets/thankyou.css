@@ -1,6 +1,4 @@
 .container-fluid {
-  width: 100%;
-  height: 100%;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +7,7 @@
 }
 
 body {
-  background-color: #262E6F;
+  background-color: #262F8A;
 }
 
 h1 {
@@ -33,6 +31,7 @@ h1 {
   height: 10px;
   border-radius: 5px;
 }
+
 /* összesen 9 féle heart-piece van, és kétoldalról vannak párban */
 
 .heart-piece-4 {
@@ -68,14 +67,14 @@ h1 {
   left: 0px;
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
-  background-color: #EC2D73;
+  background-color: #EC008E;
 }
 
 .heart-piece-1 {
   left: 16px;
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
-  background-color: #EB5324;
+  background-color: #FF7027;
 }
 
 .heart-piece-2 {
@@ -110,14 +109,14 @@ h1 {
   left: 96px;
   -webkit-animation-delay: 0.9s;
           animation-delay: 0.9s;
-  background-color: #EC2D73;
+  background-color: #EC008E;
 }
 
 .heart-piece-7 {
   left: 112px;
   -webkit-animation-delay: 1.05s;
           animation-delay: 1.05s;
-  background-color: #EB5324;
+  background-color: #FF7027;
 }
 
 .heart-piece-8 {
