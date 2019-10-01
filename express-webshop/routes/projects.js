@@ -170,8 +170,12 @@ router.get('/physics', async (req, res, next) => {
 
 // :3000/projects/:table/?id=7
 router.get('/:seo', async (req, res, next) => {
-  const selectedProject = await pugdb.readRecordBySEO(req);
-  console.log(selectedProject[0]);
+  // const selectedProject = await pugdb.readRecordBySEO(req);
+  const urlParts = req.originalUrl.split('/');
+  const seoName = urlParts[urlParts.length - 1];
+  const selectedProject = await database.readRecord('projects', {
+    seo: seoName,
+  });
   res.render('projectDetails', {
     project: selectedProject[0],
     user: req.user || {},
