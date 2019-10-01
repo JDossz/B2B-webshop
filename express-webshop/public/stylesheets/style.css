@@ -81,7 +81,7 @@ footer {
   height: auto;
 }
 
-footer > .container {
+footer>.container {
   width: auto;
   height: auto;
   padding: 0 15px;
@@ -156,9 +156,15 @@ footer > .container {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;
-  width: 100%}
-  div.content {margin-left: 0;}
+
+  .sidebar a {
+    float: left;
+    width: 100%
+  }
+
+  div.content {
+    margin-left: 0;
+  }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
@@ -178,3 +184,4 @@ footer > .container {
   font-family: 'Francois';
   src: url('/fonts/FrancoisOne.ttf');
 }
+

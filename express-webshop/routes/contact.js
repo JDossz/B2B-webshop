@@ -4,26 +4,20 @@ const database = new Mariadb();
 let router = express.Router();
 
 router.get('/', async (req, res, next) => {
-  // const reviewList = await database.readRecord('reviews', {});
-  // let newReview = {
-  //   text: '',
-  //   rate: '',
-  //   from: ''
-  // };
-  // let rating;
-  // let itemId;
-  // let ratingClick;
-  // let inputName;
+  const reviewList = await database.readRecord('reviews', {});
+  let newReview = {
+    text: '',
+    rate: '',
+    from: ''
+  };
+ function onClick(rating){
+    this.rating = rating;
+    this.ratingClick.emit({
+      itemId: this.itemId,
+      rating: rating
+    });
+  }
 
-
-  // function onClick(rating) {
-  //   this.newReview.rate = rating;
-  //   this.rating = rating;
-  //   this.ratingClick.emit({
-  //     itemId: this.itemId,
-  //     rating: rating
-  //   });
-  // }
   res.render('contact', {
     title: 'Contacts',
     reviews: reviewList,
@@ -38,7 +32,7 @@ router.post('/:id', async (req, res) => {
   });
   res.redirect('/baskets');
 });
-router.post('/addReview', async (req,res,next)=>{
+router.post('/reviews/addReview', async (req,res,next)=>{
 await database.createRecord('reviews',{})
 })
 module.exports = router;
