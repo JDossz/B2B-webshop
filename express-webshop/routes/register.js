@@ -41,6 +41,7 @@ router.post('/users', async (req, res, next) => {
     'password': req.body.password,
     'token': token,
   });
+  console.log(req.body)
   return res.redirect('/');
 
 });

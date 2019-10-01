@@ -13,9 +13,7 @@ const SetGenerator = require('./tools/set-generator');
 const QueryGenerator = require('./tools/query-generator');
 
 const whereGenerator = new WhereGenerator();
-
 const listGenerator = new ListGenerator();
-
 const setGenerator = new SetGenerator();
 const queryGenerator = new QueryGenerator();
 
@@ -82,7 +80,6 @@ module.exports = class BetagDB {
     return await this.connection.query(query.concat(';'));
   }
 
-
   async checkLogin(req) {
     if (!req.cookies.userID) {
       return false;
@@ -125,17 +122,40 @@ module.exports = class BetagDB {
     const result = await this.connection.query(sql);
     return result;
   }
-
-  async getTotalPrice(req) {
-    const sql = `
-    SELECT SUM(projects.price*basket.quantity) as amount 
-    FROM projects JOIN basket ON projects.id = basket.projectid
-    WHERE basket.userid = ${req.user.id}
-    `;
-    const result = await this.connection.query(sql);
+  
+  async namingAndPricingProjects(req) {
+    let sql = `
+    SELECT 
+    projects.title, 
+    projects.donation, 
+    projects.id as pid, 
+    sum(baskets.quantity) as quantity, 
+    baskets.id, 
+    baskets.projectid,
+    baskets.userid
+    FROM projects JOIN baskets ON projects.id = baskets.projectid
+    WHERE baskets.userid = ${req.user.id}
+    group by projects.id
+    `
+    let result = await this.connection.query(sql);
     return result;
   }
 
+  async addAnotherProjectToBasket(req) {
+    let sql = `
+    SELECT 
+    projects.id as pid, 
+    sum(baskets.quantity) as quantity 
+    
+    FROM projects JOIN baskets ON projects.id = baskets.projectid
+    WHERE baskets.userid = ${req.user.id} AND projects.id = ${req.params.pid}
+    group by projects.id
+    `
+    let result = await this.connection.query(sql);
+    return result;
+  }
+
+ 
   async readRecordWithLike(req) {
     const sql = `
     SELECT *

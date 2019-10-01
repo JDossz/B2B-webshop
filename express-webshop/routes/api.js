@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 const Database = require('./../modules/webshop-mariadb');
-
 const database = new Database();
 
 /**
@@ -17,7 +16,6 @@ router.post('/:table', async (req, res) => {
  * Answers GET requests at http://localhost:3000/api/tablename/querystring
  */
 router.get('/:table', async (req, res) => {
-  console.log(req.query);
   res.json(await database.readRecord(req.params.table, req.query));
 });
 
