@@ -5,7 +5,6 @@ const router = express.Router();
 const database = new MariaDBmain();
 
 router.get('/', async (req, res) => {
-
   let data = await database.readRecord('baskets', {
     userid: req.user.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
@@ -57,7 +56,6 @@ router.get('/', async (req, res) => {
 
 // a bejelentkezett user kosarának ürítése
 router.get('/empty/:userid', async (req, res) => {
-  let message = "The basket is empty"
   database.deleteRecord('baskets', { userid: req.user.id });
   res.render('baskets', {
     user: req.user || {},
@@ -95,12 +93,15 @@ router.post('/donate', async (req, res) => {
   await database.deleteRecord('baskets', {
     userid: req.user.id,
   })
+  // Posztolunk az orders táblába
+  // await database.createRecord('orders', {
+  //   userid: req.user.id,
 
+  // });
 });
 
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
-  console.log(req.body.projectQuantity);
   let quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
