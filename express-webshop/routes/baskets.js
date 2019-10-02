@@ -93,11 +93,7 @@ router.post('/donate', async (req, res) => {
   await database.deleteRecord('baskets', {
     userid: req.user.id,
   })
-  // Posztolunk az orders táblába
-  // await database.createRecord('orders', {
-  //   userid: req.user.id,
 
-  // });
 });
 
 // post a project details oldalról
