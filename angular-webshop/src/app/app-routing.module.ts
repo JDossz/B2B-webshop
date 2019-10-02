@@ -18,6 +18,7 @@ import { StatisticsComponent } from './page/statistics/statistics.component';
 
 const routes: Routes = [
   { path: 'api/projects', component: ProjectsComponent },
+  { path: 'statistics', component: StatisticsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },

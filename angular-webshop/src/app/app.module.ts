@@ -20,6 +20,7 @@ import { IndexComponent } from './page/index/index.component';
 import { SearchPipe } from './pipe/search.pipe';
 import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
 import { StatisticsComponent } from './page/statistics/statistics.component';
+import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { StatisticsComponent } from './page/statistics/statistics.component';
     SearchPipe,
     StatisticsBasicComponent,
     StatisticsComponent,
-    Line1Component,
+    Dynamic1Component,
   ],
   imports: [
     BrowserModule,
