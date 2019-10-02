@@ -53,7 +53,6 @@ app.use('/orders', ordersRouter);
 app.use('/projects', projectsRouter);
 app.use('/register', registerRouter);
 app.use('/users', usersRouter);
-app.use('/error-page', errorPageRouter);
 app.use('/about', require('./routes/about'));
 app.use('/contact', require('./routes/contact'));
 app.use('/privacy', require('./routes/privacyPolicy'));

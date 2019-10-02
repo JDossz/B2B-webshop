@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   const result = await database.readRecord('users', {
-    username:sha1(req.body.username),
+    username: sha1(req.body.username),
     password: sha1(req.body.password),
   });
   if (result.length === 1) {
