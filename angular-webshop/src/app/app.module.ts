@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -53,6 +54,7 @@ import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
