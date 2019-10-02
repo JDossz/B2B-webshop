@@ -2,6 +2,7 @@
 2 - beérkezett a pénz a számlánkra
 3 - elküldtük a pénzt a projectnek
 4 - visszaigazolta a contact, hogy megérkezett a pénz
+5 - kérés törölve
 
 
 CREATE TABLE status (
@@ -15,5 +16,6 @@ INSERT INTO status (status)
 VALUES ('Donation Request Arrived'),
 ('Donation Received'),
 ('Donation Transfered'),
-('Confirmation Received');
+('Confirmation Received'),
+('Donation Canceled');
 
