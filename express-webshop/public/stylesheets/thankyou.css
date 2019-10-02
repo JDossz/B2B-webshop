@@ -39,32 +39,32 @@ h1 {
 /* összesen 9 féle heart-piece van, és kétoldalról vannak párban */
 
 .heart-piece-4 {
-  -webkit-animation: piece-4 3.2s infinite;
-          animation: piece-4 3.2s infinite;
+  -webkit-animation: piece-4 2.6s infinite;
+          animation: piece-4 2.6s infinite;
 }
 
 .heart-piece-3,
 .heart-piece-5 {
-  -webkit-animation: piece-3 3.2s infinite;
-          animation: piece-3 3.2s infinite;
+  -webkit-animation: piece-3 2.6s infinite;
+          animation: piece-3 2.6s infinite;
 }
 
 .heart-piece-2,
 .heart-piece-6 {
-  -webkit-animation: piece-2 3.2s infinite;
-          animation: piece-2 3.2s infinite;
+  -webkit-animation: piece-2 2.6s infinite;
+          animation: piece-2 2.6s infinite;
 }
 
 .heart-piece-1,
 .heart-piece-7 {
-  -webkit-animation: piece-1 3.2s infinite;
-          animation: piece-1 3.2s infinite;
+  -webkit-animation: piece-1 2.6s infinite;
+          animation: piece-1 2.6s infinite;
 }
 
 .heart-piece-0,
 .heart-piece-8 {
-  -webkit-animation: piece-0 3.2s infinite;
-          animation: piece-0 3.2s infinite;
+  -webkit-animation: piece-0 2.6s infinite;
+          animation: piece-0 2.6s infinite;
 }
 
 .heart-piece-0 {
@@ -76,57 +76,57 @@ h1 {
 
 .heart-piece-1 {
   left: 16px;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
+  -webkit-animation-delay: 0.10s;
+          animation-delay: 0.10s;
   background-color: #FF7027;
 }
 
 .heart-piece-2 {
   left: 32px;
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
   background-color: #FDC800;
 }
 
 .heart-piece-3 {
   left: 48px;
-  -webkit-animation-delay: 0.45s;
-          animation-delay: 0.45s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
   background-color: #47B264;
 }
 
 .heart-piece-4 {
   left: 64px;
-  -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
   background-color: #1470BD;
 }
 
 .heart-piece-5 {
   left: 80px;
-  -webkit-animation-delay: 0.75s;
-          animation-delay: 0.75s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
   background-color: #76469A;
 }
 
 .heart-piece-6 {
   left: 96px;
-  -webkit-animation-delay: 0.9s;
-          animation-delay: 0.9s;
+  -webkit-animation-delay:0.6s;
+          animation-delay:0.6s;
   background-color: #EC008E;
 }
 
 .heart-piece-7 {
   left: 112px;
-  -webkit-animation-delay: 1.05s;
-          animation-delay: 1.05s;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
   background-color: #FF7027;
 }
 
 .heart-piece-8 {
   left: 128px;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
   background-color: #FDC800;
 }
 
