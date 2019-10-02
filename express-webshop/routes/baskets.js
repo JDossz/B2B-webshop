@@ -5,7 +5,6 @@ const router = express.Router();
 const database = new MariaDBmain();
 
 router.get('/', async (req, res) => {
-
   let data = await database.readRecord('baskets', {
     userid: req.user.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
@@ -24,53 +23,84 @@ router.get('/', async (req, res) => {
   let actualQuantity = await database.readRecord('baskets', {
     userid: req.user.id,
     select: 'SUM(baskets.quantity) as totalQuantity',
-    from: 'baskets'
   });
   actualQuantity = actualQuantity[0].totalQuantity;
-
   // ez a két lekérdezés és a helyük a basket.pug-ban kísérleti, nem biztos, hogy a basketben kéne legyenek
+  // let ordersFromThePastSortByOrderID = await database.readRecord('orderdetails', {
+  //   userid: req.user.id,
+  //   from: 'INNER JOIN projects ON projects.id = orderdetails.projectid',
+  //   select: 'SUM(projects.donation*orderdetails.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
+  //   groupBy: 'orders.id'
+  // });
 
-  let ordersFromThePastSortByOrderID = await database.readRecord('orders', {
-    userid: req.user.id,
-    from: 'INNER JOIN projects ON projects.id = orders.projectid',
-    select: 'SUM(projects.donation*orders.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
-    groupBy: 'orders.id'
-  });
-
-  let ordersFromThePastSortByProjectName = await database.readRecord('orders', {
-    userid: req.user.id,
-    from: 'INNER JOIN projects ON projects.id = orders.projectid',
-    select: 'SUM(projects.donation*orders.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
-    groupBy: 'projects.title'
-  });
-
+  // let ordersFromThePastSortByProjectName = await database.readRecord('orders', {
+  //   userid: req.user.id,
+  //   from: 'INNER JOIN projects ON projects.id = orders.projectid',
+  //   select: 'SUM(projects.donation*orders.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
+  //   groupBy: 'projects.title'
+  // });
   if (req.user.id) {
     res.render('baskets', {
       user: req.user || {},
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
       showQuantity: actualQuantity,
-      sortByOrdersID: ordersFromThePastSortByOrderID,
-      sortByProjectName: ordersFromThePastSortByProjectName
+      // sortByOrdersID: ordersFromThePastSortByOrderID,
+      // sortByProjectName: ordersFromThePastSortByProjectName
     });
+    //console.log(data[0].amount, "ez a data[0].amount")
   }
 
 });
 
 // a bejelentkezett user kosarának ürítése
 router.get('/empty/:userid', async (req, res) => {
-  let message = "The basket is empty"
   database.deleteRecord('baskets', { userid: req.user.id });
   res.render('baskets', {
     user: req.user || {},
-    emptyBasketMessage: message,
 
   });
 });
 
+router.post('/donate', async (req, res) => {
+  // Lekérjük, ami a kosárban van.
+  let basket = await database.readRecord('baskets', {
+    userid: req.user.id,
+  });
+  basket = basket.filter(el => el.hasOwnProperty('id'));
+  let quantitySum = 0;
+  basket.forEach(el => {
+    quantitySum += el.quantity
+  });
+  await database.createRecord('orders', {
+    userid: req.user.id,
+    quantity: quantitySum,
+  });
+  let orderID = await database.readRecord('orders', {
+    userid: req.user.id,
+    limit: 1,
+    orderBy: 'id DESC',
+  });
+  orderID = orderID[0].id;
+  basket.forEach(el => {
+    database.createRecord('orderdetails', {
+      orderid: orderID,
+      projectid: el.projectid,
+      quantity: el.quantity,
+    });
+  });
+  await database.deleteRecord('baskets', {
+    userid: req.user.id,
+  })
+  // Posztolunk az orders táblába
+  // await database.createRecord('orders', {
+  //   userid: req.user.id,
+
+  // });
+});
+
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
-  console.log(req.body.projectQuantity);
   let quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
@@ -84,7 +114,6 @@ router.post('/:id', async (req, res) => {
       userid: req.user.id || 0,
       quantity: req.body.projectQuantity,
     });
-
   } else {
     let incrementedQuantity = quantity[0].quantity + parseInt(req.body.projectQuantity, 10);
     await database.updateRecord('baskets', {
@@ -93,6 +122,7 @@ router.post('/:id', async (req, res) => {
     }, {
       quantity: incrementedQuantity,
     });
+
   }
   res.redirect('/baskets');
 });
