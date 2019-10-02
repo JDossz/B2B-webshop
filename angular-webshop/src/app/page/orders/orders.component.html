@@ -2,8 +2,6 @@
   <div class="col-12">
 
   </div>
-  <button class="btn btn-block btn-lg btn-success mt-1"
-          routerLink="/create-order">Add</button>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -26,6 +24,7 @@
         <td *ngIf="order.status === 2">Donation Received</td>
         <td *ngIf="order.status === 3">Donation Transfered</td>
         <td *ngIf="order.status === 4">Confirmation Received</td>
+        <td *ngIf="order.status === 5">Donation Canceled</td>
 
         <td>
           <div class="btn-group">
@@ -33,8 +32,6 @@
                [routerLink]="['/orders/details', order.orderid]">Details</a>
             <a class="btn btn-primary"
                [routerLink]="['/orders', order.id]">Update</a>
-            <a class="btn btn-danger"
-               (click)="onDelete(order.orderid)">Delete</a>
           </div>
         </td>
       </tr>
