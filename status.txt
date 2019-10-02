@@ -1,7 +1,7 @@
 1 - beérkezett az adományüzenet a usertől
 2 - beérkezett a pénz a számlánkra
 3 - elküldtük a pénzt a projectnek
-4 - visszaigazola a contact, hogy megérkezett a pénz
+4 - visszaigazolta a contact, hogy megérkezett a pénz
 
 
 CREATE TABLE status (
@@ -12,8 +12,8 @@ CREATE TABLE status (
 );
 
 INSERT INTO status (status)
-VALUES ('we got the claim from user'),
-('money arrived from user'),
-('we transfered the money'),
-('we have received confirmation from project');
+VALUES ('Donation Request Arrived'),
+('Donation Received'),
+('Donation Transfered'),
+('Confirmation Received');
 

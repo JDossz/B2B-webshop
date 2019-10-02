@@ -49,10 +49,10 @@ html
               a.nav-link(href='/about') About Us
             li.nav-item
               a.nav-link(href='/contact') Contact
-          ul.navbar-nav.mr-5.col-3
-            form.form-inline.my-2.my-lg-0
-              input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
-              button.btn.btn-outline-secondary(type="submit") Search
+          //- ul.navbar-nav.mr-5.col-3
+          //-   form.form-inline.my-2.my-lg-0
+          //-     input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
+          //-     button.btn.btn-outline-secondary(type="submit") Search
           ul.navbar-nav.col-2
             if user
               if user.id
@@ -69,6 +69,9 @@ html
                     a.dropdown-item(href='/logout') Log out
                 li
                   span#username #{user.firstname} #{user.lastname}
+                li
+                  .col
+                    a#basketlink.fa.fa-gift.fa-2x(href="/basket")
               else
                 li
                   a.btn.btn-primary(href='/login') Log In
