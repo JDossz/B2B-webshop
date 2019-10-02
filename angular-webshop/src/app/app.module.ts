@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CreateOrdersComponent } from './page/create-orders/create-orders.component';
 import { CreateUsersComponent } from './page/create-users/create-users.component';
 import { NavComponent } from './nav/nav.component';
 import { OrdersComponent } from './page/orders/orders.component';
@@ -33,7 +32,6 @@ import { OrderDetailsComponent } from './page/order-details/order-details.compon
     ProjectAddComponent,
     ProjectEditComponent,
     UpdateOrdersComponent,
-    CreateOrdersComponent,
     UsersComponent,
     UpdateUsersComponent,
     CreateUsersComponent,

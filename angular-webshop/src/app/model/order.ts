@@ -1,9 +1,7 @@
 export class Order {
   id: number;
-  userid: number;
   insdate: string;
-  projectid: number;
-  projectprice: number;
+  userid: number;
   quantity: number;
   status: number;
 }
