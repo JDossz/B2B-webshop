@@ -1,6 +1,47 @@
 CREATE DATABASE betag;
 
 
+CREATE TABLE baskets (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    projectid int,
+    quantity int,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE categories (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    category nvarchar(255) DEFAULT 'Other',
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE orders (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    projectid int NOT NULL,
+    quantity int NOT NULL,
+    status tinyint  NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE orderdetails (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    orderid int NOT NULL,
+    userid int NOT NULL,
+    projectid int NOT NULL,
+    quantity int NOT NULL,
+    status tinyint  NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE projects (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
@@ -21,6 +62,24 @@ CREATE TABLE projects (
 );
 
 
+CREATE TABLE reviews (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    text VARCHAR(500) NOT NULL,
+    rate INT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE status (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    status nvarchar(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
@@ -35,43 +94,6 @@ CREATE TABLE users (
     pictureurl nvarchar(255),
     newsletter boolean NOT NULL DEFAULT 0,
     token nvarchar(255),
-    PRIMARY KEY (id)
-);
-
-
-CREATE TABLE orders (
-    id int NOT NULL AUTO_INCREMENT,
-    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    userid int NOT NULL,
-    projectid int NOT NULL,
-    quantity int NOT NULL,
-    status tinyint  NOT NULL,
-    PRIMARY KEY (id)
-);
-
-
-CREATE TABLE baskets (
-    id int NOT NULL AUTO_INCREMENT,
-    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    userid int NOT NULL,
-    projectid int,
-    quantity int,
-    PRIMARY KEY (id)
-);
-
-
-CREATE TABLE categories (
-    id int NOT NULL AUTO_INCREMENT,
-    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    category nvarchar(255) DEFAULT 'Other',
-    PRIMARY KEY (id)
-);
-
-
-CREATE TABLE status (
-    id int NOT NULL AUTO_INCREMENT,
-    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    status nvarchar(50) NOT NULL,
     PRIMARY KEY (id)
 );
 
