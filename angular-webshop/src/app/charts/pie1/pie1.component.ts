@@ -50,8 +50,17 @@ export class Pie1Component implements OnInit {
       // console.log('Users: ', this.users);
     });
 
+    this.getCategories();
   }
 
+  getCategories() {
+    this.categories$.subscribe(data => {
+      this.categories = data;
+      // console.log('Categories: ', this.categories);
+    });
+
+
+  }
 
 
   // Pie
