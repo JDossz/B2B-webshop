@@ -67,3 +67,11 @@ CREATE TABLE categories (
     PRIMARY KEY (id)
 );
 
+
+CREATE TABLE status (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    status nvarchar(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+

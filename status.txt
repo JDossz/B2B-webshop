@@ -1,0 +1,19 @@
+1 - beérkezett az adományüzenet a usertől
+2 - beérkezett a pénz a számlánkra
+3 - elküldtük a pénzt a projectnek
+4 - visszaigazola a contact, hogy megérkezett a pénz
+
+
+CREATE TABLE status (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    status nvarchar(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO status (status)
+VALUES ('we got the claim from user'),
+('money arrived from user'),
+('we transfered the money'),
+('we have received confirmation from project');
+

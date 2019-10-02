@@ -4,7 +4,7 @@ CREATE TABLE orders (
     userid int NOT NULL,
     projectid int NOT NULL,
     quantity int NOT NULL,
-    status tinyint  NOT NULL,
+    status tinyint  NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
 
