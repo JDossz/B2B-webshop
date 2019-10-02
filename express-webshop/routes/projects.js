@@ -94,6 +94,12 @@ const pagination = function (projects, categoryList, req, res) {
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
+  if (req.query.search) {
+    const projects = await database.readRecordWithLike(req);
+    const categoryList = await database.readRecord('categories', {});
+    sortByTitle(projects);
+    pagination(projects, categoryList, req, res);
+  }
   const projects = await database.readRecord('projects', {
     isactive: 1,
   });
@@ -113,15 +119,11 @@ router.post('/', (req, res, next) => {
 router.get('/categories/:category', async (req, res, next) => {
   const projects = await database.readProjectsByCategory(req.params.category);
   const categoryList = await database.readRecord('categories', {});
+
   sortByTitle(projects);
   pagination(projects, categoryList, req, res);
 });
 
-router.get('/other', async (req, res, next) => {
-  const projects = await database.readProjectsByCategory('Other');
-  sortByTitle(projects);
-  pagination(projects, req, res);
-});
 
 // :3000/projects/:table/?id=7
 router.get('/:seo', async (req, res, next) => {
@@ -130,6 +132,10 @@ router.get('/:seo', async (req, res, next) => {
   const selectedProject = await database.readRecord('projects', {
     seo: seoName,
   });
+  if (await selectedProject[0] === undefined) {
+    res.render('no-project');
+  }
+
   const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100);
   res.render('projectDetails', {
     project: selectedProject[0],
