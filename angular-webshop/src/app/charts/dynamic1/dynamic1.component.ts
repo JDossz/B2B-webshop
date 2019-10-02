@@ -14,9 +14,9 @@ export class Dynamic1Component implements OnInit {
   constructor (private statisticsService: StatisticsService) { }
 
   //Variables
-  projects: [] = []
+  projects: Observable<any>
   projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {})
-  users: [] = []
+  users: Observable<any>
   users$: Observable<any> = this.statisticsService.readTableByQuery('users', {})
   categories: [] = []
   categories$: Observable<any> = this.statisticsService.readTableByQuery('categories', {})
@@ -28,33 +28,40 @@ export class Dynamic1Component implements OnInit {
   ngOnInit() {
     this.statisticsService.readTableByQuery('projects', {}).subscribe(data => {
       this.projects = data;
-      console.log('Projects: ', this.projects);
+      // console.log('Projects: ', this.projects);
       err => console.log(err);
     })
 
     this.statisticsService.readTableByQuery('users', {}).subscribe(data => {
       this.users = data;
-      console.log('Users: ', this.users);
+      // console.log('Users: ', this.users);
       err => console.log(err);
     })
 
     this.statisticsService.readTableByQuery('categories', {}).subscribe(data => {
       this.categories = data;
-      console.log('Categories: ', this.categories);
+      // console.log('Categories: ', this.categories);
       err => console.log(err);
     })
 
     this.statisticsService.readTableByQuery('orders', {}).subscribe(data => {
       this.orders = data;
-      console.log('Orders: ', this.orders);
+      // console.log('Orders: ', this.orders);
       err => console.log(err);
     })
 
     this.statisticsService.readTableByQuery('baskets', {}).subscribe(data => {
       this.baskets = data;
-      console.log('Baskets: ', this.baskets);
+      // console.log('Baskets: ', this.baskets);
       err => console.log(err);
     })
+
+    let usersArray = this.users
+    this.counter(usersArray)
+  }
+
+  counter(usersArray) {
+    console.log('UsersArray', usersArray);
   }
 
   //Chart
@@ -69,8 +76,8 @@ export class Dynamic1Component implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Active' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Passive' }
+    { data: [65, 59, 80], label: 'Active' },
+    { data: [28, 48, 40], label: 'Passive' }
   ];
 
 
