@@ -10,8 +10,16 @@ block content
           .card-header
             h3 Our Reviews
           each review in reviews
-            .card-body
-              p  #{review.text}
+            .card-body(style='padding:10px')
+              .row
+                .col-2
+                  p  #{review.text}
+                .col-8 &nbsp;
+                if user
+                  if user.firstname==review.firstname && user.lastname==review.lastname 
+                    .col-2
+                      a.btn.btn-outline-secondary(href=`/contact/reviews/remove/${review.id}`)
+                        i.fa.fa-trash(aria-hidden='true')
               .row
                 .col-2
                   small.text-muted Posted by: #{review.firstname} #{review.lastname}
