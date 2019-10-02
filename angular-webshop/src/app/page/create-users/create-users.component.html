@@ -3,64 +3,41 @@
 <div>
   <form (submit)="onSubmit($event)">
     <div class="form-group">
-      <input name="id"
-             class="form-control"
-             type="hidden"
-             [(ngModel)]="user.id">
+      <label for="">First name</label>
+      <input name="firstname" class="form-control" type="text" [(ngModel)]="user.firstname">
     </div>
     <div class="form-group">
-      <label for="">Admin</label>
-      <input name="admin"
-             class="form-control"
-             type="text"
-             [(ngModel)]="user.admin">
+      <label for="">Last name</label>
+      <input name="lastname" class="form-control" type="text" [(ngModel)]="user.lastname">
     </div>
     <div class="form-group">
-      <label for="">Name</label>
-      <input name="name"
-             class="form-control"
-             type="text"
-             [(ngModel)]="user.name">
+      <label for="">Username</label>
+      <input name="username" class="form-control" type="text" [(ngModel)]="user.username">
     </div>
     <div class="form-group">
-      <label for="">Email</label>
-      <input name="email"
-             class="form-control"
-             type="email"
-             [(ngModel)]="user.email">
+      <label for="">Gender</label>
+      <input name="gender" class="form-control" type="text" [(ngModel)]="user.gender">
     </div>
     <div class="form-group">
-      <label for="">Password</label>
-      <input name="password"
-             type="password"
-             class="form-control"
-             [(ngModel)]="user.password">
+      <label for="">Email address</label>
+      <input name="emailaddress" class="form-control" type="email" [(ngModel)]="user.emailaddress">
     </div>
     <div class="form-group">
-      <label for="">Balance</label>
-      <input name="balance"
-             type="text"
-             class="form-control"
-             [(ngModel)]="user.balance">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form-control" required>
+      </div>
     </div>
     <div class="form-group">
-      <label for="">Address</label>
-      <input name="address"
-             type="text"
-             class="form-control"
-             [(ngModel)]="user.address">
+      <label for="admin">Admin</label>
+      <input type="number" id="admin" name="admin" [(ngModel)]="user.admin" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="">Picture</label>
-      <input name="picture"
-             type="text"
-             class="form-control"
-             [(ngModel)]="user.picture">
+      <label for="admin">Address</label>
+      <input type="text" id="address" name="admin" [(ngModel)]="user.address" class="form-control" required>
     </div>
-    <button class="btn btn-primary"
-            type="submit">
+    <button class="btn btn-primary" type="submit">
       Add
     </button>
-
   </form>
 </div>

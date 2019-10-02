@@ -1,0 +1,15 @@
+main p {
+  font-size: 1.2em;
+}
+
+.aboutus-greencol {
+  background-color: #0AC2C3;
+  color: #FFF;
+  font-family: 'Francois';
+  font-size: 1.7em;
+  padding: 2%;
+  position: relative;
+  top: 2.3em;
+  left: 50%;
+  z-index: 3;
+}

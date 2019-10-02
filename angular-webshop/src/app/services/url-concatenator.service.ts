@@ -25,8 +25,9 @@ export class UrlConcatenatorService {
   private generateQueryString(query: Object): void {
     this.emptyPreviousString();
     Object.keys(query).forEach(key => {
-      this.queryString = this.queryString.concat(`${key}=${query[key]}`);
+      this.queryString = this.queryString.concat(`&${key}=${query[key].toString().replace(/\s{1}/g, '%20')}`);
     });
+    this.queryString = this.queryString.replace('?&', '?');
   }
 
   /**

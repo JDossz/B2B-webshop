@@ -57,10 +57,10 @@ export class DataService {
         else if (tableName === 'users') {
           this.userList.next(data);
         }
-        if (tableName === 'basket' && query.hasOwnProperty('id')) {
+        if (tableName === 'baskets' && query.hasOwnProperty('id')) {
           this.basket.next(data[0]);
         }
-        else if (tableName === 'basket') {
+        else if (tableName === 'baskets') {
           this.basketList.next(data);
         }
         if (tableName === 'projects' && (query.hasOwnProperty('id') || query.hasOwnProperty('seo'))) {
@@ -76,20 +76,6 @@ export class DataService {
           this.categoryList.next(data)
         }
       });
-  }
-
-  readTableById(tableName: string, id: number): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/?id=${id}`);
-  }
-
-  /**
-   * Gets a specific record based on URL seo name.
-   * @param tableName Name of the database table.
-   * @param seoName 
-   * @returns Response observable containing the read record.
-   */
-  readTableBySeoName(tableName: string, seoName: string): Observable<any> {
-    return this.http.get(`${this.restApiURL}/${tableName}/${seoName}`);
   }
 
   /**

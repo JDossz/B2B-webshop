@@ -23,6 +23,7 @@ router.get('/', async (req, res) => {
     res.render('baskets', {
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
+      user: req.user || {},
     });
   }
 });

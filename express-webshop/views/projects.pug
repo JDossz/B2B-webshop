@@ -1,20 +1,14 @@
 extends layout
 
 block content
-  .container.containerProjects
+  .container.containerProjects.mt-4
     .row
       .col-3
         .sidebar
           h1 Categories
-          a#arts(href="/projects/arts") Arts
-          a#biology(href="/projects/biology") Biology
-          a#gender(href="/projects/gender") Gender Studies
-          a#neurology(href="/projects/chemistry") Chemistry
-          a#technology(href="/projects/computerSience") Computer Sience
-          a#technology(href="/projects/engineering") Engineering
-          a#technology(href="/projects/mathematics") Mathematics
-          a#technology(href="/projects/physics") Physics
-          a.categories(href="/projects") Go back         
+          each category, index in categories 
+            a(href=`/projects/categories/${category.category}`) #{category.category}        
+          a(href='/projects') Go back!
           .row
             form.form-inline(action='/projects' method="GET")
               .form-group
@@ -23,15 +17,14 @@ block content
                 .col-6
                   button.btn.btn-primary(type="submit")
                     i.fa.fa-search(aria-hidden='true')
-
       .col-8               
         each project , index in projects
           if index < 10
             .card.mb-3(style='max-width: 850px;')
               .row.no-gutters
                 .col-md-4
-                  img.card-img(src='http://www.ict-coherent.eu/coherent/wp-content/uploads/2015/10/project-motivation-img.jpg', alt='...')
-                .col-md-8
+                  img.card-img(src=`${project.pictureurl}`, alt='...')
+                .col-md-8(style='height: 14rem;')
                   .card-body
                     h5.card-title #{project.title}
                     p.card-text #{project.shortd}

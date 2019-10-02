@@ -1,20 +1,22 @@
 <div class="container">
-    <div class="row">
-      <div class="col-4 offset-4">
-        <form action="http://localhost:3000/api/categories" method="post">
-          <div class="form-group">
-              <label for="id">ID</label>
-              <input type="number" placeholder="ID" class="form-control" name="newCategory.id" id="id"
-                [(ngModel)]="newCategory.id" required >
-            </div>
-          <div class="form-group">
-              <label for="category">Category</label>
-              <input type="text" placeholder="Category" class="form-control" name="newCategory.category" id="category"
-                [(ngModel)]="newCategory.category" required >
-            </div>
-          <button type="submit" class="btn btn-success" (click)="onCreate()">Submit</button>
-        </form>
-      </div>
+  <div class="row">
+    <div class="col-4 offset-4">
+      <form action="http://localhost:3000/api/categories"
+            method="post">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text"
+                 placeholder="Category"
+                 class="form-control"
+                 name="newCategory.category"
+                 id="category"
+                 [(ngModel)]="newCategory.category"
+                 required>
+        </div>
+        <button type="submit"
+                class="btn btn-success"
+                (click)="onCreate()">Submit</button>
+      </form>
     </div>
   </div>
-  
+</div>

@@ -3,53 +3,71 @@
 <div *ngIf="order">
   <form (submit)="onSubmit($event)">
     <div class="form-group">
-      <label for="id">ID</label>
-      <input name="id"
+      <label for="orderid">Order ID</label>
+      <input type="number"
              class="form-control"
-             type="hidden"
+             id="orderid"
+             name="orderid"
+             disabled
              [(ngModel)]="order.id">
     </div>
     <div class="form-group">
-      <label for="">User ID</label>
-      <input name="userid"
+      <label for="orderinsdate">Date</label>
+      <input type="text"
              class="form-control"
-             type="text"
-             [(ngModel)]="order.userid">
-    </div>
-    <div class="form-group">
-      <label for="">Insdate</label>
-      <input name="insdate"
-             class="form-control"
-             type="hidden"
+             id="orderinsdate"
+             name="orderinsdate"
+             disabled
              [(ngModel)]="order.insdate">
     </div>
     <div class="form-group">
-      <label for="">Project ID</label>
-      <input name="projectid"
+      <label for="userid">User ID</label>
+      <input type="number"
              class="form-control"
-             type="text"
-             [(ngModel)]="order.projectid">
+             id="userid"
+             name="userid"
+             disabled
+             [(ngModel)]="order.userid">
     </div>
     <div class="form-group">
-      <label for="">Project price</label>
-      <input name="projectprice"
-             type="text"
+      <label for="firstname">First Name</label>
+      <input type="text"
              class="form-control"
-             [(ngModel)]="order.projectprice">
+             id="firstname"
+             name="firstname"
+             disabled
+             [(ngModel)]="order.firstname">
     </div>
     <div class="form-group">
-      <label for="">Quantity</label>
-      <input name="quantity"
-             type="text"
+      <label for="lastname">Last Name</label>
+      <input type="text"
              class="form-control"
+             id="lastname"
+             name="lastname"
+             disabled
+             [(ngModel)]="order.lastname">
+    </div>
+    <div class="form-group">
+      <label for="quantity">Project Quantity</label>
+      <input type="number"
+             class="form-control"
+             id="quantity"
+             name="quantity"
+             disabled
              [(ngModel)]="order.quantity">
     </div>
     <div class="form-group">
-      <label for="">Status</label>
-      <input name="status"
-             type="text"
-             class="form-control"
-             [(ngModel)]="order.status">
+      <label for="status">Status</label>
+      <select name="status"
+              id="status"
+              class="form-control"
+              [(ngModel)]="order.status">
+        <option value="1">Donation Request Arrived</option>
+        <option value="2">Donation Received</option>
+        <option value="3">Donation Transfered</option>
+        <option value="4">Confirmation Received</option>
+        <option value="5">Donation Canceled</option>
+      </select>
     </div>
     <button class="btn btn-primary"
             type="submit">

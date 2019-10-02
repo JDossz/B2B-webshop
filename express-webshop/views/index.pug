@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  main(role='main')
+  main.mt-5(role='main')
     // carousel for recommended projects
     #indexCarousel.carousel.slide(data-ride='carousel')
       ol.carousel-indicators
@@ -71,8 +71,7 @@ block content
       .row
         .col
           h1.text-center Our mission is to help people achieve their goals, bring creative projects to life
-          p Entryway helps scientists, artists, musicians, filmmakers, designers, and other creators find the resources and support they need to make their ideas a reality. To date, tens of thousands of creative projects — big and small — have come to life with the support of the BETAG community.
-          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque harum sint laborum, sunt, praesentium exercitationem odit totam quasi repellendus aut adipisci ipsum. Ratione rerum cumque aut commodi eum in maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, commodi a. Fugiat distinctio atque error harum odio, tempora similique cumque ex molestias commodi veritatis vel asperiores maxime! Temporibus, veniam deserunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse molestias optio sint excepturi tempore, quas totam veniam quam ea sed dolore officiis eius exercitationem voluptas quod omnis ratione nostrum laboriosam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta corrupti quas voluptatum aut excepturi? Consequuntur rem, debitis fugit eaque dolor atque. Vel ipsum ullam quae corporis enim quis odit eveniet.
+          h5.text-center Entryway helps scientists, artists, musicians, filmmakers, designers, and other creators find the resources and support they need to make their ideas a reality. To date, tens of thousands of creative projects — big and small — have come to life with the support of the BETAG community.
       hr.featurette-divider
 
     // the 3 most generous funders of the month
@@ -81,7 +80,7 @@ block content
         header
           .overlay
           video(playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop")
-            source(src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4")
+            source(src="/videos/Mt_Baker.mp4" type="video/mp4")
           .container.align-items-center.text-white
             .row
               .col-lg-4
@@ -185,11 +184,11 @@ block content
           mark  Projects We Love
           |  newsletter.
         .max-w100.mx-auto.justify-content.text-center
-          form
+          form(action="/thankyou" method="get")
             .flex.flex-column.flex-row-sm.items-stretch
               .grow-1.mb2.mb0-sm.mr3-sm.mr0
                 .relative.smart-input-group
-                  input#newsletter-signup-input.atomic-text-input(placeholder="Enter email address" type="text" value="")
+                  input#newsletter-signup-input.atomic-text-input(placeholder="Enter email address" type="text" value="" name="emailaddress")
                 .relative.w100p
                   .h5.clip.absolute.l0.t0.w100p
                     .absolute.l0.t1.w100p

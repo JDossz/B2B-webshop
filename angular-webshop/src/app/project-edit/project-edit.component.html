@@ -3,8 +3,7 @@
     <div class="col-4 offset-4">
       <form action="http://localhost:3000/api/projects/{{project.seo}}"
             method="post">
-        <div class="form-group"
-             *ngFor="let project of project$ | async">
+        <div class="form-group">
           <label for="title">Title</label>
           <input type="text"
                  placeholder="Title"
@@ -12,7 +11,8 @@
                  name="project.title"
                  id="title"
                  [(ngModel)]="project.title"
-                 (keyup)="onKey($event)">
+                 (keyup)="onKey($event)"
+                 disabled>
         </div>
         <div class="form-group">
           <label for="seo">Seo</label>
@@ -21,7 +21,8 @@
                  placeholder="Seo"
                  name="project.seo"
                  id="seo"
-                 [(ngModel)]="project.seo">
+                 [(ngModel)]="project.seo"
+                 disabled>
         </div>
         <div class="form-group">
           <label for="institution">Institution</label>

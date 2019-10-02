@@ -24,14 +24,9 @@ export class CreateUsersComponent implements OnInit {
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
-    this.ds.createRecord('users', this.user).subscribe(
-      () => {
-
-        this.router.navigateByUrl('/users')
-
-      }, err => console.error(err)
-
-    )
-
+    this.ds.createRecord('users', this.user).subscribe(() => {
+      this.router.navigateByUrl('/users')
+    },
+      err => console.error(err));
   }
 }

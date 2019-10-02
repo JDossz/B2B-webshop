@@ -1,15 +1,13 @@
 const express = require('express');
-const PugData = require('../modules/pug-data');
+const BetagDB = require('./../modules/webshop-mariadb');
 
 const router = express.Router();
-
-const pugData = new PugData();
+const database = new BetagDB();
 
 /* GET kérés küldésekor home page-re: */
 router.get('/', async (req, res, next) => {
-  // res.json(await pugData.readSpecificTable('projects', { contact: 'Katerine Genney' }));
-  const projectsList = await pugData.readSpecificTable('projects');
-  const usersList = await pugData.readSpecificTable('users');
+  const projectsList = await database.readRecord('projects', {});
+  const usersList = await database.readRecord('users', {});
   const projectsToCarousel = [];
   const projectsToFeature = [];
   const usersToShow = [];
