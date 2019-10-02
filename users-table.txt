@@ -7,10 +7,11 @@ CREATE TABLE users (
     username nvarchar(255) NOT NULL,
     emailaddress nvarchar(255) NOT NULL,
     password nvarchar(255) NOT NULL,
-    admin boolean NOT NULL DEFAULT 0,
     address nvarchar(1000),
     pictureurl nvarchar(255),
+    admin boolean NOT NULL DEFAULT 0,
     newsletter boolean NOT NULL DEFAULT 0,
+    points int NOT NULL DEFAULT 0,
     token nvarchar(255),
     PRIMARY KEY (id)
 );

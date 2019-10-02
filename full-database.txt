@@ -1,6 +1,16 @@
 CREATE DATABASE betag;
 
 
+CREATE TABLE awards (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    required int NOT NULL,
+    level nvarchar(50) NOT NULL,
+    pictureurl nvarchar(255),
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE baskets (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),

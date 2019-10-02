@@ -1,0 +1,18 @@
+lvl 1 - 
+lvl 2 - 
+lvl 3 - 
+lvl 4 - 
+lvl 5 - 
+
+CREATE TABLE awards (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    required int NOT NULL,
+    level nvarchar(50) NOT NULL,
+    pictureurl nvarchar(255),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO awards ()
+VALUES ();
+

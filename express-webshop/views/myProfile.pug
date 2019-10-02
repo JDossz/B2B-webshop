@@ -25,4 +25,10 @@ block content
 
         //- personal part on the right
         .col-md-9.col-sm-9.col-xs-12.pull-right.profile-right-section
- 
+          .row.profile-right-section-row
+            .col-md-12.profile-header
+              .row
+                .col-md-8.col-sm-6.col-xs-6.profile-header-section1.pull-left
+                  h1 #{user.firstname} #{user.lastname}
+                  h5 #{user.points}
+            
