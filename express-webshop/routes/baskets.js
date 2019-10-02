@@ -39,6 +39,7 @@ router.get('/', async (req, res) => {
   //   select: 'SUM(projects.donation*orders.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
   //   groupBy: 'projects.title'
   // });
+
   if (req.user.id) {
     res.render('baskets', {
       user: req.user || {},
@@ -64,6 +65,7 @@ router.get('/empty/:userid', async (req, res) => {
 });
 
 router.post('/donate', async (req, res) => {
+
   // Lekérjük, ami a kosárban van.
   let basket = await database.readRecord('baskets', {
     userid: req.user.id,
@@ -90,10 +92,27 @@ router.post('/donate', async (req, res) => {
       quantity: el.quantity,
     });
   });
+
+  let data = await database.readRecord('baskets', {
+    userid: req.user.id,
+    from: 'INNER JOIN projects ON projects.id = baskets.projectid',
+    select: 'projects.title, projects.donation, projects.balance, projects.id, baskets.quantity as quantity, baskets.id, baskets.projectid, baskets.userid',
+    groupBy: 'projects.id'
+  });
+
+  let basketItem = data;
+
+  basketItem.forEach(el => {
+    let balanceOfProjects = el.balance + el.donation * el.quantity;
+    database.updateRecord('projects', {
+      id: el.projectid,
+    },
+      { balance: balanceOfProjects })
+  });
   await database.deleteRecord('baskets', {
     userid: req.user.id,
   })
-
+  res.redirect('/thankyou')
 });
 
 // post a project details oldalról
