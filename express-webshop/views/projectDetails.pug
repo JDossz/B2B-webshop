@@ -28,8 +28,11 @@ block content
             p
               small  the goal is $ #{project.goal}
             form(action=`/baskets/${project.id}`, method="post")
-              button.btn-block.btn.btn-donate
-                | Donate
+              .form-group
+                label Quantity :
+                input.form-control(type='number', name='projectQuantity', value=1 , min=1, style="width:100px") 
+                button.btn-block.btn.btn-donate Donate
+                | 
         .row.mt-2
           .col-12.mb-5
             .card.mt-4
