@@ -58,14 +58,14 @@ app.use('/contact', require('./routes/contact'));
 app.use('/privacy', require('./routes/privacyPolicy'));
 app.use('/terms', require('./routes/termsAndConditions'));
 app.use('/thankyou', require('./routes/thankyou'));
-
-app.use('/**', errorPageRouter);
-
 // clear userID cookie when logging out
 app.use('/logout', (req, res, next) => {
   res.clearCookie('userID');
   res.redirect('/');
 });
+
+app.use('/**', errorPageRouter);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
