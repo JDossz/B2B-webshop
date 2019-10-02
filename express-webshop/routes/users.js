@@ -13,5 +13,4 @@ router.get('/', async (req, res, next) => {
     user: req.user || {}
   });
 });
-
 module.exports = router;
