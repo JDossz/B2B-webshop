@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { SearchPipe } from './pipe/search.pipe';
 import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
 import { StatisticsComponent } from './page/statistics/statistics.component';
 import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
+import { Pie1Component } from './charts/pie1/pie1.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
     StatisticsBasicComponent,
     StatisticsComponent,
     Dynamic1Component,
+    Pie1Component,
   ],
   imports: [
     BrowserModule,
