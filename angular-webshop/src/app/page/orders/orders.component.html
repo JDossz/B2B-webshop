@@ -7,29 +7,34 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>Order ID</th>
         <th>Insdate</th>
         <th>User ID</th>
-        <th>Project ID</th>
+        <th>User Name</th>
         <th>Quantity</th>
         <th>Status</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let order of list$ | async">
-        <td>{{order.id}}</td>
+        <td>{{order.orderid}}</td>
         <td>{{order.insdate}}</td>
         <td>{{order.userid}}</td>
-        <td>{{order.projectid}}</td>
+        <td>{{order.firstname | titlecase}} {{order.lastname | titlecase}}</td>
         <td>{{order.quantity}}</td>
-        <td>{{order.status}}</td>
+        <td *ngIf="order.status === 1">Donation Request Arrived</td>
+        <td *ngIf="order.status === 2">Donation Received</td>
+        <td *ngIf="order.status === 3">Donation Transfered</td>
+        <td *ngIf="order.status === 4">Confirmation Received</td>
 
         <td>
           <div class="btn-group">
             <a class="btn btn-info"
+               [routerLink]="['/orders/details', order.orderid]">Details</a>
+            <a class="btn btn-primary"
                [routerLink]="['/orders', order.id]">Update</a>
             <a class="btn btn-danger"
-               (click)="onDelete(order.id)">Delete</a>
+               (click)="onDelete(order.orderid)">Delete</a>
           </div>
         </td>
       </tr>
