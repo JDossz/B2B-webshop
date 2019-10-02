@@ -23,6 +23,7 @@ import { CategoryComponent } from './page/category/category.component';
 import { CategoryAddComponent } from './page/category/category-add/category-add.component';
 import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
 import { StatisticsComponent } from './page/statistics/statistics.component';
+import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { StatisticsComponent } from './page/statistics/statistics.component';
     CategoryAddComponent,
     CategoryEditComponent,
     StatisticsComponent,
-    Line1Component,
+    Dynamic1Component,
   ],
   imports: [
     BrowserModule,
