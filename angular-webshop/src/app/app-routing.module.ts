@@ -17,6 +17,7 @@ import { StatisticsBasicComponent } from './page/statistics-basic/statistics-bas
 import { UpdateOrdersComponent } from './page/update-orders/update-orders.component';
 import { UpdateUsersComponent } from './page/update-users/update-users.component';
 import { UsersComponent } from './page/users/users.component';
+import { OrderDetailsComponent } from './page/order-details/order-details.component';
 
 
 const routes: Routes = [
@@ -34,8 +35,16 @@ const routes: Routes = [
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
   {
+    path: 'orders/:id',
+    component: UpdateOrdersComponent
+  },
+  {
     path: 'orders/details/:id',
-    component: OrderDetailsComponent
+    component: OrderDetailsComponent,
+  },
+  {
+    path: 'create-order',
+    component: CreateOrdersComponent
   },
   {
     path: 'users',
