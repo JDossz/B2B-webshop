@@ -20,8 +20,11 @@ export class OrdersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ds.readTableByQuery('orders', {});
-
+    this.ds.readTableByQuery('orders', {
+      select: 'users.id as userid, users.firstname, users.lastname, users.address, orders.insdate, orders.quantity, orders.id as orderid, orders.status',
+      from: 'INNER JOIN users ON orders.id = users.id'
+    });
+    this.list$.subscribe(data => console.log(data));
   }
 
 }
