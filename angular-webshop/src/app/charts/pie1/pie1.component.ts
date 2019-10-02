@@ -12,28 +12,45 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class Pie1Component implements OnInit {
   orders: any
-  orders$: BehaviorSubject<any> = this.dataService.orderList.value;
-  basket$: BehaviorSubject<any> = this.dataService.basketList.value;
-  categories$: BehaviorSubject<any> = this.dataService.basketList.value;
-  // categories$: BehaviorSubject<any> = ;
-  projects$: BehaviorSubject<any> = this.dataService.projectList.value;
-  users$: BehaviorSubject<any> = this.dataService.userList.value;
+  orders$: BehaviorSubject<any> = this.dataService.orderList;
+  baskets: any
+  baskets$: BehaviorSubject<any> = this.dataService.basketList;
+  categories: any
+  categories$: BehaviorSubject<any> = this.dataService.basketList;
+  projects: any
+  projects$: BehaviorSubject<any> = this.dataService.projectList;
+  users: any
+  users$: BehaviorSubject<any> = this.dataService.userList;
 
   constructor (private dataService: DataService) {
     this.dataService.readTableByQuery('orders', {});
     this.dataService.readTableByQuery('baskets', {});
-    // this.dataService.readTableByQuery('baskets', {});
+    this.dataService.readTableByQuery('categories', {});
     this.dataService.readTableByQuery('projects', {});
     this.dataService.readTableByQuery('users', {});
 
-    console.log('Orders: ', this.orders$);
-    console.log('Basket: ', this.basket$);
-    // console.log('Categories: ', this.categories$);
-    console.log('Projects: ', this.projects$);
-    console.log('Users: ', this.users$);
+    this.orders$.subscribe(data => {
+      this.orders = data;
+      // console.log('Orders: ', this.orders);
+    });
+    this.baskets$.subscribe(data => {
+      this.baskets = data;
+      // console.log('Baskets: ', this.baskets);
+    });
+    this.categories$.subscribe(data => {
+      this.categories = data;
+      // console.log('Categories: ', this.categories);
+    });
+    this.projects$.subscribe(data => {
+      this.projects = data;
+      // console.log('Projects: ', this.projects);
+    });
+    this.users$.subscribe(data => {
+      this.users = data;
+      // console.log('Users: ', this.users);
+    });
+
   }
-
-
 
 
 
