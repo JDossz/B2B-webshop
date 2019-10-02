@@ -41,10 +41,6 @@ const routes: Routes = [
     component: OrderDetailsComponent,
   },
   {
-    path: 'create-order',
-    component: CreateOrdersComponent
-  },
-  {
     path: 'users',
     component: UsersComponent
   },
