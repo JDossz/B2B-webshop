@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 import 'chart.js';
-import { BehaviorSubject } from 'rxjs';
-import { DataService } from 'src/app/services/data.service';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-dynamic1',
@@ -12,54 +11,51 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./dynamic1.component.css']
 })
 export class Dynamic1Component implements OnInit {
-  orders: any
-  orders$: BehaviorSubject<any> = this.dataService.orderList;
-  baskets: any
-  baskets$: BehaviorSubject<any> = this.dataService.basketList;
-  categories: any
-  categories$: BehaviorSubject<any> = this.dataService.basketList;
-  projects: any
-  projects$: BehaviorSubject<any> = this.dataService.projectList;
-  users: any
-  users$: BehaviorSubject<any> = this.dataService.userList;
-  countUsers$: BehaviorSubject<any> = this.dataService.userList;
-  countUsers: any;
-  countOrders: any
+  constructor (private statisticsService: StatisticsService) { }
 
-  constructor (private dataService: DataService) {
-    // this.dataService.readTableByQuery('users', { select: 'count(id) as count', admin: 1 });
-    // this.countUsers$.subscribe(data => {
-    //   console.log(data[0]);
-    //   this.countUsers = data[0].count;
-    // })
-    this.dataService.readTableByQuery('orders', {});
-    this.dataService.readTableByQuery('baskets', {});
-    this.dataService.readTableByQuery('categories', {});
-    this.dataService.readTableByQuery('projects', {});
-    this.dataService.readTableByQuery('users', {});
+  //Variables
+  projects: [] = []
+  projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {})
+  users: [] = []
+  users$: Observable<any> = this.statisticsService.readTableByQuery('users', {})
+  categories: [] = []
+  categories$: Observable<any> = this.statisticsService.readTableByQuery('categories', {})
+  orders: [] = []
+  orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {})
+  baskets: [] = []
+  baskets$: Observable<any> = this.statisticsService.readTableByQuery('baskets', {})
 
-    this.orders$.subscribe(data => {
-      this.orders = data;
-      // console.log('Orders: ', this.orders);
-    });
-    this.baskets$.subscribe(data => {
-      this.baskets = data;
-      // console.log('Baskets: ', this.baskets);
-    });
-    this.categories$.subscribe(data => {
-      this.categories = data;
-      // console.log('Categories: ', this.categories);
-    });
-    this.projects$.subscribe(data => {
+  ngOnInit() {
+    this.statisticsService.readTableByQuery('projects', {}).subscribe(data => {
       this.projects = data;
-      // console.log('Projects: ', this.projects);
-    });
-    this.users$.subscribe(data => {
-      this.users = data;
-      // console.log('Users: ', this.users);
-    });
-  }
+      console.log('Projects: ', this.projects);
+      err => console.log(err);
+    })
 
+    this.statisticsService.readTableByQuery('users', {}).subscribe(data => {
+      this.users = data;
+      console.log('Users: ', this.users);
+      err => console.log(err);
+    })
+
+    this.statisticsService.readTableByQuery('categories', {}).subscribe(data => {
+      this.categories = data;
+      console.log('Categories: ', this.categories);
+      err => console.log(err);
+    })
+
+    this.statisticsService.readTableByQuery('orders', {}).subscribe(data => {
+      this.orders = data;
+      console.log('Orders: ', this.orders);
+      err => console.log(err);
+    })
+
+    this.statisticsService.readTableByQuery('baskets', {}).subscribe(data => {
+      this.baskets = data;
+      console.log('Baskets: ', this.baskets);
+      err => console.log(err);
+    })
+  }
 
   //Chart
 
@@ -77,9 +73,6 @@ export class Dynamic1Component implements OnInit {
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Passive' }
   ];
 
-
-  ngOnInit() {
-  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

@@ -17,7 +17,7 @@ export class ProjectEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private ds: DataService, private ar: ActivatedRoute, private router: Router) {
+  constructor (private ds: DataService, private ar: ActivatedRoute, private router: Router) {
     this.ar.params.forEach(params => {
       this.ds.readTableByQuery('projects', {
         seo: params.seo,
@@ -26,7 +26,7 @@ export class ProjectEditComponent implements OnInit {
     this.project$.subscribe(
       data => {
         this.project = data[0];
-        console.log(this.project);
+        // console.log(this.project);
       }
     );
   }

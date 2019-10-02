@@ -60,7 +60,7 @@ export class DataService {
         if (tableName === 'basket' && query.hasOwnProperty('id')) {
           this.basket.next(data[0]);
         }
-        else if (tableName === 'basket') {
+        else if (tableName === 'baskets') {
           this.basketList.next(data);
         }
         if (tableName === 'projects' && (query.hasOwnProperty('id') || query.hasOwnProperty('seo'))) {

@@ -13,7 +13,7 @@ export class ProjectAddComponent implements OnInit {
   newProject: Project = new Project();
   projects: BehaviorSubject<any> = this.ds.projectList;
 
-  constructor(private ds: DataService, private router: Router) {
+  constructor (private ds: DataService, private router: Router) {
     this.ds.readTableByQuery('projects', {})
   }
 
@@ -31,9 +31,9 @@ export class ProjectAddComponent implements OnInit {
     }
     if (this.newProject.title === undefined || this.newProject.seo === undefined || this.newProject.institution === undefined || this.newProject.shortd === undefined || this.newProject.longd === undefined || this.newProject.contact === undefined || this.newProject.categoryid === undefined || this.newProject.donation === undefined || this.newProject.goal === undefined || this.newProject.balance === undefined || this.newProject.pictureurl === undefined || this.newProject.link === undefined) {
       alert('Please write something to every inputbox')
-    } else if (this.newProject.goal == 0 || this.newProject.donation == 0 || this.newProject.balance == 0 || this.newProject.goal < 0 || this.newProject.donation < 0 || this.newProject.balance < 0 || !Number.isInteger(this.newProject.goal)|| !Number.isInteger(this.newProject.donation)|| !Number.isInteger(this.newProject.balance)) {
+    } else if (this.newProject.goal == 0 || this.newProject.donation == 0 || this.newProject.balance == 0 || this.newProject.goal < 0 || this.newProject.donation < 0 || this.newProject.balance < 0 || !Number.isInteger(this.newProject.goal) || !Number.isInteger(this.newProject.donation) || !Number.isInteger(this.newProject.balance)) {
       alert('Please write a positive even number, which is not null!')
-    } else if (typeof this.newProject.goal !== 'number' || typeof this.newProject.donation !== 'number' || typeof this.newProject.donation !== 'number' ) {
+    } else if (typeof this.newProject.goal !== 'number' || typeof this.newProject.donation !== 'number' || typeof this.newProject.donation !== 'number') {
       alert('Please write a number!')
     } else {
       this.ds.createRecord('projects', this.newProject).subscribe(
