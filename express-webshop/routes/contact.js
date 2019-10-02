@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   const reviewList = await database.readRecord('reviews', {
     from: 'INNER JOIN users ON reviews.userid=users.id',
-    select: 'reviews.text, reviews.rate, users.firstname as firstname, users.lastname as lastname',
+    select: 'reviews.id, reviews.text, reviews.rate, users.firstname as firstname, users.lastname as lastname',
   });
 
   res.render('contact', {
@@ -28,4 +28,10 @@ router.post('/reviews/addReview', async (req, res) => {
   res.redirect('/contact');
 });
 
+router.get('/reviews/remove/:id', async (req, res, next) => {
+  await database.deleteRecord('reviews', {
+    id: req.params.id,
+  });
+  res.redirect('/contact');
+});
 module.exports = router;

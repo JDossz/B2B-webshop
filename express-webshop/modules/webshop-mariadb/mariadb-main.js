@@ -116,7 +116,7 @@ module.exports = class BetagDB {
     const sql = `
     SELECT *
     FROM projects
-    WHERE title LIKE '%${req.query.search}%'`;
+    WHERE title LIKE '%${req.query.search}%' OR contact LIKE '%${req.query.search}%'`;
     const result = await this.connection.query(sql);
     return result;
   }
