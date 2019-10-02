@@ -7,8 +7,6 @@ const MariaDB = require('./modules/webshop-mariadb');
 
 const database = new MariaDB();
 
-const errorPageRouter = require('./routes/error-page');
-
 const app = express();
 
 // view engine setup
@@ -41,7 +39,7 @@ app.use(async (req, res, next) => {
 app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
 app.use('/api', require('./routes/api'));
-app.use('/baskets', require('./routes/baskets');
+app.use('/baskets', require('./routes/baskets'));
 app.use('/contact', require('./routes/contact'));
 app.use('/login', require('./routes/login'));
 app.use('/myProfile', require('./routes//myProfile'));
@@ -59,7 +57,7 @@ app.use('/logout', (req, res, next) => {
   res.redirect('/');
 });
 
-app.use('/**', errorPageRouter);
+app.use('/**', require('./routes/error-page'));
 
 
 // catch 404 and forward to error handler

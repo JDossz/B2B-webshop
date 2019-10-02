@@ -1,3 +1,28 @@
 extends layout
 
 block content
+  link(rel='stylesheet', href='/stylesheets/myProfile.css')
+
+  .container.main-secction
+    .row
+      //- personal background picture
+      .col-md-12.col-sm-12.col-xs-12.image-section
+        img(src="/images/backgrounds/default.jpg")
+
+      .row.user-left-part
+        //- personal part on the left
+        .col-md-3.col-sm-3.col-xs-12.user-profil-part.pull-left
+          .row
+            //- profile picture
+            .col-md-12.col-md-12-sm-12.col-xs-12.user-image.text-center
+              img.rounded-circle(src="/images/users/user_default.png")
+            //- personal statistics part
+            .row.user-detail-row
+              .col-md-12.col-sm-12.user-detail-section2.pull-left
+                .border
+                p Followers
+                span 320
+
+        //- personal part on the right
+        .col-md-9.col-sm-9.col-xs-12.pull-right.profile-right-section
+ 
