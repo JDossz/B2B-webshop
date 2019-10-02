@@ -26,7 +26,7 @@ export class CreateOrdersComponent implements OnInit {
     this.ds.createRecord('orders', this.order).subscribe(
       () => {
 
-        this.router.navigateByUrl("/")
+        this.router.navigateByUrl("/orders")
 
       }, err => console.error(err)
 

@@ -1,53 +1,31 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const dateFormat = require('dateformat');
+const Mariadb = require('../modules/webshop-mariadb');
+
+const database = new Mariadb();
+const router = express.Router();
 
 router.get('/', async (req, res, next) => {
+  const reviewList = await database.readRecord('reviews', {
+    from: 'INNER JOIN users ON reviews.userid=users.id',
+    select: 'reviews.text, reviews.rate, users.firstname as firstname, users.lastname as lastname',
+  });
+
   res.render('contact', {
     title: 'Contacts',
+    reviews: reviewList,
     user: req.user || {},
+
   });
-})
-// const showReview=function() {
-//   // document.getElementById("review").classList.toggle("show");
-// }
+});
+router.post('/reviews/addReview', async (req, res) => {
+  console.log(req.body.text);
+  await database.createRecord('reviews', {
+    text: req.body.text,
+    rate: req.body.rate,
+    userid: req.user.id || 0,
+  });
+  res.redirect('/contact');
+});
 
-// onCancel() {
-//   document.getElementById("review").classList.toggle("show");
-// }
-
-// leaveReview() {
-//   this.product.reviews.push(this.newReview);
-//   this.productService.update(this.product).subscribe(
-//     response => {
-//       document.getElementById("review").classList.toggle("show");
-//       this.newReview = {};
-//       let nList = document.querySelectorAll("input[type=radio]");
-//       console.log(nList);
-//       // for (var checkbox of nList) {
-//       //   checkbox.checked = false;
-//       // };
-//       Array.prototype.forEach.call(nList, function (checkbox) {
-//         checkbox.checked = false;
-//       });
-//       this.avg = this.countAvg(this.product);
-//     },
-//     err => console.error(err)
-//   )
-// }
-
-
-// rating: number;
-// itemId: number;
-// ratingClick: EventEmitter<any> = new EventEmitter<any>();
-
-// inputName: any;
-
-// onClick(rating: number): void {
-//   this.newReview.rate = rating;
-//   this.rating = rating;
-//   this.ratingClick.emit({
-//     itemId: this.itemId,
-//     rating: rating
-//   });
-// }
 module.exports = router;
