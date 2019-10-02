@@ -33,8 +33,18 @@ const routes: Routes = [
   { path: 'statistics-basic', component: StatisticsBasicComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id', component: UpdateUsersComponent },
+  {
+    path: 'orders/details/:id',
+    component: OrderDetailsComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent
+  },
+  {
+    path: 'users/:id',
+    component: UpdateUsersComponent
+  },
 
   { path: '**', component: IndexComponent }
 ];
