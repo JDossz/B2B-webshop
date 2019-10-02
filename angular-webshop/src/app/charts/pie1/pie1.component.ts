@@ -11,12 +11,13 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./pie1.component.css']
 })
 export class Pie1Component implements OnInit {
-  ers: any
-  orders$: BehaviorSubject<any> = this.dataService.orderList;
-  basket$: BehaviorSubject<any> = this.dataService.basketList;
+  orders: any
+  orders$: BehaviorSubject<any> = this.dataService.orderList.value;
+  basket$: BehaviorSubject<any> = this.dataService.basketList.value;
+  categories$: BehaviorSubject<any> = this.dataService.basketList.value;
   // categories$: BehaviorSubject<any> = ;
-  projects$: BehaviorSubject<any> = this.dataService.projectList;
-  users$: BehaviorSubject<any> = this.dataService.userList;
+  projects$: BehaviorSubject<any> = this.dataService.projectList.value;
+  users$: BehaviorSubject<any> = this.dataService.userList.value;
 
   constructor (private dataService: DataService) {
     this.dataService.readTableByQuery('orders', {});

@@ -15,18 +15,12 @@ export class StatisticsComponent implements OnInit {
   projects$: BehaviorSubject<any> = this.dataService.projectList;
   users$: BehaviorSubject<any> = this.dataService.userList;
 
-  constructor(private dataService: DataService) {
+  constructor (private dataService: DataService) {
     this.dataService.readTableByQuery('orders', {});
     this.dataService.readTableByQuery('baskets', {});
     // this.dataService.readTableByQuery('baskets', {});
     this.dataService.readTableByQuery('projects', {});
     this.dataService.readTableByQuery('users', {});
-
-    console.log('Orders: ', this.orders$);
-    console.log('Basket: ', this.basket$);
-    // console.log('Categories: ', this.categories$);
-    console.log('Projects: ', this.projects$);
-    console.log('Users: ', this.users$);
   }
 
 
