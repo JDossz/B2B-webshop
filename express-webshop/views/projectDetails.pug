@@ -13,7 +13,7 @@ block content
           a(href="#link") Link to the research
           a(href="#donate") Donate
       .col-lg-9
-        h1.my-4.text-center #{project.title}
+        h1#donate.my-4.text-center #{project.title}
         hr
         .row
           .col-10.col-md-6.mr-3
@@ -46,5 +46,5 @@ block content
                 p
                   a#link.card-text(href=`${project.link}`) #{project.link}    
                 form(action=`/baskets/${project.id}`, method="post")
-                  button#donate.btn.btn-donate.btn-block.mt-5 Donate
+                  a.btn.btn-donate.btn-block.mt-5(href="#donate") Donate
                 
