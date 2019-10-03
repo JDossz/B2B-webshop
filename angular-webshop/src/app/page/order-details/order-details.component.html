@@ -17,9 +17,9 @@
           <td>{{ item.id }}</td>
           <td>{{ item.insdate }}</td>
           <td>{{ item.projectid }}</td>
-          <td>asd</td>
+          <td>{{ item.title }}</td>
           <td>{{ item.quantity }}</td>
-          <td>asdfg</td>
+          <td>{{ item.quantity * item.price }}</td>
           <td *ngIf="item.status === 1">Donation Request Arrived</td>
           <td *ngIf="item.status === 2">Donation Received</td>
           <td *ngIf="item.status === 3">Donation Transfered</td>
@@ -27,8 +27,6 @@
           <td *ngIf="item.status === 5">Donation Canceled</td>
         </tr>
       </tbody>
-      <button class="btn btn-primary"
-              (click)="log()">log data</button>
     </table>
   </div>
 </div>

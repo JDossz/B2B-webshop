@@ -23,7 +23,9 @@ export class OrderDetailsComponent implements OnInit {
     this.ar.params.forEach(param => orderID = param.id);
     console.log(orderID);
     this.ds.readTableByQuery('orderdetails', {
-      orderid: Number.parseInt(orderID, 10),
+      select: 'orderdetails.id as id, orderdetails.insdate as insdate, orderdetails.projectid as projectid, orderdetails.quantity as quantity, orderdetails.status as status, projects.donation as price, projects.title as title',
+      from: 'INNER JOIN projects ON orderdetails.projectid = projects.id',
+      'orderdetails.orderid': orderID,
     });
   }
 
