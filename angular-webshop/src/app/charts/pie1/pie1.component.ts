@@ -101,7 +101,7 @@ export class Pie1Component implements OnInit {
       backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
     },
   ];
-
+  // console.log(object);
 
   ngOnInit() {
   }
