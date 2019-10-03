@@ -34,4 +34,14 @@ router.get('/reviews/remove/:id', async (req, res, next) => {
   });
   res.redirect('/contact');
 });
+
+router.post('/reviews/edit/:id', async (req, res, next) => {
+  await database.updateRecord('reviews', {
+    id: req.params.id,
+  }, {
+    text: req.body.text,
+  });
+  res.redirect('/contact');
+});
+
 module.exports = router;
