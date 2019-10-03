@@ -15,6 +15,7 @@ export class DataService {
   projectList: BehaviorSubject<any> = new BehaviorSubject([]);
   basketList: BehaviorSubject<any> = new BehaviorSubject([]);
   categoryList: BehaviorSubject<any> = new BehaviorSubject([]);
+  orderDetailsList: BehaviorSubject<any> = new BehaviorSubject([]);
 
   order: BehaviorSubject<any> = new BehaviorSubject([]);
   user: BehaviorSubject<any> = new BehaviorSubject([]);
@@ -73,7 +74,10 @@ export class DataService {
           this.category.next(data[0]);
         }
         else if (tableName === 'categories') {
-          this.categoryList.next(data)
+          this.categoryList.next(data);
+        }
+        if (tableName === 'orderdetails') {
+          this.orderDetailsList.next(data);
         }
       });
   }
