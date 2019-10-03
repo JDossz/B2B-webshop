@@ -13,7 +13,7 @@ block content
           each item in basketItemsWithNamesAndPrices
             if item
               if item.quantity
-                tr
+                tr 
                   td #{item.pid}      
                   td #{item.title}
                   td #{item.donation}
@@ -25,7 +25,7 @@ block content
                     form(action=`/baskets/updateDel/${item.id}` method="POST")
                       button.btn-block.btn.btn-danger Del       
     div
-      if basketItemsWithNamesAndPrices
+      if basketItemsWithNamesAndPrices && totalprice > 0
         p Total: #{totalPrice}
         - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
         a.btn.btn-danger(href=empty) Empty basket

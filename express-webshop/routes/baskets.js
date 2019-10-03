@@ -25,20 +25,7 @@ router.get('/', async (req, res) => {
     select: 'SUM(baskets.quantity) as totalQuantity',
   });
   actualQuantity = actualQuantity[0].totalQuantity;
-  // ez a két lekérdezés és a helyük a basket.pug-ban kísérleti, nem biztos, hogy a basketben kéne legyenek
-  // let ordersFromThePastSortByOrderID = await database.readRecord('orderdetails', {
-  //   userid: req.user.id,
-  //   from: 'INNER JOIN projects ON projects.id = orderdetails.projectid',
-  //   select: 'SUM(projects.donation*orderdetails.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
-  //   groupBy: 'orders.id'
-  // });
-
-  // let ordersFromThePastSortByProjectName = await database.readRecord('orders', {
-  //   userid: req.user.id,
-  //   from: 'INNER JOIN projects ON projects.id = orders.projectid',
-  //   select: 'SUM(projects.donation*orders.quantity) as amount, projects.title, projects.donation, orders.quantity, orders.insdate',
-  //   groupBy: 'projects.title'
-  // });
+  
 
   if (req.user.id) {
     res.render('baskets', {
@@ -47,10 +34,9 @@ router.get('/', async (req, res) => {
       totalPrice: price,
       user: req.user || {},
       showQuantity: actualQuantity,
-      // sortByOrdersID: ordersFromThePastSortByOrderID,
-      // sortByProjectName: ordersFromThePastSortByProjectName
+     
     });
-    //console.log(data[0].amount, "ez a data[0].amount")
+    
   }
 
 });
@@ -93,14 +79,12 @@ router.post('/donate', async (req, res) => {
     });
   });
 
-  let data = await database.readRecord('baskets', {
+  let basketItem = await database.readRecord('baskets', {
     userid: req.user.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
-    select: 'projects.title, projects.donation, projects.balance, projects.id, baskets.quantity as quantity, baskets.id, baskets.projectid, baskets.userid',
-    groupBy: 'projects.id'
-  });
+    select: 'projects.donation, projects.balance, projects.id, baskets.quantity as quantity, baskets.projectid',
 
-  let basketItem = data;
+  });
 
   basketItem.forEach(el => {
     let balanceOfProjects = el.balance + el.donation * el.quantity;
