@@ -102,6 +102,7 @@ footer>.container {
 }
 
 #profile-pic {
+  border-radius: 40%;
   height: 2.2em;
 }
 

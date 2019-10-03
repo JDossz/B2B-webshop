@@ -14,7 +14,7 @@ export class UpdateUsersComponent implements OnInit {
   user$: BehaviorSubject<User> = this.ds.user;
   user: User;
 
-  constructor(
+  constructor (
     private ds: DataService,
     private ar: ActivatedRoute,
     private router: Router

@@ -13,13 +13,13 @@ block content
           a(href="#link") Link to the research
           a(href="#donate") Donate
       .col-lg-9
-        h1.my-4.text-center #{project.title}
+        h1#donate.my-4.text-center #{project.title}
         hr
         .row
           .col-10.col-md-6.mr-3
             img.img-top.img-fluid.mt-3(alt='projectImg', src=project.pictureurl)
           .col-10.col-md-5#support
-            h2.mt-3.text-center #{project.title}
+            h2#donate.mt-3.text-center #{project.title}
             p #{project.shortd}
               a(href="#readMore") 
                 small &nbsp;Read more...
@@ -44,7 +44,7 @@ block content
                 p.card-text  #{project.longd}
                 h5#about.mt-3 Link
                 p
-                  a#link.card-text(href=`${project.link}`) #{project.link}    
+                  a#link.card-text(href=`${project.link}`) #{project.link}   
                 form(action=`/baskets/${project.id}`, method="post")
-                  button#donate.btn.btn-donate.btn-block.mt-5 Donate
+                  a.btn.btn-donate.btn-block.mt-5(href="#donate") Donate
                 

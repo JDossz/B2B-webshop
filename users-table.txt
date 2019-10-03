@@ -7,10 +7,10 @@ CREATE TABLE users (
     username nvarchar(255) NOT NULL,
     emailaddress nvarchar(255) NOT NULL,
     password nvarchar(255) NOT NULL,
-    admin boolean NOT NULL DEFAULT 0,
     address nvarchar(1000),
-    pictureurl nvarchar(255),
-    newsletter boolean NOT NULL DEFAULT 0,
+    pictureurl nvarchar(255) DEFAULT '/images/users/user_default.png',
+    admin boolean NOT NULL DEFAULT 0,
+    points int NOT NULL DEFAULT 0,
     token nvarchar(255),
     PRIMARY KEY (id)
 );
@@ -22,13 +22,14 @@ VALUES ('Dorottya', 'Juhász', 0, SHA1('JDorka'), 'juhasz.dossz@gmail.com', SHA1
 ('Sára', 'Pál', 0, SHA1('PSári'), 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 1, '/images/users/PalSara.jpg'),
 ('Ágoston', 'Zajkás', 1, SHA1('ZÁgoston'), 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 1, '/images/users/ZajkasAgoston.JPG');
 
-INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
-VALUES ('Dorottya 2', 'Juhász', 0, SHA1('JDorka2'), 'juhasz.dossz2@gmail.com', SHA1('Dorka2019'), 0, '/images/users/JuhaszDorottya.JPG'),
-('Szilvia 2', 'Kapuvári', 0, SHA1('KSzilvi2'), 'kapuvari.szilvia2@gmail.com', SHA1('Szilvi2019'), 0, '/images/users/KapuvariSzilvia.JPG'),
-('Dániel 2', 'Oláh', 1, SHA1('OláhD2'), 'olah.daniel952@gmail.com', SHA1('Oláh2019'), 0, '/images/users/OlahDaniel.JPG'),
-('Sára 2', 'Pál', 0, SHA1('PSári2'), 'pal.sara.ajandek2@gmail.com', SHA1('Sári2019'), 0, '/images/users/PalSara.jpg'),
-('Ágoston 2', 'Zajkás', 1, SHA1('ZÁgoston2'), 'agostonzajkas2@gmail.com', SHA1('Ágó2019'), 0, '/images/users/ZajkasAgoston.JPG');
+INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, pictureurl)
+VALUES ('Alma', 'Zöld', 0, SHA1('AlmaZ'), 'almaz@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
+('Alma', 'Piros', 0, SHA1('AlmaP'), 'almap@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
+('Alma', 'Téli', 1, SHA1('AlmaT'), 'almat@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
+('Alma', 'Birs', 1, SHA1('AlmaB'), 'almab@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
+('Alma', 'Lédig', 0, SHA1('AlmaL'), 'almal@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg');
 
 INSERT INTO users (firstname, lastname, gender, username, emailaddress, password)
-VALUES ('Alma', 'Zöld', 0, SHA1('Alma1234'), 'alma@gmail.com', SHA1('Alma1alma'));
-
+VALUES ('Virág', 'Cserepes', 0, SHA1('VirágCs'), 'virag.cserepes@gmail.com', SHA1('Virág2019')),
+('Bátor', 'Futaki', 0, SHA1('FutakiB'), 'bator@gmail.com', SHA1('Bátor2019')),
+('Tehén', 'Legelő', 0, SHA1('Tehénke'), 'tehenke@gmail.com', SHA1('Tehén2019'));

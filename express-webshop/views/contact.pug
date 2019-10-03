@@ -2,7 +2,8 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/contact.css')
-
+  script
+    include ../public/javascripts/contact.js
   .container
     .row
       .col-10.offset-1
@@ -12,17 +13,24 @@ block content
           each review in reviews
             .card-body(style='padding:10px')
               .row
-                .col-6
-                  p  #{review.text}
+                .col-8
+                  form(action=`/contact/reviews/edit/${review.id}` method="post")
+                    input.form-control.edit(disabled name="text" value=review.text)
+                    button.mt-2.btn.btn-outline-success.hidden(type="submit") Change
                 if user
                   if user.firstname==review.firstname && user.lastname==review.lastname 
-                    .col-5.text-right
-                      a.btn.btn-outline-secondary(href=`/contact/reviews/remove/${review.id}`)
-                        i.fa.fa-trash(aria-hidden='true')
+                    .col-2.text-right
+                      .dropdown
+                        button#dropdownMenuButton.btn.btn-outline-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                        .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                          a.btn.btn-outline-secondary.dropdown-item(href=`/contact/reviews/remove/${review.id}`)
+                            i.fa.fa-trash(aria-hidden='true')
+                          button.btn.btn-outline-secondary.dropdown-item(onclick="toggleDisabled(event)")
+                            i.fa.fa-pencil-square-o(aria-hidden='true')
                     .col-1
               .row
-                .col-md-2.col-5
-                  small.text-muted Posted by: #{review.firstname} #{review.lastname}
+                .col-md-3.col-4
+                  small.text-muted &nbsp; &nbsp;Posted by: #{review.firstname} #{review.lastname}
                 .col-md-1.col-2
                   small.text-muted #{ review.rate }&starf;
               hr

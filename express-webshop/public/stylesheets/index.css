@@ -64,6 +64,12 @@ body {
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
+/* Featured funders*/
+video {
+
+}
+
+
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
@@ -83,7 +89,7 @@ body {
 }
 
 .col.funder-picture {
-  height: 400px;
+  height: 200px;
 }
 
 .profile-picture {

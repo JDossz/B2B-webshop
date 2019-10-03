@@ -1,0 +1,53 @@
+<div class="cointainer">
+
+  <!--Cards-->
+  <div class="row">
+    <div class="card mx-auto mx-3 my-3"
+         style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">All Orders: {{countedOrders}}</h5>
+        <p class="card-text text-center">Donation arrived: {{orderStatus1}}</p>
+        <p class="card-text text-center">Money arrived: {{orderStatus2}}</p>
+        <p class="card-text text-center">Money sent: {{orderStatus3}}</p>
+        <p class="card-text text-center">Money sent received: {{orderStatus4}}</p>
+        <p class="card-text text-center">Project deleted: {{orderStatus5}}</p>
+      </div>
+    </div>
+
+    <div class="card mx-auto mx-3 my-3"
+         style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">All Users</h5>
+        <p class="card-text text-center">{{countedUsers}}
+        </p>
+      </div>
+    </div>
+
+    <div class="card mx-auto mx-3 my-3"
+         style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Total balance of orders</h5>
+        <p class="card-text text-center">{{totalBalanceOfOrders | currency: 'EUR':true:'2.0'}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-12">
+      <h1></h1>
+      <app-pie1></app-pie1>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Oszlop</h1>
+      <app-dynamic1></app-dynamic1>
+    </div>
+  </div>
+</div>
