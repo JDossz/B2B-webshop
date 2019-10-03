@@ -7,4 +7,3 @@ CREATE TABLE orderdetails (
     status tinyint  NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
-

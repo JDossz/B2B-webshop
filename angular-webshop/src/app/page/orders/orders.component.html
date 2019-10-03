@@ -1,39 +1,37 @@
 <div class="row">
   <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Insdate</th>
+          <th>User ID</th>
+          <th>User Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of list$ | async">
+          <td>{{order.orderid}}</td>
+          <td>{{order.insdate}}</td>
+          <td>{{order.userid}}</td>
+          <td>{{order.firstname | titlecase}} {{order.lastname | titlecase}}</td>
+          <td *ngIf="order.status === 1">Donation Request Arrived</td>
+          <td *ngIf="order.status === 2">Donation Received</td>
+          <td *ngIf="order.status === 3">Donation Transfered</td>
+          <td *ngIf="order.status === 4">Confirmation Received</td>
+          <td *ngIf="order.status === 5">Donation Canceled</td>
 
+          <td>
+            <div class="btn-group">
+              <a class="btn btn-info"
+                 [routerLink]="['/orders/details', order.orderid]">Details</a>
+              <a class="btn btn-primary"
+                 [routerLink]="['/orders', order.orderid]">Update</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Order ID</th>
-        <th>Insdate</th>
-        <th>User ID</th>
-        <th>User Name</th>
-        <th>Quantity</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let order of list$ | async">
-        <td>{{order.orderid}}</td>
-        <td>{{order.insdate}}</td>
-        <td>{{order.userid}}</td>
-        <td>{{order.firstname | titlecase}} {{order.lastname | titlecase}}</td>
-        <td>{{order.quantity}}</td>
-        <td *ngIf="order.status === 1">Donation Request Arrived</td>
-        <td *ngIf="order.status === 2">Donation Received</td>
-        <td *ngIf="order.status === 3">Donation Transfered</td>
-        <td *ngIf="order.status === 4">Confirmation Received</td>
-        <td *ngIf="order.status === 5">Donation Canceled</td>
-
-        <td>
-          <div class="btn-group">
-            <a class="btn btn-info"
-               [routerLink]="['/orders/details', order.orderid]">Details</a>
-            <a class="btn btn-primary"
-               [routerLink]="['/orders', order.orderid]">Update</a>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+</div>
