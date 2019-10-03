@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
     select: 'SUM(baskets.quantity) as totalQuantity',
   });
   actualQuantity = actualQuantity[0].totalQuantity;
-  
+
 
   if (req.user.id) {
     res.render('baskets', {
@@ -34,9 +34,9 @@ router.get('/', async (req, res) => {
       totalPrice: price,
       user: req.user || {},
       showQuantity: actualQuantity,
-     
+
     });
-    
+
   }
 
 });
@@ -64,6 +64,7 @@ router.post('/donate', async (req, res) => {
   await database.createRecord('orders', {
     userid: req.user.id,
     quantity: quantitySum,
+    status: 1
   });
   let orderID = await database.readRecord('orders', {
     userid: req.user.id,
@@ -114,6 +115,7 @@ router.post('/:id', async (req, res) => {
       userid: req.user.id || 0,
       quantity: req.body.projectQuantity || 1,
     });
+
   } else {
     let incrementedQuantity = quantity[0].quantity + parseInt(req.body.projectQuantity, 10);
     await database.updateRecord('baskets', {
