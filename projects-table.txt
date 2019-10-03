@@ -4,7 +4,7 @@ CREATE TABLE projects (
     title nvarchar(255) NOT NULL,
     seo nvarchar(255),
     institution nvarchar(255) NOT NULL,
-    shortd nvarchar(500) DEFAULT 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex laudantium molestiae earum, aliquid debitis ipsa accusantium labore sapiente quidem blanditiis, voluptate tempora ab, a adipisci libero temporibus eum et.',
+    shortd nvarchar(500) DEFAULT 'See the details if you are interested.',
     longd nvarchar(10000),
     contact nvarchar(255) NOT NULL,
     categoryid int NOT NULL DEFAULT 0,
@@ -477,10 +477,6 @@ In this project, the successful candidate, in collaboration with supervisors and
 'Keith Burnham',
 5,
 'https://www.findaphd.com/phds/project/simulation-and-modelling-of-innovative-mobility-services/?p111502');
-
-UPDATE projects
-SET `shortd`=''
-WHERE `shortd`='shortd';
 
 UPDATE projects
 SET `pictureurl`='/images/projects/biology.jpg'

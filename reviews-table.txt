@@ -1,0 +1,15 @@
+CREATE TABLE reviews (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    text VARCHAR(500) NOT NULL,
+    rate INT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO reviews (userid, text, rate)
+VALUES (2, 'I like the idea very much', 5),
+(1, 'Awwwwwwwwwww', 4),
+(4, 'I like this site. Way to go guys!', 4),
+(3, 'Fontosak vagytok', 5);
+

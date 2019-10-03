@@ -57,7 +57,7 @@ export class DataService {
         else if (tableName === 'users') {
           this.userList.next(data);
         }
-        if (tableName === 'basket' && query.hasOwnProperty('id')) {
+        if (tableName === 'baskets' && query.hasOwnProperty('id')) {
           this.basket.next(data[0]);
         }
         else if (tableName === 'baskets') {

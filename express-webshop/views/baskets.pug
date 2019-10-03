@@ -8,27 +8,36 @@ block content
         th Project name 
         th Amount of donation
         th Quantity
-        th
       tbody
-        each item in basketItemsWithNamesAndPrices
-          tr
-            td #{item.pid}      
-            td #{item.title}
-            td #{item.donation}
-            td #{item.quantity} 
-              form(action=`/baskets/updateAdd/${item.id}` method="POST")
-                button.btn-block.btn.btn-info Add
-            td
-              form(action=`/baskets/updateDel/${item.id}` method="POST")
-                button.btn-block.btn.btn-danger Del       
+        if basketItemsWithNamesAndPrices
+          each item in basketItemsWithNamesAndPrices
+            if item
+              if item.quantity
+                tr
+                  td #{item.pid}      
+                  td #{item.title}
+                  td #{item.donation}
+                  td #{item.quantity} 
+                  td
+                    form(action=`/baskets/updateAdd/${item.id}` method="POST")
+                      button.btn-block.btn.btn-info Add
+                  td
+                    form(action=`/baskets/updateDel/${item.id}` method="POST")
+                      button.btn-block.btn.btn-danger Del       
     div
-      p Total: #{totalPrice}
-      - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
-      a.btn.btn-danger(href=empty) Empty basket
+      if basketItemsWithNamesAndPrices
+        p Total: #{totalPrice}
+        - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
+        a.btn.btn-danger(href=empty) Empty basket
+    br 
     div
-      -let donationMessage = ''
-      p
+      if basketItemsWithNamesAndPrices
+        p You have #{showQuantity} projects in the basket
+      else
+        p Your basket is empty. Why not browse our projects to find and support one..? 
+    
     div
-      form(action=`/orders/${basketItemsWithNamesAndPrices.projectid}`, method="post")
-        button.btn-block.btn.btn-info Donate
-              
+      if basketItemsWithNamesAndPrices
+        form(action=`/baskets/donate`, method="POST")
+          button.btn-block.btn.btn-info Donate
+    

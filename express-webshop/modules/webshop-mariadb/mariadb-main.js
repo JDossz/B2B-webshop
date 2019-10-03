@@ -94,29 +94,12 @@ module.exports = class BetagDB {
 
   }
 
-  async namingAndPricingProjects(req) {
-    const sql = `
-    SELECT 
-    projects.title, 
-    projects.donation, 
-    projects.id as pid, 
-    sum(baskets.quantity) as quantity, 
-    baskets.id, 
-    baskets.projectid,
-    baskets.userid
-    FROM projects JOIN baskets ON projects.id = baskets.projectid
-    WHERE baskets.userid = ${req.user.id}
-    group by projects.id
-    `;
-    const result = await this.connection.query(sql);
-    return result;
-  }
 
   async readRecordWithLike(req) {
     const sql = `
     SELECT *
     FROM projects
-    WHERE title LIKE '%${req.query.search}%'`;
+    WHERE title LIKE '%${req.query.search}%' OR contact LIKE '%${req.query.search}%'`;
     const result = await this.connection.query(sql);
     return result;
   }

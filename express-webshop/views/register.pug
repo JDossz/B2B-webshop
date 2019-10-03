@@ -6,7 +6,7 @@ block content
       .col-6.offset-3.mb-5
         .card.mb-5
           .card-header.bg-primary
-            h2.text-center.text-light Register
+            h2.text-light Register
           .card-body
             form(method='post', action='/register/users')
               .form-group
@@ -17,6 +17,10 @@ block content
                 label(for='inputLastName')
                   h5 Lastname
                 input#inputLastName.form-control(type='text',name='lastname', placeholder='Please enter your lastname', required)
+              .form-group
+                label(for='inputAddress')
+                  h5 Address
+                input#inputAddress.form-control(type='text',name='address', pattern='^\\d+\\s[A-z]+\\s[A-z]+',title='Must start with number(s), then at least two words. Something like : 61 Park Street, Camden, ME, 04843, US' placeholder='Please enter your address', required)
               .form-group
                 label(for='inputUserName') 
                   h5 Username

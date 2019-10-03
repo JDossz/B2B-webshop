@@ -5,6 +5,31 @@ const router = express.Router();
 const Database = require('./../modules/webshop-mariadb');
 const database = new Database();
 
+// router.all('/', async (req, res, next) => {
+//   const auth = await database.checkLogin(req);
+//   if (!auth || auth.admin === 0) {
+//     return res.render('error-page', {
+//       title: 'Nem-nem :)',
+//     });
+//   } else if (auth && auth.admin === 1) {
+//     next();
+//   }
+// });
+
+// router.all('/:dzsampf', async (req, res, next) => {
+//   console.log('q-keys: ', req.cookies.userID);
+//   const auth = await database.checkLogin(req);
+//   console.log('auth: ', auth);
+//   if (!auth || auth.admin === 0) {
+//     console.log('lefut a render ág');
+//     return res.render('error-page', {
+//       title: 'Nem-nem :)',
+//     });
+//   } else if (auth && auth.admin === 1) {
+//     next();
+//   }
+// });
+
 /**
  * Executes POST requests at http://localhost:3000/tablename
  */

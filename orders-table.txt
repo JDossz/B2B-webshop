@@ -1,0 +1,9 @@
+CREATE TABLE orders (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    quantity int NOT NULL,
+    status tinyint  NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+);
+

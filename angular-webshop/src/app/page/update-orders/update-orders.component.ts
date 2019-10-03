@@ -11,8 +11,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UpdateOrdersComponent implements OnInit {
 
-  order$: BehaviorSubject<Order> = this.ds.order;
-  order: Order;
+  order$: BehaviorSubject<Order> = this.ds.orderList;
+  order: any;
 
   constructor(
     private ds: DataService,
@@ -21,12 +21,14 @@ export class UpdateOrdersComponent implements OnInit {
   ) {
     this.ar.params.forEach(params => {
       this.ds.readTableByQuery('orders', {
-        id: params.id,
+        select: 'orders.id as id, orders.insdate as insdate, orders.userid as userid, orders.quantity as quantity, orders.status as status, users.lastname as lastname, users.firstname as firstname',
+        'orders.id': params.id,
+        from: 'INNER JOIN users ON orders.userid = users.id',
       });
     });
     this.order$.subscribe(
       data => {
-        this.order = data;
+        this.order = data[0];
       }
     );
   }
@@ -35,7 +37,8 @@ export class UpdateOrdersComponent implements OnInit {
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
-    console.log(this.order)
+    delete this.order.firstname;
+    delete this.order.lastname;
     this.ds.updateRecordByQuery('orders', { id: this.order.id }, this.order).subscribe(
       order => {
         this.router.navigateByUrl("/orders");

@@ -1,0 +1,21 @@
+1 - beérkezett az adományüzenet a usertől
+2 - beérkezett a pénz a számlánkra
+3 - elküldtük a pénzt a projectnek
+4 - visszaigazolta a contact, hogy megérkezett a pénz
+5 - kérés törölve
+
+
+CREATE TABLE status (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    status nvarchar(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO status (status)
+VALUES ('Donation Request Arrived'),
+('Donation Received'),
+('Donation Transfered'),
+('Confirmation Received'),
+('Donation Canceled');
+

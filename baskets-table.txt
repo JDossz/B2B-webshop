@@ -1,0 +1,9 @@
+CREATE TABLE baskets (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    projectid int,
+    quantity int DEFAULT 1,
+    PRIMARY KEY (id)
+);
+

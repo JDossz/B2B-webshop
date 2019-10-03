@@ -53,20 +53,19 @@ app.use('/orders', ordersRouter);
 app.use('/projects', projectsRouter);
 app.use('/register', registerRouter);
 app.use('/users', usersRouter);
-app.use('/error-page', errorPageRouter);
 app.use('/about', require('./routes/about'));
 app.use('/contact', require('./routes/contact'));
 app.use('/privacy', require('./routes/privacyPolicy'));
 app.use('/terms', require('./routes/termsAndConditions'));
 app.use('/thankyou', require('./routes/thankyou'));
-
-app.use('/**', errorPageRouter);
-
 // clear userID cookie when logging out
 app.use('/logout', (req, res, next) => {
   res.clearCookie('userID');
   res.redirect('/');
 });
+
+app.use('/**', errorPageRouter);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
