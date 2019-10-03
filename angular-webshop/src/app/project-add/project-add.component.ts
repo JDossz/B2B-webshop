@@ -3,6 +3,7 @@ import { Project } from '../model/project';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { Category } from '../model/category';
 
 @Component({
   selector: 'app-project-add',
@@ -12,9 +13,12 @@ import { BehaviorSubject } from 'rxjs';
 export class ProjectAddComponent implements OnInit {
   newProject: Project = new Project();
   projects: BehaviorSubject<any> = this.ds.projectList;
+  categories: BehaviorSubject<Category> = this.ds.categoryList;
 
+  
   constructor(private ds: DataService, private router: Router) {
     this.ds.readTableByQuery('projects', {})
+    this.ds.readTableByQuery('categories', {})
   }
 
   ngOnInit() {
