@@ -6,15 +6,6 @@ const path = require('path');
 const MariaDB = require('./modules/webshop-mariadb');
 
 const database = new MariaDB();
-const api = require('./routes/api');
-const baskets = require('./routes/baskets');
-const indexRouter = require('./routes/index');
-const ordersRouter = require('./routes/orders');
-const projectsRouter = require('./routes/projects');
-const usersRouter = require('./routes/users');
-const loginRouter = require('./routes/login');
-const registerRouter = require('./routes/register');
-const errorPageRouter = require('./routes/error-page');
 
 const app = express();
 
@@ -45,26 +36,28 @@ app.use(async (req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
-app.use('/api', api);
-app.use('/baskets', baskets);
-app.use('/login', loginRouter);
-app.use('/orders', ordersRouter);
-app.use('/projects', projectsRouter);
-app.use('/register', registerRouter);
-app.use('/users', usersRouter);
+app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
+app.use('/api', require('./routes/api'));
+app.use('/baskets', require('./routes/baskets'));
 app.use('/contact', require('./routes/contact'));
+app.use('/login', require('./routes/login'));
+app.use('/myProfile', require('./routes//myProfile'));
+app.use('/orders', require('./routes/orders'));
 app.use('/privacy', require('./routes/privacyPolicy'));
+app.use('/projects', require('./routes/projects'));
+app.use('/register', require('./routes/register'));
 app.use('/terms', require('./routes/termsAndConditions'));
 app.use('/thankyou', require('./routes/thankyou'));
+app.use('/users', require('./routes/users'));
+
 // clear userID cookie when logging out
 app.use('/logout', (req, res, next) => {
   res.clearCookie('userID');
   res.redirect('/');
 });
 
-app.use('/**', errorPageRouter);
+app.use('/**', require('./routes/error-page'));
 
 
 // catch 404 and forward to error handler

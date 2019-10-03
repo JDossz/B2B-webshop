@@ -29,26 +29,12 @@ const routes: Routes = [
   { path: 'create-user', component: CreateUsersComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'orders/:id', component: UpdateOrdersComponent },
+  { path: 'orders/details/:id', component: OrderDetailsComponent, },
   { path: 'statistics-basic', component: StatisticsBasicComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
-  {
-    path: 'orders/:id',
-    component: UpdateOrdersComponent
-  },
-  {
-    path: 'orders/details/:id',
-    component: OrderDetailsComponent,
-  },
-  {
-    path: 'users',
-    component: UsersComponent
-  },
-  {
-    path: 'users/:id',
-    component: UpdateUsersComponent
-  },
-
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id', component: UpdateUsersComponent },
   { path: '**', component: IndexComponent }
 ];
 
