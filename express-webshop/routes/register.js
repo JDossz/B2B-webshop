@@ -33,14 +33,21 @@ router.post('/users', async (req, res, next) => {
     }
   }
   await database.createRecord('users', {
-    'emailaddress': req.body.emailaddress,
-    'username': req.body.username,
-    'firstname': req.body.firstname,
-    'lastname': req.body.lastname,
-    'password': req.body.password,
-    'token': token,
+    emailaddress: req.body.emailaddress,
+    username: req.body.username,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    password: req.body.password,
+    token,
   });
-  console.log(req.body)
+  console.log(req.body);
+
+  if (req.body.newsletter == 'on') {
+    await database.createRecord('newsletter', {
+      emailaddress: req.body.emailaddress,
+    });
+  }
+
   return res.redirect('/');
 
 });

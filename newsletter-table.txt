@@ -2,9 +2,9 @@ CREATE TABLE newsletter (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     emailaddress nvarchar(255) NOT NULL,
-    active NOT NULL DEFAULT 1,
+    active boolean NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
 
-INSERT INTO users (emailaddress)
+INSERT INTO newsletter (emailaddress)
 VALUES ('almaz@gmail.com'),
