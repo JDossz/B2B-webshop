@@ -1,6 +1,9 @@
 extends layout
 
 block content
+  script
+    include ../public/javascripts/contact.js
+  
   .container
     .row
       .col-6.offset-3.mb-5
@@ -37,12 +40,7 @@ block content
                 input#inputPassword4.form-control(type='password',name='password', placeholder='Please enter your password', pattern='(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters', required)
               .form-group.mt-4
                 .form-check
-                  input#gridCheck.form-check-input(type='checkbox')
+                  input#gridCheck.form-check-input(type='checkbox' name='newsletter')
                   label.form-check-label(for='gridCheck')
                     | Send me a weekly mix of handpicked projects, plus occasional Entryway news
-              .form-group
-                .form-check
-                  input#gridCheck2.form-check-input(type='checkbox')
-                  label.form-check-label(for='gridCheck2')
-                    | Contact me about participating in Entryway research
               button.btn.btn-primary.btn-block.mt-4(type='submit') Create account

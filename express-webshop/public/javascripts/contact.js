@@ -7,5 +7,5 @@ function toggleDisabled(event) {
   } else {
     disabledElement.disabled = false;
   }
-  hiddenElement.classList.toggle("hidden")
+  hiddenElement.classList.toggle('hidden');
 }
