@@ -39,13 +39,21 @@ block content
               - let x = 1;
               - let y = Math.round(numberOfproducts/10) 
                 li.page-item
+                  a.page-link(href=`/projects?page=1&limit=${10}` aria-label='First')
+                    span(aria-hidden='true') &laquo;&laquo;
+                    span.sr-only First
+                li.page-item
                   a.page-link(href=`/projects?page=${prevPage || 1 }&limit=${10}` aria-label='Previous')
                     span(aria-hidden='true') &laquo;
                     span.sr-only Previous
                 while x <= y
                   li.page-item
-                    a.page-link(href=`/projects?page=${x}&limit=${10}`) #{x++}    
+                    a.page-link(href=`/projects?page=${x}&limit=${10}`) #{x++}
                 li.page-item                          
                   a.page-link(href=`/projects?page=${nextPage || 1 }&limit=${10}` aria-label='Next')
                     span(aria-hidden='true') &raquo;
-                    span.sr-only Next    
+                    span.sr-only Next
+                li.page-item                          
+                  a.page-link(href=`/projects?page=${lastPage || 3 }&limit=${10}` aria-label='Last')
+                    span(aria-hidden='true') &raquo;&raquo;
+                    span.sr-only Last
