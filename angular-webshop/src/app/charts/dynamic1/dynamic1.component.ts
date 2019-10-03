@@ -61,7 +61,7 @@ export class Dynamic1Component implements OnInit {
   }
 
   counter(usersArray) {
-    console.log('UsersArray', usersArray);
+    // console.log('UsersArray', usersArray);
   }
 
   //Chart

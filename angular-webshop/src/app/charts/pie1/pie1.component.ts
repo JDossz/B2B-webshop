@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { DataService } from 'src/app/services/data.service';
-import { BehaviorSubject } from 'rxjs';
+import { StatisticsService } from 'src/app/services/statistics.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pie1',
@@ -12,22 +12,26 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class Pie1Component implements OnInit {
   orders: any
-  orders$: BehaviorSubject<any> = this.dataService.orderList;
+  orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
   baskets: any
-  baskets$: BehaviorSubject<any> = this.dataService.basketList;
+  baskets$: Observable<any> = this.statisticsService.readTableByQuery('baskets', {});
   categories: any
-  categories$: BehaviorSubject<any> = this.dataService.basketList;
+  categories$: Observable<any> = this.statisticsService.readTableByQuery('categories', {});
   projects: any
-  projects$: BehaviorSubject<any> = this.dataService.projectList;
+  projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {});
   users: any
-  users$: BehaviorSubject<any> = this.dataService.userList;
+  users$: Observable<any> = this.statisticsService.readTableByQuery('users', {});
+  onlyCategories: any[] = [];
+  countedUsers: number = 0;
+  countedAdmins: number = 0;
+  countedCivils: number = 0;
 
-  constructor (private dataService: DataService) {
-    this.dataService.readTableByQuery('orders', {});
-    this.dataService.readTableByQuery('baskets', {});
-    this.dataService.readTableByQuery('categories', {});
-    this.dataService.readTableByQuery('projects', {});
-    this.dataService.readTableByQuery('users', {});
+  constructor (private statisticsService: StatisticsService) {
+    this.statisticsService.readTableByQuery('orders', {});
+    this.statisticsService.readTableByQuery('baskets', {});
+    this.statisticsService.readTableByQuery('categories', {});
+    this.statisticsService.readTableByQuery('projects', {});
+    this.statisticsService.readTableByQuery('users', {});
 
     this.orders$.subscribe(data => {
       this.orders = data;
@@ -40,6 +44,7 @@ export class Pie1Component implements OnInit {
     this.categories$.subscribe(data => {
       this.categories = data;
       // console.log('Categories: ', this.categories);
+      this.getCategories();
     });
     this.projects$.subscribe(data => {
       this.projects = data;
@@ -48,19 +53,27 @@ export class Pie1Component implements OnInit {
     this.users$.subscribe(data => {
       this.users = data;
       // console.log('Users: ', this.users);
+      this.countUsers();
     });
 
-    this.getCategories();
+  }
+
+  countUsers() {
+
   }
 
   getCategories() {
-    this.categories$.subscribe(data => {
-      this.categories = data;
-      // console.log('Categories: ', this.categories);
-    });
-
-
+    for (let i = 0; i < this.categories.length; i++) {
+      if (this.onlyCategories.indexOf(this.categories[i].category) == -1) {
+        this.onlyCategories.push(this.categories[i].category)
+      }
+      // console.log('onlyCategories: ', this.onlyCategories);
+      return this.onlyCategories;
+    }
   }
+
+  // if (this.onlyCategories.indexOf(this.categories[i])) == -1) {
+  // this.onlyCategories.push(this.categories)
 
 
   // Pie

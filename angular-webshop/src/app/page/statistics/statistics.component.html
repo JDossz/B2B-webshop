@@ -1,18 +1,50 @@
-<div class="container">
+<div class="cointainer">
+
+  <!--Cards-->
+  <div class="row">
+    <div class="card mx-auto mx-3 my-3"
+         style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Orders</h5>
+        <p class="card-text text-center">All orders: {{countedOrders}}</p>
+        <p class="card-text text-center">Active Orders{{countedOrders}}</p>
+        <p class="card-text text-center">Passive Orders{{countedOrders}}</p>
+      </div>
+    </div>
+
+    <div class="card mx-auto mx-3 my-3"
+         style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">All Users</h5>
+        <p class="card-text text-center">{{countedUsers}}
+        </p>
+      </div>
+    </div>
+
+    <div class="card mx-auto mx-3 my-3"
+         style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Total balance of orders</h5>
+        <p class="card-text text-center">{{totalBalanceOfOrders | currency: 'EUR':true:'2.0'}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
   <div class="row">
     <div class="col-12">
       <h1></h1>
       <app-pie1></app-pie1>
     </div>
   </div>
-</div>
 
-<br>
+  <br>
 
-<div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>Full Board</h1>
+      <h1 class="text-center">Oszlop</h1>
       <app-dynamic1></app-dynamic1>
     </div>
   </div>
