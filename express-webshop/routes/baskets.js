@@ -10,14 +10,14 @@ router.get('/', async (req, res) => {
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
     select: 'projects.title, projects.donation, projects.id as pid, baskets.quantity as quantity, baskets.id, baskets.projectid, baskets.userid',
   });
-  data = data.filter(el => {
-    return el.hasOwnProperty('projectid');
-  });
+
+  data = data.filter(el => el.hasOwnProperty('projectid'));
   let price = await database.readRecord('projects', {
     userid: req.user.id,
     select: 'SUM(projects.donation*baskets.quantity) as amount',
-    from: 'INNER JOIN baskets ON projects.id = baskets.projectid'
+    from: 'INNER JOIN baskets ON projects.id = baskets.projectid',
   });
+
   price = price[0].amount;
 
   let actualQuantity = await database.readRecord('baskets', {
@@ -26,10 +26,8 @@ router.get('/', async (req, res) => {
   });
   actualQuantity = actualQuantity[0].totalQuantity;
 
-
   if (req.user.id) {
     res.render('baskets', {
-      user: req.user || {},
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
       user: req.user || {},
@@ -38,12 +36,13 @@ router.get('/', async (req, res) => {
     });
 
   }
-
 });
 
 // a bejelentkezett user kosarának ürítése
 router.get('/empty/:userid', async (req, res) => {
-  database.deleteRecord('baskets', { userid: req.user.id });
+  database.deleteRecord('baskets', {
+    userid: req.user.id
+  });
   res.render('baskets', {
     user: req.user || {},
 
@@ -51,15 +50,14 @@ router.get('/empty/:userid', async (req, res) => {
 });
 
 router.post('/donate', async (req, res) => {
-
   // Lekérjük, ami a kosárban van.
   let basket = await database.readRecord('baskets', {
     userid: req.user.id,
   });
   basket = basket.filter(el => el.hasOwnProperty('id'));
   let quantitySum = 0;
-  basket.forEach(el => {
-    quantitySum += el.quantity
+  basket.forEach((el) => {
+    quantitySum += el.quantity;
   });
   await database.createRecord('orders', {
     userid: req.user.id,
@@ -72,7 +70,7 @@ router.post('/donate', async (req, res) => {
     orderBy: 'id DESC',
   });
   orderID = orderID[0].id;
-  basket.forEach(el => {
+  basket.forEach((el) => {
     database.createRecord('orderdetails', {
       orderid: orderID,
       projectid: el.projectid,
@@ -80,29 +78,31 @@ router.post('/donate', async (req, res) => {
     });
   });
 
-  let basketItem = await database.readRecord('baskets', {
+  const basketItem = await database.readRecord('baskets', {
     userid: req.user.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
     select: 'projects.donation, projects.balance, projects.id, baskets.quantity as quantity, baskets.projectid',
 
   });
 
-  basketItem.forEach(el => {
-    let balanceOfProjects = el.balance + el.donation * el.quantity;
+  basketItem.forEach((el) => {
+    const balanceOfProjects = el.balance + el.donation * el.quantity;
     database.updateRecord('projects', {
       id: el.projectid,
-    },
-      { balance: balanceOfProjects })
+    }, {
+      balance: balanceOfProjects
+    });
   });
   await database.deleteRecord('baskets', {
     userid: req.user.id,
-  })
-  res.redirect('/thankyou')
+  });
+  res.redirect('/thankyou');
 });
 
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
-  let quantity = await database.readRecord('baskets', {
+  console.log('HEEEEEEEEEEEEE', req.params.id);
+  const quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
@@ -117,7 +117,7 @@ router.post('/:id', async (req, res) => {
     });
 
   } else {
-    let incrementedQuantity = quantity[0].quantity + parseInt(req.body.projectQuantity, 10);
+    const incrementedQuantity = quantity[0].quantity + parseInt(req.body.projectQuantity, 10);
     await database.updateRecord('baskets', {
       projectid: req.params.id,
       userid: req.user.id || 0,
@@ -129,10 +129,9 @@ router.post('/:id', async (req, res) => {
   res.redirect('/baskets');
 });
 
-
 router.post('/updateDel/:id', async (req, res) => {
-  let quantity = await database.readRecord('baskets', {
-    id: req.params.id
+  const quantity = await database.readRecord('baskets', {
+    id: req.params.id,
   });
   let decrementedQuantity = 0;
   if (quantity[0].quantity > 0) {
@@ -141,7 +140,7 @@ router.post('/updateDel/:id', async (req, res) => {
     decrementedQuantity = 0;
   }
   await database.updateRecord('baskets', {
-    id: req.params.id
+    id: req.params.id,
   }, {
     quantity: decrementedQuantity,
   });
@@ -149,16 +148,18 @@ router.post('/updateDel/:id', async (req, res) => {
 });
 
 router.post('/updateAdd/:id', async (req, res) => {
-  let quantity = await database.readRecord('baskets', {
-    id: req.params.id
+  const quantity = await database.readRecord('baskets', {
+    id: req.params.id,
   });
-  let incrementedQuantity = quantity[0].quantity + 1;
+  const incrementedQuantity = quantity[0].quantity + 1;
+
   await database.updateRecord('baskets', {
-    id: req.params.id
+    id: req.params.id,
   }, {
-    quantity: incrementedQuantity
+    quantity: incrementedQuantity,
   });
   res.redirect('/baskets');
 });
+
 
 module.exports = router;

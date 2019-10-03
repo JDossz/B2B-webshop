@@ -27,12 +27,16 @@ block content
               .progress-bar.bg-success(role='progressbar',style=`width: ${percentage}%`, aria-valuenow=`${percentage}`,aria-valuemin="0", aria-valuemax=`${project.goal}`) donated
             p
               small  the goal is $ #{project.goal}
-            form(action=`/baskets/${project.id}`, method="post")
-              .form-group
-                label Quantity :
-                input.form-control(type='number', name='projectQuantity', value=1 , min=1, style="width:100px") 
-                button.btn-block.btn.btn-donate Donate
-                | 
+            if user
+              if user.id
+                form(action=`/baskets/${project.id}`, method="post")
+                  .form-group
+                    label Quantity :
+                    input.form-control(type='number', name='projectQuantity', value=1 , min=1, style="width:100px") 
+                    button.btn-block.btn.btn-donate Donate
+              else
+                form(action=`/login`, method="get")
+                  button.btn.btn-donate.btn-block.mt-5 Donate
         .row.mt-2
           .col-12.mb-5
             .card.mt-4
@@ -44,7 +48,10 @@ block content
                 p.card-text  #{project.longd}
                 h5#about.mt-3 Link
                 p
-                  a#link.card-text(href=`${project.link}`) #{project.link}   
-                form(action=`/baskets/${project.id}`, method="post")
-                  a.btn.btn-donate.btn-block.mt-5(href="#donate") Donate
-                
+                  a#link.card-text(href=`${project.link}`) #{project.link}
+                if user
+                  if user.id     
+                    a.btn.btn-donate.btn-block.mt-5(href="#donate") Donate
+                  else 
+                    form(action=`/login`, method="get")
+                      button.btn.btn-donate.btn-block.mt-5 Donate
