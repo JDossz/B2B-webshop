@@ -2,8 +2,9 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/myProfile.css')
+  
   .container.fluid#gradient
-    .container.main-secction
+    .container.main-section
       .row
         //- personal background picture
         .col-md-12.col-sm-12.col-xs-12.image-section
@@ -15,7 +16,7 @@ block content
             .row
               //- profile picture
               .col-md-12.col-md-12-sm-12.col-xs-12.user-image.text-center
-                img.rounded-circle(src="/images/users/user_default.png")
+                img.rounded-circle(src=`${user.pictureurl}`)
               //- personal statistics part
               .row.user-detail-row
                 .col-md-12.col-sm-12.user-detail-section2.pull-left.mt-5
@@ -28,8 +29,11 @@ block content
               .col-md-12.profile-header
                 .row
                   .col-md-8.col-sm-6.col-xs-6.profile-header-section1.pull-left
-                    h1 #{user.firstname} #{user.lastname}
-                    h5 #{user.points}
+                    h1 #{user.firstname} #{user.lastname} &nbsp;
+                      a(href="/register")
+                        i.fa.fa-pencil-square
+                    h5 #{user.points} &nbsp;
+                      i.fa.fa-diamond
               .col-md-12
                 .row
                   //- Information tabs
@@ -40,42 +44,55 @@ block content
                           i.fa.fa-user
                           |  Personal information
                       li.nav-item
-                        a.nav-link(href="#settings" role="tab" data-toggle="tab")
-                          i.fa.fa-cogs
-                          |  Settings
+                        a.nav-link(href="#details" role="tab" data-toggle="tab")
+                          i.fa.fa-star-half-o
+                          |  Donater Details
                     .tab-content
                       //- Personal informations tab
                       #profile.tab-pane.fade.show.active(role="tabpanel")
-                        .row.mt-2
-                          .col-md-3
+                        .row.mt-3
+                          .col-md-4
                             label User ID
                           .col-md-6
                             p #{user.id}
                         .row
-                          .col-md-3
-                            label Name
+                          .col-md-4
+                            label First Name
                           .col-md-6
-                            p #{user.firstname} #{user.lastname}
+                            p #{user.firstname}
                         .row
-                          .col-md-3
+                          .col-md-4
+                            label Last Name
+                          .col-md-6
+                            p #{user.lastname}
+                        .row
+                          .col-md-4
+                            label Gender
+                          .col-md-6
+                            if user.gender == 0
+                              p Nő
+                            else if user.gender == 1
+                              p Férfi
+                        .row
+                          .col-md-4
                             label Email address
                           .col-md-6
                             p #{user.emailaddress}
-                        .row
-                          .col-md-3
-                            label Address
-                          .col-md-6
-                            p #{user.address}
-                        .row
-                          .col-md-3
+                        if user.address
+                          .row
+                            .col-md-4
+                              label Address
+                            .col-md-6
+                              p #{user.address}
+                      //- About projects tab
+                      #details.tab-pane.fade.show(role="tabpanel")
+                        .row.mt-3
+                          .col-md-4
                             label Donater Points
                           .col-md-6
                             p #{user.points} &nbsp;
                               i.fa.fa-diamond
-
-                      //- About projects tab
-                      #settings.tab-pane.fade(role="tabpanel")
-                        .row.mt-2
+                        .row
                           .col-md-4
                             label Donater Level
                           .col-md-6
@@ -95,6 +112,7 @@ block content
                             label Biography
                             br
                             p Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officiis eaque ipsa placeat saepe nostrum architecto necessitatibus voluptatem obcaecati laudantium? Harum maxime blanditiis voluptas fuga libero. Dolores delectus debitis nam.
+
                   //- Entryway logo
                   .col-md-4.img-main-rightPart
                     .row

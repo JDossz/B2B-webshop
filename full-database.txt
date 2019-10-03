@@ -101,7 +101,7 @@ CREATE TABLE users (
     password nvarchar(255) NOT NULL,
     admin boolean NOT NULL DEFAULT 0,
     address nvarchar(1000),
-    pictureurl nvarchar(255),
+    pictureurl nvarchar(255) DEFAULT '/images/users/user_default.png',
     newsletter boolean NOT NULL DEFAULT 0,
     token nvarchar(255),
     PRIMARY KEY (id)
