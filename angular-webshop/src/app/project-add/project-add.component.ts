@@ -20,7 +20,7 @@ export class ProjectAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  async onCreate() {
+   onCreate() {
     if (this.newProject.title) {
       for (let i = 0; i < this.projects.value.length; i++) {
         if (this.projects.value[i].title === this.newProject.title) {
