@@ -7,4 +7,5 @@ CREATE TABLE newsletter (
 );
 
 INSERT INTO newsletter (emailaddress)
-VALUES ('almaz@gmail.com'),
+VALUES ('juhasz.dossz@gmail.com');
+

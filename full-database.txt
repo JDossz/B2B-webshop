@@ -16,7 +16,7 @@ CREATE TABLE baskets (
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     userid int NOT NULL,
     projectid int,
-    quantity int,
+    quantity int DEFAULT 1,
     PRIMARY KEY (id)
 );
 
@@ -28,14 +28,28 @@ CREATE TABLE categories (
     PRIMARY KEY (id)
 );
 
+INSERT INTO categories (category)
+VALUES ('Other'), ('Biology'), ('Chemistry'), ('Computer Science'), ('Engineering'), ('Mathematics'), ('Physics');
+
+
+CREATE TABLE newsletter (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    emailaddress nvarchar(255) NOT NULL,
+    active boolean NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO newsletter (emailaddress)
+VALUES ('juhasz.dossz@gmail.com');
+
 
 CREATE TABLE orders (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     userid int NOT NULL,
-    projectid int NOT NULL,
     quantity int NOT NULL,
-    status tinyint  NOT NULL,
+    status tinyint  NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
 
@@ -44,7 +58,6 @@ CREATE TABLE orderdetails (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     orderid int NOT NULL,
-    userid int NOT NULL,
     projectid int NOT NULL,
     quantity int NOT NULL,
     status tinyint  NOT NULL DEFAULT 1,
@@ -58,7 +71,7 @@ CREATE TABLE projects (
     title nvarchar(255) NOT NULL,
     seo nvarchar(255),
     institution nvarchar(255) NOT NULL,
-    shortd nvarchar(500) DEFAULT 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex laudantium molestiae earum, aliquid debitis ipsa accusantium labore sapiente quidem blanditiis, voluptate tempora ab, a adipisci libero temporibus eum et.',
+    shortd nvarchar(500) DEFAULT 'See the details if you are interested.',
     longd nvarchar(10000),
     contact nvarchar(255) NOT NULL,
     categoryid int NOT NULL DEFAULT 0,
@@ -71,6 +84,62 @@ CREATE TABLE projects (
     PRIMARY KEY (id)
 );
 
+INSERT INTO projects (title, seo, institution, shortd, longd, contact, categoryid, link)
+VALUES (
+'New calcium phosphate bone cements for potential biomaterial applications',
+'new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication',
+'Aberdeen University',
+'The focus of the project is to synthesise and control the doping of different elements into parent calcium phosphates that will be one or more of the reactant phases of the cement formulations.',
+'Calcium phosphates bone cements are widely used for bone-replacement materials due to their chemical similarity to natural bone but also their ability to set and harden in situ and their ability to be injected as a paste. The impetus for such research is the ageing and more active population – the need to keep quality of life and activity, and to provide materials with longer endurance within the body.
+
+In our biomaterials group the focus is on the synthesis and characterisation of various bioceramics, particularly in the targeted doping of the parent calcium phosphates with the aim of improving the properties, such as solubility, cell interaction, handling, and mechanical properties. Our research extends from basic science and fundamental materials chemistry through to biological testing and commercial application of such materials. The proposed project will be interdisciplinary in nature, allowing the candidate to develop their research skills within this very applied research area.
+
+The focus of the project, therefore, is to synthesise and control the doping of different elements into parent calcium phosphates that will be one or more of the reactant phases of the cement formulations. These will be used in developing new calcium phosphate bone cement formulations. These materials have potential application in fabricating 3D scaffolds for bone tissue engineering and regenerative medicine, or as medical devices. The materials developed will be characterise using X-ray diffraction, Raman and IR spectroscopy, solid state NMR, electron microscopy, surface area and porosity quantification, solubility testing and mechanical testing.',
+'I. R. Gibson',
+3,
+'https://www.findaphd.com/phds/project/new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication/?p107807'),
+
+('Boundary Effects in Active Matter Systems',
+'boundary-effects-in-active-matter-systems',
+'Aberdeen University',
+'This theoretical project, at the forefront of active matter research, will investigate the effects of boundaries in finite flocking systems making use of both analytical methods and direct numerical simulations.',
+'The study of collective properties of active matter is a fast-emerging interdisciplinary research field. Collections of interacting active particles describe the collective motion - or “flocking” - observed in systems as diverse as vertebrate groups - bird flocks, fish schools, mammal herds -, insect swarms, colonies of bacteria, molecular motors, as well as driven granular matter.
+
+So far, active matter has been mainly studied in the bulk, addressing large systems and disregarding the effects of the border. In many finite systems of biological - i.e. bird flocks - or experimental interests - i.e. active colloids -, however, boundary effects cannot be easily disregarded and could indeed impact the bulk dynamics.
+
+This theoretical project, at the forefront of active matter research, will investigate the effects of boundaries in finite flocking systems making use of both analytical methods and direct numerical simulations.
+
+Subject Areas: Theoretical Physics, Condensed Matter Physics, Fluid Dynamics, Biophysics, Applied Mathematics
+
+Active particles are able to extract and dissipate energy from their surroundings to produce systematic and coherent motion.
+The study of collective properties of active matter is a fast-emerging interdisciplinary research field, which links out-of-equilibrium statistical physics - phase transitions, fluctuations - with biological - cellular biology, cooperative behavior in bacteria, animal behavior of large social groups - as well as engineering-related topics - swarm intelligence, communication networks of moving agents.
+
+Collections of interacting active particles describe the collective motion - or “flocking” - observed in systems as diverse as vertebrate groups - bird flocks, fish schools, mammal herds -, insect swarms, colonies of bacteria, molecular motors, as well as driven granular matter.
+
+So far, active matter has been mainly studied in the bulk, addressing large systems and disregarding the effects of the border. In many finite systems of biological or experimental interests, however, boundary effects cannot be easily disregarded.
+
+Many bird flocks or fish schools, for instance, are composed by no more than a few thousands or even hundreds of animals, and a rather sharp, free boundary enclosing the group can be easily defined. Numerical models have shown indeed that an effective surface tension is needed to maintain the group cohesion.
+
+The active colloidal particles studied in many experiments, on the other hand, are almost invariably confined by hard boundaries, which often constrain and orient the collective motion. The nature of this boundary-induced symmetry breaking needs to be clarified in order to better understand and interpret experimental results.
+
+In this project, we will study the effects that both free and hard boundaries have on the bulk dynamics of flocking systems making use of direct numerical simulations of microscopic models and studying hydrodynamic theories with the proper boundary conditions.',
+'F. Ginelli',
+7,
+'https://www.findaphd.com/phds/project/boundary-effects-in-active-matter-systems/?p107830'),
+
+('Molecular machines: ribosome biogenesis',
+'how-to-make-molecular-machines-modelling-ribosome-biogenesis',
+'Aberdeen University',
+'The main aim of this project is to develop a mathematical model of ribosome biogenesis taking into account the current knowledge about the biochemical pathways.',
+'Ribosomes are arguably the most important biological molecular machines.
+
+Cells can be seen as factories of proteins, with ribosomes being the machines producing them. Therefore, understanding how ribosomes themselves are made and how their production is controlled depending on the environment of the cell, is a fundamental question in cell biology. Despite of extensive information on the process of ribosome biogenesis gathered in recent years, the regulation of ribosome production upon changes in external cellular conditions remains an outstanding open question.
+
+The main aim of this project is to develop a mathematical model of ribosome biogenesis taking into account the current knowledge about the biochemical pathways. In particular, we will aim at identifying the rate-limiting steps and most crucial mechanisms determining the production rate of ribosomes, as well as how this production can be finely tuned depending on external cellular resources and environmental conditions. We will also explore the links between the cell cycle and ribosome biogenesis, as well as metabolism. In contrast to a large mathematical model comprising a very high number of components, our objective is to develop a model as simple as possible, but nevertheless predictive, so that it allows us gaining insight into the fascinating process of ribosome biogenesis.',
+'M. Carmen Romano',
+7,
+'https://www.findaphd.com/phds/project/how-to-make-molecular-machines-modelling-ribosome-biogenesis/?p107836');
+
 
 CREATE TABLE reviews (
     id int NOT NULL AUTO_INCREMENT,
@@ -81,6 +150,12 @@ CREATE TABLE reviews (
     PRIMARY KEY (id)
 );
 
+INSERT INTO reviews (userid, text, rate)
+VALUES (2, 'I like the idea very much', 5),
+(1, 'Awwwwwwwwwww', 4),
+(4, 'I like this site. Way to go guys!', 4),
+(3, 'Fontosak vagytok', 5);
+
 
 CREATE TABLE status (
     id int NOT NULL AUTO_INCREMENT,
@@ -88,6 +163,13 @@ CREATE TABLE status (
     status nvarchar(50) NOT NULL,
     PRIMARY KEY (id)
 );
+
+INSERT INTO status (status)
+VALUES ('Donation Request Arrived'),
+('Donation Received'),
+('Donation Transfered'),
+('Confirmation Received'),
+('Donation Canceled');
 
 
 CREATE TABLE users (
@@ -99,11 +181,18 @@ CREATE TABLE users (
     username nvarchar(255) NOT NULL,
     emailaddress nvarchar(255) NOT NULL,
     password nvarchar(255) NOT NULL,
-    admin boolean NOT NULL DEFAULT 0,
     address nvarchar(1000),
     pictureurl nvarchar(255) DEFAULT '/images/users/user_default.png',
-    newsletter boolean NOT NULL DEFAULT 0,
+    admin boolean NOT NULL DEFAULT 0,
+    points int NOT NULL DEFAULT 0,
     token nvarchar(255),
     PRIMARY KEY (id)
 );
+
+INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
+VALUES ('Dorottya', 'Juhász', 0, SHA1('JDorka'), 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 1, '/images/users/JuhaszDorottya.JPG'),
+('Szilvia', 'Kapuvári', 0, SHA1('KSzilvi'), 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 1, '/images/users/KapuvariSzilvia.JPG'),
+('Dániel', 'Oláh', 1, SHA1('OláhD'), 'olah.daniel95@gmail.com', SHA1('Oláh2019'), 1, '/images/users/OlahDaniel.JPG'),
+('Sára', 'Pál', 0, SHA1('PSári'), 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 1, '/images/users/PalSara.jpg'),
+('Ágoston', 'Zajkás', 1, SHA1('ZÁgoston'), 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 1, '/images/users/ZajkasAgoston.JPG');
 
