@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Insdate</th>
+          <th>Project ID</th>
+          <th>Project Title</th>
+          <th>Project Quantity</th>
+          <th>Donation</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of orderDetails$ | async">
+          <td>{{ item.id }}</td>
+          <td>{{ item.insdate }}</td>
+          <td>{{ item.projectid }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.quantity }}</td>
+          <td [innerHTML]="item.quantity * item.price"></td>
+          <td *ngIf="item.status === 1">Donation Request Arrived</td>
+          <td *ngIf="item.status === 2">Donation Received</td>
+          <td *ngIf="item.status === 3">Donation Transfered</td>
+          <td *ngIf="item.status === 4">Confirmation Received</td>
+          <td *ngIf="item.status === 5">Donation Canceled</td>
+          <button class="btn btn-danger"
+                  type="button"
+                  (click)="deleteDonation($event, item.id, item.status)">
+            Delete Donation
+          </button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+CREATE TABLE categories (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    category nvarchar(255) DEFAULT 'Other',
+    PRIMARY KEY (id)
+);
+
+INSERT INTO categories (category)
+VALUES ('Other'), ('Biology'), ('Chemistry'), ('Computer Science'), ('Engineering'), ('Mathematics'), ('Physics');
+

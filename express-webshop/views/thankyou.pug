@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/thankyou.css')
+
+  .container-fluid.thanks
+    .unit.mb-5.mt-5
+      .heart
+        - for (var i = 0; i < 9; i++)
+          div(class='heart-piece-'+[i])
+  .container
+    .row.mt-5
+      .col-6.offset-3.mt-5.text-center.text-white
+        h1 Thank You, have a nice day!

@@ -1,9 +1,45 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const BetagDB = require('./../modules/webshop-mariadb');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+const router = express.Router();
+const database = new BetagDB();
+
+/* GET kérés küldésekor home page-re: */
+router.get('/', async (req, res, next) => {
+  const projectsList = await database.readRecord('projects', {});
+  const usersList = await database.readRecord('users', {});
+  const projectsToCarousel = [];
+  const projectsToFeature = [];
+  const usersToShow = [];
+
+  while (projectsToCarousel.length < 5) {
+    const index = Math.floor(Math.random() * projectsList.length + 1);
+    if (projectsList[index]) {
+      projectsToCarousel.push(projectsList[index]);
+    }
+  }
+
+  while (projectsToFeature.length < 3) {
+    const index = Math.floor(Math.random() * projectsList.length + 1);
+    if (projectsList[index]) {
+      projectsToFeature.push(projectsList[index]);
+    }
+  }
+
+  while (usersToShow.length < 3) {
+    const index = Math.floor(Math.random() * usersList.length + 1);
+    if (usersList[index]) {
+      usersToShow.push(usersList[index]);
+    }
+  }
+
+  return res.render('index', {
+    title: 'Entryway - BETAG Team',
+    carousel: projectsToCarousel,
+    featurette: projectsToFeature,
+    funders: usersToShow,
+    user: req.user || {},
+  });
 });
 
 module.exports = router;

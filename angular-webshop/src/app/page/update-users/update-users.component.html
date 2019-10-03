@@ -1,0 +1,42 @@
+<h2>Update User</h2>
+
+<div *ngIf="user">
+  <form (submit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="">Firstname</label>
+      <input name="firstname" class="form-control" type="text" [(ngModel)]="user.firstname">
+    </div>
+    <div class="form-group">
+      <label for="">Lastname</label>
+      <input name="lastname" class="form-control" type="text" [(ngModel)]="user.lastname">
+    </div>
+    <div class="form-group">
+      <label for="">Username</label>
+      <input name="username" class="form-control" type="text" [(ngModel)]="user.username">
+    </div>
+    <div class="form-group">
+      <label for="">Gender</label>
+      <input name="gender" class="form-control" type="text" [(ngModel)]="user.gender">
+    </div>
+    <div class="form-group">
+      <label for="">Email address</label>
+      <input name="emailaddress" class="form-control" type="email" [(ngModel)]="user.emailaddress">
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input name="password" type="password" class="form-control" [(ngModel)]="user.password">
+    </div>
+    <div class="form-group">
+      <label for="">Admin</label>
+      <input name="admin" class="form-control" type="text" [(ngModel)]="user.admin">
+    </div>
+    <div class="form-group">
+      <label for="">Address</label>
+      <input name="address" type="text" class="form-control" [(ngModel)]="user.address">
+    </div>
+    <button class="btn btn-primary" type="submit">
+      Update
+    </button>
+
+  </form>
+</div>

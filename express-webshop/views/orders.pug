@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .row
+    .col-10.offset-1
+      table.table.table-striped
+        thead
+          tr
+            th ID 
+            th User ID
+            th Insdate
+            th Projekt ID
+            th Projekt price
+            th Quantity
+            th Status
+        tbody
+          each order in orders
+            tr
+              td #{order.id}
+              td #{order.userid}
+              td #{order.insdate}
+              td #{order.projectid}
+              td #{order.projectprice}
+              td #{order.quantity} 
+              td #{order.status}

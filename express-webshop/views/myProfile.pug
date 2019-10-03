@@ -1,0 +1,126 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/myProfile.css')
+  
+  .container.fluid#gradient
+    .container.main-section
+      .row
+        //- personal background picture
+        .col-md-12.col-sm-12.col-xs-12.image-section
+          img(src="/images/backgrounds/default.jpg")
+
+        .row.user-left-part
+          //- personal part on the left
+          .col-md-3.col-sm-3.col-xs-12.user-profil-part.pull-left
+            .row
+              //- profile picture
+              .col-md-12.col-md-12-sm-12.col-xs-12.user-image.text-center
+                img.rounded-circle(src=`${user.pictureurl}`)
+              //- personal statistics part
+              .row.user-detail-row
+                .col-md-12.col-sm-12.user-detail-section2.pull-left.mt-5
+                  p Followers
+                  span hárommillio
+
+          //- personal part on the right
+          .col-md-9.col-sm-9.col-xs-12.pull-right.profile-right-section
+            .row.profile-right-section-row
+              .col-md-12.profile-header
+                .row
+                  .col-md-8.col-sm-6.col-xs-6.profile-header-section1.pull-left
+                    h1 #{user.firstname} #{user.lastname} &nbsp;
+                      a(href="/register")
+                        i.fa.fa-pencil-square
+                    h5 #{user.points} &nbsp;
+                      i.fa.fa-diamond
+              .col-md-12
+                .row
+                  //- Information tabs
+                  .col-md-8
+                    ul.nav.nav-tabs(role="tablist")
+                      li.nav-item
+                        a.nav-link.active(href="#profile" role="tab" data-toggle="tab")
+                          i.fa.fa-user
+                          |  Personal information
+                      li.nav-item
+                        a.nav-link(href="#details" role="tab" data-toggle="tab")
+                          i.fa.fa-star-half-o
+                          |  Donater Details
+                    .tab-content
+                      //- Personal informations tab
+                      #profile.tab-pane.fade.show.active(role="tabpanel")
+                        .row.mt-3
+                          .col-md-4
+                            label User ID
+                          .col-md-6
+                            p #{user.id}
+                        .row
+                          .col-md-4
+                            label First Name
+                          .col-md-6
+                            p #{user.firstname}
+                        .row
+                          .col-md-4
+                            label Last Name
+                          .col-md-6
+                            p #{user.lastname}
+                        .row
+                          .col-md-4
+                            label Gender
+                          .col-md-6
+                            if user.gender == 0
+                              p Nő
+                            else if user.gender == 1
+                              p Férfi
+                        .row
+                          .col-md-4
+                            label Email address
+                          .col-md-6
+                            p #{user.emailaddress}
+                        if user.address
+                          .row
+                            .col-md-4
+                              label Address
+                            .col-md-6
+                              p #{user.address}
+                      //- About projects tab
+                      #details.tab-pane.fade.show(role="tabpanel")
+                        .row.mt-3
+                          .col-md-4
+                            label Donater Points
+                          .col-md-6
+                            p #{user.points} &nbsp;
+                              i.fa.fa-diamond
+                        .row
+                          .col-md-4
+                            label Donater Level
+                          .col-md-6
+                            p az awards táblából a userhez pontjai alapján tartozó level
+                        .row
+                          .col-md-4
+                            label Funded Projects
+                          .col-md-6
+                            p hány projektet támogatott összesen
+                        .row
+                          .col-md-4
+                            label Amount Donated
+                          .col-md-6
+                            p mennyi pénzt adományozott összesen
+                        .row
+                          .col-md-12
+                            label Biography
+                            br
+                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officiis eaque ipsa placeat saepe nostrum architecto necessitatibus voluptatem obcaecati laudantium? Harum maxime blanditiis voluptas fuga libero. Dolores delectus debitis nam.
+
+                  //- Entryway logo
+                  .col-md-4.img-main-rightPart
+                    .row
+                      .col-md-12
+                        .row.image-right-part
+                          .col-md-6.pull-left.image-right-detail
+                            h6 ENTRYWAY
+                      a(href="https://www.youtube.com/watch?v=4ctK1aoWuqY")
+                        .col-md-12.image-right
+                          img(src="/images/betag-favicon/ms-icon-310x310.png")
+                      .col-md-12.image-right-detail-section2

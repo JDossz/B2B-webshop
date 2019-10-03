@@ -1,3 +1,7 @@
+# B2B-webshop
+
+##### Ha az Express indulásakor hibát kapsz, írd át a mariadb-main.js-ben a jelszót a saját HeidiSQL-es jelszavadra!
+
 ##### For favicon include the following code in the head of your HTML document:
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">

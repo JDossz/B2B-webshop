@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  .container.containerProjects.mt-4
+    .row
+      .col-3
+        .sidebar
+          h1 Categories
+          each category, index in categories 
+            a(href=`/projects/categories/${category.category}`) #{category.category}        
+          a(href='/projects') Go back!
+          .row
+            form.form-inline(action='/projects' method="GET")
+              .form-group
+                .col-6
+                    input.form-control(type='text',name="search", placeholder='Search..')
+                .col-6
+                  button.btn.btn-primary(type="submit")
+                    i.fa.fa-search(aria-hidden='true')
+      .col-8               
+        each project , index in projects
+          if index < 10
+            .card.mb-3(style='max-width: 850px;')
+              .row.no-gutters
+                .col-md-4
+                  img.card-img(src=`${project.pictureurl}`, alt='...')
+                .col-md-8(style='height: 14rem;')
+                  .card-body
+                    h5.card-title #{project.title}
+                    p.card-text #{project.shortd}
+                    p.card-text
+                      small.text-muted Last funded 3 mins ago
+                    a.btn.btn-info(href=`/projects/${project.seo}`) Show more! 
+    .row
+      .col-4.offset-4                      
+        if numberOfproducts > 10
+          nav(aria-label='Page navigation')
+            ul.pagination.justify-content-center
+              - let x = 1;
+              - let y = Math.round(numberOfproducts/10) 
+                li.page-item
+                  a.page-link(href=`/projects?page=${prevPage || 1 }&limit=${10}` aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                    span.sr-only Previous
+                while x <= y
+                  li.page-item
+                    a.page-link(href=`/projects?page=${x}&limit=${10}`) #{x++}    
+                li.page-item                          
+                  a.page-link(href=`/projects?page=${nextPage || 1 }&limit=${10}` aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+                    span.sr-only Next    

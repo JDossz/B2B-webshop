@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-6.offset-3
+        form.form-signin(action="/login" method="post")
+          .card
+            .card-header.bg-primary.text-light
+              h3.mt-1.mb-1 Please sign in
+            .card-body
+              .input-group.mb-3
+                label.sr-only(for="inputUsername") Username
+                input#inputUsername.form-control(type="text" name="username" placeholder="Username" required)
+              .input-group.mb-3
+                label.sr-only(for="inputPassword") Password
+                input#inputPassword.form-control(type="password" name="password" placeholder="Password" required="")
+              a(href="") Forgot your password?
+              .input-group.mt-3
+                button.btn.btn-lg.btn-success.btn-block.mb-3(type="submit") Sign in
+                .checkbox
+                  label
+                    input(type="checkbox" value="remember-me")
+                    |  Remember me
+              .danger.alert-danger #{wrong}
+            .card-footer
+              h4.text-center New to Entryway?
+              a.btn.btn-lg.btn-primary.btn-block(href='/register') Register
+        p.mt-5.mb-3.text-muted.text-center &copy; BETAG Team 2019
