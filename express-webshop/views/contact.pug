@@ -5,25 +5,25 @@ block content
 
   .container
     .row
-      .col-12
+      .col-10.offset-1
         .card.card-outline-secondary.mt-5.mb-5
           .card-header
             h3 Our Reviews
           each review in reviews
             .card-body(style='padding:10px')
               .row
-                .col-2
+                .col-6
                   p  #{review.text}
-                .col-8 &nbsp;
                 if user
                   if user.firstname==review.firstname && user.lastname==review.lastname 
-                    .col-2
+                    .col-5.text-right
                       a.btn.btn-outline-secondary(href=`/contact/reviews/remove/${review.id}`)
                         i.fa.fa-trash(aria-hidden='true')
+                    .col-1
               .row
-                .col-2
+                .col-md-2.col-5
                   small.text-muted Posted by: #{review.firstname} #{review.lastname}
-                .col-1
+                .col-md-1.col-2
                   small.text-muted #{ review.rate }&starf;
               hr
           if user
@@ -36,7 +36,7 @@ block content
               form.form(action='/contact/reviews/addReview' method='post')
                 .card.text-center
                   .card-header 
-                    h3 Rate Us
+                    h5 Tell us what you think about our page!
                   .card-body
                     textarea.mb-3.form-control#addReview(name='text', placeholder='Write something...')
                     .container
@@ -128,7 +128,6 @@ block content
                               
                   .card-footer
                     button.btn.btn-info(type='submit') SEND
-                    a.btn.btn-secondary(href='/contact') CANCEL
 
                           
                           
