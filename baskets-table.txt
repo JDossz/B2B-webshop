@@ -3,7 +3,7 @@ CREATE TABLE baskets (
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     userid int NOT NULL,
     projectid int,
-    quantity int,
+    quantity int DEFAULT 1,
     PRIMARY KEY (id)
 );
 

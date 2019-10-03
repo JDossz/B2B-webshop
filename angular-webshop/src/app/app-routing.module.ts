@@ -6,7 +6,6 @@ import { BasketComponent } from './page/basket/basket.component';
 import { CategoryComponent } from './page/category/category.component';
 import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
 import { CategoryAddComponent } from './page/category/category-add/category-add.component';
-import { CreateOrdersComponent } from './page/create-orders/create-orders.component';
 import { CreateUsersComponent } from './page/create-users/create-users.component';
 import { IndexComponent } from './page/index/index.component';
 import { OrdersComponent } from './page/orders/orders.component';
@@ -27,7 +26,6 @@ const routes: Routes = [
   { path: 'basket', component: BasketComponent },
   { path: 'category-add', component: CategoryAddComponent },
   { path: 'category-edit/:id', component: CategoryEditComponent },
-  { path: 'create-order', component: CreateOrdersComponent },
   { path: 'create-user', component: CreateUsersComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'orders/:id', component: UpdateOrdersComponent },
@@ -41,10 +39,6 @@ const routes: Routes = [
   {
     path: 'orders/details/:id',
     component: OrderDetailsComponent,
-  },
-  {
-    path: 'create-order',
-    component: CreateOrdersComponent
   },
   {
     path: 'users',
