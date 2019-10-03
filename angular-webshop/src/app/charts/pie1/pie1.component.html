@@ -1,0 +1,25 @@
+<div class="chart">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+          [legend]="pieChartLegend">
+  </canvas>
+</div>
+
+<div class="btn-group">
+  <button class="btn"
+          (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
+  <button class="btn"
+          (click)="changeLabels()">Change Labels</button>
+  <!-- <button class="btn"
+          color="primary"
+          (click)="addSlice()">Add Slice</button>
+  <button class="btn"
+          (click)="removeSlice()">Remove Slice</button> -->
+  <button class="btn"
+          (click)="changeLegendPosition()">Change Legend Position</button>
+</div>

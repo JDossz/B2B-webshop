@@ -114,5 +114,4 @@ module.exports = class BetagDB {
     const result = await this.connection.query(sql);
     return result;
   }
-  
 };

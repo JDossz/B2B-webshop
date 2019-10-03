@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,9 @@ import { StatisticsBasicComponent } from './page/statistics-basic/statistics-bas
 import { CategoryComponent } from './page/category/category.component';
 import { CategoryAddComponent } from './page/category/category-add/category-add.component';
 import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
+import { StatisticsComponent } from './page/statistics/statistics.component';
+import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
+import { Pie1Component } from './charts/pie1/pie1.component';
 import { OrderDetailsComponent } from './page/order-details/order-details.component';
 
 @NgModule({
@@ -42,13 +46,17 @@ import { OrderDetailsComponent } from './page/order-details/order-details.compon
     CategoryComponent,
     CategoryAddComponent,
     CategoryEditComponent,
+    StatisticsComponent,
+    Dynamic1Component,
+    Pie1Component,
     OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,7 +22,7 @@ export class DataService {
   basket: BehaviorSubject<any> = new BehaviorSubject([]);
   category: BehaviorSubject<any> = new BehaviorSubject([]);
 
-  constructor(
+  constructor (
     private http: HttpClient,
     private url: UrlConcatenatorService,
   ) { }
