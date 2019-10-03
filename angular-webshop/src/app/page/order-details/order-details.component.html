@@ -19,12 +19,17 @@
           <td>{{ item.projectid }}</td>
           <td>{{ item.title }}</td>
           <td>{{ item.quantity }}</td>
-          <td>{{ item.quantity * item.price }}</td>
+          <td [innerHTML]="item.quantity * item.price"></td>
           <td *ngIf="item.status === 1">Donation Request Arrived</td>
           <td *ngIf="item.status === 2">Donation Received</td>
           <td *ngIf="item.status === 3">Donation Transfered</td>
           <td *ngIf="item.status === 4">Confirmation Received</td>
           <td *ngIf="item.status === 5">Donation Canceled</td>
+          <button class="btn btn-danger"
+                  type="button"
+                  (click)="deleteDonation($event, item.id, item.status)">
+            Delete Donation
+          </button>
         </tr>
       </tbody>
     </table>

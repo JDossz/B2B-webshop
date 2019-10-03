@@ -7,7 +7,6 @@
           <th>Insdate</th>
           <th>User ID</th>
           <th>User Name</th>
-          <th>Quantity</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -17,7 +16,6 @@
           <td>{{order.insdate}}</td>
           <td>{{order.userid}}</td>
           <td>{{order.firstname | titlecase}} {{order.lastname | titlecase}}</td>
-          <td>{{order.quantity}}</td>
           <td *ngIf="order.status === 1">Donation Request Arrived</td>
           <td *ngIf="order.status === 2">Donation Received</td>
           <td *ngIf="order.status === 3">Donation Transfered</td>
