@@ -9,7 +9,7 @@
         </div>
         <label for="seo">Seo</label>
         <input type="text" placeholder="Seo" class="form-control" name="newProject.seo" id="seo"
-          [(ngModel)]="newProject.seo" required>
+          [(ngModel)]="newProject.seo" disabled>
         <div class="form-group">
           <label for="institution">Institution</label>
           <input type="text" class="form-control" id="institution" name="project.institution"
@@ -32,23 +32,13 @@
         </div>
         <div class="form-group">
           <label for="category">CategoryID</label>
-          <input type="text" class="form-control" id="category" name="project.categoryid"
+          <input type="number" class="form-control" id="category" name="project.categoryid"
             [(ngModel)]="newProject.categoryid" placeholder="Category" required>
         </div>
         <div class="form-group">
-          <label for="donation">Donation</label>
-          <input type="number" class="form-control" name="project.donation" id="donation"
-            [(ngModel)]="newProject.donation" placeholder="Donation" required>
-        </div>
-        <div class="form-group">
           <label for="goal">Goal</label>
-          <input type="number" class="form-control" name="project.goal" id="goal" [(ngModel)]="newProject.goal"
+          <input type="number" class="form-control" name="project.goal" id="goal"  [(ngModel)]="newProject.goal"
             placeholder="Goal" required>
-        </div>
-        <div class="form-group">
-          <label for="balance">Balance</label>
-          <input type="number" class="form-control" name="project.balance" id="balance" [(ngModel)]="newProject.balance"
-            placeholder="Balance" required>
         </div>
         <div class="form-group">
           <label for="pictureUrl">Picture url</label>
