@@ -18,6 +18,7 @@ export class StatisticsComponent implements OnInit {
   //Projects
   projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {});
   projects: any
+  countDeletedProjects: number = 0;
 
   //Orders
   orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
@@ -50,7 +51,7 @@ export class StatisticsComponent implements OnInit {
     this.projects$.subscribe(data => {
       this.projects = data;
       // console.log('Users: ', this.users);
-      this.countBalance();
+      this.manageProjects();
     });
   }
 
@@ -100,9 +101,12 @@ export class StatisticsComponent implements OnInit {
     }
   }
 
-  countBalance() {
+  manageProjects() {
     for (let i = 0; i < this.projects.length; i++) {
       this.totalBalanceOfOrders += this.projects[i].balance
+      if (this.projects[i].isactive == 0) {
+        this.countDeletedProjects++
+      }
     }
   }
 
