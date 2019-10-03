@@ -1,51 +1,12 @@
 CREATE DATABASE betag;
 
 
-CREATE TABLE projects (
+CREATE TABLE awards (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    title nvarchar(255) NOT NULL,
-    seo nvarchar(255),
-    institution nvarchar(255) NOT NULL,
-    shortd nvarchar(500) DEFAULT 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex laudantium molestiae earum, aliquid debitis ipsa accusantium labore sapiente quidem blanditiis, voluptate tempora ab, a adipisci libero temporibus eum et.',
-    longd nvarchar(10000),
-    contact nvarchar(255) NOT NULL,
-    categoryid int NOT NULL DEFAULT 0,
-    donation int NOT NULL DEFAULT 5,
-    goal int NOT NULL DEFAULT 0,
-    balance int DEFAULT 0,
-    pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png',
-    link nvarchar(1000),
-    isactive boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
-);
-
-
-CREATE TABLE users (
-    id int NOT NULL AUTO_INCREMENT,
-    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    firstname nvarchar(255) NOT NULL,
-    lastname nvarchar(255) NOT NULL,
-    gender boolean NOT NULL DEFAULT 0,
-    username nvarchar(255) NOT NULL,
-    emailaddress nvarchar(255) NOT NULL,
-    password nvarchar(255) NOT NULL,
-    admin boolean NOT NULL DEFAULT 0,
-    address nvarchar(1000),
+    required int NOT NULL,
+    level nvarchar(50) NOT NULL,
     pictureurl nvarchar(255),
-    newsletter boolean NOT NULL DEFAULT 0,
-    token nvarchar(255),
-    PRIMARY KEY (id)
-);
-
-
-CREATE TABLE orders (
-    id int NOT NULL AUTO_INCREMENT,
-    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    userid int NOT NULL,
-    projectid int NOT NULL,
-    quantity int NOT NULL,
-    status tinyint  NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -68,10 +29,81 @@ CREATE TABLE categories (
 );
 
 
+CREATE TABLE orders (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    projectid int NOT NULL,
+    quantity int NOT NULL,
+    status tinyint  NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE orderdetails (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    orderid int NOT NULL,
+    userid int NOT NULL,
+    projectid int NOT NULL,
+    quantity int NOT NULL,
+    status tinyint  NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE projects (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    title nvarchar(255) NOT NULL,
+    seo nvarchar(255),
+    institution nvarchar(255) NOT NULL,
+    shortd nvarchar(500) DEFAULT 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex laudantium molestiae earum, aliquid debitis ipsa accusantium labore sapiente quidem blanditiis, voluptate tempora ab, a adipisci libero temporibus eum et.',
+    longd nvarchar(10000),
+    contact nvarchar(255) NOT NULL,
+    categoryid int NOT NULL DEFAULT 0,
+    donation int NOT NULL DEFAULT 5,
+    goal int NOT NULL DEFAULT 0,
+    balance int DEFAULT 0,
+    pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png',
+    link nvarchar(1000),
+    isactive boolean NOT NULL DEFAULT 1,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE reviews (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    userid int NOT NULL,
+    text VARCHAR(500) NOT NULL,
+    rate INT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE status (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     status nvarchar(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE users (
+    id int NOT NULL AUTO_INCREMENT,
+    insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    firstname nvarchar(255) NOT NULL,
+    lastname nvarchar(255) NOT NULL,
+    gender boolean NOT NULL DEFAULT 0,
+    username nvarchar(255) NOT NULL,
+    emailaddress nvarchar(255) NOT NULL,
+    password nvarchar(255) NOT NULL,
+    admin boolean NOT NULL DEFAULT 0,
+    address nvarchar(1000),
+    pictureurl nvarchar(255) DEFAULT '/images/users/user_default.png',
+    newsletter boolean NOT NULL DEFAULT 0,
+    token nvarchar(255),
     PRIMARY KEY (id)
 );
 

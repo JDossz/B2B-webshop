@@ -44,7 +44,6 @@ block content
                 p.card-text  #{project.longd}
                 h5#about.mt-3 Link
                 p
-                  a#link.card-text(href=`${project.link}`) #{project.link}    
+                  a#link.card-text(href=`${project.link}`) #{project.link}   
                 form(action=`/baskets/${project.id}`, method="post")
                   button#donate.btn.btn-donate.btn-block.mt-5 Donate
-                

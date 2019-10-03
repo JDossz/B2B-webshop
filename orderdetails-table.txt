@@ -2,7 +2,6 @@ CREATE TABLE orderdetails (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     orderid int NOT NULL,
-    userid int NOT NULL,
     projectid int NOT NULL,
     quantity int NOT NULL,
     status tinyint  NOT NULL DEFAULT 1,
