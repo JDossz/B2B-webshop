@@ -8,17 +8,27 @@ import { Observable } from 'rxjs';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  users: any
+  //Users
   users$: Observable<any> = this.statisticsService.readTableByQuery('users', {});
-  orders: any
-  orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
-  projects: any
-  projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {});
-  countedUsers: number = 0;
+  users: any
   countedAdmins: number = 0;
   countedCivils: number = 0;
-  countedOrders: number = 0;
+  countedUsers: number = 0;
+
+  //Projects
+  projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {});
+  projects: any
+
+  //Orders
+  orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
+  orders: any
   totalBalanceOfOrders: number = 0;
+  countedOrders: number = 0;
+  orderStatus1: number = 0;
+  orderStatus2: number = 0;
+  orderStatus3: number = 0;
+  orderStatus4: number = 0;
+  orderStatus5: number = 0;
 
   constructor (private statisticsService: StatisticsService) {
     this.statisticsService.readTableByQuery('users', {});
@@ -34,7 +44,7 @@ export class StatisticsComponent implements OnInit {
     this.orders$.subscribe(data => {
       this.orders = data;
       // console.log('Users: ', this.users);
-      this.countOrders();
+      this.manageOrders();
     });
 
     this.projects$.subscribe(data => {
@@ -62,9 +72,31 @@ export class StatisticsComponent implements OnInit {
     // console.log(this.countedCivils);
   }
 
-  countOrders() {
+
+  manageOrders() {
+    let status1: number = 0;
+    let status2: number = 0;
+    let status3: number = 0;
+    let status4: number = 0;
+    let status5: number = 0;
+
     for (let i = 0; i < this.orders.length; i++) {
       this.countedOrders++
+      if (this.orders[i].status == 1) {
+        this.orderStatus1++
+      }
+      if (this.orders[i].status == 2) {
+        this.orderStatus2++
+      }
+      if (this.orders[i].status == 3) {
+        this.orderStatus3++
+      }
+      if (this.orders[i].status == 4) {
+        this.orderStatus4++
+      }
+      if (this.orders[i].status == 5) {
+        this.orderStatus5++
+      }
     }
   }
 

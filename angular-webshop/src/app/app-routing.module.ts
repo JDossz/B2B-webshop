@@ -9,7 +9,6 @@ import { OrdersComponent } from './page/orders/orders.component';
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { StatisticsBasicComponent } from './page/statistics-basic/statistics-basic.component';
 import { CategoryComponent } from './page/category/category.component';
 import { CategoryEditComponent } from './page/category/category-edit/category-edit.component';
 import { CategoryAddComponent } from './page/category/category-add/category-add.component';
@@ -21,7 +20,7 @@ import { OrderDetailsComponent } from './page/order-details/order-details.compon
 
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: StatisticsComponent },
   { path: 'api/projects', component: ProjectsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
@@ -32,7 +31,7 @@ const routes: Routes = [
   { path: 'category-edit/:id', component: CategoryEditComponent },
   { path: 'create-user', component: CreateUsersComponent },
   { path: 'orders', component: OrdersComponent },
-  { path: 'statistics-basic', component: StatisticsBasicComponent },
+  { path: 'dashboard', component: StatisticsComponent },
   { path: 'projectAdd', component: ProjectAddComponent },
   { path: 'projectEdit/:seo', component: ProjectEditComponent },
   { path: 'orders/:id', component: UpdateOrdersComponent },
