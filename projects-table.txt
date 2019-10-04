@@ -14,7 +14,8 @@ CREATE TABLE projects (
     pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png',
     link nvarchar(1000),
     isactive boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (seo)
 );
 
 INSERT INTO projects (title, seo, institution, shortd, longd, contact, categoryid, link)
