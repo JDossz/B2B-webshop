@@ -357,7 +357,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <div class=\"collapse navbar-collapse\"\n       id=\"navbarColor01\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/dashboard\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/api/projects\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Projects</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/api/categories\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Categories</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/users\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Users</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/orders\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Orders</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/basket\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Basket</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/about\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">About Us</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/contact\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Contact</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\"\n           routerLink=\"/dashboard\"\n           routerLinkActive=\"\"\n           [routerLinkActiveOptions]=\"{exact: true}\">Dashboard</a>\n      </li>\n    </ul>\n  </div>\n</nav>");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a\n          class=\"nav-link\"\n          href=\"/\"\n          routerLinkActive=\"\"\n          [routerLinkActiveOptions]=\"{ exact: true }\"\n          >Home</a\n        >\n      </li>\n      <li class=\"nav-item\">\n        <a\n          class=\"nav-link\"\n          routerLink=\"/api/projects\"\n          routerLinkActive=\"\"\n          [routerLinkActiveOptions]=\"{ exact: true }\"\n          >Projects</a\n        >\n      </li>\n      <li class=\"nav-item\">\n        <a\n          class=\"nav-link\"\n          routerLink=\"/api/categories\"\n          routerLinkActive=\"\"\n          [routerLinkActiveOptions]=\"{ exact: true }\"\n          >Categories</a\n        >\n      </li>\n      <li class=\"nav-item\">\n        <a\n          class=\"nav-link\"\n          routerLink=\"/users\"\n          routerLinkActive=\"\"\n          [routerLinkActiveOptions]=\"{ exact: true }\"\n          >Users</a\n        >\n      </li>\n      <li class=\"nav-item\">\n        <a\n          class=\"nav-link\"\n          routerLink=\"/orders\"\n          routerLinkActive=\"\"\n          [routerLinkActiveOptions]=\"{ exact: true }\"\n          >Orders</a\n        >\n      </li>\n      <li class=\"nav-item\">\n        <a\n          class=\"nav-link\"\n          routerLink=\"/\"\n          routerLinkActive=\"\"\n          [routerLinkActiveOptions]=\"{ exact: true }\"\n          >Dashboard</a\n        >\n      </li>\n    </ul>\n  </div>\n</nav>\n");
 
 /***/ }),
 
@@ -461,7 +461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n  <div class=\"col-12\">\n    <table class=\"table table-striped\">\n      <thead>\n        <tr>\n          <th>Order ID</th>\n          <th>Insdate</th>\n          <th>User ID</th>\n          <th>User Name</th>\n          <th>Status</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let order of list$ | async\">\n          <td>{{order.orderid}}</td>\n          <td>{{order.insdate}}</td>\n          <td>{{order.userid}}</td>\n          <td>{{order.firstname | titlecase}} {{order.lastname | titlecase}}</td>\n          <td *ngIf=\"order.status === 1\">Donation Request Arrived</td>\n          <td *ngIf=\"order.status === 2\">Donation Received</td>\n          <td *ngIf=\"order.status === 3\">Donation Transfered</td>\n          <td *ngIf=\"order.status === 4\">Confirmation Received</td>\n          <td *ngIf=\"order.status === 5\">Donation Canceled</td>\n\n          <td>\n            <div class=\"btn-group\">\n              <a class=\"btn btn-info\"\n                 [routerLink]=\"['/orders/details', order.orderid]\">Details</a>\n              <a class=\"btn btn-primary\"\n                 [routerLink]=\"['/orders', order.orderid]\">Update</a>\n            </div>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n  <div class=\"col-12\">\n    <table class=\"table table-striped\">\n      <thead>\n        <tr>\n          <th>Order ID</th>\n          <th>Insdate</th>\n          <th>User ID</th>\n          <th>User Name</th>\n          <th>Status</th>\n          <th>\n            Active Only\n            <input\n              [(ngModel)]=\"activeOnly\"\n              id=\"active\"\n              name=\"active\"\n              type=\"checkbox\"\n            />\n          </th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let order of list$ | async | datefilter: activeOnly\">\n          <td>{{ order.orderid }}</td>\n          <td>{{ order.insdate }}</td>\n          <td>{{ order.userid }}</td>\n          <td>\n            {{ order.firstname | titlecase }} {{ order.lastname | titlecase }}\n          </td>\n          <td *ngIf=\"order.status === 1\">Donation Request Arrived</td>\n          <td *ngIf=\"order.status === 2\">Donation Received</td>\n          <td *ngIf=\"order.status === 3\">Donation Transfered</td>\n          <td *ngIf=\"order.status === 4\">Confirmation Received</td>\n          <td *ngIf=\"order.status === 5\">Donation Canceled</td>\n\n          <td>\n            <div class=\"btn-group\">\n              <a\n                class=\"btn btn-info\"\n                [routerLink]=\"['/orders/details', order.orderid]\"\n                >Details</a\n              >\n              <a\n                class=\"btn btn-primary\"\n                [routerLink]=\"['/orders', order.orderid]\"\n                >Update</a\n              >\n            </div>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -813,20 +813,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _page_basket_basket_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./page/basket/basket.component */ "./src/app/page/basket/basket.component.ts");
 /* harmony import */ var _page_create_users_create_users_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./page/create-users/create-users.component */ "./src/app/page/create-users/create-users.component.ts");
-/* harmony import */ var _page_index_index_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page/index/index.component */ "./src/app/page/index/index.component.ts");
-/* harmony import */ var _page_orders_orders_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./page/orders/orders.component */ "./src/app/page/orders/orders.component.ts");
-/* harmony import */ var _project_add_project_add_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./project-add/project-add.component */ "./src/app/project-add/project-add.component.ts");
-/* harmony import */ var _project_edit_project_edit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./project-edit/project-edit.component */ "./src/app/project-edit/project-edit.component.ts");
-/* harmony import */ var _projects_projects_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./projects/projects.component */ "./src/app/projects/projects.component.ts");
-/* harmony import */ var _page_category_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./page/category/category.component */ "./src/app/page/category/category.component.ts");
-/* harmony import */ var _page_category_category_edit_category_edit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./page/category/category-edit/category-edit.component */ "./src/app/page/category/category-edit/category-edit.component.ts");
-/* harmony import */ var _page_category_category_add_category_add_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./page/category/category-add/category-add.component */ "./src/app/page/category/category-add/category-add.component.ts");
-/* harmony import */ var _page_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./page/statistics/statistics.component */ "./src/app/page/statistics/statistics.component.ts");
-/* harmony import */ var _page_update_orders_update_orders_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./page/update-orders/update-orders.component */ "./src/app/page/update-orders/update-orders.component.ts");
-/* harmony import */ var _page_update_users_update_users_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./page/update-users/update-users.component */ "./src/app/page/update-users/update-users.component.ts");
-/* harmony import */ var _page_users_users_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./page/users/users.component */ "./src/app/page/users/users.component.ts");
-/* harmony import */ var _page_order_details_order_details_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./page/order-details/order-details.component */ "./src/app/page/order-details/order-details.component.ts");
-
+/* harmony import */ var _page_orders_orders_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page/orders/orders.component */ "./src/app/page/orders/orders.component.ts");
+/* harmony import */ var _project_add_project_add_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./project-add/project-add.component */ "./src/app/project-add/project-add.component.ts");
+/* harmony import */ var _project_edit_project_edit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./project-edit/project-edit.component */ "./src/app/project-edit/project-edit.component.ts");
+/* harmony import */ var _projects_projects_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./projects/projects.component */ "./src/app/projects/projects.component.ts");
+/* harmony import */ var _page_category_category_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./page/category/category.component */ "./src/app/page/category/category.component.ts");
+/* harmony import */ var _page_category_category_edit_category_edit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./page/category/category-edit/category-edit.component */ "./src/app/page/category/category-edit/category-edit.component.ts");
+/* harmony import */ var _page_category_category_add_category_add_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./page/category/category-add/category-add.component */ "./src/app/page/category/category-add/category-add.component.ts");
+/* harmony import */ var _page_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./page/statistics/statistics.component */ "./src/app/page/statistics/statistics.component.ts");
+/* harmony import */ var _page_update_orders_update_orders_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./page/update-orders/update-orders.component */ "./src/app/page/update-orders/update-orders.component.ts");
+/* harmony import */ var _page_update_users_update_users_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./page/update-users/update-users.component */ "./src/app/page/update-users/update-users.component.ts");
+/* harmony import */ var _page_users_users_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./page/users/users.component */ "./src/app/page/users/users.component.ts");
+/* harmony import */ var _page_order_details_order_details_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./page/order-details/order-details.component */ "./src/app/page/order-details/order-details.component.ts");
 
 
 
@@ -845,22 +843,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _page_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_13__["StatisticsComponent"] },
-    { path: 'api/projects', component: _projects_projects_component__WEBPACK_IMPORTED_MODULE_9__["ProjectsComponent"] },
-    { path: 'api/categories', component: _page_category_category_component__WEBPACK_IMPORTED_MODULE_10__["CategoryComponent"] },
-    { path: 'basket', component: _page_basket_basket_component__WEBPACK_IMPORTED_MODULE_3__["BasketComponent"] },
-    { path: 'category-add', component: _page_category_category_add_category_add_component__WEBPACK_IMPORTED_MODULE_12__["CategoryAddComponent"] },
-    { path: 'category-edit/:id', component: _page_category_category_edit_category_edit_component__WEBPACK_IMPORTED_MODULE_11__["CategoryEditComponent"] },
-    { path: 'create-user', component: _page_create_users_create_users_component__WEBPACK_IMPORTED_MODULE_4__["CreateUsersComponent"] },
-    { path: 'orders', component: _page_orders_orders_component__WEBPACK_IMPORTED_MODULE_6__["OrdersComponent"] },
-    { path: 'dashboard', component: _page_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_13__["StatisticsComponent"] },
-    { path: 'projectAdd', component: _project_add_project_add_component__WEBPACK_IMPORTED_MODULE_7__["ProjectAddComponent"] },
-    { path: 'projectEdit/:seo', component: _project_edit_project_edit_component__WEBPACK_IMPORTED_MODULE_8__["ProjectEditComponent"] },
-    { path: 'orders/:id', component: _page_update_orders_update_orders_component__WEBPACK_IMPORTED_MODULE_14__["UpdateOrdersComponent"] },
-    { path: 'orders/details/:id', component: _page_order_details_order_details_component__WEBPACK_IMPORTED_MODULE_17__["OrderDetailsComponent"], },
-    { path: 'users', component: _page_users_users_component__WEBPACK_IMPORTED_MODULE_16__["UsersComponent"] },
-    { path: 'users/:id', component: _page_update_users_update_users_component__WEBPACK_IMPORTED_MODULE_15__["UpdateUsersComponent"] },
-    { path: '**', component: _page_index_index_component__WEBPACK_IMPORTED_MODULE_5__["IndexComponent"] }
+    { path: "", component: _page_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_12__["StatisticsComponent"] },
+    { path: "api/projects", component: _projects_projects_component__WEBPACK_IMPORTED_MODULE_8__["ProjectsComponent"] },
+    { path: "api/categories", component: _page_category_category_component__WEBPACK_IMPORTED_MODULE_9__["CategoryComponent"] },
+    { path: "basket", component: _page_basket_basket_component__WEBPACK_IMPORTED_MODULE_3__["BasketComponent"] },
+    { path: "category-add", component: _page_category_category_add_category_add_component__WEBPACK_IMPORTED_MODULE_11__["CategoryAddComponent"] },
+    { path: "category-edit/:id", component: _page_category_category_edit_category_edit_component__WEBPACK_IMPORTED_MODULE_10__["CategoryEditComponent"] },
+    { path: "create-user", component: _page_create_users_create_users_component__WEBPACK_IMPORTED_MODULE_4__["CreateUsersComponent"] },
+    { path: "orders", component: _page_orders_orders_component__WEBPACK_IMPORTED_MODULE_5__["OrdersComponent"] },
+    { path: "projectAdd", component: _project_add_project_add_component__WEBPACK_IMPORTED_MODULE_6__["ProjectAddComponent"] },
+    { path: "projectEdit/:seo", component: _project_edit_project_edit_component__WEBPACK_IMPORTED_MODULE_7__["ProjectEditComponent"] },
+    { path: "orders/:id", component: _page_update_orders_update_orders_component__WEBPACK_IMPORTED_MODULE_13__["UpdateOrdersComponent"] },
+    { path: "orders/details/:id", component: _page_order_details_order_details_component__WEBPACK_IMPORTED_MODULE_16__["OrderDetailsComponent"] },
+    { path: "users", component: _page_users_users_component__WEBPACK_IMPORTED_MODULE_15__["UsersComponent"] },
+    { path: "users/:id", component: _page_update_users_update_users_component__WEBPACK_IMPORTED_MODULE_14__["UpdateUsersComponent"] },
+    { path: "**", component: _page_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_12__["StatisticsComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -957,6 +954,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _charts_dynamic1_dynamic1_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./charts/dynamic1/dynamic1.component */ "./src/app/charts/dynamic1/dynamic1.component.ts");
 /* harmony import */ var _charts_pie1_pie1_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./charts/pie1/pie1.component */ "./src/app/charts/pie1/pie1.component.ts");
 /* harmony import */ var _page_order_details_order_details_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./page/order-details/order-details.component */ "./src/app/page/order-details/order-details.component.ts");
+/* harmony import */ var _pipe_datefilter_pipe__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./pipe/datefilter.pipe */ "./src/app/pipe/datefilter.pipe.ts");
+
 
 
 
@@ -1011,6 +1010,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _charts_dynamic1_dynamic1_component__WEBPACK_IMPORTED_MODULE_25__["Dynamic1Component"],
             _charts_pie1_pie1_component__WEBPACK_IMPORTED_MODULE_26__["Pie1Component"],
             _page_order_details_order_details_component__WEBPACK_IMPORTED_MODULE_27__["OrderDetailsComponent"],
+            _pipe_datefilter_pipe__WEBPACK_IMPORTED_MODULE_28__["DatefilterPipe"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -1873,12 +1873,12 @@ let OrdersComponent = class OrdersComponent {
         this.list$ = this.ds.orderList;
     }
     onDelete(id) {
-        this.ds.deleteRecordByQuery('orders', { 'id': id });
+        this.ds.deleteRecordByQuery("orders", { id: id });
     }
     ngOnInit() {
-        this.ds.readTableByQuery('orders', {
-            select: 'users.id as userid, users.firstname, users.lastname, users.address, orders.insdate, orders.quantity, orders.id as orderid, orders.status',
-            from: 'INNER JOIN users ON orders.userid = users.id'
+        this.ds.readTableByQuery("orders", {
+            select: "users.id as userid, users.firstname, users.lastname, users.address, orders.insdate, orders.quantity, orders.id as orderid, orders.status",
+            from: "INNER JOIN users ON orders.userid = users.id"
         });
     }
 };
@@ -1887,7 +1887,7 @@ OrdersComponent.ctorParameters = () => [
 ];
 OrdersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-orders',
+        selector: "app-orders",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./orders.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/page/orders/orders.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./orders.component.css */ "./src/app/page/orders/orders.component.css")).default]
     })
@@ -2298,6 +2298,41 @@ UsersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./users.component.css */ "./src/app/page/users/users.component.css")).default]
     })
 ], UsersComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipe/datefilter.pipe.ts":
+/*!*****************************************!*\
+  !*** ./src/app/pipe/datefilter.pipe.ts ***!
+  \*****************************************/
+/*! exports provided: DatefilterPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatefilterPipe", function() { return DatefilterPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let DatefilterPipe = class DatefilterPipe {
+    transform(baseArray, active, key = "orderid") {
+        let result = baseArray.sort((a, b) => {
+            return (a[key].toString().localeCompare(b[key].toString()) * -1);
+        });
+        if (active) {
+            return result.filter(el => el.status !== 5 && el.status !== 4);
+        }
+        return result;
+    }
+};
+DatefilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: "datefilter"
+    })
+], DatefilterPipe);
 
 
 
