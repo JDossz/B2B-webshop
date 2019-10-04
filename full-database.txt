@@ -44,7 +44,8 @@ CREATE TABLE newsletter (
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     emailaddress nvarchar(255) NOT NULL,
     active boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (emailaddress)
 );
 
 INSERT INTO newsletter (emailaddress)
@@ -88,7 +89,9 @@ CREATE TABLE projects (
     pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png',
     link nvarchar(1000),
     isactive boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
+    lastfunded date DEFAULT '1000-01-01',
+    PRIMARY KEY (id),
+    UNIQUE (seo)
 );
 
 INSERT INTO projects (title, seo, institution, shortd, longd, contact, categoryid, link)
@@ -193,7 +196,8 @@ CREATE TABLE users (
     admin boolean NOT NULL DEFAULT 0,
     points int NOT NULL DEFAULT 0,
     token nvarchar(255),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (username, emailaddress)
 );
 
 INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)

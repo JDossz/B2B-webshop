@@ -14,7 +14,9 @@ CREATE TABLE projects (
     pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png',
     link nvarchar(1000),
     isactive boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
+    lastfunded date DEFAULT '1000-01-01',
+    PRIMARY KEY (id),
+    UNIQUE (seo)
 );
 
 INSERT INTO projects (title, seo, institution, shortd, longd, contact, categoryid, link)
@@ -501,4 +503,7 @@ WHERE `categoryid`=6;
 UPDATE projects
 SET `pictureurl`='/images/projects/physics.jpg'
 WHERE `categoryid`=7;
+
+UPDATE projects
+SET `goal`= 100;
 
