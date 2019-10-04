@@ -29,8 +29,8 @@ block content
                     h5.card-title #{project.title}
                     p.card-text #{project.shortd}
                     p.card-text
-                      if project.lastfunded
-                        if project.lastfunded == '0999-12-31T22:43:40.000Z'
+                      if project
+                        if project.lastfunded == null
                           small.text-muted Be the first to support this project &nbsp;
                             i.fa.fa-child
                             i.fa.fa-child
