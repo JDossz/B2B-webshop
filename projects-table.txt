@@ -502,3 +502,6 @@ UPDATE projects
 SET `pictureurl`='/images/projects/physics.jpg'
 WHERE `categoryid`=7;
 
+UPDATE projects
+SET `goal`= 100;
+
