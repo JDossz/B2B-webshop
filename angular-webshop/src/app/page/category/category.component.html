@@ -1,21 +1,22 @@
 <div class="container">
   <div class="row mt-4 mb-2 ">
-    <div class="col-3">
+    <div class="col-6 offset-3">
       <a class="btn btn-info btn-block" routerLink="/category-add">Add new category</a>
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-3">
+    <div class="col-6 offset-3">
       <input id="search" type="text" class="form-control " placeholder="Search..." [(ngModel)]="searchedPhrase">
     </div>
   </div>
   <div class="row">
-    <div class="col-4">
-      <table class="table table-striped table-responsive table-info">
+    <div class="col-6 offset-3">
+      <table class="table table-striped table-responsive">
         <thead>
           <tr>
             <th>#</th>
             <th>Category</th>
+            <th>Description</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -23,6 +24,7 @@
           <tr *ngFor="let category of categories|async |search:searchedPhrase">
             <td>{{category.id}}</td>
             <td>{{category.category}}</td>
+            <td>{{category.description}}</td>
             <td>
               <div class="btn-group">
                 <a routerLink="/category-edit/{{category.id}}" class="btn btn-info">Edit</a>
