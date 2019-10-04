@@ -15,6 +15,9 @@ export class ProjectEditComponent implements OnInit {
   project$: BehaviorSubject<Project> = this.ds.project;
   project: Project;
   categories: BehaviorSubject<Category> = this.ds.categoryList;
+  wrongAmmount:boolean = false;
+  missingData;
+
   ngOnInit() {
   }
 
@@ -35,16 +38,17 @@ export class ProjectEditComponent implements OnInit {
   onUpdate() {
     const keys = ['title', 'seo', 'institution', 'shortd', 'longd', 'contact', 'categoryid', 'goal', 'pictureurl', 'link'];
     let error = false;
+    let missing=[];
     keys.forEach((k) => {
       
       if (!this.project[k]) {
-        alert(`Please write something to every inputbox. You skipped: ${k} `);
+        missing.push(k)
+        this.missingData='You skipped: '
+        this.missingData+=missing
         error = true
-        return
       } else if (this.project[k] < 0) {
-        alert('Please write a positive number, which is not null as your goal.');
+         this.wrongAmmount = true;
         error = true
-        return
       }
     })
     if (!error) {

@@ -6,6 +6,7 @@
           <label for="title">Title</label>
           <input type="text" placeholder="Title" class="form-control" (keyup)="onKey($event)" name="project.title"
             id="title" [(ngModel)]="newProject.title" required>
+          <div class="text-danger" *ngIf="wrongTitle">This title already exists!</div>
         </div>
         <label for="seo">Seo</label>
         <input type="text" placeholder="Seo" class="form-control" name="newProject.seo" id="seo"
@@ -40,6 +41,7 @@
           <label for="goal">Goal</label>
           <input type="number" class="form-control" name="project.goal" id="goal" [(ngModel)]="newProject.goal"
             placeholder="Goal" required>
+          <div class="text-danger" *ngIf="wrongAmmount">Please write a positive number!</div>
         </div>
         <div class="form-group">
           <label for="pictureUrl">Picture url</label>
@@ -51,6 +53,7 @@
           <input type="text" class="form-control" id="link" name="project.link" [(ngModel)]="newProject.link"
             placeholder="Link" required>
         </div>
+        <div class="text-danger mb-3" *ngIf="missingData">{{missingData}}</div>
         <button type="submit" class="btn btn-success" (click)="onCreate()">Submit</button>
       </form>
     </div>
