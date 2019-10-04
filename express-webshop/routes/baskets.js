@@ -26,15 +26,14 @@ router.get('/', async (req, res) => {
   });
   actualQuantity = actualQuantity[0].totalQuantity;
 
+
   if (req.user.id) {
     res.render('baskets', {
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
       user: req.user || {},
       showQuantity: actualQuantity,
-
     });
-
   }
 });
 
@@ -184,6 +183,5 @@ router.post('/updateAdd/:id', async (req, res) => {
   });
   res.redirect('/baskets');
 });
-
 
 module.exports = router;
