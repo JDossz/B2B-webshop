@@ -55,7 +55,6 @@ app.use("/projects", require("./routes/projects"));
 app.use("/register", require("./routes/register"));
 app.use("/terms", require("./routes/termsAndConditions"));
 app.use("/thankyou", require("./routes/thankyou"));
-app.use("/users", require("./routes/users"));
 
 // clear userID cookie when logging out
 app.use("/logout", (req, res, next) => {
