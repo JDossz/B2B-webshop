@@ -1,18 +1,22 @@
-lvl 1 - 
-lvl 2 - 
-lvl 3 - 
-lvl 4 - 
-lvl 5 - 
+lvl 1 - Biginner
+lvl 2 - Apprentice
+lvl 3 - Journeyman
+lvl 4 - Expert
+lvl 5 - Artisan
 
 CREATE TABLE awards (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    required int NOT NULL,
     level nvarchar(50) NOT NULL,
+    requiredpoints int NOT NULL,
     pictureurl nvarchar(255),
     PRIMARY KEY (id)
 );
 
-INSERT INTO awards ()
-VALUES ();
+INSERT INTO awards (level, requiredpoints)
+VALUES ('Biginner', 0),
+('Apprentice', 100),
+('Journeyman', 200),
+('Expert', 300),
+('Artisan', 400);
 
