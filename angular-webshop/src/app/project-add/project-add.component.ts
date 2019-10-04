@@ -3,6 +3,7 @@ import { Project } from '../model/project';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { Category } from '../model/category';
 
 @Component({
   selector: 'app-project-add',
@@ -12,9 +13,15 @@ import { BehaviorSubject } from 'rxjs';
 export class ProjectAddComponent implements OnInit {
   newProject: Project = new Project();
   projects: BehaviorSubject<any> = this.ds.projectList;
+  categories: BehaviorSubject<Category> = this.ds.categoryList;
+  wrongAmmount:boolean = false;
+  wrongTitle:boolean = false;
+  missingData;
+
 
   constructor(private ds: DataService, private router: Router) {
     this.ds.readTableByQuery('projects', {})
+    this.ds.readTableByQuery('categories', {})
   }
 
   ngOnInit() {
@@ -22,23 +29,23 @@ export class ProjectAddComponent implements OnInit {
 
   onCreate() {
     const keys = ['title', 'seo', 'institution', 'shortd', 'longd', 'contact', 'categoryid', 'goal', 'pictureurl', 'link'];
-    let error=false;
+    let error = false;
+    let missing=[];
     keys.forEach((k) => {
-
+      
       if (!this.newProject[k]) {
-        alert(`Please write something to every inputbox. You skipped: ${k} `);
+        missing.push(k)
+        this.missingData='You skipped: '
+        this.missingData+=missing
         error = true
-        return
       } else if (this.newProject[k] < 0) {
-        alert('Please write a positive number, which is not null as your goal.');
+        this.wrongAmmount = true;
         error = true
-        return
       } else if (k == 'title') {
         for (let i = 0; i < this.projects.value.length; i++) {
           if (this.projects.value[i].title === this.newProject[k]) {
-            alert('This title already exists, please write another one!')
+            this.wrongTitle = true;
             error = true
-            return
           }
         }
       }

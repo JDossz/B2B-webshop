@@ -4,11 +4,18 @@ CREATE DATABASE betag;
 CREATE TABLE awards (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    required int NOT NULL,
     level nvarchar(50) NOT NULL,
+    requiredpoints int NOT NULL,
     pictureurl nvarchar(255),
     PRIMARY KEY (id)
 );
+
+INSERT INTO awards (level, requiredpoints)
+VALUES ('Biginner', 0),
+('Apprentice', 100),
+('Journeyman', 200),
+('Expert', 300),
+('Artisan', 400);
 
 
 CREATE TABLE baskets (
