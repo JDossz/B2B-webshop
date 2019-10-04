@@ -58,11 +58,13 @@ router.post('/donate', async (req, res) => {
   basket.forEach((el) => {
     quantitySum += el.quantity;
   });
-  await database.createRecord('orders', {
-    userid: req.user.id,
-    quantity: quantitySum,
-    status: 1
-  });
+  if (quantitySum > 0) {
+    await database.createRecord('orders', {
+      userid: req.user.id,
+      quantity: quantitySum,
+      status: 1
+    });
+  }
   let orderID = await database.readRecord('orders', {
     userid: req.user.id,
     limit: 1,
@@ -86,11 +88,13 @@ router.post('/donate', async (req, res) => {
 
   basketItem.forEach((el) => {
     const balanceOfProjects = el.balance + el.donation * el.quantity;
-    database.updateRecord('projects', {
-      id: el.projectid,
-    }, {
-      balance: balanceOfProjects
-    });
+    if (balanceOfProjects > 0) {
+      database.updateRecord('projects', {
+        id: el.projectid,
+      }, {
+        balance: balanceOfProjects
+      });
+    }
   });
 
   const userAward = await database.readRecord('baskets', {
@@ -109,11 +113,13 @@ router.post('/donate', async (req, res) => {
 
   userAward.forEach((el) => {
     const amountOfDonations = el.donations + donationsPerUser;
-    database.updateRecord('users', {
-      id: req.user.id
-    }, {
-      donations: amountOfDonations,
-    });
+    if (amountOfDonations > 0) {
+      database.updateRecord('users', {
+        id: req.user.id
+      }, {
+        donations: amountOfDonations,
+      });
+    }
   });
 
   await database.deleteRecord('baskets', {
