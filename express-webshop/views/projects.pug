@@ -29,7 +29,14 @@ block content
                     h5.card-title #{project.title}
                     p.card-text #{project.shortd}
                     p.card-text
-                      small.text-muted Last funded 3 mins ago
+                      if project.lastfunded
+                        if project.lastfunded == '0999-12-31T22:43:40.000Z'
+                          small.text-muted Be the first to support this project &nbsp;
+                            i.fa.fa-child
+                            i.fa.fa-child
+                            i.fa.fa-child
+                        else
+                          small.text-muted Last funded: #{project.lastfunded}
                     a.btn.btn-info(href=`/projects/${project.seo}`) Show more! 
     .row
       .col-4.offset-4                      

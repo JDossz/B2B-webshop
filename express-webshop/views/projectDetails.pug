@@ -21,9 +21,10 @@ block content
           .col-10.col-md-5#support
             h2#donate.mt-3.text-center #{project.title}
             p #{project.shortd}
+            p
               a(href="#readMore") 
                 small &nbsp;Read more...
-            .progress.mt-5
+            .progress
               .progress-bar.bg-success(role='progressbar',style=`width: ${percentage}%`, aria-valuenow=`${percentage}`,aria-valuemin="0", aria-valuemax=`${project.goal}`) #{percentage} %
             p
               small  the goal is $ #{project.goal}

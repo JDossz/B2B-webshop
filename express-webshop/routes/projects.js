@@ -103,6 +103,7 @@ router.get('/', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
     isactive: 1,
   });
+  console.log(projects[30]);
   const categoryList = await database.readRecord('categories', {});
   sortByTitle(projects);
   pagination(projects, categoryList, req, res);
@@ -137,7 +138,7 @@ router.get('/:seo', async (req, res, next) => {
   }
 
   const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100);
-  console.log(req.user);
+  // console.log(req.user);
   res.render('projectDetails', {
     project: selectedProject[0],
     user: req.user || {},
