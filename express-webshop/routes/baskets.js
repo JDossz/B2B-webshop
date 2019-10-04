@@ -93,6 +93,30 @@ router.post('/donate', async (req, res) => {
       balance: balanceOfProjects
     });
   });
+
+  const userAward = await database.readRecord('baskets', {
+    'users.id': req.user.id,
+    from: 'INNER JOIN users ON baskets.userid = users.id',
+    select: 'users.donations as donations'
+  });
+
+  let price = await database.readRecord('projects', {
+    userid: req.user.id,
+    select: 'SUM(projects.donation*baskets.quantity) as amount',
+    from: 'INNER JOIN baskets ON projects.id = baskets.projectid',
+  });
+
+  let donationsPerUser = price[0].amount
+
+  userAward.forEach((el) => {
+    const amountOfDonations = el.donations + donationsPerUser;
+    database.updateRecord('users', {
+      id: req.user.id
+    }, {
+      donations: amountOfDonations,
+    });
+  });
+
   await database.deleteRecord('baskets', {
     userid: req.user.id,
   });
@@ -101,7 +125,7 @@ router.post('/donate', async (req, res) => {
 
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
-  console.log('HEEEEEEEEEEEEE', req.params.id);
+
   const quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
