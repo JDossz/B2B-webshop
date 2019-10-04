@@ -86,10 +86,12 @@ router.post('/donate', async (req, res) => {
 
   basketItem.forEach((el) => {
     const balanceOfProjects = el.balance + el.donation * el.quantity;
+    const date = new Date();
     database.updateRecord('projects', {
       id: el.projectid,
     }, {
-      balance: balanceOfProjects
+      balance: balanceOfProjects,
+      lastfunded: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
     });
   });
 
