@@ -12,6 +12,7 @@
               <input type="text" placeholder="Category" class="form-control" name="category.category" id="category"
                 [(ngModel)]="category.category" required>
             </div>
+            <div class="text-danger mb-3" *ngIf="missingData">{{missingData}}</div>
             <div class="form-group">
               <label for="category">Description</label>
               <input type="text" placeholder="Description" class="form-control" name="category.description"

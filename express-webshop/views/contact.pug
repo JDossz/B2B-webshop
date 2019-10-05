@@ -29,10 +29,24 @@ block content
                             i.fa.fa-pencil-square-o(aria-hidden='true')
                     .col-1
               .row
-                .col-md-3.col-4
+                .col-md-3.col-5
                   small.text-muted &nbsp; &nbsp;Posted by: #{review.firstname} #{review.lastname}
                 .col-md-1.col-2
                   small.text-muted #{ review.rate }&starf;
+                .col-md-8.col-12.text-right 
+                  -function dateFormatting(dateString) {
+                    -const date = new Date(dateString);
+                    -const d = date.getDate();
+                    -const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    -const m = monthNames[date.getMonth()];
+                    -const y = date.getFullYear();
+                    -const h= date.getHours();
+                    - const min=date.getMinutes();
+                    -const t = date.getTime();
+                    -const sec = date.getSeconds();
+                    -return `${d} ${m} ${y} ${h}:${min}:${sec}`;
+                  -}
+                  small.text-muted #{dateFormatting(review.insdate)}
               hr
           if user
             if user.id 
@@ -40,7 +54,7 @@ block content
                 label.btn.btn-info(for='addReview') Leave a Review
         if user
           if user.id 
-            #review.col-6.offset-3.mt-5.mb-5.none
+            #review.col-12.col-md-6.offset-md-3.mt-5.mb-5.none
               form.form(action='/contact/reviews/addReview' method='post')
                 .card.text-center
                   .card-header 
