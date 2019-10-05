@@ -60,7 +60,7 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
