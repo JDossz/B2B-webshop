@@ -177,12 +177,20 @@ body {
   font-size: 0.9em;
 }
 
-.card-number {
+.card-h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.2rem;
   font-weight: 700;
-  font-size: 2rem;
+  margin: 8px 5px 5px 5px;
+}
+
+.card-number {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 4rem;
   align-content: center;
-  margin: 10px auto;
+  margin: 3px auto;
   width: 50%;
-  border: 3px solid green;
-  padding: 10px;
+  padding: 0px;
+  color:
 }
