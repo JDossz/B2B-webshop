@@ -58,11 +58,13 @@ router.post('/donate', async (req, res) => {
   basket.forEach((el) => {
     quantitySum += el.quantity;
   });
-  await database.createRecord('orders', {
-    userid: req.user.id,
-    quantity: quantitySum,
-    status: 1
-  });
+  if (quantitySum > 0) {
+    await database.createRecord('orders', {
+      userid: req.user.id,
+      quantity: quantitySum,
+      status: 1
+    });
+  }
   let orderID = await database.readRecord('orders', {
     userid: req.user.id,
     limit: 1,
@@ -111,17 +113,25 @@ router.post('/donate', async (req, res) => {
 
   userAward.forEach((el) => {
     const amountOfDonations = el.donations + donationsPerUser;
-    database.updateRecord('users', {
-      id: req.user.id
-    }, {
-      donations: amountOfDonations,
-    });
+    if (amountOfDonations > 0) {
+      database.updateRecord('users', {
+        id: req.user.id
+      }, {
+        donations: amountOfDonations,
+      });
+    }
   });
 
+  if (quantitySum > 0) {
+    res.redirect('/thankyou');
+  }
+  else {
+    res.redirect('/baskets');
+  }
   await database.deleteRecord('baskets', {
     userid: req.user.id,
   });
-  res.redirect('/thankyou');
+
 });
 
 // post a project details oldalról
