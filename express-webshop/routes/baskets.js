@@ -122,10 +122,16 @@ router.post('/donate', async (req, res) => {
     }
   });
 
+  if (quantitySum > 0) {
+    res.redirect('/thankyou');
+  }
+  else {
+    res.redirect('/baskets');
+  }
   await database.deleteRecord('baskets', {
     userid: req.user.id,
   });
-  res.redirect('/thankyou');
+
 });
 
 // post a project details oldalról
