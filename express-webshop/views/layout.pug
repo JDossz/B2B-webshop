@@ -32,6 +32,7 @@ html
     link(rel='stylesheet', href='/font-awesome-4.7.0/css/font-awesome.min.css')
     link(rel='stylesheet', href='/font-awesome-4.7.0/fonts/fontawesome-webfont.woff')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/animated.css')
     link(rel='stylesheet', href='/stylesheets/index.css')
 
   body
@@ -72,6 +73,7 @@ html
                 li
                   .col
                     a#basketlink.fa.fa-gift.fa-2x.ml-1.mt-1(href="/baskets")
+                    span#lblCartCount.badge.badge-warning.animated.bounce 0
               else
                 li
                   a.btn.btn-animate(href='/login') Log In
@@ -89,4 +91,5 @@ html
               a(href='/terms') Terms and Conditions
     
     script(src="/javascripts/jquery-3.3.1.slim.min.js")
+    script(src="/javascripts/popper.min.js")
     script(src="/bootstrap/dist/js/bootstrap.bundle.min.js")
