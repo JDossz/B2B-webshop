@@ -35,10 +35,10 @@ block content
                   .form-group
                     label Quantity :
                     input.form-control(type='number', name='projectQuantity', value=1 , min=1, style="width:100px") 
-                  button.btn-block.btn.btn-donate Donate
+                  button.btn-block.btn.btn-animate.btn-blue-green Donate
               else
                 form(action=`/login`, method="get")
-                  button.btn.btn-donate.btn-block.mt-5 Donate
+                  button.btn.btn-animate.btn-block.btn-blue-green.mt-5 Donate
         .row.mt-2
           .col-12.mb-5
             .card.mt-4
@@ -53,7 +53,7 @@ block content
                   a#link.card-text(href=`${project.link}`) #{project.link}
                 if user
                   if user.id     
-                    a.btn.btn-donate.btn-block.mt-5(href="#donate") Donate
+                    a.btn.btn-animate.btn-block.btn-blue-green.mt-5(href="#donate") Donate
                   else 
                     form(action=`/login`, method="get")
-                      button.btn.btn-donate.btn-block.mt-5 Donate
+                      button.btn.btn-animate.btn-blue-green.btn-block.mt-5 Donate

@@ -87,6 +87,63 @@ footer>.container {
   padding: 0 15px;
 }
 
+.btn-animate {
+  background-size: 300% 100%;
+  border: none;
+  color: #FFF;
+  font-size: 18px;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-animate:hover {
+  background-position: 100% 0;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-high {
+  height: 55px;
+}
+
+.btn-animate.btn-black {
+  background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+
+.btn-animate.btn-blue {
+  background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.btn-animate.btn-lightblue {
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+.btn-animate.btn-blue-green {
+  background-image: linear-gradient(to right, #25AAE1, #40E495, #30DD8A, #2BB673);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+  font-weight: 600;
+}
+
+.btn-animate.btn-green {
+  background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+.btn-animate.btn-orange {
+  background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+
 .nav-link {
   font-size: 1.3em;
 }
