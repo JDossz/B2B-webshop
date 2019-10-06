@@ -136,7 +136,7 @@ module.exports = class BetagDB {
     const sql = `
     SELECT SUM(baskets.quantity) as totalQuantity
     FROM baskets 
-      
+    WHERE userid = ${req.user.id}
    `;
 
 
