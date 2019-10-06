@@ -4,6 +4,7 @@ const BetagDB = require('./../modules/webshop-mariadb');
 const router = express.Router();
 const database = new BetagDB();
 
+
 /* GET kérés küldésekor home page-re: */
 router.get('/', async (req, res, next) => {
   const projectsList = await database.readRecord('projects', {});

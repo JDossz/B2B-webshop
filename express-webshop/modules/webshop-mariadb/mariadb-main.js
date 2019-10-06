@@ -131,4 +131,13 @@ module.exports = class BetagDB {
     const result = await this.connection.query(sql);
     return result;
   }
+
+  async basketNumber(req) {
+    const sql = `
+    SELECT SUM(baskets.quantity) as totalQuantity
+    FROM baskets`;
+
+    const result = await this.connection.query(sql);
+    return result;
+  }
 };
