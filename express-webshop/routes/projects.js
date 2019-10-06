@@ -103,7 +103,6 @@ router.get('/', async (req, res, next) => {
   const projects = await database.readRecord('projects', {
     isactive: 1,
   });
-  console.log(projects[30]);
   const categoryList = await database.readRecord('categories', {});
   sortByTitle(projects);
   pagination(projects, categoryList, req, res);

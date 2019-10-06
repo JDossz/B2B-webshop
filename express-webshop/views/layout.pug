@@ -66,7 +66,6 @@ html
                   a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                   .dropdown-menu(aria-labelledby='navbarDropdown')
                     a.dropdown-item(href='/myProfile') My Profile
-                    a.dropdown-item(href='/myProfile') Settings
                     a.dropdown-item(href='/logout') Log out
                 li
                   span#username #{user.firstname} #{user.lastname}
@@ -75,7 +74,7 @@ html
                     a#basketlink.fa.fa-gift.fa-2x.ml-1.mt-1(href="/baskets")
               else
                 li
-                  a.btn.btn-animate.btn-lightblue(href='/login') Log In
+                  a.btn.btn-animate(href='/login') Log In
       div.mt-3
         block content
 

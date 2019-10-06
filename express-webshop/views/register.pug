@@ -8,8 +8,8 @@ block content
     .row
       .col-6.offset-3.mb-5
         .card.mb-5
-          .card-header.bg-primary
-            h2.text-light Register
+          .card-header.btn
+            h2 Register
           .card-body
             form(method='post', action='/register/users')
               .form-group
@@ -43,4 +43,4 @@ block content
                   input#gridCheck.form-check-input(type='checkbox' name='newsletter')
                   label.form-check-label(for='gridCheck')
                     | Send me a weekly mix of handpicked projects, plus occasional Entryway news
-              button.btn.btn-primary.btn-block.mt-4(type='submit') Create account
+              button.btn.btn-animate.btn-block.mt-4(type='submit') Create account

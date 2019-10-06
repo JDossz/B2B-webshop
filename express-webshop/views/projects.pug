@@ -6,21 +6,21 @@ block content
       .col-3
         .sidebar
           h1 Categories
-          each category, index in categories 
+          each category, index in categories
             a(href=`/projects/categories/${category.category}`) #{category.category}        
           a(href='/projects') Go back!
           .row
             form.form-inline(action='/projects' method="GET")
               .form-group
                 .col-6
-                    input.form-control(type='text',name="search", placeholder='Search..')
+                  input.form-control(type='text',name="search", placeholder='Search..')
                 .col-6
-                  button.btn.btn-animate.btn-lightblue(type="submit")
+                  button.btn.btn-animate(type="submit")
                     i.fa.fa-search(aria-hidden='true')
-      .col-8               
+      .col-8
         each project , index in projects
           if index < 10
-            .card.mb-3(style='max-width: 850px;')
+            .card.mb-3#project-card(style='max-width: 850px;')
               .row.no-gutters
                 .col-md-4
                   img.card-img(src=`${project.pictureurl}`, alt='...')
@@ -37,7 +37,7 @@ block content
                             i.fa.fa-child
                         else
                           small.text-muted Last funded: #{project.lastfunded}
-                    a.btn.btn-animate.btn-blue(href=`/projects/${project.seo}`) Show more!
+                    a.btn.btn-animate(href=`/projects/${project.seo}`) Show more!
     .row
       .col-4.offset-4                      
         if numberOfproducts > 10

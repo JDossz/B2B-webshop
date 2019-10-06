@@ -9,7 +9,7 @@ block content
       .col-10.offset-1
         .card.card-outline-secondary.mt-5.mb-5
           .card-header
-            h3 Our Reviews
+            h3 Others said about us
           each review in reviews
             .card-body(style='padding:10px')
               .row
@@ -37,7 +37,7 @@ block content
           if user
             if user.id 
               .card-footer.col-12.text-center
-                label.btn.btn-info(for='addReview') Leave a Review
+                label.btn.btn-animate(for='addReview') Leave a Review
         if user
           if user.id 
             #review.col-6.offset-3.mt-5.mb-5.none
@@ -135,7 +135,7 @@ block content
                                 path(d='M290.3 434.8c-1 3.4-5.8 5.2-11 3.9s-8.4-5.1-7.4-8.7c.8-3.3 5.7-5 10.7-3.8 5.1 1.4 8.5 5.3 7.7 8.6z', fill='#fff', opacity='.2')
                               
                   .card-footer
-                    button.btn.btn-info(type='submit') SEND
+                    button.btn.btn-animate(type='submit') SEND
 
                           
                           
