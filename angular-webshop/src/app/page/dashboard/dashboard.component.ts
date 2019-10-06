@@ -19,8 +19,8 @@ export class DashboardComponent implements OnInit {
   //Projects
   projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {});
   projects: any
-  countProjects: number = 0;
-  countDeletedProjects: number = 0;
+  countedProjects: number = 0;
+  countedDeletedProjects: number = 0;
   countActiveProjects: number = 0;
   countPassiveProjects: number = 0;
   countedMaxDonation: number = 0;
@@ -107,10 +107,10 @@ export class DashboardComponent implements OnInit {
 
   manageProjects() {
     for (let i = 0; i < this.projects.length; i++) {
-      this.countProjects++
+      this.countedProjects++
       this.totalBalanceOfOrders += this.projects[i].balance
       if (this.projects[i].isactive == 0) {
-        this.countDeletedProjects++
+        this.countedDeletedProjects++
       }
       if (this.projects[i].isactive == 1) {
         this.countActiveProjects++
@@ -119,6 +119,18 @@ export class DashboardComponent implements OnInit {
         this.countPassiveProjects++
       }
     }
+    for (let i = 0; i < this.projects.length; i++) {
+      if (this.countedMaxDonation < this.projects[i].donation) {
+        this.countedMaxDonation = this.projects[i].donation;
+      }
+    }
+    for (let i = 0; i < this.projects.length; i++) {
+      if (this.countedMinDonation > this.projects[i].donation) {
+        this.countedMinDonation = this.projects[i].donation;
+        continue;
+      }
+    }
+    this.countedAverageDonaton = this.totalBalanceOfOrders / this.countedProjects
   }
 
   ngOnInit() {

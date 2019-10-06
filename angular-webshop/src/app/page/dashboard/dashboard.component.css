@@ -40,7 +40,7 @@ body {
 }
 
 .card.green .additional {
-  background: linear-gradient(#92bCa6, #A2CCB6);
+  background: linear-gradient(rgb(56, 115, 245), rgb(14, 12, 95));
 }
 
 
@@ -149,7 +149,7 @@ body {
 }
 
 .card .additional .stats div.value {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.5rem;
 }
@@ -173,9 +173,10 @@ body {
 
 .card .general .more {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0.3rem;
   right: 1rem;
   font-size: 0.9em;
+  margin-bottom: 0px;
 }
 
 
@@ -187,15 +188,19 @@ body {
 }
 
 .card-number {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: 700;
-  font-size: 4rem;
-  margin: 1.5rem auto;
+  font-size: 5rem;
+  margin: 1rem auto;
   top: 50%;
   bottom: 50%;
   padding: 0px;
   align-content: center;
   justify-content: center;
+  background: -webkit-linear-gradient(rgb(122, 209, 126), rgb(11, 61, 17));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* color: linear-gradient(rgb(122, 209, 126), rgb(11, 61, 17)); */
 }
 
 .orders-card-span {
@@ -205,4 +210,24 @@ body {
 .stats {
   justify-content: center;
   margin: auto;
+  font-size: 1rem;
+}
+
+.my-card-arrow {
+  position: relative;
+  font-size: 1.7rem;
+  margin-bottom: 0px;
+  bottom: -0.15rem;
+}
+
+.centering-div {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.additional-2 {
+  background: linear-gradient(rgb(255, 86, 86), rgb(83, 13, 13));
 }
