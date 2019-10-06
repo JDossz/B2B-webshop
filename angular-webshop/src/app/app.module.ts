@@ -26,6 +26,7 @@ import { StatisticsComponent } from './page/statistics/statistics.component';
 import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
 import { Pie1Component } from './charts/pie1/pie1.component';
 import { OrderDetailsComponent } from './page/order-details/order-details.component';
+import { DatefilterPipe } from './pipe/datefilter.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { OrderDetailsComponent } from './page/order-details/order-details.compon
     Dynamic1Component,
     Pie1Component,
     OrderDetailsComponent,
+    DatefilterPipe,
   ],
   imports: [
     BrowserModule,

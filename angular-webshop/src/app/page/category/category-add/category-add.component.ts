@@ -12,6 +12,7 @@ export class CategoryAddComponent implements OnInit {
 
   newCategory: Category = new Category();
   categoryList: Category[];
+  missingData;
 
   constructor(private ds: DataService, private router: Router) { }
 
@@ -19,8 +20,8 @@ export class CategoryAddComponent implements OnInit {
   }
 
   onCreate(): void {
-    if (this.newCategory.category === undefined) {
-      alert('Please write something to every inputbox')
+  if (this.newCategory.category === undefined) {
+      this.missingData = 'Please write a category name!'
     } else {
       this.ds.createRecord('categories', this.newCategory).subscribe(
         () => this.router.navigate(["/api/categories"])

@@ -1,0 +1,19 @@
+.activeProjectCard {
+  background-image: url("https://img.icons8.com/color/144/000000/project.png");
+  display: block;
+  background-position: center;
+  z-index: 1;
+  background-color: hsla(0,0%,100%,0.40);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+}
+
+.allProjectCard {
+  background-image: url("https://img.icons8.com/ios/144/000000/project.png");
+  display: block;
+  background-position: center;
+  z-index: 1;
+  background-color: hsla(0,0%,100%,0.80);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+}
