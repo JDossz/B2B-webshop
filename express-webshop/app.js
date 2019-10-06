@@ -42,7 +42,9 @@ app.use(async (req, res, next) => {
 });
 
 app.use(async (req, res, next) => {
+  //  if (req.user.id) {
   let basketNumber = await database.basketNumber(req);
+  console.log(req.user, "ITT")
   req.basketNumber = basketNumber;
   if (basketNumber[0].totalQuantity == undefined) {
     allItems = 0;
@@ -53,6 +55,8 @@ app.use(async (req, res, next) => {
   if (basketNumber[0].totalQuantity > 0) {
     allItems = basketNumber[0].totalQuantity;
   }
+  console.log(req.user)
+  //}
   next();
 });
 
