@@ -4,6 +4,12 @@ body {
   color: #5a5a5a;
 }
 
+.btn-animate.btn-blue {
+  background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  padding: 10px;
+}
+
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
@@ -16,7 +22,7 @@ body {
 }
 
 .carousel-caption > h1 {
-  font-family: 'Garamond';
+  font-family: 'Helvetica';
   color: #000081;
   font-size: 4em;
   /* text-decoration: underline #FFCE16 double; */
@@ -26,7 +32,7 @@ body {
 }
 
 .carousel-caption > p.shortd {
-  font-family: 'Garamond';
+  font-family: 'Helvetica';
   color: #000081;
   text-shadow: -1px -1px 5px #FFF, 1px -1px 5px #FFF, -1px 1px 5px #FFF, 1px 1px 5px #FFF;
   font-size: 1.5em;
@@ -146,14 +152,18 @@ video {
 -------------------------------------------------- */
 
 @font-face {
-  font-family: 'steelfish-outline';
-  src: url('../fonts/steelfish-outline.ttf');
-}
-@font-face {
   font-family: 'beyondcontrol';
   src: url('../fonts/BEYONDCONTROL.ttf');
 }
 @font-face {
   font-family: 'Garamond';
   src: url('../fonts/EBGaramond08-Regular.otf');
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica.ttf');
+}
+@font-face {
+  font-family: 'steelfish-outline';
+  src: url('../fonts/steelfish-outline.ttf');
 }
