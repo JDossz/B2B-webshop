@@ -220,7 +220,10 @@ footer>.container {
 -------------------------------------------------- */
 
 @font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica.ttf');
+}
+@font-face {
   font-family: 'Francois';
   src: url('/fonts/FrancoisOne.ttf');
 }
-
