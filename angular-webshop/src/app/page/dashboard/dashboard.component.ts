@@ -19,7 +19,13 @@ export class DashboardComponent implements OnInit {
   //Projects
   projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {});
   projects: any
+  countProjects: number = 0;
   countDeletedProjects: number = 0;
+  countActiveProjects: number = 0;
+  countPassiveProjects: number = 0;
+  countedMaxDonation: number = 0;
+  countedMinDonation: number = 0;
+  countedAverageDonaton: number = 0;
 
   //Orders
   orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
@@ -96,17 +102,21 @@ export class DashboardComponent implements OnInit {
       if (this.orders[i].status == 4) {
         this.orderStatus4++
       }
-      if (this.orders[i].status == 5) {
-        this.orderStatus5++
-      }
     }
   }
 
   manageProjects() {
     for (let i = 0; i < this.projects.length; i++) {
+      this.countProjects++
       this.totalBalanceOfOrders += this.projects[i].balance
       if (this.projects[i].isactive == 0) {
         this.countDeletedProjects++
+      }
+      if (this.projects[i].isactive == 1) {
+        this.countActiveProjects++
+      }
+      if (this.projects[i].isactive == 0) {
+        this.countPassiveProjects++
       }
     }
   }

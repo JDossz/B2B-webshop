@@ -190,8 +190,19 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
   font-size: 4rem;
-  margin: 1px auto;
-  width: 50%;
+  margin: 1.5rem auto;
+  top: 50%;
+  bottom: 50%;
   padding: 0px;
   align-content: center;
+  justify-content: center;
+}
+
+.orders-card-span {
+  margin: 1px;
+}
+
+.stats {
+  justify-content: center;
+  margin: auto;
 }

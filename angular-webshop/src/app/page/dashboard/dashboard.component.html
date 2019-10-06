@@ -212,9 +212,9 @@
       </div>
       <div class="general">
         <!-- <h1 class="card-h1">Users</h1> -->
-        <div class="mx-4 my-3">So now, we have</div>
+        <div class="mx-4 mt-3">So now, we have</div>
         <div class="text-center card-number mx-auto">{{countedUsers}}</div>
-        <div class="text-right mx-4 my-2">Customers.</div>
+        <div class="text-right mx-4">Customers.</div>
         <span class="more mx-2 my-2">But lets check more details.</span>
       </div>
     </div>
@@ -413,17 +413,17 @@
             <div>
               <div class="title">Active</div>
               <i class="fa fa-trophy"></i>
-              <div class="value">-</div>
+              <div class="value">{{countActiveProjects}}</div>
             </div>
             <div>
               <div class="title">Passive</div>
               <i class="fa fa-gamepad"></i>
-              <div class="value">-</div>
+              <div class="value">{{countPassiveProjects}}</div>
             </div>
             <div>
               <div class="title">Deleted</div>
               <i class="fa fa-group"></i>
-              <div class="value">-</div>
+              <div class="value">{{countDeletedProjects}}</div>
             </div>
           </div>
         </div>
@@ -431,7 +431,7 @@
       <div class="general">
         <!-- <h1 class="card-h1">Users</h1> -->
         <div class="mx-4 my-3">And we have</div>
-        <div class="text-center card-number mx-auto">-</div>
+        <div class="text-center card-number mx-auto">{{countProjects}}</div>
         <div class="text-right mx-4 my-2">projects.</div>
         <span class="more mx-2 my-2">But lets check more details.</span>
       </div>
@@ -840,26 +840,39 @@
         <div class="more-info">
           <h1 class="mx-2 my-2">Details</h1>
           <div class="coords">
-            <span>Sajt1</span>
-            <span>Válasz1</span>
+            <span>Status 1</span>
+            <span>{{orderStatus1}}</span>
+          </div>
+          <div class="coords orders-card-span">
+            <span>Status 2</span>
+            <span>{{orderStatus2}}</span>
           </div>
           <div class="coords">
-            <span>Sajt1</span>
-            <span>Válasz1</span>
+            <span>Status 3</span>
+            <span>{{orderStatus3}}</span>
+          </div>
+          <div class="coords">
+            <span>Status 4</span>
+            <span>{{orderStatus4}}</span>
           </div>
           <div class="stats mx-1 my-2">
             <div>
               <div class="title">Total Balance</div>
               <i class="fa fa-trophy"></i>
-              <div class="value">{{totalBalanceOfOrders}}</div>
+              <div class="value">{{totalBalanceOfOrders | currency: 'EUR':true:'2.0'}}</div>
             </div>
             <div>
-              <div class="title">Any</div>
+              <div class="title">Highest don</div>
               <i class="fa fa-gamepad"></i>
               <div class="value">-</div>
             </div>
             <div>
-              <div class="title">Any</div>
+              <div class="title">Lowest don</div>
+              <i class="fa fa-group"></i>
+              <div class="value">-</div>
+            </div>
+            <div>
+              <div class="title">Average don</div>
               <i class="fa fa-group"></i>
               <div class="value">-</div>
             </div>
