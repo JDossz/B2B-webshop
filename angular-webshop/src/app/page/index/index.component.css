@@ -197,9 +197,9 @@ body {
   padding: 0px;
   align-content: center;
   justify-content: center;
-  background: -webkit-linear-gradient(rgb(255, 128, 78), rgb(15, 21, 75));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: transparent;
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
   /* color: linear-gradient(rgb(122, 209, 126), rgb(11, 61, 17)); */
 }
 
@@ -231,3 +231,5 @@ body {
 .additional-2 {
   background: linear-gradient(rgb(255, 86, 86), rgb(83, 13, 13));
 }
+
+/* background: -webkit-linear-gradient(rgb(255, 128, 78), rgb(15, 21, 75)); */

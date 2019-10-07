@@ -127,10 +127,5 @@ export class IndexComponent implements OnInit {
       }
     }
     this.countedAverageDonaton = this.totalBalanceOfOrders / this.countedProjects
-    console.log('Count Projects', this.countedProjects);
-    console.log(this.countActiveProjects);
   }
-
-
-
 }
