@@ -114,17 +114,13 @@ module.exports = class BetagDB {
 
   async previousOrders(req) {
     const sql = `
-    SELECT orderid, 
-    projects.title, 
-    users.lastname, 
-    users.firstname, 
-    orders.quantity,
-    orders.insdate
-    FROM projects 
-    INNER JOIN orderdetails ON projects.id = orderdetails.projectid 
+    SELECT COUNT(DISTINCT projectid) as allDonatedProjects
+    FROM orderdetails
+    INNER JOIN projects ON projects.id = orderdetails.projectid 
     INNER JOIN orders ON orders.id = orderdetails.orderid 
     INNER JOIN users ON users.id = orders.userid
     WHERE users.id = ${req.user.id}`;
+
     const result = await this.connection.query(sql);
     return result;
   }

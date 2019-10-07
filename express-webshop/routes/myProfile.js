@@ -15,10 +15,18 @@ router.all('/', async (req, res, next) => {
   }
 });
 
+
+
 /* GET kérés küldésekor profile page-re, ha be vagyunk jelentkezve: */
-router.get('/', async (req, res, next) => res.render('myProfile', {
-  title: 'Profile Page',
-  user: req.user || {},
-}));
+router.get('/', async (req, res, next) => {
+  const donatedProjectsPerUser = await database.previousOrders(req)
+  donatedProjects = donatedProjectsPerUser[0].allDonatedProjects
+  res.render('myProfile', {
+    title: 'Profile Page',
+    user: req.user || {},
+    fundedProjects: donatedProjects,
+  });
+  console.log(donatedProjectsPerUser[0].allDonatedProjects)
+});
 
 module.exports = router;
