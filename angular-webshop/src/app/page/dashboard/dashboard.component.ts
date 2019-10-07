@@ -1,35 +1,102 @@
-import { Component, OnInit } from '@angular/core';
-import * as CanvasJS from 'node_modules/canvasjs/dist/canvasjs.min.js';
+import { Component } from '@angular/core';
+import { StatisticsService } from 'src/app/services/statistics.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-  ngOnInit() {
-    let chart = new CanvasJS.Chart("chartContainer", {
-      animationEnabled: true,
-      exportEnabled: true,
-      title: {
-        text: "Basic Column Chart in Angular"
-      },
-      data: [{
-        type: "column",
-        dataPoints: [
-          { y: 71, label: "Apple" },
-          { y: 55, label: "Mango" },
-          { y: 50, label: "Orange" },
-          { y: 65, label: "Banana" },
-          { y: 95, label: "Pineapple" },
-          { y: 68, label: "Pears" },
-          { y: 28, label: "Grapes" },
-          { y: 34, label: "Lychee" },
-          { y: 14, label: "Jackfruit" }
-        ]
-      }]
+export class DashboardComponent {
+  dataSource: Object;
+  chartConfig: Object;
+  //Users
+  users$: Observable<any> = this.statisticsService.readTableByQuery('users', {});
+  users: any;
+
+  //Projects
+  projects$: Observable<any> = this.statisticsService.readTableByQuery('projects', {});
+  projects: any;
+
+  //Orders
+  orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
+  orders: any;
+
+  //Categories
+  categories$: Observable<any> = this.statisticsService.readTableByQuery('categories', {});
+  categories: any;
+
+  constructor (private statisticsService: StatisticsService) {
+    this.statisticsService.readTableByQuery('users', {});
+    this.statisticsService.readTableByQuery('orders', {});
+    this.statisticsService.readTableByQuery('projects', {});
+    this.statisticsService.readTableByQuery('categories', {});
+
+
+    this.users$.subscribe(data => {
+      this.users = data;
+      // this.maganeUsers();
     });
 
-    chart.render();
+    this.orders$.subscribe(data => {
+      this.orders = data;
+      // this.manageOrders();
+    });
+
+    this.projects$.subscribe(data => {
+      this.projects = data;
+      // this.manageProjects();
+    });
+
+    this.categories$.subscribe(data => {
+      this.categories = data;
+      console.log(this.categories);
+      // this.maganeCategories();
+    });
+
+
+
+    this.chartConfig = {
+      width: '700',
+      height: '400',
+      type: 'column2d',
+      dataFormat: 'json',
+    };
+
+    this.dataSource = {
+      "chart": {
+        "caption": "Countries With Most Oil Reserves [2017-18]",
+        "subCaption": "In MMbbl = One Million barrels",
+        "xAxisName": "Country",
+        "yAxisName": "Reserves (MMbbl)",
+        "numberSuffix": "K",
+        "theme": "fusion",
+      },
+      "data": [{
+        "label": "Venezuela",
+        "value": "290"
+      }, {
+        "label": "Saudi",
+        "value": "260"
+      }, {
+        "label": "Canada",
+        "value": "180"
+      }, {
+        "label": "Iran",
+        "value": "140"
+      }, {
+        "label": "Russia",
+        "value": "115"
+      }, {
+        "label": "UAE",
+        "value": "100"
+      }, {
+        "label": "US",
+        "value": "30"
+      }, {
+        "label": "China",
+        "value": "30"
+      }]
+    };
   }
 }

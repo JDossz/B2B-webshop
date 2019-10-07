@@ -1,8 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
+import { BrowserModule } from '@angular/platform-browser';
+import { FusionChartsModule } from 'angular-fusioncharts';
+// Load FusionCharts
+import * as FusionCharts from 'fusioncharts';
+// Load Charts module
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+// Load fusion theme
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -56,11 +65,12 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     DashboardComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ChartsModule,
+    BrowserModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
