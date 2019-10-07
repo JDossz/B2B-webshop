@@ -15,7 +15,7 @@ export class ProjectEditComponent implements OnInit {
   project$: BehaviorSubject<Project> = this.ds.project;
   project: Project;
   categories: BehaviorSubject<Category> = this.ds.categoryList;
-  wrongAmmount:boolean = false;
+  wrongAmmount: boolean = false;
   missingData;
 
   ngOnInit() {
@@ -34,29 +34,29 @@ export class ProjectEditComponent implements OnInit {
     );
     this.ds.readTableByQuery('categories', {})
   }
-  
+
   onUpdate() {
     const keys = ['title', 'seo', 'institution', 'shortd', 'longd', 'contact', 'categoryid', 'goal', 'pictureurl', 'link'];
     let error = false;
-    let missing=[];
+    let missing = [];
     keys.forEach((k) => {
-      
+
       if (!this.project[k]) {
         missing.push(k)
-        this.missingData='You skipped: '
-        this.missingData+=missing
+        this.missingData = 'You skipped: '
+        this.missingData += missing
         error = true
       } else if (this.project[k] < 0) {
-         this.wrongAmmount = true;
+        this.wrongAmmount = true;
         error = true
       }
     })
     if (!error) {
+      this.project.lastfunded =this.project.lastfunded|| 0;
       this.ds.updateRecordByQuery('projects', { 'seo': this.project.seo }, this.project).subscribe(
         () => this.router.navigate(["/api/projects"])
-        )
-      }
-      
+      )
     }
+
   }
-  
+}

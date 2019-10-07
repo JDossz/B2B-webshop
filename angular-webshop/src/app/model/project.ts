@@ -12,4 +12,5 @@ export class Project {
   balance: number;
   pictureurl: string;
   link: string;
+  lastfunded:any;
 }
