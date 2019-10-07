@@ -45,6 +45,7 @@ header .overlay {
   header {
     background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
   }
+
   header video {
     display: none;
   }
@@ -183,6 +184,12 @@ footer>.container {
   font-size: 1.5em;
   position: relative;
   top: 17%;
+}
+
+#basketNumber {
+  font-size: 0.5em;
+  color: #000;
+  margin-left: -7px;
 }
 
 /* FOR RESPONSIVE CSS

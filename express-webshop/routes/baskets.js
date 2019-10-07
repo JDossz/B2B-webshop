@@ -42,10 +42,8 @@ router.get('/empty/:userid', async (req, res) => {
   database.deleteRecord('baskets', {
     userid: req.user.id
   });
-  res.render('baskets', {
-    user: req.user || {},
-
-  });
+  res.redirect('/baskets')
+ 
 });
 
 router.post('/donate', async (req, res) => {
