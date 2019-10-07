@@ -4,7 +4,7 @@ const MariaDBmain = require('../modules/webshop-mariadb');
 const router = express.Router();
 const database = new MariaDBmain();
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   let data = await database.readRecord('baskets', {
     userid: req.user.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
@@ -38,15 +38,14 @@ router.get('/', async (req, res, next) => {
 });
 
 // a bejelentkezett user kosarának ürítése
-router.get('/empty/:userid', async (req, res, next) => {
+router.get('/empty/:userid', async (req, res) => {
   database.deleteRecord('baskets', {
-    userid: req.user.id
+    userid: req.user.id,
   });
-  res.redirect('/baskets')
-
+  res.redirect('/baskets');
 });
 
-router.post('/donate', async (req, res, next) => {
+router.post('/donate', async (req, res) => {
   // Lekérjük, ami a kosárban van.
   let basket = await database.readRecord('baskets', {
     userid: req.user.id,
@@ -60,7 +59,7 @@ router.post('/donate', async (req, res, next) => {
     await database.createRecord('orders', {
       userid: req.user.id,
       quantity: quantitySum,
-      status: 1
+      status: 1,
     });
   }
   let orderID = await database.readRecord('orders', {
@@ -98,22 +97,22 @@ router.post('/donate', async (req, res, next) => {
   const userAward = await database.readRecord('baskets', {
     'users.id': req.user.id,
     from: 'INNER JOIN users ON baskets.userid = users.id',
-    select: 'users.donations as donations'
+    select: 'users.donations as donations',
   });
 
-  let price = await database.readRecord('projects', {
+  const price = await database.readRecord('projects', {
     userid: req.user.id,
     select: 'SUM(projects.donation*baskets.quantity) as amount',
     from: 'INNER JOIN baskets ON projects.id = baskets.projectid',
   });
 
-  let donationsPerUser = price[0].amount
+  const donationsPerUser = price[0].amount;
 
   userAward.forEach((el) => {
     const amountOfDonations = el.donations + donationsPerUser;
     if (amountOfDonations > 0) {
       database.updateRecord('users', {
-        id: req.user.id
+        id: req.user.id,
       }, {
         donations: amountOfDonations,
       });
@@ -121,24 +120,18 @@ router.post('/donate', async (req, res, next) => {
   });
 
 
-
   if (quantitySum > 0) {
-
     await database.deleteRecord('baskets', {
       userid: req.user.id,
     });
     res.redirect('/thankyou');
-
-  }
-  else {
+  } else {
     res.redirect('/baskets');
   }
-
 });
 
 // post a project details oldalról
-router.post('/:id', async (req, res, next) => {
-
+router.post('/:id', async (req, res) => {
   const quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
@@ -152,7 +145,6 @@ router.post('/:id', async (req, res, next) => {
       userid: req.user.id || 0,
       quantity: req.body.projectQuantity || 1,
     });
-
   } else {
     const incrementedQuantity = quantity[0].quantity + parseInt(req.body.projectQuantity, 10);
     await database.updateRecord('baskets', {
@@ -161,12 +153,11 @@ router.post('/:id', async (req, res, next) => {
     }, {
       quantity: incrementedQuantity,
     });
-
   }
   res.redirect('/baskets');
 });
 
-router.post('/updateDel/:id', async (req, res, next) => {
+router.post('/updateDel/:id', async (req, res) => {
   const quantity = await database.readRecord('baskets', {
     id: req.params.id,
   });
@@ -184,7 +175,7 @@ router.post('/updateDel/:id', async (req, res, next) => {
   res.redirect('/baskets');
 });
 
-router.post('/updateAdd/:id', async (req, res, next) => {
+router.post('/updateAdd/:id', async (req, res) => {
   const quantity = await database.readRecord('baskets', {
     id: req.params.id,
   });
