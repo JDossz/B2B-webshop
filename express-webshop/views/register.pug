@@ -21,9 +21,13 @@ block content
                   h5 Lastname
                 input#inputLastName.form-control(type='text',name='lastname', placeholder='Please enter your lastname', required)
               .form-group
+                select.form-control(name='gender')
+                  option(value='0', name='gender') Female
+                  option(value='1', name='gender') Male 
+              .form-group
                 label(for='inputAddress')
                   h5 Address
-                input#inputAddress.form-control(type='text',name='address', pattern='^\\d+\\s[A-z]+\\s[A-z]+',title='Must start with number(s), then at least two words. Something like : 61 Park Street, Camden, ME, 04843, US' placeholder='Please enter your address', required)
+                input#inputAddress.form-control(type='text',name='address', pattern='^\\d+\\s[A-z]+\\s[A-z]+',title='Must start with number(s), then at least two words. Something like : 61 Park Street' placeholder='Please enter your address', required)
               .form-group
                 label(for='inputUserName') 
                   h5 Username
