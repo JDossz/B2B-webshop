@@ -6,10 +6,8 @@ const database = new BetagDB();
 
 
 /* GET kérés küldésekor home page-re: */
-router.get('/', async (req, res) => {
-  const projectsList = await database.readRecord('projects', {
-    isactive: 1,
-  });
+router.get('/', async (req, res, next) => {
+  const projectsList = await database.readRecord('projects', { isactive: 1 });
   const usersList = await database.readRecord('users', {});
   const projectsToCarousel = [];
   const projectsToFeature = [];

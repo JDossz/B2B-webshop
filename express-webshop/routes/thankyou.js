@@ -4,8 +4,7 @@ const BetagDB = require('./../modules/webshop-mariadb');
 const router = express.Router();
 const database = new BetagDB();
 
-router.get('/', async (req, res, next) => {
-  console.log(req.query);
+router.get('/', async (req, res) => {
   if (req.query.hasOwnProperty('emailaddress')) {
     database.createRecord('newsletter', { emailaddress: req.query.emailaddress });
   }
@@ -14,6 +13,8 @@ router.get('/', async (req, res, next) => {
     title: 'Hearty thank you',
     user: req.user || {},
   });
+
+  setTimeout(res.redirect('/'), 3000);
 });
 
 module.exports = router;
