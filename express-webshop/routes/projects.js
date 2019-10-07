@@ -8,7 +8,7 @@ const database = new MariaDBmain();
 
 
 // Sorts by title and institution
-const sortByTitle = function (projects) {
+function sortByTitle(projects) {
   projects.sort((a, b) => {
     if (a.title < b.title) {
       return -1;
@@ -25,11 +25,10 @@ const sortByTitle = function (projects) {
       }
     }
   });
-};
+}
 
 // Limits to 10 projects/page, makes pagination
-const pagination = function (projects, categoryList, req, res) {
-
+function pagination(projects, categoryList, req, res) {
   const resultSize = projects.length;
   const viewSize = 10;
 
@@ -90,10 +89,10 @@ const pagination = function (projects, categoryList, req, res) {
     displaySize: viewSize,
     user: req.user || {},
   });
-};
+}
 
 /* GET users listing. */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   if (req.query.search) {
     const projects = await database.readRecordWithLike(req);
     const categoryList = await database.readRecord('categories', {});
@@ -109,14 +108,14 @@ router.get('/', async (req, res, next) => {
 });
 
 // Creates cookie with viewSize
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
   res.cookie('viewSize', req.body.limit, {
     maxAge: 900000,
   });
 });
 
 // Get projects by category
-router.get('/categories/:category', async (req, res, next) => {
+router.get('/categories/:category', async (req, res) => {
   const projects = await database.readProjectsByCategory(req.params.category);
   const categoryList = await database.readRecord('categories', {});
 
@@ -126,7 +125,7 @@ router.get('/categories/:category', async (req, res, next) => {
 
 
 // :3000/projects/:table/?id=7
-router.get('/:seo', async (req, res, next) => {
+router.get('/:seo', async (req, res) => {
   const urlParts = req.originalUrl.split('/');
   const seoName = urlParts[urlParts.length - 1];
   const selectedProject = await database.readRecord('projects', {
