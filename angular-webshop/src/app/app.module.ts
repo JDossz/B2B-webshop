@@ -37,6 +37,7 @@ import { Pie1Component } from './charts/pie1/pie1.component';
 import { OrderDetailsComponent } from './page/order-details/order-details.component';
 import { DatefilterPipe } from './pipe/datefilter.pipe';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { Barchart1Component } from './charts/barchart1/barchart1.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     OrderDetailsComponent,
     DatefilterPipe,
     DashboardComponent,
+    Barchart1Component,
   ],
   imports: [
     AppRoutingModule,
