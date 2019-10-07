@@ -29,6 +29,14 @@ block content
                     h5.card-title #{project.title}
                     p.card-text #{project.shortd}
                     p.card-text
+                      -function dateFormatting(dateString) {
+                        -const date = new Date(dateString);
+                        -const d = date.getDate();
+                        -const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                        -const m = monthNames[date.getMonth()];
+                        -const y = date.getFullYear();
+                        -return `${d}-${m}-${y}`;
+                      -}
                       if project
                         if project.lastfunded == null
                           small.text-muted Be the first to support this project &nbsp;
@@ -36,7 +44,7 @@ block content
                             i.fa.fa-child
                             i.fa.fa-child
                         else
-                          small.text-muted Last funded: #{project.lastfunded}
+                          small.text-muted Last funded: #{dateFormatting(project.lastfunded)}
                     a.btn.btn-animate(href=`/projects/${project.seo}`) Show more!
     .row
       .col-4.offset-4                      
