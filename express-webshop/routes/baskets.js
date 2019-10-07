@@ -43,9 +43,7 @@ router.get('/empty/:userid', async (req, res) => {
     userid: req.user.id
   });
   res.redirect('/baskets')
-  // res.render('baskets', {
-  //   user: req.user || {},
-  // });
+ 
 });
 
 router.post('/donate', async (req, res) => {
