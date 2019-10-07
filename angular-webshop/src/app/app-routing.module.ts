@@ -19,7 +19,8 @@ import { UsersComponent } from "./page/users/users.component";
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: "", component: StatisticsComponent },
+  { path: "", component: IndexComponent },
+  { path: "index", component: IndexComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "api/projects", component: ProjectsComponent },
   { path: "api/categories", component: CategoryComponent },

@@ -187,7 +187,8 @@ body {
   margin: 8px 5px 5px 5px;
 }
 
-.card-number {
+.
+/* .card-number {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: 700;
   font-size: 5rem;
@@ -200,8 +201,7 @@ body {
   background: -webkit-linear-gradient(rgb(255, 128, 78), rgb(15, 21, 75));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* color: linear-gradient(rgb(122, 209, 126), rgb(11, 61, 17)); */
-}
+} */
 
 .orders-card-span {
   margin: 1px;
