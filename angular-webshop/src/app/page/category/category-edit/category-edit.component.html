@@ -1,22 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-4">
-      <form action="http://localhost:3000/api/categories/{{category.id}}"
-            method="post">
-        <div class="form-group">
-          <label for="category">Category</label>
-          <input type="text"
-                 placeholder="Category"
-                 class="form-control"
-                 name="category.category"
-                 id="category"
-                 [(ngModel)]="category.category"
-                 required>
+    <div class="col-4 offset-4 mt-5 mb-5">
+      <div class="card">
+        <div class="card-header">
+          <h3>Add new category</h3>
         </div>
-        <button type="submit"
-                class="btn btn-success"
-                (click)="onUpdate()">Submit</button>
-      </form>
+        <form action="http://localhost:3000/api/categories/{{category.id}}" method="post">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="category">Category</label>
+              <input type="text" placeholder="Category" class="form-control" name="category.category" id="category"
+                [(ngModel)]="category.category" required>
+            </div>
+            <div class="text-danger mb-3" *ngIf="missingData">{{missingData}}</div>
+            <div class="form-group">
+              <label for="category">Description</label>
+              <input type="text" placeholder="Description" class="form-control" name="category.description"
+                id="description" [(ngModel)]="category.description" required>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <button type="submit" class="btn btn-success" (click)="onUpdate()">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>

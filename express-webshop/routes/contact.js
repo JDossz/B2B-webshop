@@ -8,7 +8,8 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   const reviewList = await database.readRecord('reviews', {
     from: 'INNER JOIN users ON reviews.userid=users.id',
-    select: 'reviews.id, reviews.text, reviews.rate, users.firstname as firstname, users.lastname as lastname',
+    select: 'reviews.id, reviews.text, reviews.rate, reviews.insdate, users.firstname as firstname, users.lastname as lastname',
+  orderBy: 'reviews.insdate DESC'
   });
 
   res.render('contact', {

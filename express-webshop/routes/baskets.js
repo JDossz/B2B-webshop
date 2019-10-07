@@ -26,15 +26,14 @@ router.get('/', async (req, res) => {
   });
   actualQuantity = actualQuantity[0].totalQuantity;
 
+
   if (req.user.id) {
     res.render('baskets', {
       basketItemsWithNamesAndPrices: data,
       totalPrice: price,
       user: req.user || {},
       showQuantity: actualQuantity,
-
     });
-
   }
 });
 
@@ -59,11 +58,13 @@ router.post('/donate', async (req, res) => {
   basket.forEach((el) => {
     quantitySum += el.quantity;
   });
-  await database.createRecord('orders', {
-    userid: req.user.id,
-    quantity: quantitySum,
-    status: 1
-  });
+  if (quantitySum > 0) {
+    await database.createRecord('orders', {
+      userid: req.user.id,
+      quantity: quantitySum,
+      status: 1
+    });
+  }
   let orderID = await database.readRecord('orders', {
     userid: req.user.id,
     limit: 1,
@@ -87,21 +88,55 @@ router.post('/donate', async (req, res) => {
 
   basketItem.forEach((el) => {
     const balanceOfProjects = el.balance + el.donation * el.quantity;
+    const date = new Date();
     database.updateRecord('projects', {
       id: el.projectid,
     }, {
-      balance: balanceOfProjects
+      balance: balanceOfProjects,
+      lastfunded: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
     });
   });
+
+  const userAward = await database.readRecord('baskets', {
+    'users.id': req.user.id,
+    from: 'INNER JOIN users ON baskets.userid = users.id',
+    select: 'users.donations as donations'
+  });
+
+  let price = await database.readRecord('projects', {
+    userid: req.user.id,
+    select: 'SUM(projects.donation*baskets.quantity) as amount',
+    from: 'INNER JOIN baskets ON projects.id = baskets.projectid',
+  });
+
+  let donationsPerUser = price[0].amount
+
+  userAward.forEach((el) => {
+    const amountOfDonations = el.donations + donationsPerUser;
+    if (amountOfDonations > 0) {
+      database.updateRecord('users', {
+        id: req.user.id
+      }, {
+        donations: amountOfDonations,
+      });
+    }
+  });
+
+  if (quantitySum > 0) {
+    res.redirect('/thankyou');
+  }
+  else {
+    res.redirect('/baskets');
+  }
   await database.deleteRecord('baskets', {
     userid: req.user.id,
   });
-  res.redirect('/thankyou');
+
 });
 
 // post a project details oldalról
 router.post('/:id', async (req, res) => {
-  console.log('HEEEEEEEEEEEEE', req.params.id);
+
   const quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
     projectid: req.params.id,
@@ -160,6 +195,5 @@ router.post('/updateAdd/:id', async (req, res) => {
   });
   res.redirect('/baskets');
 });
-
 
 module.exports = router;

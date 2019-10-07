@@ -13,6 +13,7 @@ export class CategoryEditComponent implements OnInit {
 
   category$: BehaviorSubject<Category> = this.ds.category;
   category: Category;
+  missingData;
 
   ngOnInit() {
   }
@@ -31,8 +32,12 @@ export class CategoryEditComponent implements OnInit {
   }
 
   onUpdate() {
-    this.ds.updateRecordByQuery('categories', { 'id': this.category.id }, this.category).subscribe(
-      () => this.router.navigate(["/api/categories"])
-    )
+    if (this.category.category === '') {
+      this.missingData = 'Please write a category name!'
+    } else {
+      this.ds.updateRecordByQuery('categories', { 'id': this.category.id }, this.category).subscribe(
+        () => this.router.navigate(["/api/categories"])
+      )
+    }
   }
 }
