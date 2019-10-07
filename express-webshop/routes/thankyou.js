@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
     user: req.user || {},
   });
 
-  setTimeout(res.redirect('/'), 3000);
 });
 
 module.exports = router;

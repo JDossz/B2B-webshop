@@ -1,9 +1,14 @@
 const express = require('express');
+const Database = require('./../modules/webshop-mariadb');
 
 const router = express.Router();
-
-const Database = require('./../modules/webshop-mariadb');
 const database = new Database();
+
+router.get('/thankyou', (req, res) => {
+  setTimeout(() => {
+    res.redirect('/');
+  }, 3000);
+});
 
 // router.all('/', async (req, res, next) => {
 //   const auth = await database.checkLogin(req);
