@@ -4,7 +4,7 @@ const MariaDBmain = require('../modules/webshop-mariadb');
 const router = express.Router();
 const database = new MariaDBmain();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   let data = await database.readRecord('baskets', {
     userid: req.user.id,
     from: 'INNER JOIN projects ON projects.id = baskets.projectid',
@@ -38,15 +38,15 @@ router.get('/', async (req, res) => {
 });
 
 // a bejelentkezett user kosarának ürítése
-router.get('/empty/:userid', async (req, res) => {
+router.get('/empty/:userid', async (req, res, next) => {
   database.deleteRecord('baskets', {
     userid: req.user.id
   });
   res.redirect('/baskets')
- 
+
 });
 
-router.post('/donate', async (req, res) => {
+router.post('/donate', async (req, res, next) => {
   // Lekérjük, ami a kosárban van.
   let basket = await database.readRecord('baskets', {
     userid: req.user.id,
@@ -120,20 +120,24 @@ router.post('/donate', async (req, res) => {
     }
   });
 
+
+
   if (quantitySum > 0) {
+
+    await database.deleteRecord('baskets', {
+      userid: req.user.id,
+    });
     res.redirect('/thankyou');
+
   }
   else {
     res.redirect('/baskets');
   }
-  await database.deleteRecord('baskets', {
-    userid: req.user.id,
-  });
 
 });
 
 // post a project details oldalról
-router.post('/:id', async (req, res) => {
+router.post('/:id', async (req, res, next) => {
 
   const quantity = await database.readRecord('baskets', {
     userid: req.user.id || 0,
@@ -162,7 +166,7 @@ router.post('/:id', async (req, res) => {
   res.redirect('/baskets');
 });
 
-router.post('/updateDel/:id', async (req, res) => {
+router.post('/updateDel/:id', async (req, res, next) => {
   const quantity = await database.readRecord('baskets', {
     id: req.params.id,
   });
@@ -180,7 +184,7 @@ router.post('/updateDel/:id', async (req, res) => {
   res.redirect('/baskets');
 });
 
-router.post('/updateAdd/:id', async (req, res) => {
+router.post('/updateAdd/:id', async (req, res, next) => {
   const quantity = await database.readRecord('baskets', {
     id: req.params.id,
   });

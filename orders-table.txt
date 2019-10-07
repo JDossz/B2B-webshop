@@ -7,3 +7,8 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
+INSERT INTO orders (userid, quantity)
+VALUES (1, 1),
+(2, 3),
+(3, 10);
+

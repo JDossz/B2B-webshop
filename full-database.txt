@@ -27,6 +27,10 @@ CREATE TABLE baskets (
     PRIMARY KEY (id)
 );
 
+INSERT INTO baskets (userid, projectid)
+VALUES (1, 10),
+(2, 9);
+
 
 CREATE TABLE categories (
     id int NOT NULL AUTO_INCREMENT,
@@ -61,6 +65,11 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
+INSERT INTO orders (userid, quantity)
+VALUES (1, 1),
+(2, 3),
+(3, 10);
+
 
 CREATE TABLE orderdetails (
     id int NOT NULL AUTO_INCREMENT,
@@ -71,6 +80,12 @@ CREATE TABLE orderdetails (
     status tinyint  NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
+
+INSERT INTO orderdetails (orderid, projectid, quantity)
+VALUES (1, 1, 1),
+(2, 2, 3),
+(3, 3, 8),
+(3, 4, 2);
 
 
 CREATE TABLE projects (
@@ -203,7 +218,7 @@ CREATE TABLE users (
 INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
 VALUES ('Dorottya', 'Juhász', 0, SHA1('JDorka'), 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 1, '/images/users/JuhaszDorottya.JPG'),
 ('Szilvia', 'Kapuvári', 0, SHA1('KSzilvi'), 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 1, '/images/users/KapuvariSzilvia.JPG'),
-('Dániel', 'Oláh', 1, SHA1('OláhD'), 'olah.daniel95@gmail.com', SHA1('Oláh2019'), 1, '/images/users/OlahDaniel.JPG'),
-('Sára', 'Pál', 0, SHA1('PSári'), 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 1, '/images/users/PalSara.jpg'),
-('Ágoston', 'Zajkás', 1, SHA1('ZÁgoston'), 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 1, '/images/users/ZajkasAgoston.JPG');
+('Dániel', 'Oláh', 1, SHA1('OlahD'), 'olah.daniel95@gmail.com', SHA1('Olah2019'), 1, '/images/users/OlahDaniel.JPG'),
+('Sára', 'Pál', 0, SHA1('PSari'), 'pal.sara.ajandek@gmail.com', SHA1('Sari2019'), 1, '/images/users/PalSara.jpg'),
+('Ágoston', 'Zajkás', 1, SHA1('ZAgoston'), 'agostonzajkas@gmail.com', SHA1('Ago2019'), 1, '/images/users/ZajkasAgoston.JPG');
 
