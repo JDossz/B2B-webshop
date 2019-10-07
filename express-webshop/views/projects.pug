@@ -8,7 +8,7 @@ block content
           h1 Categories
           each category, index in categories
             a(href=`/projects/categories/${category.category}`) #{category.category}        
-          a(href='/projects') Go back!
+          a(href='/projects') All Projects
           .row
             form.form-inline(action='/projects' method="GET")
               .form-group

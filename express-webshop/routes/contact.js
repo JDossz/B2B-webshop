@@ -29,7 +29,7 @@ router.post('/reviews/addReview', async (req, res) => {
       title: 'Contacts',
       reviews: reviewList,
       user: req.user || {},
-      wrong: 'Please write review text and choose one from the rates :)',
+      wrong: 'Please write a review and rate us :)',
     });
   } else {
     await database.createRecord('reviews', {
