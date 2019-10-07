@@ -137,6 +137,10 @@ router.get('/:seo', async (req, res, next) => {
   }
 
   const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100);
+
+  console.log(selectedProject[0].balance);
+  console.log(selectedProject[0].goal);
+  console.log(progressPercentage);
   // console.log(req.user);
   res.render('projectDetails', {
     project: selectedProject[0],
