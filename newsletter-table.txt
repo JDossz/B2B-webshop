@@ -3,7 +3,8 @@ CREATE TABLE newsletter (
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     emailaddress nvarchar(255) NOT NULL,
     active boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (emailaddress)
 );
 
 INSERT INTO newsletter (emailaddress)

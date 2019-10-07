@@ -35,7 +35,6 @@ module.exports = class BetagDB {
   }
 
   /**
-   * NE EZT HASZNÁLD, HA USER INPUTOT DOLGOZUNK FEL!
    * Concats the query and reads the MySQL database table accordingly.
    * @param {string} tableName The MySQL table, you want to read from.
    * @param {req.query} queryObject The request URL query string object.
@@ -46,7 +45,6 @@ module.exports = class BetagDB {
   }
 
   /**
-   * NE EZT HASZNÁLD, HA USER INPUTOT DOLGOZUNK FEL!
    * Updates the values of an existing record.
    * @param {string} tableName The MySQL table, where you want to change a record
    * @param {req.query} queryObject The URL query string object.
@@ -93,7 +91,6 @@ module.exports = class BetagDB {
     return result[0];
 
   }
-
 
   async readRecordWithLike(req) {
     const sql = `
@@ -144,3 +141,4 @@ module.exports = class BetagDB {
     return result;
   }
 };
+

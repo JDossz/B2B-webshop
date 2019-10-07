@@ -12,7 +12,8 @@ CREATE TABLE users (
     admin boolean NOT NULL DEFAULT 0,
     points int NOT NULL DEFAULT 0,
     token nvarchar(255),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (username, emailaddress)
 );
 
 INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)

@@ -2,35 +2,6 @@
 
 }
 
-.btn-donate {
-  font-size: 18px;
-  font-weight: 600;
-  color: #FFF;
-  height: 55px;
-  text-align:center;
-  border: none;
-  background-size: 300% 100%;
-  -moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
-
-  background-image: linear-gradient(to right, #25AAE1, #40E495, #30DD8A, #2BB673);
-  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
-}
-
-.btn-donate:hover {
-  background-position: 100% 0;
-  -moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
-}
-
-.btn-donate:focus {
-  outline: none;
-}
-
 .container-fluid {
   max-width: 90%;
 }
