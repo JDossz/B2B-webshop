@@ -27,6 +27,10 @@ CREATE TABLE baskets (
     PRIMARY KEY (id)
 );
 
+INSERT INTO baskets (userid, projectid)
+VALUES (1, 10),
+(2, 9);
+
 
 CREATE TABLE categories (
     id int NOT NULL AUTO_INCREMENT,
@@ -61,6 +65,11 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
+INSERT INTO orders (userid, quantity)
+VALUES (1, 1),
+(2, 3),
+(3, 10);
+
 
 CREATE TABLE orderdetails (
     id int NOT NULL AUTO_INCREMENT,
@@ -71,6 +80,12 @@ CREATE TABLE orderdetails (
     status tinyint  NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
+
+INSERT INTO orderdetails (orderid, projectid, quantity)
+VALUES (1, 1, 1),
+(2, 2, 3),
+(3, 3, 8),
+(3, 4, 2);
 
 
 CREATE TABLE projects (
