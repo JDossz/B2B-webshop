@@ -5,7 +5,7 @@ const router = express.Router();
 const database = new BetagDB();
 
 /* GET kérés küldésekor home page-re: */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   const projectsList = await database.readRecord('projects', {});
   const usersList = await database.readRecord('users', {});
   const projectsToCarousel = [];

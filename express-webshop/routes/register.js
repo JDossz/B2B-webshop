@@ -12,16 +12,15 @@ const getToken = (l = 20) => {
   return result;
 };
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   res.render('register', {
     title: 'Register',
   });
 });
 
-router.post('/users', async (req, res, next) => {
+router.post('/users', async (req, res) => {
   const token = getToken();
-  console.log(req.body);
-  console.log(token);
+
   if (req.body.emailaddress) {
     const usersDatabase = await database.readRecord('users', {});
     for (let i = 0; i < usersDatabase.length; i += 1) {
@@ -32,6 +31,7 @@ router.post('/users', async (req, res, next) => {
       }
     }
   }
+
   await database.createRecord('users', {
     emailaddress: req.body.emailaddress,
     username: req.body.username,
@@ -40,7 +40,6 @@ router.post('/users', async (req, res, next) => {
     password: req.body.password,
     token,
   });
-  console.log(req.body);
 
   if (req.body.newsletter == 'on') {
     await database.createRecord('newsletter', {

@@ -16,9 +16,20 @@ router.all('/', async (req, res, next) => {
 });
 
 /* GET kérés küldésekor profile page-re, ha be vagyunk jelentkezve: */
-router.get('/', async (req, res, next) => res.render('myProfile', {
-  title: 'Profile Page',
-  user: req.user || {},
-}));
+router.get('/', async (req, res) => {
+  const awardsList = await database.readRecord('awards', {});
+  let donaterLevel = '';
+  for (let i = 0; i < awardsList.length; i++) {
+    if (req.user.points < awardsList[i].requiredpoints) {
+      donaterLevel = awardsList[i].level;
+    }
+  }
+
+  res.render('myProfile', {
+    title: 'Profile Page',
+    donaterLevel,
+    user: req.user || {},
+  });
+});
 
 module.exports = router;

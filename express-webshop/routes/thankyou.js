@@ -5,7 +5,6 @@ const router = express.Router();
 const database = new BetagDB();
 
 router.get('/', async (req, res, next) => {
-  console.log(req.query);
   if (req.query.hasOwnProperty('emailaddress')) {
     database.createRecord('newsletter', { emailaddress: req.query.emailaddress });
   }

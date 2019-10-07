@@ -1,9 +1,7 @@
 const express = require('express');
-
-const router = express.Router();
-
 const MariaDBmain = require('../modules/webshop-mariadb');
 
+const router = express.Router();
 const database = new MariaDBmain();
 
 
@@ -93,7 +91,7 @@ const pagination = function (projects, categoryList, req, res) {
 };
 
 /* GET users listing. */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   if (req.query.search) {
     const projects = await database.readRecordWithLike(req);
     const categoryList = await database.readRecord('categories', {});
@@ -109,7 +107,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // Creates cookie with viewSize
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
   res.cookie('viewSize', req.body.limit, {
     maxAge: 900000,
   });
@@ -126,7 +124,7 @@ router.get('/categories/:category', async (req, res, next) => {
 
 
 // :3000/projects/:table/?id=7
-router.get('/:seo', async (req, res, next) => {
+router.get('/:seo', async (req, res) => {
   const urlParts = req.originalUrl.split('/');
   const seoName = urlParts[urlParts.length - 1];
   const selectedProject = await database.readRecord('projects', {
@@ -139,9 +137,10 @@ router.get('/:seo', async (req, res, next) => {
   const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100);
   // console.log(req.user);
   res.render('projectDetails', {
+    title: 'Projects on Enrtyway',
+    percentage: progressPercentage,
     project: selectedProject[0],
     user: req.user || {},
-    percentage: progressPercentage,
   });
 });
 

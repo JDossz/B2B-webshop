@@ -1,11 +1,12 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
 
-router.get('/', async (req, res, next) => {
+let router = express.Router();
+
+router.get('/', async (req, res) => {
   res.render('about', {
     title: 'About Us',
     user: req.user || {},
   });
-})
+});
 
 module.exports = router;
