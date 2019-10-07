@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../model/project';
+import { Project } from '../../model/project';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
 import { BehaviorSubject } from 'rxjs';
-import { Category } from '../model/category';
+import { Category } from '../../model/category';
 
 @Component({
   selector: 'app-project-edit',
