@@ -16,9 +16,12 @@ import { StatisticsComponent } from "./page/statistics/statistics.component";
 import { UpdateOrdersComponent } from "./page/update-orders/update-orders.component";
 import { UpdateUsersComponent } from "./page/update-users/update-users.component";
 import { UsersComponent } from "./page/users/users.component";
+import { DashboardComponent } from './page/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: "", component: StatisticsComponent },
+  { path: "", component: IndexComponent },
+  { path: "index", component: IndexComponent },
+  { path: "dashboard", component: DashboardComponent },
   { path: "api/projects", component: ProjectsComponent },
   { path: "api/categories", component: CategoryComponent },
   { path: "basket", component: BasketComponent },
@@ -38,4 +41,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
