@@ -7,7 +7,7 @@ block content
       thead#tableHead.md-9.text-center
         th Project ID
         th Project name 
-        th Amount of donation ($)
+        th Amount of donation (EUR)
         th Quantity
         th
         th
@@ -30,7 +30,7 @@ block content
    
     div.col-12.md-12
       if basketItemsWithNamesAndPrices && showQuantity > 0
-        p#total.mt-5 Total: #{totalPrice} $
+        p#total.mt-5 Total: #{totalPrice} EUR
         p.text-center You have #{showQuantity} projects in the basket.
             |  Find
             a(href='/projects')  more 

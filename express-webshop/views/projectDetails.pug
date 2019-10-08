@@ -27,9 +27,9 @@ block content
             .progress
               .progress-bar.bg-success(role='progressbar',style=`width: ${percentage}%`,aria-valuemin="0", aria-valuemax=`${project.goal}`) #{percentage}%
             p
-              small  the goal is $ #{project.goal}
+              small  the goal is #{project.goal} EUR
             p
-              small Amount of donation: $ 5
+              small Amount of donation: 5 EUR
             if user
               if user.id
                 form(action=`/baskets/${project.id}`, method="post")

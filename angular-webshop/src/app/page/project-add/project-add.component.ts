@@ -38,7 +38,7 @@ export class ProjectAddComponent implements OnInit {
         this.missingData = 'You skipped: '
         this.missingData += missing
         error = true
-      } else if (this.newProject[k] < 0) {
+      } else if (this.newProject[k] < 1) {
         this.wrongAmmount = true;
         error = true
       } else if (k == 'title') {

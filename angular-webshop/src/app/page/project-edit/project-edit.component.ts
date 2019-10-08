@@ -46,7 +46,7 @@ export class ProjectEditComponent implements OnInit {
         this.missingData = 'You skipped: '
         this.missingData += missing
         error = true
-      } else if (this.project[k] < 0) {
+      } else if (this.project[k] < 1) {
         this.wrongAmmount = true;
         error = true
       }
