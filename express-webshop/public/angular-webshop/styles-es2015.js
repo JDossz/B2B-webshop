@@ -376,8 +376,8 @@ if (content.locals) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\VSCode-JD\B2B-webshop\angular-webshop\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-module.exports = __webpack_require__(/*! D:\VSCode-JD\B2B-webshop\angular-webshop\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! D:\b2b_new\angular-webshop\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+module.exports = __webpack_require__(/*! D:\b2b_new\angular-webshop\src\styles.css */"./src/styles.css");
 
 
 /***/ })
