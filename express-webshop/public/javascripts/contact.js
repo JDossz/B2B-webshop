@@ -1,8 +1,11 @@
 function toggleDisabled(event) {
-  const disabledElement = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
-  const hiddenElement = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.firstElementChild.childNodes[1];
-  console.log(hiddenElement);
-  if (disabledElement.disabled == false) {
+  const {
+    id,
+  } = event.target.dataset;
+  const disabledElement = document.querySelector(`.edit[data-id="${id}"]`);
+  const hiddenElement = document.querySelector(`.hide[data-id="${id}"]`);
+
+  if (disabledElement.disabled === false) {
     disabledElement.disabled = true;
   } else {
     disabledElement.disabled = false;

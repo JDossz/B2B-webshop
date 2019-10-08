@@ -38,6 +38,8 @@ router.post('/users', async (req, res) => {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     password: req.body.password,
+    address: req.body.address,
+    gender:req.body.gender,
     token,
   });
 

@@ -15,8 +15,19 @@ router.all('/', async (req, res, next) => {
   }
 });
 
+
+
 /* GET kérés küldésekor profile page-re, ha be vagyunk jelentkezve: */
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
+  const donatedProjectsPerUser = await database.previousOrders(req)
+  donatedProjects = donatedProjectsPerUser[0].allDonatedProjects
+  let lastfunded = await database.previousOrdersByProjectName(req)
+  const amountOfUsersPoints = await database.readRecord('users', {
+    id: req.user.id,
+    select: 'users.points as points'
+  })
+  allPoints = amountOfUsersPoints[0].points
+  
   const awardsList = await database.readRecord('awards', {});
   let donaterLevel = '';
   for (let i = awardsList.length-1; i > 0; i--) {
@@ -28,6 +39,9 @@ router.get('/', async (req, res) => {
   res.render('myProfile', {
     title: 'Profile Page',
     donaterLevel,
+    fundedProjects: donatedProjects,
+    amountOfUsersPoints: allPoints,
+    lastfunded,
     user: req.user || {},
   });
 });

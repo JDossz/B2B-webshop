@@ -1,8 +1,7 @@
 const express = require('express');
+const Database = require('./../modules/webshop-mariadb');
 
 const router = express.Router();
-
-const Database = require('./../modules/webshop-mariadb');
 const database = new Database();
 
 // router.all('/', async (req, res, next) => {

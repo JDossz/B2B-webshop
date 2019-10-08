@@ -39,7 +39,25 @@ app.use(async (req, res, next) => {
     req.user = user;
   }
   next();
-});
+},
+  async (req, res, next) => {
+    if (req.user) {
+      let basketNumber = await database.basketNumber(req);
+      req.basketNumber = basketNumber;
+      if (basketNumber[0].totalQuantity == undefined) {
+        allItems = 0;
+      }
+      if (basketNumber[0].totalQuantity == 0) {
+        allItems = 0;
+      }
+      if (basketNumber[0].totalQuantity > 0) {
+        allItems = basketNumber[0].totalQuantity;
+      }
+    }
+    next();
+  }
+);
+
 
 app.use("/", require("./routes/index"));
 app.use("/about", require("./routes/about"));

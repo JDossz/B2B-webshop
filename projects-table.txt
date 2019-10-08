@@ -31,7 +31,7 @@ In our biomaterials group the focus is on the synthesis and characterisation of 
 
 The focus of the project, therefore, is to synthesise and control the doping of different elements into parent calcium phosphates that will be one or more of the reactant phases of the cement formulations. These will be used in developing new calcium phosphate bone cement formulations. These materials have potential application in fabricating 3D scaffolds for bone tissue engineering and regenerative medicine, or as medical devices. The materials developed will be characterise using X-ray diffraction, Raman and IR spectroscopy, solid state NMR, electron microscopy, surface area and porosity quantification, solubility testing and mechanical testing.',
 'I. R. Gibson',
-3,
+1,
 'https://www.findaphd.com/phds/project/new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication/?p107807'),
 
 ('Boundary Effects in Active Matter Systems',

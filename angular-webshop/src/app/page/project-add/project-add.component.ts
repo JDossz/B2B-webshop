@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../model/project';
-import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { Category } from '../model/category';
+import { Project } from 'src/app/model/project';
+import { DataService } from 'src/app/services/data.service';
+import { Category } from 'src/app/model/category';
 
 @Component({
   selector: 'app-project-add',
@@ -14,8 +14,8 @@ export class ProjectAddComponent implements OnInit {
   newProject: Project = new Project();
   projects: BehaviorSubject<any> = this.ds.projectList;
   categories: BehaviorSubject<Category> = this.ds.categoryList;
-  wrongAmmount:boolean = false;
-  wrongTitle:boolean = false;
+  wrongAmmount: boolean = false;
+  wrongTitle: boolean = false;
   missingData;
 
 
@@ -30,15 +30,15 @@ export class ProjectAddComponent implements OnInit {
   onCreate() {
     const keys = ['title', 'seo', 'institution', 'shortd', 'longd', 'contact', 'categoryid', 'goal', 'pictureurl', 'link'];
     let error = false;
-    let missing=[];
+    let missing = [];
     keys.forEach((k) => {
-      
+
       if (!this.newProject[k]) {
         missing.push(k)
-        this.missingData='You skipped: '
-        this.missingData+=missing
+        this.missingData = 'You skipped: '
+        this.missingData += missing
         error = true
-      } else if (this.newProject[k] < 0) {
+      } else if (this.newProject[k] < 1) {
         this.wrongAmmount = true;
         error = true
       } else if (k == 'title') {

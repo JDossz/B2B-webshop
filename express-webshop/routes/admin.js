@@ -15,7 +15,7 @@ router.all("/", async (req, res, next) => {
   }
 });
 
-router.get("/*", (req, res) => {
+router.get("/", (req, res) => {
   res.render("admin", {
     title: "Admin",
     user: req.user || {}

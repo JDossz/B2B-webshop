@@ -64,10 +64,13 @@ html
                     a.dropdown-item(href='/myProfile') My Profile
                     a.dropdown-item(href='/logout') Log out
                 li
-                  span#username #{user.firstname} #{user.lastname}
+                  span#username #{user.firstname} #{user.lastname} 
                 li
                   .col
-                    a#basketlink.fa.fa-gift.fa-2x.ml-1.mt-1(href="/baskets")
+                    a#basketlink.fa.fa-gift.fa-2x.ml-1.mt-1(href="/baskets") 
+                      span#basketNumber.align-text-bottom (#{allItems})
+                    
+                       
               else
                 li
                   a.btn.btn-animate(href='/login') Log In
@@ -83,6 +86,7 @@ html
               a(href='/privacy') Privacy Policy
             .col-4.text-muted.text-center
               a(href='/terms') Terms and Conditions
-    
+
     script(src="/javascripts/jquery-3.3.1.slim.min.js")
     script(src="/bootstrap/dist/js/bootstrap.bundle.min.js")
+    

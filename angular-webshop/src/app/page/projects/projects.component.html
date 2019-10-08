@@ -5,13 +5,13 @@
         <div class="card activeProjectCard" style="width: 10rem;">
           <div class="card-body activeProjectCardBody text-center">
             <h5 class="card-title">Show only the active projects</h5>
-            <button class="btn btn-outline-dark" (click)='readActive()'>Show</button>
+            <button class="btn btn-outline-dark" (click)="readActive()">Show</button>
           </div>
         </div>
         <div class="card allProjectCard" style="width: 10rem;">
           <div class="card-body text-center">
             <h5 class="card-title">Show all projects</h5>
-            <button class="btn btn-outline-dark" (click)='readAll()'>Show</button>
+            <button class="btn btn-outline-dark" (click)="readAll()">Show</button>
           </div>
         </div>
       </div>
@@ -43,18 +43,19 @@
             <th>Balance</th>
             <th>Pictureurl</th>
             <th>Link</th>
-            <th>Isactive</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let project of projects|async |search:searchedPhrase">
+          <tr style="height: 50px; overflow:auto;" *ngFor="let project of projects|async |search:searchedPhrase">
             <td>{{project.id}}</td>
             <td>{{project.title}}</td>
             <td>{{project.seo}}</td>
             <td>{{project.institution}}</td>
-            <td>{{project.shortd}}</td>
-            <td>{{project.longd}}</td>
+            <td *ngIf="project.shortd.length > 100">{{project.shortd.substring(0, 100)}}...</td>
+            <td *ngIf="project.shortd.length<100">{{project.shortd}}</td>
+            <td *ngIf="project.longd.length > 100">{{project.longd.substring(0, 100)}}...</td>
+            <td *ngIf="project.longd.length <100">{{project.longd}}</td>
             <td>{{project.contact}}</td>
             <td>{{project.category}}</td>
             <td>{{project.donation}}</td>
@@ -62,7 +63,6 @@
             <td>{{project.balance}}</td>
             <td>{{project.pictureurl}}</td>
             <td>{{project.link}}</td>
-            <td>{{project.isactive}}</td>
             <td>
               <div class="btn-group">
                 <a routerLink="/projectEdit/{{project.seo}}" class="btn btn-info">Edit</a>
