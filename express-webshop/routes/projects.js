@@ -130,17 +130,14 @@ router.get('/:seo', async (req, res) => {
   const seoName = urlParts[urlParts.length - 1];
   const selectedProject = await database.readRecord('projects', {
     seo: seoName,
+    isactive: 1,
   });
   if (await selectedProject[0] === undefined) {
     res.render('no-project');
   }
 
-  const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100);
+  const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100, 10);
 
-  console.log(selectedProject[0].balance);
-  console.log(selectedProject[0].goal);
-  console.log(progressPercentage);
-  // console.log(req.user);
   res.render('projectDetails', {
     project: selectedProject[0],
     user: req.user || {},
