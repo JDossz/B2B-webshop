@@ -110,7 +110,8 @@ router.post('/donate', async (req, res) => {
 
   userAward.forEach((el) => {
     const amountOfDonations = el.donations + donationsPerUser;
-    const amountOfUsersPoints = el.points + el.quantity
+    const amountOfUsersPoints = amountOfDonations / 5
+
     if (amountOfDonations > 0) {
       database.updateRecord('users', {
         id: req.user.id,

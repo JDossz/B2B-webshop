@@ -12,7 +12,7 @@ CREATE TABLE awards (
 );
 
 INSERT INTO awards (level, requiredpoints)
-VALUES ('Biginner', 0),
+VALUES ('Beginner', 0),
 ('Apprentice', 100),
 ('Journeyman', 200),
 ('Expert', 300),
