@@ -15,8 +15,8 @@ CREATE TABLE awards (
 
 INSERT INTO awards (level, requiredpoints)
 VALUES ('Beginner', 0),
-('Apprentice', 100),
-('Journeyman', 200),
-('Expert', 300),
+('Apprentice', 50),
+('Journeyman', 100),
+('Expert', 200),
 ('Artisan', 400);
 
