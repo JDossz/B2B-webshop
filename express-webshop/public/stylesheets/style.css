@@ -36,19 +36,28 @@ header .overlay {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: black;
+  background-color: #000;
   opacity: 0.5;
   z-index: 1;
 }
 
 @media (pointer: coarse) and (hover: none) {
   header {
-    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+    /* background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll; */
+    background: url('../images/backgrounds/photo-1438375377985-cc22e0503a6f.jpeg') black no-repeat center center scroll;
   }
+
   header video {
     display: none;
   }
 }
+
+/* CARD FOR PROJECTS PAGE
+-------------------------------------------------- */
+#project-card {
+  min-height: 250px;
+}
+
 
 
 
@@ -70,8 +79,8 @@ a.np {
 }
 
 a.np:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #DDD;
+  color: #000;
 }
 
 footer {
@@ -85,6 +94,36 @@ footer>.container {
   width: auto;
   height: auto;
   padding: 0 15px;
+}
+
+.btn-animate {
+  background-image: linear-gradient(to right, #25AAE1, #40E495, #30dd8A, #2BB673);
+  background-size: 300% 100%;
+  border: none;
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+  color: #FFF;
+  font-size: 18px;
+  /* font-weight: 600; */
+  min-width: 45px;
+  padding: 10px;
+  text-align:center;
+
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-animate:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-animate:focus {
+  outline: none;
 }
 
 .nav-link {
@@ -114,7 +153,7 @@ footer>.container {
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #fff;
+  background-color: #FFF;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -131,20 +170,27 @@ footer>.container {
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #4CAF50;
+  background-image: linear-gradient(to right, #25AAE1, #40E495, #30DD8A, #2BB673);
+  background-size: 300% 100%;
   color: white;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
   background-color: #555;
-  color: white;
+  color: #FFF;
 }
 
 #username {
   font-size: 1.5em;
   position: relative;
   top: 17%;
+}
+
+#basketNumber {
+  font-size: 0.5em;
+  color: #000;
+  margin-left: -7px;
 }
 
 /* FOR RESPONSIVE CSS
@@ -182,7 +228,10 @@ footer>.container {
 -------------------------------------------------- */
 
 @font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica.ttf');
+}
+@font-face {
   font-family: 'Francois';
   src: url('/fonts/FrancoisOne.ttf');
 }
-

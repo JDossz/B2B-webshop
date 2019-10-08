@@ -1,14 +1,23 @@
 CREATE DATABASE betag;
 
 
+
 CREATE TABLE awards (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-    required int NOT NULL,
     level nvarchar(50) NOT NULL,
+    requiredpoints int NOT NULL,
     pictureurl nvarchar(255),
     PRIMARY KEY (id)
 );
+
+INSERT INTO awards (level, requiredpoints)
+VALUES ('Beginner', 0),
+('Apprentice', 100),
+('Journeyman', 200),
+('Expert', 300),
+('Artisan', 400);
+
 
 
 CREATE TABLE baskets (
@@ -20,11 +29,17 @@ CREATE TABLE baskets (
     PRIMARY KEY (id)
 );
 
+INSERT INTO baskets (userid, projectid)
+VALUES (1, 10),
+(2, 9);
+
+
 
 CREATE TABLE categories (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     category nvarchar(255) DEFAULT 'Other',
+    details nvarchar(255) DEFAULT 'Add the details of this category'
     PRIMARY KEY (id)
 );
 
@@ -32,16 +47,19 @@ INSERT INTO categories (category)
 VALUES ('Other'), ('Biology'), ('Chemistry'), ('Computer Science'), ('Engineering'), ('Mathematics'), ('Physics');
 
 
+
 CREATE TABLE newsletter (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     emailaddress nvarchar(255) NOT NULL,
     active boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (emailaddress)
 );
 
 INSERT INTO newsletter (emailaddress)
 VALUES ('juhasz.dossz@gmail.com');
+
 
 
 CREATE TABLE orders (
@@ -53,6 +71,12 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
+INSERT INTO orders (userid, quantity)
+VALUES (1, 1),
+(2, 3),
+(3, 10);
+
+
 
 CREATE TABLE orderdetails (
     id int NOT NULL AUTO_INCREMENT,
@@ -63,6 +87,13 @@ CREATE TABLE orderdetails (
     status tinyint  NOT NULL DEFAULT 1,
     PRIMARY KEY (id)
 );
+
+INSERT INTO orderdetails (orderid, projectid, quantity)
+VALUES (1, 1, 1),
+(2, 2, 3),
+(3, 3, 8),
+(3, 4, 2);
+
 
 
 CREATE TABLE projects (
@@ -81,7 +112,9 @@ CREATE TABLE projects (
     pictureurl nvarchar(255) DEFAULT '/images/projects/sub.png',
     link nvarchar(1000),
     isactive boolean NOT NULL DEFAULT 1,
-    PRIMARY KEY (id)
+    lastfunded date,
+    PRIMARY KEY (id),
+    UNIQUE (seo)
 );
 
 INSERT INTO projects (title, seo, institution, shortd, longd, contact, categoryid, link)
@@ -96,7 +129,7 @@ In our biomaterials group the focus is on the synthesis and characterisation of 
 
 The focus of the project, therefore, is to synthesise and control the doping of different elements into parent calcium phosphates that will be one or more of the reactant phases of the cement formulations. These will be used in developing new calcium phosphate bone cement formulations. These materials have potential application in fabricating 3D scaffolds for bone tissue engineering and regenerative medicine, or as medical devices. The materials developed will be characterise using X-ray diffraction, Raman and IR spectroscopy, solid state NMR, electron microscopy, surface area and porosity quantification, solubility testing and mechanical testing.',
 'I. R. Gibson',
-3,
+1,
 'https://www.findaphd.com/phds/project/new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication/?p107807'),
 
 ('Boundary Effects in Active Matter Systems',
@@ -141,6 +174,7 @@ The main aim of this project is to develop a mathematical model of ribosome biog
 'https://www.findaphd.com/phds/project/how-to-make-molecular-machines-modelling-ribosome-biogenesis/?p107836');
 
 
+
 CREATE TABLE reviews (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
@@ -155,6 +189,7 @@ VALUES (2, 'I like the idea very much', 5),
 (1, 'Awwwwwwwwwww', 4),
 (4, 'I like this site. Way to go guys!', 4),
 (3, 'Fontosak vagytok', 5);
+
 
 
 CREATE TABLE status (
@@ -172,6 +207,7 @@ VALUES ('Donation Request Arrived'),
 ('Donation Canceled');
 
 
+
 CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
@@ -185,14 +221,16 @@ CREATE TABLE users (
     pictureurl nvarchar(255) DEFAULT '/images/users/user_default.png',
     admin boolean NOT NULL DEFAULT 0,
     points int NOT NULL DEFAULT 0,
+    donations int NOT NULL DEFAULT 0,
     token nvarchar(255),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (username, emailaddress)
 );
 
 INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
 VALUES ('Dorottya', 'Juhász', 0, SHA1('JDorka'), 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 1, '/images/users/JuhaszDorottya.JPG'),
 ('Szilvia', 'Kapuvári', 0, SHA1('KSzilvi'), 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 1, '/images/users/KapuvariSzilvia.JPG'),
-('Dániel', 'Oláh', 1, SHA1('OláhD'), 'olah.daniel95@gmail.com', SHA1('Oláh2019'), 1, '/images/users/OlahDaniel.JPG'),
-('Sára', 'Pál', 0, SHA1('PSári'), 'pal.sara.ajandek@gmail.com', SHA1('Sári2019'), 1, '/images/users/PalSara.jpg'),
-('Ágoston', 'Zajkás', 1, SHA1('ZÁgoston'), 'agostonzajkas@gmail.com', SHA1('Ágó2019'), 1, '/images/users/ZajkasAgoston.JPG');
+('Dániel', 'Oláh', 1, SHA1('OlahD'), 'olah.daniel95@gmail.com', SHA1('Olah2019'), 1, '/images/users/OlahDaniel.JPG'),
+('Sára', 'Pál', 0, SHA1('PSari'), 'pal.sara.ajandek@gmail.com', SHA1('Sari2019'), 1, '/images/users/PalSara.jpg'),
+('Ágoston', 'Zajkás', 1, SHA1('ZAgoston'), 'agostonzajkas@gmail.com', SHA1('Ago2019'), 1, '/images/users/ZajkasAgoston.JPG');
 

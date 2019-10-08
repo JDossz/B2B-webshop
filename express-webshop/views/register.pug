@@ -6,10 +6,10 @@ block content
   
   .container
     .row
-      .col-6.offset-3.mb-5
+      .col-10.offset-1.col-md-6.offset-md-3.mb-5
         .card.mb-5
-          .card-header.bg-primary
-            h2.text-light Register
+          .card-header.btn
+            h2 Register
           .card-body
             form(method='post', action='/register/users')
               .form-group
@@ -21,9 +21,13 @@ block content
                   h5 Lastname
                 input#inputLastName.form-control(type='text',name='lastname', placeholder='Please enter your lastname', required)
               .form-group
+                select.form-control(name='gender')
+                  option(value='0', name='gender') Female
+                  option(value='1', name='gender') Male 
+              .form-group
                 label(for='inputAddress')
                   h5 Address
-                input#inputAddress.form-control(type='text',name='address', pattern='^\\d+\\s[A-z]+\\s[A-z]+',title='Must start with number(s), then at least two words. Something like : 61 Park Street, Camden, ME, 04843, US' placeholder='Please enter your address', required)
+                input#inputAddress.form-control(type='text',name='address', pattern='^\\d+\\s[A-z]+\\s[A-z]+',title='Must start with number(s), then at least two words. Something like : 61 Park Street' placeholder='Please enter your address', required)
               .form-group
                 label(for='inputUserName') 
                   h5 Username
@@ -43,4 +47,4 @@ block content
                   input#gridCheck.form-check-input(type='checkbox' name='newsletter')
                   label.form-check-label(for='gridCheck')
                     | Send me a weekly mix of handpicked projects, plus occasional Entryway news
-              button.btn.btn-primary.btn-block.mt-4(type='submit') Create account
+              button.btn.btn-animate.btn-block.mt-4(type='submit') Create account

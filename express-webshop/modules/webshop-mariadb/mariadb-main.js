@@ -35,7 +35,6 @@ module.exports = class BetagDB {
   }
 
   /**
-   * NE EZT HASZNÁLD, HA USER INPUTOT DOLGOZUNK FEL!
    * Concats the query and reads the MySQL database table accordingly.
    * @param {string} tableName The MySQL table, you want to read from.
    * @param {req.query} queryObject The request URL query string object.
@@ -46,7 +45,6 @@ module.exports = class BetagDB {
   }
 
   /**
-   * NE EZT HASZNÁLD, HA USER INPUTOT DOLGOZUNK FEL!
    * Updates the values of an existing record.
    * @param {string} tableName The MySQL table, where you want to change a record
    * @param {req.query} queryObject The URL query string object.
@@ -94,7 +92,6 @@ module.exports = class BetagDB {
 
   }
 
-
   async readRecordWithLike(req) {
     const sql = `
     SELECT *
@@ -110,8 +107,67 @@ module.exports = class BetagDB {
     FROM projects
     INNER JOIN categories
     ON projects.categoryid=categories.id
-    WHERE category='${category}'`;
+    WHERE category='${category}' AND isactive=1`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+  async previousOrders(req) {
+    const sql = `
+    SELECT COUNT(DISTINCT projectid) as allDonatedProjects
+    FROM orderdetails
+    INNER JOIN projects ON projects.id = orderdetails.projectid 
+    INNER JOIN orders ON orders.id = orderdetails.orderid 
+    INNER JOIN users ON users.id = orders.userid
+    WHERE users.id = ${req.user.id}`;
+
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+  async previousOrdersByProjectName(req) {
+    const sql = `
+    SELECT DISTINCT projects.title
+    FROM orderdetails
+    INNER JOIN projects ON projects.id = orderdetails.projectid 
+    INNER JOIN orders ON orders.id = orderdetails.orderid 
+    INNER JOIN users ON users.id = orders.userid
+    WHERE users.id = ${req.user.id}
+    ORDER BY orders.insdate DESC
+    LIMIT 3
+   `
+      ;
+
+
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+  async listOfPreviousOrders(req) {
+    const sql = `
+    SELECT orderid, 
+    projects.title, 
+    orders.quantity,
+    orders.insdate
+    FROM projects 
+    INNER JOIN orderdetails ON projects.id = orderdetails.projectid 
+    INNER JOIN orders ON orders.id = orderdetails.orderid 
+    INNER JOIN users ON users.id = orders.userid
+    WHERE users.id = ${req.user.id}`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+  async basketNumber(req) {
+    const sql = `
+    SELECT SUM(baskets.quantity) as totalQuantity
+    FROM baskets 
+    WHERE userid = ${req.user.id}
+   `;
+
+
     const result = await this.connection.query(sql);
     return result;
   }
 };
+

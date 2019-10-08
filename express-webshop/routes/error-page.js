@@ -1,10 +1,11 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
 
-router.get('/', async (req, res, next) => {
+let router = express.Router();
+
+router.get('/', async (req, res) => {
   res.render('error-page', {
-    title: 'Hoppika :('
+    title: 'Hoppika :(',
   });
-})
+});
 
 module.exports = router;

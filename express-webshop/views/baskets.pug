@@ -1,13 +1,16 @@
 extends layout
 
 block content
+  link(rel='stylesheet', href='/stylesheets/baskets.css')
   .container
     table.table.table-secondary
-      thead
+      thead#tableHead.md-9.text-center
         th Project ID
         th Project name 
-        th Amount of donation
+        th Amount of donation (EUR)
         th Quantity
+        th
+        th
       tbody
         if basketItemsWithNamesAndPrices
           each item in basketItemsWithNamesAndPrices
@@ -18,26 +21,32 @@ block content
                   td #{item.title}
                   td #{item.donation}
                   td #{item.quantity} 
-                  td
+                  td 
                     form(action=`/baskets/updateAdd/${item.id}` method="POST")
-                      button.btn-block.btn.btn-info Add
+                      button.btn.btn-add Add
                   td
                     form(action=`/baskets/updateDel/${item.id}` method="POST")
-                      button.btn-block.btn.btn-danger Del       
-    div
-      if basketItemsWithNamesAndPrices && totalprice > 0
-        p Total: #{totalPrice}
-        - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
-        a.btn.btn-danger(href=empty) Empty basket
-    br 
+                      button.btn.btn-delete Delete       
+   
+    div.col-12.md-12
+      if basketItemsWithNamesAndPrices && showQuantity > 0
+        p#total.mt-5 Total: #{totalPrice} EUR
+        p.text-center You have #{showQuantity} points worth of items in the basket.
+            |  Find
+            a(href='/projects')  more 
+            | to support!
+      else
+        p#emptyBasketText.text-center.mt-5
+            | Your basket is empty. Why not browse  
+            a(href='/projects') our projects
+            |  to find and support one...?
     div
       if basketItemsWithNamesAndPrices && showQuantity > 0
-        p You have #{showQuantity} projects in the basket
-      else
-        p Your basket is empty. Why not browse our projects to find and support one...? 
-    
-    div
-      if basketItemsWithNamesAndPrices
+        - let empty = `baskets/empty/${basketItemsWithNamesAndPrices.userid}`  
+        a.btn.btn-emptyBasket.mb-5(href=empty) Empty basket
+    br      
+    div.md-9
+      if basketItemsWithNamesAndPrices && showQuantity > 0
         form(action=`/baskets/donate`, method="POST")
-          button.btn-block.btn.btn-info Donate
+          button.btn-block.btn.btn-donate Donate
     

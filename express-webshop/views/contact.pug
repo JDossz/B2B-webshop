@@ -9,14 +9,14 @@ block content
       .col-10.offset-1
         .card.card-outline-secondary.mt-5.mb-5
           .card-header
-            h3 Our Reviews
-          each review in reviews
+            h3 Others said about us
+          each review, index in reviews
             .card-body(style='padding:10px')
               .row
                 .col-8
                   form(action=`/contact/reviews/edit/${review.id}` method="post")
-                    input.form-control.edit(disabled name="text" value=review.text)
-                    button.mt-2.btn.btn-outline-success.hidden(type="submit") Change
+                    input.form-control.edit(data-id=index disabled name="text" value=review.text)
+                    button.mt-2.btn.btn-outline-success.hidden.hide(data-id=index type="submit") Change
                 if user
                   if user.firstname==review.firstname && user.lastname==review.lastname 
                     .col-2.text-right
@@ -25,28 +25,42 @@ block content
                         .dropdown-menu(aria-labelledby='dropdownMenuButton')
                           a.btn.btn-outline-secondary.dropdown-item(href=`/contact/reviews/remove/${review.id}`)
                             i.fa.fa-trash(aria-hidden='true')
-                          button.btn.btn-outline-secondary.dropdown-item(onclick="toggleDisabled(event)")
-                            i.fa.fa-pencil-square-o(aria-hidden='true')
+                          button.btn.btn-outline-secondary.dropdown-item(data-id=index onclick="toggleDisabled(event)")
+                            i.fa.fa-pencil-square-o(data-id=index aria-hidden='true')
                     .col-1
               .row
-                .col-md-3.col-4
+                .col-md-3.col-5
                   small.text-muted &nbsp; &nbsp;Posted by: #{review.firstname} #{review.lastname}
                 .col-md-1.col-2
                   small.text-muted #{ review.rate }&starf;
+                .col-md-8.col-12.text-right 
+                  -function dateFormatting(dateString) {
+                    -const date = new Date(dateString);
+                    -const d = date.getDate();
+                    -const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    -const m = monthNames[date.getMonth()];
+                    -const y = date.getFullYear();
+                    -const h= date.getHours();
+                    - const min=date.getMinutes();
+                    -const t = date.getTime();
+                    -const sec = date.getSeconds();
+                    -return `${d} ${m} ${y} ${h}:${min}:${sec}`;
+                  -}
+                  small.text-muted #{dateFormatting(review.insdate)}
               hr
           if user
             if user.id 
               .card-footer.col-12.text-center
-                label.btn.btn-info(for='addReview') Leave a Review
+                label.btn.btn-animate(for='addReview') Leave a Review
         if user
           if user.id 
-            #review.col-6.offset-3.mt-5.mb-5.none
+            #review.col-12.col-md-6.offset-md-3.mt-5.mb-5.none
               form.form(action='/contact/reviews/addReview' method='post')
                 .card.text-center
                   .card-header 
                     h5 Tell us what you think about our page!
                   .card-body
-                    textarea.mb-3.form-control#addReview(name='text', placeholder='Write something...')
+                    textarea.mb-3.form-control.reviewText#addReview(name='text', placeholder='Write something...')
                     .container
                       .feedback
                         .rating
@@ -133,9 +147,12 @@ block content
                                 path(d='M329.5 395.2c0 44.7-33 81-73.4 81-40.7 0-73.5-36.3-73.5-81s32.8-81 73.5-81c40.5 0 73.4 36.3 73.4 81z', fill='#3e4347')
                                 path(d='M256 476.2a70 70 0 0 0 53.3-25.5 34.6 34.6 0 0 0-58-25 34.4 34.4 0 0 0-47.8 26 69.9 69.9 0 0 0 52.6 24.5z', fill='#e24b4b')
                                 path(d='M290.3 434.8c-1 3.4-5.8 5.2-11 3.9s-8.4-5.1-7.4-8.7c.8-3.3 5.7-5 10.7-3.8 5.1 1.4 8.5 5.3 7.7 8.6z', fill='#fff', opacity='.2')
-                              
+                  if wrong
+                    p.text-danger=wrong
+                  if wrongs
+                    p.text-danger=wrongs
                   .card-footer
-                    button.btn.btn-info(type='submit') SEND
+                    button.btn.btn-animate(type='submit') SEND
 
                           
                           

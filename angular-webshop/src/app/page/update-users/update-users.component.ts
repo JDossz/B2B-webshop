@@ -13,8 +13,9 @@ export class UpdateUsersComponent implements OnInit {
 
   user$: BehaviorSubject<User> = this.ds.user;
   user: User;
+  missingData;
 
-  constructor (
+  constructor(
     private ds: DataService,
     private ar: ActivatedRoute,
     private router: Router
@@ -36,15 +37,21 @@ export class UpdateUsersComponent implements OnInit {
 
   onSubmit(ev: Event): void {
     ev.preventDefault();
-    delete this.user.token; // IMPORTANT!
-    this.ds.updateRecordByQuery('users', { id: this.user.id }, this.user).subscribe(
-      user => {
-        this.router.navigateByUrl("/users");
-        this.user = user;
-      }, err => console.error(err)
-
-    )
-
+    const keys = ['firstname', 'lastname', 'emailaddress'];
+    let error = false;
+    let missing = [];
+    keys.forEach((k) => {
+      if (!this.user[k]) {
+        missing.push(k);
+        this.missingData = 'You skipped: ';
+        this.missingData += missing;
+        error = true;
+      }
+    })
+    if (!error) {
+      delete this.user.token; // IMPORTANT!
+      this.ds.updateRecordByQuery('users', { id: this.user.id }, this.user).subscribe(
+        () => this.router.navigateByUrl("/users"))
+    }
   }
-
 }

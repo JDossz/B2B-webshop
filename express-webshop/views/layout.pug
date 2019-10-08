@@ -48,37 +48,32 @@ html
             li.nav-item
               a.nav-link(href='/about') About Us
             li.nav-item
-              a.nav-link(href='/contact') Contact
+              a.nav-link(href='/contact') Reviews
+          ul.navbar-nav
             if user
               if user.admin == 1
                 li.nav-item
-                  a.nav-link(href='#') Admin
-          ul.navbar-nav.mr-5
-            form.form-inline.my-2.my-lg-0
-              input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
-              button.btn.btn-outline-secondary(type="submit") Search
-          ul.navbar-nav
+                  a.nav-link(href='/admin') Admin
             if user
               if user.id
                 li
-                  if user.pictureurl
-                    img#profile-pic(src=`${user.pictureurl}`)
-                  else
-                    img#profile-pic(src="/images/users/user_default.png")
+                  img#profile-pic(src=`${user.pictureurl}`)
                 li.nav-item.dropdown
                   a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                   .dropdown-menu(aria-labelledby='navbarDropdown')
                     a.dropdown-item(href='/myProfile') My Profile
-                    a.dropdown-item(href='/myProfile') Settings
                     a.dropdown-item(href='/logout') Log out
                 li
-                  span#username #{user.firstname} #{user.lastname}
+                  span#username #{user.firstname} #{user.lastname} 
                 li
                   .col
-                    a#basketlink.fa.fa-gift.fa-2x.ml-1.mt-1(href="/baskets")
+                    a#basketlink.fa.fa-gift.fa-2x.ml-1.mt-1(href="/baskets") 
+                      span#basketNumber.align-text-bottom (#{allItems})
+                    
+                       
               else
                 li
-                  a.btn.btn-primary(href='/login') Log In
+                  a.btn.btn-animate(href='/login') Log In
       div.mt-3
         block content
 
@@ -91,6 +86,7 @@ html
               a(href='/privacy') Privacy Policy
             .col-4.text-muted.text-center
               a(href='/terms') Terms and Conditions
-    
+
     script(src="/javascripts/jquery-3.3.1.slim.min.js")
     script(src="/bootstrap/dist/js/bootstrap.bundle.min.js")
+    

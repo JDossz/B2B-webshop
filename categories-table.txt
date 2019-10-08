@@ -2,6 +2,7 @@ CREATE TABLE categories (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     category nvarchar(255) DEFAULT 'Other',
+    details nvarchar(255) DEFAULT 'Add the details of this category'
     PRIMARY KEY (id)
 );
 

@@ -7,3 +7,7 @@ CREATE TABLE baskets (
     PRIMARY KEY (id)
 );
 
+INSERT INTO baskets (userid, projectid)
+VALUES (1, 10),
+(2, 9);
+

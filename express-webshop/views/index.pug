@@ -21,7 +21,7 @@ block content
               h1 #{carousel[0].title}
               p.shortd #{carousel[0].shortd}
               p
-                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[0].seo}` role='button') Learn more
+                a.btn.btn-lg.btn-animate(href=`/projects/${carousel[0].seo}` role='button') Learn more
 
         .carousel-item
           img(src=`${carousel[1].pictureurl}`)
@@ -30,7 +30,7 @@ block content
               h1 #{carousel[1].title}
               p.shortd #{carousel[1].shortd}
               p
-                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[1].seo}` role='button') Learn more
+                a.btn.btn-lg.btn-animate(href=`/projects/${carousel[1].seo}` role='button') Learn more
 
         .carousel-item
           img(src=`${carousel[2].pictureurl}`)
@@ -39,7 +39,7 @@ block content
               h1 #{carousel[2].title}
               p.shortd #{carousel[2].shortd}
               p
-                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[2].seo}` role='button') Learn more
+                a.btn.btn-lg.btn-animate(href=`/projects/${carousel[2].seo}` role='button') Learn more
 
         .carousel-item
           img(src=`${carousel[3].pictureurl}`)
@@ -48,7 +48,7 @@ block content
               h1 #{carousel[3].title}
               p.shortd #{carousel[3].shortd}
               p
-                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[3].seo}` role='button') Learn more
+                a.btn.btn-lg.btn-animate(href=`/projects/${carousel[3].seo}` role='button') Learn more
 
         .carousel-item
           img(src=`${carousel[4].pictureurl}`)
@@ -57,7 +57,7 @@ block content
               h1 #{carousel[4].title}
               p.shortd #{carousel[4].shortd}
               p
-                a.btn.btn-lg.btn-primary(href=`/projects/${carousel[4].seo}` role='button') Learn more
+                a.btn.btn-lg.btn-animate(href=`/projects/${carousel[4].seo}` role='button') Learn more
 
       a.carousel-control-prev(href='#indexCarousel' role='button' data-slide='prev')
         span.carousel-control-prev-icon(aria-hidden='true')
@@ -93,10 +93,8 @@ block content
                     //-   title Placeholder
                     //-   rect(width='100%' height='100%' fill='#777')
                     //-   text(x='50%' y='50%' fill='#777' dy='.3em') 140x140
-                    if funders[0].pictureurl
+                    if funders[0].pictureurl != "/images/users/user_default.png"
                       img.profile-pic(src=`${funders[0].pictureurl}`)
-                    else
-                      img.profile-pic(src="/images/users/user_default.png")
                 .row
                   .col
                     h2 #{funders[0].firstname} #{funders[0].lastname}
@@ -104,16 +102,14 @@ block content
                       | Your limitation - it’s only your imagination.
                     p
                       if funders[0].gender == 0
-                        a.btn.btn-success(href='/projects' role='button') Follow her lead &raquo;
+                        a.btn.btn-animate(href='/projects' role='button') Follow her lead &raquo;
                       else
-                        a.btn.btn-success(href='/projects' role='button') Follow his lead &raquo;
+                        a.btn.btn-animate(href='/projects' role='button') Follow his lead &raquo;
               .col-lg-4
                 .row
                   .col.funder-picture.mb-1
-                    if funders[1].pictureurl
+                    if funders[1].pictureurl != "/images/users/user_default.png"
                       img.profile-pic(src=`${funders[1].pictureurl}`)
-                    else
-                      img.profile-pic(src="/images/users/user_default.png")
                 .row
                   .col
                     h2 #{funders[1].firstname} #{funders[1].lastname}
@@ -121,16 +117,14 @@ block content
                       | Dream it. Wish it. Do it.
                     p
                       if funders[1].gender == 0
-                        a.btn.btn-success(href='/projects' role='button') Follow her lead &raquo;
+                        a.btn.btn-animate(href='/projects' role='button') Follow her lead &raquo;
                       else
-                        a.btn.btn-success(href='/projects' role='button') Follow his lead &raquo;
+                        a.btn.btn-animate(href='/projects' role='button') Follow his lead &raquo;
               .col-lg-4
                 .row
                   .col.funder-picture.mb-1
-                    if funders[2].pictureurl
+                    if funders[2].pictureurl != "/images/users/user_default.png"
                       img.profile-pic(src=`${funders[2].pictureurl}`)
-                    else
-                      img.profile-pic(src="/images/users/user_default.png")
                 .row
                   .col
                     h2 #{funders[2].firstname} #{funders[2].lastname}
@@ -138,9 +132,9 @@ block content
                       | Great things never come from comfort zones.
                     p
                       if funders[2].gender == 0
-                        a.btn.btn-success(href='/projects' role='button') Follow her lead &raquo;
+                        a.btn.btn-animate(href='/projects' role='button') Follow her lead &raquo;
                       else
-                        a.btn.btn-success(href='/projects' role='button') Follow his lead &raquo;
+                        a.btn.btn-animate(href='/projects' role='button') Follow his lead &raquo;
       hr.featurette-divider
 
       // hot projects
@@ -149,7 +143,7 @@ block content
           h2.featurette-heading #{featurette[0].title}
             // span.text-muted It&rsquo;ll blow your mind.
           p.lead #{featurette[0].shortd}
-          a.btn.btn-primary(href=`/projects/${featurette[0].seo}`) Tell me more
+          a.btn.btn-animate(href=`/projects/${featurette[0].seo}`) Tell me more
         .col-md-5.col-sm-12.justify-content.text-center
           //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
           //-   title Placeholder
@@ -163,7 +157,7 @@ block content
           h2.featurette-heading #{featurette[1].title}
             // span.text-muted See for yourself.
           p.lead #{featurette[1].shortd}
-          a.btn.btn-primary(href=`/projects/${featurette[1].seo}`) Tell me more
+          a.btn.btn-animate(href=`/projects/${featurette[1].seo}`) Tell me more
         .col-md-5.order-md-1.col-sm-12.justify-content.text-center
           img(src=`${featurette[1].pictureurl}`)
       hr.featurette-divider
@@ -173,7 +167,7 @@ block content
           h2.featurette-heading #{featurette[2].title}
             // span.text-muted Checkmate.
           p.lead #{featurette[2].shortd}
-          a.btn.btn-primary(href=`/projects/${featurette[2].seo}`) Tell me more
+          a.btn.btn-animate(href=`/projects/${featurette[2].seo}`) Tell me more
         .col-md-5.col-sm-12.justify-content-center
           img(src=`${featurette[2].pictureurl}`)
       hr.featurette-divider
@@ -195,4 +189,4 @@ block content
                 .relative.w100p
                   .h5.clip.absolute.l0.t0.w100p
                     .absolute.l0.t1.w100p
-              button.btn.btn-md.btn-black.btn-dark(type="submit") Subscribe
+              button.btn.btn-md.btn-animate(type="submit") Subscribe

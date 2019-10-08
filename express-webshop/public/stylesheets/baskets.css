@@ -1,0 +1,84 @@
+.table-secondary {
+  margin-top: 45px;
+  font-size: 14px;
+  font-weight: 400;
+  height: 35px;
+  text-align: center;
+  color: #000;
+  background-color: #FFF;
+}
+
+#tableHead {
+  background-color: #3DD4D4;
+}
+
+td {
+  line-height: 40px;
+}
+
+.btn-donate {
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFF;
+  height: 45px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  position: center;
+  transition: all .4s ease-in-out;
+
+  background-image: linear-gradient(to right, #25AAE1, #40E495, #30DD8A, #2BB673);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.btn-donate:hover {
+  background-position: 100% 0;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-donate:focus {
+  outline: none;
+}
+
+.btn-add {
+  background-color: #23C2C2;
+  color: #FFF;
+}
+
+.btn-add:hover {
+  color: #C9F6FF;
+}
+
+.btn-delete {
+  background-color: #000;
+  color: #FFF;
+}
+
+.btn-delete:hover {
+  color: #919C9C;
+}
+
+.btn-emptyBasket {
+  background-color: #000;
+  color: #FFF;
+  /* width: 165px; */
+}
+
+.btn-emptyBasket:hover {
+  color: #919C9C;
+}
+
+#total {
+  font-weight: 600;
+  font-size: 200
+}
+
+.container-fluid {
+  max-width: 90%;
+}

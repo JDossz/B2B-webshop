@@ -20,9 +20,12 @@ block content
               //- personal statistics part
               .row.user-detail-row
                 .col-md-12.col-sm-12.user-detail-section2.pull-left.mt-5
-                  p Followers
-                  span hárommillio
-
+                  if lastfunded.length
+                    h6.mb-3.mt-3 Last donated
+                    ul
+                      each projectTitle in lastfunded
+                        li #{projectTitle.title}
+               
           //- personal part on the right
           .col-md-9.col-sm-9.col-xs-12.pull-right.profile-right-section
             .row.profile-right-section-row
@@ -96,17 +99,17 @@ block content
                           .col-md-4
                             label Donater Level
                           .col-md-6
-                            p az awards táblából a userhez pontjai alapján tartozó level
+                            p #{donaterLevel}
                         .row
                           .col-md-4
                             label Funded Projects
                           .col-md-6
-                            p hány projektet támogatott összesen
+                            p=fundedProjects
                         .row
                           .col-md-4
                             label Amount Donated
                           .col-md-6
-                            p mennyi pénzt adományozott összesen
+                            p #{user.donations} EUR
                         .row
                           .col-md-12
                             label Biography

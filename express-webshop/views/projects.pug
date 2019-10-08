@@ -6,21 +6,21 @@ block content
       .col-3
         .sidebar
           h1 Categories
-          each category, index in categories 
+          each category, index in categories
             a(href=`/projects/categories/${category.category}`) #{category.category}        
-          a(href='/projects') Go back!
+          a(href='/projects') All Projects
           .row
             form.form-inline(action='/projects' method="GET")
               .form-group
                 .col-6
-                    input.form-control(type='text',name="search", placeholder='Search..')
+                  input.form-control(type='text',name="search", placeholder='Search..')
                 .col-6
-                  button.btn.btn-primary(type="submit")
+                  button.btn.btn-animate(type="submit")
                     i.fa.fa-search(aria-hidden='true')
-      .col-8               
+      .col-8
         each project , index in projects
           if index < 10
-            .card.mb-3(style='max-width: 850px;')
+            .card.mb-3#project-card(style='max-width: 850px;')
               .row.no-gutters
                 .col-md-4
                   img.card-img(src=`${project.pictureurl}`, alt='...')
@@ -29,8 +29,23 @@ block content
                     h5.card-title #{project.title}
                     p.card-text #{project.shortd}
                     p.card-text
-                      small.text-muted Last funded 3 mins ago
-                    a.btn.btn-info(href=`/projects/${project.seo}`) Show more! 
+                      -function dateFormatting(dateString) {
+                        -const date = new Date(dateString);
+                        -const d = date.getDate();
+                        -const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                        -const m = monthNames[date.getMonth()];
+                        -const y = date.getFullYear();
+                        -return `${d}-${m}-${y}`;
+                      -}
+                      if project
+                        if project.lastfunded == null
+                          small.text-muted Be the first to support this project &nbsp;
+                            i.fa.fa-child
+                            i.fa.fa-child
+                            i.fa.fa-child
+                        else
+                          small.text-muted Last funded: #{dateFormatting(project.lastfunded)}
+                    a.btn.btn-animate(href=`/projects/${project.seo}`) Show more!
     .row
       .col-4.offset-4                      
         if numberOfproducts > 10
@@ -39,13 +54,21 @@ block content
               - let x = 1;
               - let y = Math.round(numberOfproducts/10) 
                 li.page-item
+                  a.page-link(href=`/projects?page=1&limit=${10}` aria-label='First')
+                    span(aria-hidden='true') &laquo;&laquo;
+                    span.sr-only First
+                li.page-item
                   a.page-link(href=`/projects?page=${prevPage || 1 }&limit=${10}` aria-label='Previous')
                     span(aria-hidden='true') &laquo;
                     span.sr-only Previous
                 while x <= y
                   li.page-item
-                    a.page-link(href=`/projects?page=${x}&limit=${10}`) #{x++}    
+                    a.page-link(href=`/projects?page=${x}&limit=${10}`) #{x++}
                 li.page-item                          
                   a.page-link(href=`/projects?page=${nextPage || 1 }&limit=${10}` aria-label='Next')
                     span(aria-hidden='true') &raquo;
-                    span.sr-only Next    
+                    span.sr-only Next
+                li.page-item                          
+                  a.page-link(href=`/projects?page=${lastPage || 3 }&limit=${10}` aria-label='Last')
+                    span(aria-hidden='true') &raquo;&raquo;
+                    span.sr-only Last
