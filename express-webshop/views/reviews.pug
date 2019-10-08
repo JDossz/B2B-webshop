@@ -14,7 +14,7 @@ block content
             .card-body(style='padding:10px')
               .row
                 .col-8
-                  form(action=`/contact/reviews/edit/${review.id}` method="post")
+                  form(action=`/reviews/edit/${review.id}` method="post")
                     input.form-control.edit(data-id=index disabled name="text" value=review.text)
                     button.mt-2.btn.btn-outline-success.hidden.hide(data-id=index type="submit") Change
                 if user
@@ -23,7 +23,7 @@ block content
                       .dropdown
                         button#dropdownMenuButton.btn.btn-outline-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                         .dropdown-menu(aria-labelledby='dropdownMenuButton')
-                          a.btn.btn-outline-secondary.dropdown-item(href=`/contact/reviews/remove/${review.id}`)
+                          a.btn.btn-outline-secondary.dropdown-item(href=`/reviews/remove/${review.id}`)
                             i.fa.fa-trash(aria-hidden='true')
                           button.btn.btn-outline-secondary.dropdown-item(data-id=index onclick="toggleDisabled(event)")
                             i.fa.fa-pencil-square-o(data-id=index aria-hidden='true')
@@ -55,7 +55,7 @@ block content
         if user
           if user.id 
             #review.col-12.col-md-6.offset-md-3.mt-5.mb-5.none
-              form.form(action='/contact/reviews/addReview' method='post')
+              form.form(action='/reviews/addReview' method='post')
                 .card.text-center
                   .card-header 
                     h5 Tell us what you think about our page!
