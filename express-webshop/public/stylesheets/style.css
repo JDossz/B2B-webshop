@@ -126,6 +126,10 @@ footer>.container {
   outline: none;
 }
 
+#logo {
+  height: 1.4em;
+}
+
 .nav-link {
   font-size: 1.3em;
 }
