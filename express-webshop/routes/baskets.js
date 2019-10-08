@@ -97,7 +97,7 @@ router.post('/donate', async (req, res) => {
   const userAward = await database.readRecord('baskets', {
     'users.id': req.user.id,
     from: 'INNER JOIN users ON baskets.userid = users.id',
-    select: 'users.donations as donations',
+    select: 'users.donations as donations, baskets.quantity as quantity, users.points',
   });
 
   const price = await database.readRecord('projects', {
@@ -110,11 +110,13 @@ router.post('/donate', async (req, res) => {
 
   userAward.forEach((el) => {
     const amountOfDonations = el.donations + donationsPerUser;
+    const amountOfUsersPoints = el.points + el.quantity
     if (amountOfDonations > 0) {
       database.updateRecord('users', {
         id: req.user.id,
       }, {
         donations: amountOfDonations,
+        points: amountOfUsersPoints,
       });
     }
   });

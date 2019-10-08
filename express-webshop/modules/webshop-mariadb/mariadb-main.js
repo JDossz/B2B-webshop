@@ -125,6 +125,39 @@ module.exports = class BetagDB {
     return result;
   }
 
+  async previousOrdersByProjectName(req) {
+    const sql = `
+    SELECT DISTINCT projects.title
+    FROM orderdetails
+    INNER JOIN projects ON projects.id = orderdetails.projectid 
+    INNER JOIN orders ON orders.id = orderdetails.orderid 
+    INNER JOIN users ON users.id = orders.userid
+    WHERE users.id = ${req.user.id}
+    ORDER BY orders.insdate DESC
+    LIMIT 3
+   `
+      ;
+
+
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+  async listOfPreviousOrders(req) {
+    const sql = `
+    SELECT orderid, 
+    projects.title, 
+    orders.quantity,
+    orders.insdate
+    FROM projects 
+    INNER JOIN orderdetails ON projects.id = orderdetails.projectid 
+    INNER JOIN orders ON orders.id = orderdetails.orderid 
+    INNER JOIN users ON users.id = orders.userid
+    WHERE users.id = ${req.user.id}`;
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
   async basketNumber(req) {
     const sql = `
     SELECT SUM(baskets.quantity) as totalQuantity

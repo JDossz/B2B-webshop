@@ -21,12 +21,21 @@ router.all('/', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
   const donatedProjectsPerUser = await database.previousOrders(req)
   donatedProjects = donatedProjectsPerUser[0].allDonatedProjects
+  let lastfunded = await database.previousOrdersByProjectName(req)
+  const amountOfUsersPoints = await database.readRecord('users', {
+    id: req.user.id,
+    select: 'users.points as points'
+  })
+
+  allPoints = amountOfUsersPoints[0].points
   res.render('myProfile', {
     title: 'Profile Page',
     user: req.user || {},
     fundedProjects: donatedProjects,
+    amountOfUsersPoints: allPoints,
+    lastfunded,
   });
-  console.log(donatedProjectsPerUser[0].allDonatedProjects)
+
 });
 
 module.exports = router;
