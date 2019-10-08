@@ -203,7 +203,7 @@ body {
   /* color: linear-gradient(rgb(122, 209, 126), rgb(11, 61, 17)); */
 }
 
-.orders-card-span {
+.donations-card-span {
   margin: 1px;
 }
 
@@ -233,3 +233,41 @@ body {
 }
 
 /* background: -webkit-linear-gradient(rgb(255, 128, 78), rgb(15, 21, 75)); */
+/* img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  width: 50%;
+  height: auto
+} */
+
+.card-img-div {
+  position: relative;
+}
+
+.card-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-top: 50%;
+  top: 50%;
+  width: 60%;
+  height: 60%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.project-card-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-top: 50%;
+  top: 50%;
+  width: 90%;
+  height: 90%;
+  vertical-align: middle;
+  text-align: center;
+}
