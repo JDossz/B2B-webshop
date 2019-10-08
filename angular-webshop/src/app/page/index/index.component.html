@@ -9,6 +9,11 @@
           <div class="level center">
             PROJECTS
           </div>
+          <div class="card-img-div">
+            <img class="project-card-img"
+                 src="../../../assets/img/projects.png"
+                 alt="">
+          </div>
           <div class="points center"><i class="far fa-copyright"></i>©BETAG</div>
         </div>
         <div class="more-info">
@@ -25,9 +30,9 @@
               <div class="value">{{countPassiveProjects}}</div>
             </div>
             <div>
-              <div class="title">Deleted</div>
+              <div class="title">Funded</div>
               <i class="fa fa-group"></i>
-              <div class="value">{{countedDeletedProjects}}</div>
+              <div class="value">{{countedFundedProjects}}</div>
             </div>
           </div>
         </div>
@@ -41,39 +46,45 @@
       </div>
     </div>
 
-    <!-- Orders card -->
+    <!-- donations card -->
 
     <div class="card mx-auto mx-5 my-5">
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            ORDERS
+            donations
+          </div>
+          <div class="card-img-div">
+            <img class="card-img"
+                 src="../../../assets/img/orders.jpg"
+                 alt="">
           </div>
           <div class="points center"><i class="far fa-copyright"></i>©BETAG</div>
         </div>
         <div class="more-info">
           <h1 class="mx-2 my-2">Details</h1>
           <div class="coords">
-            <span>Status 1</span>
-            <span>{{orderStatus1}}</span>
+            <span>Request Arrived</span>
+            <span>{{donationstatus1}}</span>
           </div>
-          <div class="coords orders-card-span">
-            <span>Status 2</span>
-            <span>{{orderStatus2}}</span>
-          </div>
-          <div class="coords">
-            <span>Status 3</span>
-            <span>{{orderStatus3}}</span>
+          <div class="coords donations-card-span">
+            <span>Donation Received</span>
+            <span>{{donationstatus2}}</span>
           </div>
           <div class="coords">
-            <span>Status 4</span>
-            <span>{{orderStatus4}}</span>
+            <span>Donation Transfered</span>
+            <span>{{donationstatus3}}</span>
+          </div>
+          <div class="coords">
+            <span>Donation Canceled</span>
+            <span>{{donationstatus5}}</span>
           </div>
           <div class="stats mx-1 my-2">
             <div>
-              <div class="title orders-stats">Total Balance</div>
+              <div class="title donations-stats">Total Balance</div>
               <i class="fa fa-trophy"></i>
-              <div class="value orders-stats">{{totalBalanceOfOrders | currency: 'EUR':true:'2.0'}}
+              <div class="value donations-stats">
+                {{totalBalanceOfdonations | currency: 'EUR':true:'2.0'}}
               </div>
             </div>
             <div>
@@ -97,8 +108,8 @@
       <div class="general">
         <!-- <h1 class="card-h1">Users</h1> -->
         <div class="mx-4 my-3">As well as</div>
-        <div class="text-center card-number mx-auto">{{countedOrders}}</div>
-        <div class="text-right mx-4 my-2">orders.</div>
+        <div class="text-center card-number mx-auto">{{countedDonations}}</div>
+        <div class="text-right mx-4 my-2">donations.</div>
         <span class="more mx-2 my-1">Check it out <span class="my-card-arrow">&#x203A;</span></span>
       </div>
     </div>
@@ -111,6 +122,11 @@
           <div class="level center">
             USERS
           </div>
+          <div class="card-img-div">
+            <img class="card-img"
+                 src="../../../assets/img/users.png"
+                 alt="">
+          </div>
           <div class="points center"><i class="far fa-copyright"></i>©BETAG</div>
         </div>
         <div class="more-info">
@@ -122,23 +138,18 @@
               <div class="value">{{countedAdmins}}</div>
             </div>
             <div>
-              <div class="title">Civils</div>
+              <div class="title">All Users</div>
               <i class="fa fa-gamepad"></i>
-              <div class="value">{{countedCivils}}</div>
-            </div>
-            <div>
-              <div class="title">Deleted</div>
-              <i class="fa fa-group"></i>
-              <div class="value">-</div>
+              <div class="value">{{countedUsers}}</div>
             </div>
           </div>
         </div>
       </div>
       <div class="general">
         <!-- <h1 class="card-h1">Users</h1> -->
-        <div class="mx-4 mt-3">In adition, we have</div>
-        <div class="text-center card-number mx-auto">{{countedUsers}}</div>
-        <div class="text-right mx-4">Customers.</div>
+        <div class="mx-4 mt-3">Funded by</div>
+        <div class="text-center card-number mx-auto">{{countedCivils}}</div>
+        <div class="text-right mx-4">contributors.</div>
         <span class="more mx-2 my-1">Check it out <span class="my-card-arrow">&#x203A;</span></span>
       </div>
     </div>

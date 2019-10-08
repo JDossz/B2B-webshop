@@ -26,16 +26,19 @@ export class IndexComponent implements OnInit {
   countedMaxDonation: number = 0;
   countedMinDonation: number = 0;
   countedAverageDonaton: number = 0;
+  countedFundedProjects: number = 0;
 
-  //Orders
-  orders$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
-  orders: any
-  totalBalanceOfOrders: number = 0;
-  countedOrders: number = 0;
-  orderStatus1: number = 0;
-  orderStatus2: number = 0;
-  orderStatus3: number = 0;
-  orderStatus4: number = 0;
+
+  //donations
+  donations$: Observable<any> = this.statisticsService.readTableByQuery('orders', {});
+  donations: any
+  totalBalanceOfdonations: number = 0;
+  countedDonations: number = 0;
+  donationstatus1: number = 0;
+  donationstatus2: number = 0;
+  donationstatus3: number = 0;
+  donationstatus4: number = 0;
+  donationstatus5: number = 0;
 
 
   constructor (private statisticsService: StatisticsService) {
@@ -49,10 +52,10 @@ export class IndexComponent implements OnInit {
       this.maganeUsers();
     });
 
-    this.orders$.subscribe(data => {
-      this.orders = data;
+    this.donations$.subscribe(data => {
+      this.donations = data;
       // console.log('Users: ', this.users);
-      this.manageOrders();
+      this.manageDonations();
     });
 
     this.projects$.subscribe(data => {
@@ -84,20 +87,23 @@ export class IndexComponent implements OnInit {
   }
 
 
-  manageOrders() {
-    for (let i = 0; i < this.orders.length; i++) {
-      this.countedOrders++
-      if (this.orders[i].status == 1) {
-        this.orderStatus1++
+  manageDonations() {
+    for (let i = 0; i < this.donations.length; i++) {
+      this.countedDonations++
+      if (this.donations[i].status == 1) {
+        this.donationstatus1++
       }
-      if (this.orders[i].status == 2) {
-        this.orderStatus2++
+      if (this.donations[i].status == 2) {
+        this.donationstatus2++
       }
-      if (this.orders[i].status == 3) {
-        this.orderStatus3++
+      if (this.donations[i].status == 3) {
+        this.donationstatus3++
       }
-      if (this.orders[i].status == 4) {
-        this.orderStatus4++
+      if (this.donations[i].status == 4) {
+        this.donationstatus4++
+      }
+      if (this.donations[i].status == 5) {
+        this.donationstatus5++
       }
     }
   }
@@ -105,7 +111,7 @@ export class IndexComponent implements OnInit {
   manageProjects() {
     for (let i = 0; i < this.projects.length; i++) {
       this.countedProjects += 1;
-      this.totalBalanceOfOrders += this.projects[i].balance
+      this.totalBalanceOfdonations += this.projects[i].balance
       if (this.projects[i].isactive == 0) {
         this.countedDeletedProjects += 1;
       }
@@ -115,7 +121,12 @@ export class IndexComponent implements OnInit {
       if (this.projects[i].isactive == 0) {
         this.countPassiveProjects += 1;
       }
+      if (this.projects[i].balance >= this.projects[i].goal) {
+        this.countedFundedProjects++
+      }
     }
+
+
     for (let i = 0; i < this.projects.length; i++) {
       if (this.countedMaxDonation < this.projects[i].donation) {
         this.countedMaxDonation = this.projects[i].donation;
@@ -126,6 +137,7 @@ export class IndexComponent implements OnInit {
         this.countedMinDonation = this.projects[i].donation;
       }
     }
-    this.countedAverageDonaton = this.totalBalanceOfOrders / this.countedProjects
+    this.countedAverageDonaton = this.totalBalanceOfdonations / this.countedProjects
+
   }
 }
