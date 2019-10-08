@@ -16,27 +16,29 @@ const getToken = (l = 20) => {
 };
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   res.render('login', {
     title: 'Express',
   });
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res) => {
   const result = await database.readRecord('users', {
     username: sha1(req.body.username.replace(/\W/g, '')),
     password: sha1(req.body.password.replace(/\W/g, '')),
   });
+
   if (result.length === 1) {
     const token = getToken();
     res.cookie('userID', token);
     await database.updateRecord('users', {
       id: result[0].id,
     }, {
-      'token': token,
+      token,
     });
     return res.redirect('/');
   }
+
   res.render('login', {
     wrong: 'Incorrect email or password',
   });

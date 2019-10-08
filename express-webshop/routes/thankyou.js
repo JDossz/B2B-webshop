@@ -9,7 +9,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const dom = new JSDOM(`<!DOCTYPE html>`);
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   if (req.query.hasOwnProperty('emailaddress')) {
     database.createRecord('newsletter', { emailaddress: req.query.emailaddress });
   }

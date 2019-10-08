@@ -26,10 +26,13 @@ VALUES ('Dorottya', 'Juhász', 0, SHA1('JDorka'), 'juhasz.dossz@gmail.com', SHA1
 
 INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, pictureurl)
 VALUES ('Alma', 'Zöld', 0, SHA1('AlmaZ'), 'almaz@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
-('Alma', 'Piros', 0, SHA1('AlmaP'), 'almap@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
-('Alma', 'Téli', 1, SHA1('AlmaT'), 'almat@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
-('Alma', 'Birs', 1, SHA1('AlmaB'), 'almab@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
-('Alma', 'Lédig', 0, SHA1('AlmaL'), 'almal@gmail.com', SHA1('Alma1alma'), '/images/users/alma.jpg');
+('Alma', 'Piros', 0, SHA1('AlmaP'), 'almap@freemail.hu', SHA1('Alma1alma'), '/images/users/alma.jpg'),
+('Alma', 'Téli', 1, SHA1('AlmaT'), 'almat@citromail.hu', SHA1('Alma1alma'), '/images/users/alma.jpg'),
+('Alma', 'Birs', 1, SHA1('AlmaB'), 'almab@gamerteam.com', SHA1('Alma1alma'), '/images/users/alma.jpg'),
+('Alma', 'Lédig', 0, SHA1('AlmaL'), 'almal@smartart.hu', SHA1('Alma1alma'), '/images/users/alma.jpg');
+
+INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, pictureurl)
+VALUES ('Laren', 'Shay', 0, SHA1(LarenShay), larenshay@gmail.com);
 
 INSERT INTO users (firstname, lastname, gender, username, emailaddress, password)
 VALUES ('Virág', 'Cserepes', 0, SHA1('ViragCs'), 'virag.cserepes@gmail.com', SHA1('Virag2019')),

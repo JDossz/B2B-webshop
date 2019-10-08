@@ -26,16 +26,24 @@ router.get('/', async (req, res, next) => {
     id: req.user.id,
     select: 'users.points as points'
   })
-
   allPoints = amountOfUsersPoints[0].points
+  
+  const awardsList = await database.readRecord('awards', {});
+  let donaterLevel = '';
+  for (let i = awardsList.length-1; i > 0; i--) {
+    if (req.user.points < awardsList[i].requiredpoints) {
+      donaterLevel = awardsList[i-1].level;
+    }
+  }
+
   res.render('myProfile', {
     title: 'Profile Page',
-    user: req.user || {},
+    donaterLevel,
     fundedProjects: donatedProjects,
     amountOfUsersPoints: allPoints,
     lastfunded,
+    user: req.user || {},
   });
-
 });
 
 module.exports = router;

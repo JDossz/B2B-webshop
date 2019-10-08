@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
     title: 'Contacts',
     reviews: reviewList,
     user: req.user || {},
-
   });
 });
+
 router.post('/reviews/addReview', async (req, res) => {
   if (req.body.text === '' || req.body.rate === undefined) {
     const reviewList = await database.readRecord('reviews', {

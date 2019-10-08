@@ -1,9 +1,7 @@
 const express = require('express');
-
-const router = express.Router();
-
 const MariaDBmain = require('../modules/webshop-mariadb');
 
+const router = express.Router();
 const database = new MariaDBmain();
 
 
@@ -139,9 +137,10 @@ router.get('/:seo', async (req, res) => {
   const progressPercentage = parseInt((selectedProject[0].balance / selectedProject[0].goal) * 100, 10);
 
   res.render('projectDetails', {
+    title: 'Projects on Enrtyway',
+    percentage: progressPercentage,
     project: selectedProject[0],
     user: req.user || {},
-    percentage: progressPercentage,
   });
 });
 
