@@ -1,8 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
+import { BrowserModule } from '@angular/platform-browser';
+import { FusionChartsModule } from 'angular-fusioncharts';
+// Load FusionCharts
+import * as FusionCharts from 'fusioncharts';
+// Load Charts module
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+// Load fusion theme
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +36,8 @@ import { Dynamic1Component } from './charts/dynamic1/dynamic1.component';
 import { Pie1Component } from './charts/pie1/pie1.component';
 import { OrderDetailsComponent } from './page/order-details/order-details.component';
 import { DatefilterPipe } from './pipe/datefilter.pipe';
+import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { Barchart1Component } from './charts/barchart1/barchart1.component';
 
 @NgModule({
   declarations: [
@@ -52,13 +63,16 @@ import { DatefilterPipe } from './pipe/datefilter.pipe';
     Pie1Component,
     OrderDetailsComponent,
     DatefilterPipe,
+    DashboardComponent,
+    Barchart1Component,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    BrowserModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

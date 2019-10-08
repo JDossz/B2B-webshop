@@ -107,7 +107,7 @@ module.exports = class BetagDB {
     FROM projects
     INNER JOIN categories
     ON projects.categoryid=categories.id
-    WHERE category='${category}'`;
+    WHERE category='${category}' AND isactive=1`;
     const result = await this.connection.query(sql);
     return result;
   }
