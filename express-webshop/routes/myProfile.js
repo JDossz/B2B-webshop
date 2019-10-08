@@ -19,9 +19,9 @@ router.all('/', async (req, res, next) => {
 router.get('/', async (req, res) => {
   const awardsList = await database.readRecord('awards', {});
   let donaterLevel = '';
-  for (let i = 0; i < awardsList.length; i++) {
+  for (let i = awardsList.length-1; i > 0; i--) {
     if (req.user.points < awardsList[i].requiredpoints) {
-      donaterLevel = awardsList[i].level;
+      donaterLevel = awardsList[i-1].level;
     }
   }
 
