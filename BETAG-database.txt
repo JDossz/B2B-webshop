@@ -2,7 +2,7 @@ CREATE DATABASE betag;
 
 
 
-CREATE TABLE awards (
+CREATE TABLE betag.awards (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     level nvarchar(50) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE awards (
     PRIMARY KEY (id)
 );
 
-INSERT INTO awards (level, requiredpoints)
+INSERT INTO betag.awards (level, requiredpoints)
 VALUES ('Beginner', 0),
 ('Apprentice', 50),
 ('Journeyman', 100),
@@ -20,7 +20,7 @@ VALUES ('Beginner', 0),
 
 
 
-CREATE TABLE baskets (
+CREATE TABLE betag.baskets (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     userid int NOT NULL,
@@ -29,26 +29,26 @@ CREATE TABLE baskets (
     PRIMARY KEY (id)
 );
 
-INSERT INTO baskets (userid, projectid)
+INSERT INTO betag.baskets (userid, projectid)
 VALUES (1, 10),
 (2, 9);
 
 
 
-CREATE TABLE categories (
+CREATE TABLE betag.categories (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     category nvarchar(255) DEFAULT 'Other',
-    details nvarchar(255) DEFAULT 'Add the details of this category'
+    details nvarchar(255) DEFAULT 'Add the details of this category',
     PRIMARY KEY (id)
 );
 
-INSERT INTO categories (category)
+INSERT INTO betag.categories (category)
 VALUES ('Other'), ('Biology'), ('Chemistry'), ('Computer Science'), ('Engineering'), ('Mathematics'), ('Physics');
 
 
 
-CREATE TABLE newsletter (
+CREATE TABLE betag.newsletter (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     emailaddress nvarchar(255) NOT NULL,
@@ -57,12 +57,12 @@ CREATE TABLE newsletter (
     UNIQUE (emailaddress)
 );
 
-INSERT INTO newsletter (emailaddress)
+INSERT INTO betag.newsletter (emailaddress)
 VALUES ('juhasz.dossz@gmail.com');
 
 
 
-CREATE TABLE orders (
+CREATE TABLE betag.orders (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     userid int NOT NULL,
@@ -71,14 +71,14 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
-INSERT INTO orders (userid, quantity)
+INSERT INTO betag.orders (userid, quantity)
 VALUES (1, 1),
 (2, 3),
 (3, 10);
 
 
 
-CREATE TABLE orderdetails (
+CREATE TABLE betag.orderdetails (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     orderid int NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE orderdetails (
     PRIMARY KEY (id)
 );
 
-INSERT INTO orderdetails (orderid, projectid, quantity)
+INSERT INTO betag.orderdetails (orderid, projectid, quantity)
 VALUES (1, 1, 1),
 (2, 2, 3),
 (3, 3, 8),
@@ -96,7 +96,7 @@ VALUES (1, 1, 1),
 
 
 
-CREATE TABLE projects (
+CREATE TABLE betag.projects (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     title nvarchar(255) NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE projects (
     UNIQUE (seo)
 );
 
-INSERT INTO projects (title, seo, institution, shortd, longd, contact, categoryid, link)
+INSERT INTO betag.projects (title, seo, institution, shortd, longd, contact, categoryid, link)
 VALUES (
 'New calcium phosphate bone cements for potential biomaterial applications',
 'new-calcium-phosphate-bone-cements-for-potential-biomaterial-applications-bone-repair-and-or-scaffold-fabrication',
@@ -578,36 +578,36 @@ In this project, the successful candidate, in collaboration with supervisors and
 5,
 'https://www.findaphd.com/phds/project/simulation-and-modelling-of-innovative-mobility-services/?p111502');
 
-UPDATE projects
+UPDATE betag.projects
 SET `pictureurl`='/images/projects/biology.jpg'
 WHERE `categoryid`=2;
 
-UPDATE projects
+UPDATE betag.projects
 SET `pictureurl`='/images/projects/chemistry.jpg'
 WHERE `categoryid`=3;
 
-UPDATE projects
+UPDATE betag.projects
 SET `pictureurl`='/images/projects/computerscience.jpg'
 WHERE `categoryid`=4;
 
-UPDATE projects
+UPDATE betag.projects
 SET `pictureurl`='/images/projects/engineering.jpg'
 WHERE `categoryid`=5;
 
-UPDATE projects
+UPDATE betag.projects
 SET `pictureurl`='/images/projects/mathematics.jpg'
 WHERE `categoryid`=6;
 
-UPDATE projects
+UPDATE betag.projects
 SET `pictureurl`='/images/projects/physics.jpg'
 WHERE `categoryid`=7;
 
-UPDATE projects
+UPDATE betag.projects
 SET `goal`= 500;
 
 
 
-CREATE TABLE reviews (
+CREATE TABLE betag.reviews (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     userid int NOT NULL,
@@ -616,7 +616,7 @@ CREATE TABLE reviews (
     PRIMARY KEY (id)
 );
 
-INSERT INTO reviews (userid, text, rate)
+INSERT INTO betag.reviews (userid, text, rate)
 VALUES (2, 'I like the idea very much', 5),
 (1, 'Awwwwwwwwwww', 4),
 (4, 'I like this site. Way to go guys!', 4),
@@ -624,14 +624,14 @@ VALUES (2, 'I like the idea very much', 5),
 
 
 
-CREATE TABLE status (
+CREATE TABLE betag.status (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     status nvarchar(50) NOT NULL,
     PRIMARY KEY (id)
 );
 
-INSERT INTO status (status)
+INSERT INTO betag.status (status)
 VALUES ('Donation Request Arrived'),
 ('Donation Received'),
 ('Donation Transfered'),
@@ -640,7 +640,7 @@ VALUES ('Donation Request Arrived'),
 
 
 
-CREATE TABLE users (
+CREATE TABLE betag.users (
     id int NOT NULL AUTO_INCREMENT,
     insdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     firstname nvarchar(255) NOT NULL,
@@ -659,7 +659,7 @@ CREATE TABLE users (
     UNIQUE (username, emailaddress)
 );
 
-INSERT INTO users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
+INSERT INTO betag.users (firstname, lastname, gender, username, emailaddress, password, admin, pictureurl)
 VALUES ('Dorottya', 'Juhász', 0, SHA1('JDorka'), 'juhasz.dossz@gmail.com', SHA1('Dorka2019'), 1, '/images/users/JuhaszDorottya.JPG'),
 ('Szilvia', 'Kapuvári', 0, SHA1('KSzilvi'), 'kapuvari.szilvia@gmail.com', SHA1('Szilvi2019'), 1, '/images/users/KapuvariSzilvia.JPG'),
 ('Dániel', 'Oláh', 1, SHA1('OlahD'), 'olah.daniel95@gmail.com', SHA1('Olah2019'), 1, '/images/users/OlahDaniel.JPG'),
