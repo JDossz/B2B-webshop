@@ -64,7 +64,7 @@ app.use("/about", require("./routes/about"));
 app.use("/admin", require("./routes/admin"));
 app.use("/api", require("./routes/api"));
 app.use("/baskets", require("./routes/baskets"));
-app.use("/contact", require("./routes/contact"));
+app.use("/reviews", require("./routes/reviews"));
 app.use("/login", require("./routes/login"));
 app.use("/myProfile", require("./routes//myProfile"));
 app.use("/orders", require("./routes/orders"));
