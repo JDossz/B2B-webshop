@@ -1,77 +1,88 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarColor01"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div class="collapse navbar-collapse"
+       id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="/"
-          routerLinkActive=""
-          [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link"
+           href="/"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{ exact: true }">
           Home
         </a>
       </li>
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="/api/projects"
-          routerLinkActive=""
-          [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link"
+           routerLink="/api/projects"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{ exact: true }">
           Projects
         </a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="/api/categories"
-          routerLinkActive=""
-          [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link"
+           routerLink="/api/categories"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{ exact: true }">
           Categories
         </a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="/users"
-          routerLinkActive=""
-          [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link"
+           routerLink="/users"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{ exact: true }">
           Users
         </a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="/orders"
-          routerLinkActive=""
-          [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link"
+           routerLink="/orders"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{ exact: true }">
           Orders
         </a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="/"
-          routerLinkActive=""
-          [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link"
+           routerLink="/"
+           routerLinkActive=""
+           [routerLinkActiveOptions]="{ exact: true }">
           Dashboard
         </a>
       </li>
       <li>
-        <img id="profile-pic" src="/assets/images/JuhaszDorottya.JPG">
+        <img id="profile-pic"
+             src="/assets/images/JuhaszDorottya.JPG">
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="http://localhost:3000/logout">Log Out</a>
+        <a class="nav-link dropdown-toggle"
+           href="#"
+           id="navbarDropdown"
+           role="button"
+           data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false"></a>
+        <div class="dropdown-menu"
+             aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"
+             href="http://localhost:3000/logout">Log Out</a>
         </div>
       </li>
       <li>
         <div class="mt-2">
-          <span id="username" class="text-white"> Dorottya Juhász </span>
+          <span id="username"
+                class="text-white"> Dorottya Juhász </span>
         </div>
       </li>
     </ul>
