@@ -59,6 +59,91 @@ header .overlay {
 }
 
 
+/* LOGO ANIMATION
+-------------------------------------------------- */
+#logo {
+  height: 1.4em;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.delay {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.slow {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+}
+
+.swing {
+  -webkit-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+}
+
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+
 
 
 /* GENERAL FORMATTING FOR ALL PAGES
@@ -124,10 +209,6 @@ footer>.container {
 
 .btn-animate:focus {
   outline: none;
-}
-
-#logo {
-  height: 1.4em;
 }
 
 .nav-link {
