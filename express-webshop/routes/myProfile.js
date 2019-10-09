@@ -21,12 +21,39 @@ router.all('/', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
   const donatedProjectsPerUser = await database.previousOrders(req)
   donatedProjects = donatedProjectsPerUser[0].allDonatedProjects
-  let lastfunded = await database.previousOrdersByProjectName(req)
+
   const amountOfUsersPoints = await database.readRecord('users', {
     id: req.user.id,
-    select: 'users.points as points'
+    select: 'users.points as points, users.donations as donations'
   })
-  allPoints = amountOfUsersPoints[0].points
+
+  allUserPoints = amountOfUsersPoints[0].donations;
+   allPoints = amountOfUsersPoints[0].points;
+ 
+
+  let lastfunded = await database.previousOrdersByProjectName(req)
+  // let firstfunded = await database.previousOrdersByOneProjectName(req)
+  // let firsttwofunded = await database.previousOrdersByTwoProjectName(req)
+  // firstfunded = firstfunded;
+
+  // if (allPoints == 0) {
+  //   donatedProjects = 0
+  //   lastfunded = {}
+  // }
+  // if (allPoints == 1) {
+  //   lastfunded = firstfunded;
+  //   donatedProjects;
+  // }
+  // if (allPoints == 2) {
+  //   lastfunded = firsttwofunded;
+  //   donatedProjects;
+  // }
+  // if (allPoints > 2) {
+  //   lastfunded;
+  //   donatedProjects;
+  // }
+
+
 
   const awardsList = await database.readRecord('awards', {});
   let donaterLevel = '';

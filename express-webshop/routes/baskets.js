@@ -107,9 +107,12 @@ router.post('/donate', async (req, res) => {
   });
 
   const donationsPerUser = price[0].amount;
+  // const pointToUser = userAward[0].quantity;
 
   userAward.forEach((el) => {
+    console.log(el.points)
     const amountOfDonations = el.donations + donationsPerUser;
+    // const amountOfUsersPoints = el.points + pointToUser;
     const amountOfUsersPoints = amountOfDonations / 5
 
     if (amountOfDonations > 0) {
