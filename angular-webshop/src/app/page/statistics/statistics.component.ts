@@ -31,11 +31,7 @@ export class StatisticsComponent implements OnInit {
   orderStatus4: number = 0;
   orderStatus5: number = 0;
 
-  constructor (private statisticsService: StatisticsService) {
-    this.statisticsService.readTableByQuery('users', {});
-    this.statisticsService.readTableByQuery('orders', {});
-    this.statisticsService.readTableByQuery('projects', {});
-
+  constructor(private statisticsService: StatisticsService) {
     this.users$.subscribe(data => {
       this.users = data;
       // console.log('Users: ', this.users);
@@ -56,7 +52,6 @@ export class StatisticsComponent implements OnInit {
   }
 
   countUsers() {
-    //All
     for (let i = 0; i < this.users.length; i++) {
       this.countedUsers++
 
@@ -68,19 +63,10 @@ export class StatisticsComponent implements OnInit {
         this.countedCivils++
       }
     }
-    // console.log(this.countedUsers);
-    // console.log(this.countedAdmins);
-    // console.log(this.countedCivils);
   }
 
 
   manageOrders() {
-    let status1: number = 0;
-    let status2: number = 0;
-    let status3: number = 0;
-    let status4: number = 0;
-    let status5: number = 0;
-
     for (let i = 0; i < this.orders.length; i++) {
       this.countedOrders++
       if (this.orders[i].status == 1) {

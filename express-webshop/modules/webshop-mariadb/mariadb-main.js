@@ -143,6 +143,43 @@ module.exports = class BetagDB {
     return result;
   }
 
+  async previousOrdersByOneProjectName(req) {
+    const sql = `
+    SELECT DISTINCT projects.title
+    FROM orderdetails
+    INNER JOIN projects ON projects.id = orderdetails.projectid 
+    INNER JOIN orders ON orders.id = orderdetails.orderid 
+    INNER JOIN users ON users.id = orders.userid
+    WHERE users.id = ${req.user.id}
+    ORDER BY orders.insdate DESC
+    LIMIT 1
+   `
+      ;
+
+
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+  async previousOrdersByTwoProjectName(req) {
+    const sql = `
+    SELECT DISTINCT projects.title
+    FROM orderdetails
+    INNER JOIN projects ON projects.id = orderdetails.projectid 
+    INNER JOIN orders ON orders.id = orderdetails.orderid 
+    INNER JOIN users ON users.id = orders.userid
+    WHERE users.id = ${req.user.id}
+    ORDER BY orders.insdate DESC
+    LIMIT 2
+   `
+      ;
+
+
+    const result = await this.connection.query(sql);
+    return result;
+  }
+
+
   async listOfPreviousOrders(req) {
     const sql = `
     SELECT orderid, 

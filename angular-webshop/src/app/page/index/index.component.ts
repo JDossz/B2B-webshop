@@ -41,11 +41,7 @@ export class IndexComponent implements OnInit {
   donationstatus5: number = 0;
 
 
-  constructor (private statisticsService: StatisticsService) {
-    this.statisticsService.readTableByQuery('users', {});
-    this.statisticsService.readTableByQuery('orders', {});
-    this.statisticsService.readTableByQuery('projects', {});
-
+  constructor(private statisticsService: StatisticsService) {
     this.users$.subscribe(data => {
       this.users = data;
       // console.log('Users: ', this.users);
@@ -69,11 +65,9 @@ export class IndexComponent implements OnInit {
   }
 
   maganeUsers() {
-    //All
     for (let i = 0; i < this.users.length; i++) {
       this.countedUsers++
 
-      //Admins
       if (this.users[i].admin == 1) {
         this.countedAdmins++
       }
@@ -81,9 +75,6 @@ export class IndexComponent implements OnInit {
         this.countedCivils++
       }
     }
-    // console.log(this.countedUsers);
-    // console.log(this.countedAdmins);
-    // console.log(this.countedCivils);
   }
 
 
@@ -138,6 +129,5 @@ export class IndexComponent implements OnInit {
       }
     }
     this.countedAverageDonaton = this.totalBalanceOfdonations / this.countedProjects
-
   }
 }
