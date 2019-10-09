@@ -65,11 +65,9 @@ export class IndexComponent implements OnInit {
   }
 
   maganeUsers() {
-    //All
     for (let i = 0; i < this.users.length; i++) {
       this.countedUsers++
 
-      //Admins
       if (this.users[i].admin == 1) {
         this.countedAdmins++
       }
