@@ -461,7 +461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <div class=\"row\">\n\n    <!-- Projects card -->\n\n    <div class=\"card mx-auto mx-5 my-5\">\n      <div class=\"additional\">\n        <div class=\"user-card\">\n          <div class=\"level center\">\n            PROJECTS\n          </div>\n          <div class=\"card-img-div\">\n            <img class=\"project-card-img\"\n                 src=\"../../../assets/img/projects.png\"\n                 alt=\"\">\n          </div>\n          <div class=\"points center\"><i class=\"far fa-copyright\"></i>©BETAG</div>\n        </div>\n        <div class=\"more-info\">\n          <h1 class=\"mx-2 my-2\">Details</h1>\n          <div class=\"stats mx-1 my-2\">\n            <div>\n              <div class=\"title\">Active</div>\n              <i class=\"fa fa-trophy\"></i>\n              <div class=\"value\">{{countActiveProjects}}</div>\n            </div>\n            <div>\n              <div class=\"title\">Passive</div>\n              <i class=\"fa fa-gamepad\"></i>\n              <div class=\"value\">{{countPassiveProjects}}</div>\n            </div>\n            <div>\n              <div class=\"title\">Funded</div>\n              <i class=\"fa fa-group\"></i>\n              <div class=\"value\">{{countedFundedProjects}}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"general\">\n        <!-- <h1 class=\"card-h1\">Users</h1> -->\n        <div class=\"mx-4 my-3\">Currently we have</div>\n        <div class=\"text-center mx-auto card-number\">{{countedProjects}}</div>\n        <div class=\"text-right mx-4 my-2\">projects.</div>\n        <span class=\"more mx-2\">Check it out <span class=\"my-card-arrow\">&#x203A;</span></span>\n      </div>\n    </div>\n\n    <!-- donations card -->\n\n    <div class=\"card mx-auto mx-5 my-5\">\n      <div class=\"additional\">\n        <div class=\"user-card\">\n          <div class=\"level center\">\n            donations\n          </div>\n          <div class=\"card-img-div\">\n            <img class=\"card-img\"\n                 src=\"../../../assets/img/orders.jpg\"\n                 alt=\"\">\n          </div>\n          <div class=\"points center\"><i class=\"far fa-copyright\"></i>©BETAG</div>\n        </div>\n        <div class=\"more-info\">\n          <h1 class=\"mx-2 my-2\">Details</h1>\n          <div class=\"coords\">\n            <span>Request Arrived</span>\n            <span>{{donationstatus1}}</span>\n          </div>\n          <div class=\"coords donations-card-span\">\n            <span>Donation Received</span>\n            <span>{{donationstatus2}}</span>\n          </div>\n          <div class=\"coords\">\n            <span>Donation Transfered</span>\n            <span>{{donationstatus3}}</span>\n          </div>\n          <div class=\"coords\">\n            <span>Donation Canceled</span>\n            <span>{{donationstatus5}}</span>\n          </div>\n          <div class=\"stats mx-1 my-2\">\n            <div>\n              <div class=\"title donations-stats\">Total Balance</div>\n              <i class=\"fa fa-trophy\"></i>\n              <div class=\"value donations-stats\">\n                {{totalBalanceOfdonations | currency: 'EUR':true:'2.0'}}\n              </div>\n            </div>\n            <div>\n              <div class=\"title\">Highest don</div>\n              <i class=\"fa fa-gamepad\"></i>\n              <div class=\"value\">{{countedMaxDonation | currency: 'EUR':true:'2.0'}}</div>\n            </div>\n            <div>\n              <div class=\"title\">Lowest don</div>\n              <i class=\"fa fa-group\"></i>\n              <div class=\"value\">{{countedMinDonation | currency: 'EUR':true:'2.0'}}</div>\n            </div>\n            <div>\n              <div class=\"title\">AVG donation</div>\n              <i class=\"fa fa-group\"></i>\n              <div class=\"value\">{{countedAverageDonaton | currency: 'EUR':true:'2.0'}}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"general\">\n        <!-- <h1 class=\"card-h1\">Users</h1> -->\n        <div class=\"mx-4 my-3\">As well as</div>\n        <div class=\"text-center card-number mx-auto\">{{countedDonations}}</div>\n        <div class=\"text-right mx-4 my-2\">donations.</div>\n        <span class=\"more mx-2 my-1\">Check it out <span class=\"my-card-arrow\">&#x203A;</span></span>\n      </div>\n    </div>\n\n    <!-- Users card -->\n\n    <div class=\"card mx-auto mx-5 my-5\">\n      <div class=\"additional\">\n        <div class=\"user-card\">\n          <div class=\"level center\">\n            USERS\n          </div>\n          <div class=\"card-img-div\">\n            <img class=\"card-img\"\n                 src=\"../../../assets/img/users.png\"\n                 alt=\"\">\n          </div>\n          <div class=\"points center\"><i class=\"far fa-copyright\"></i>©BETAG</div>\n        </div>\n        <div class=\"more-info\">\n          <h1 class=\"mx-2 my-2\">Details</h1>\n          <div class=\"stats mx-1 my-2\">\n            <div>\n              <div class=\"title\">Admins</div>\n              <i class=\"fa fa-trophy\"></i>\n              <div class=\"value\">{{countedAdmins}}</div>\n            </div>\n            <div>\n              <div class=\"title\">All Users</div>\n              <i class=\"fa fa-gamepad\"></i>\n              <div class=\"value\">{{countedUsers}}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"general\">\n        <!-- <h1 class=\"card-h1\">Users</h1> -->\n        <div class=\"mx-4 mt-3\">Funded by</div>\n        <div class=\"text-center card-number mx-auto\">{{countedCivils}}</div>\n        <div class=\"text-right mx-4\">contributors.</div>\n        <span class=\"more mx-2 my-1\">Check it out <span class=\"my-card-arrow\">&#x203A;</span></span>\n      </div>\n    </div>\n\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <div class=\"row\">\n\n    <!-- Projects card -->\n\n    <div class=\"card mx-auto mx-5 my-5\">\n      <div class=\"additional\">\n        <div class=\"user-card\">\n          <div class=\"level center\">\n            PROJECTS\n          </div>\n          <div class=\"card-img-div\">\n            <img class=\"project-card-img\"\n                 src=\"public/images/adminpage/projects.png\"\n                 alt=\"\">\n          </div>\n          <div class=\"points center\"><i class=\"far fa-copyright\"></i>©BETAG</div>\n        </div>\n        <div class=\"more-info\">\n          <h1 class=\"mx-2 my-2\">Details</h1>\n          <div class=\"stats mx-1 my-2\">\n            <div>\n              <div class=\"title\">Active</div>\n              <i class=\"fa fa-trophy\"></i>\n              <div class=\"value\">{{countActiveProjects}}</div>\n            </div>\n            <div>\n              <div class=\"title\">Passive</div>\n              <i class=\"fa fa-gamepad\"></i>\n              <div class=\"value\">{{countPassiveProjects}}</div>\n            </div>\n            <div>\n              <div class=\"title\">Funded</div>\n              <i class=\"fa fa-group\"></i>\n              <div class=\"value\">{{countedFundedProjects}}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"general\">\n        <!-- <h1 class=\"card-h1\">Users</h1> -->\n        <div class=\"mx-4 my-3\">Currently we have</div>\n        <div class=\"text-center mx-auto card-number\">{{countedProjects}}</div>\n        <div class=\"text-right mx-4 my-2\">projects.</div>\n        <span class=\"more mx-2\">Check it out <span class=\"my-card-arrow\">&#x203A;</span></span>\n      </div>\n    </div>\n\n    <!-- donations card -->\n\n    <div class=\"card mx-auto mx-5 my-5\">\n      <div class=\"additional\">\n        <div class=\"user-card\">\n          <div class=\"level center\">\n            donations\n          </div>\n          <div class=\"card-img-div\">\n            <img class=\"card-img\"\n                 src=\"public/images/adminpage/orders.jpg\"\n                 alt=\"\">\n          </div>\n          <div class=\"points center\"><i class=\"far fa-copyright\"></i>©BETAG</div>\n        </div>\n        <div class=\"more-info\">\n          <h1 class=\"mx-2 my-2\">Details</h1>\n          <div class=\"coords\">\n            <span>Request Arrived</span>\n            <span>{{donationstatus1}}</span>\n          </div>\n          <div class=\"coords donations-card-span\">\n            <span>Donation Received</span>\n            <span>{{donationstatus2}}</span>\n          </div>\n          <div class=\"coords\">\n            <span>Donation Transfered</span>\n            <span>{{donationstatus3}}</span>\n          </div>\n          <div class=\"coords\">\n            <span>Donation Canceled</span>\n            <span>{{donationstatus5}}</span>\n          </div>\n          <div class=\"stats mx-1 my-2\">\n            <div>\n              <div class=\"title donations-stats\">Total Balance</div>\n              <i class=\"fa fa-trophy\"></i>\n              <div class=\"value donations-stats\">\n                {{totalBalanceOfdonations | currency: 'EUR':true:'2.0'}}\n              </div>\n            </div>\n            <div>\n              <div class=\"title\">Highest don</div>\n              <i class=\"fa fa-gamepad\"></i>\n              <div class=\"value\">{{countedMaxDonation | currency: 'EUR':true:'2.0'}}</div>\n            </div>\n            <div>\n              <div class=\"title\">Lowest don</div>\n              <i class=\"fa fa-group\"></i>\n              <div class=\"value\">{{countedMinDonation | currency: 'EUR':true:'2.0'}}</div>\n            </div>\n            <div>\n              <div class=\"title\">AVG donation</div>\n              <i class=\"fa fa-group\"></i>\n              <div class=\"value\">{{countedAverageDonaton | currency: 'EUR':true:'2.0'}}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"general\">\n        <!-- <h1 class=\"card-h1\">Users</h1> -->\n        <div class=\"mx-4 my-3\">As well as</div>\n        <div class=\"text-center card-number mx-auto\">{{countedDonations}}</div>\n        <div class=\"text-right mx-4 my-2\">donations.</div>\n        <span class=\"more mx-2 my-1\">Check it out <span class=\"my-card-arrow\">&#x203A;</span></span>\n      </div>\n    </div>\n\n    <!-- Users card -->\n\n    <div class=\"card mx-auto mx-5 my-5\">\n      <div class=\"additional\">\n        <div class=\"user-card\">\n          <div class=\"level center\">\n            USERS\n          </div>\n          <div class=\"card-img-div\">\n            <img class=\"card-img\"\n                 src=\"public/images/adminpage/users.png\"\n                 alt=\"\">\n          </div>\n          <div class=\"points center\"><i class=\"far fa-copyright\"></i>©BETAG</div>\n        </div>\n        <div class=\"more-info\">\n          <h1 class=\"mx-2 my-2\">Details</h1>\n          <div class=\"stats mx-1 my-2\">\n            <div>\n              <div class=\"title\">Admins</div>\n              <i class=\"fa fa-trophy\"></i>\n              <div class=\"value\">{{countedAdmins}}</div>\n            </div>\n            <div>\n              <div class=\"title\">All Users</div>\n              <i class=\"fa fa-gamepad\"></i>\n              <div class=\"value\">{{countedUsers}}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"general\">\n        <!-- <h1 class=\"card-h1\">Users</h1> -->\n        <div class=\"mx-4 mt-3\">Funded by</div>\n        <div class=\"text-center card-number mx-auto\">{{countedCivils}}</div>\n        <div class=\"text-right mx-4\">contributors.</div>\n        <span class=\"more mx-2 my-1\">Check it out <span class=\"my-card-arrow\">&#x203A;</span></span>\n      </div>\n    </div>\n\n  </div>\n");
 
 /***/ }),
 
@@ -1110,59 +1110,12 @@ __webpack_require__.r(__webpack_exports__);
 
 let Barchart1Component = class Barchart1Component {
     constructor(statisticsService) {
-        // this.statisticsService.readTableByQuery('users', {});
-        // this.statisticsService.readTableByQuery('orders', {});
-        // this.statisticsService.readTableByQuery('projects', {});
-        // this.statisticsService.readTableByQuery('categories', {});
         this.statisticsService = statisticsService;
-        //Users
-        this.users$ = this.statisticsService.readTableByQuery('users', {});
-        this.countedAdmins = 0;
-        this.countedCivils = 0;
-        this.countedUsers = 0;
-        this.deletedUsers = 0;
-        //Projects
-        this.projects$ = this.statisticsService.readTableByQuery('projects', {});
-        this.countedProjects = 0;
-        this.countedDeletedProjects = 0;
-        this.countActiveProjects = 0;
-        this.countPassiveProjects = 0;
-        this.countedMaxDonation = 0;
-        this.countedMinDonation = 0;
-        this.countedAverageDonaton = 0;
-        //Orders
-        this.orders$ = this.statisticsService.readTableByQuery('orders', {});
-        this.totalBalanceOfOrders = 0;
-        this.countedOrders = 0;
-        this.orderStatus1 = 0;
-        this.orderStatus2 = 0;
-        //Categories
-        this.categories$ = this.statisticsService.readTableByQuery('categories', {});
-        this.onlyCategories$ = this.statisticsService.readTableByQuery('categories', { select: "category" });
+        //Query
         this.categoriesAndValues$ = this.statisticsService.readTableByQuery('categories', {
             from: 'INNER JOIN projects ON projects.categoryid = categories.id',
             select: 'categories.category AS category, COUNT(projects.categoryid) AS categorycount',
             groupBy: 'projects.categoryid',
-        });
-        this.users$.subscribe(data => {
-            this.users = data;
-            // console.log('Users: ', this.users);
-            // this.maganeUsers();
-        });
-        this.orders$.subscribe(data => {
-            this.orders = data;
-            // console.log('Users: ', this.users);
-            // this.manageOrders();
-        });
-        this.projects$.subscribe(data => {
-            this.projects = data;
-            // console.log('Users: ', this.users);
-            // this.manageProjects();
-        });
-        this.categories$.subscribe(data => {
-            this.categories = data;
-            // this.manageCategories();
-            // console.log('Categories: ', this.categories);
         });
         this.categoriesAndValues$.subscribe(data => {
             this.categoriesAndValues = data;
@@ -2021,9 +1974,6 @@ let IndexComponent = class IndexComponent {
         this.donationstatus3 = 0;
         this.donationstatus4 = 0;
         this.donationstatus5 = 0;
-        this.statisticsService.readTableByQuery('users', {});
-        this.statisticsService.readTableByQuery('orders', {});
-        this.statisticsService.readTableByQuery('projects', {});
         this.users$.subscribe(data => {
             this.users = data;
             // console.log('Users: ', this.users);
@@ -2043,10 +1993,8 @@ let IndexComponent = class IndexComponent {
     ngOnInit() {
     }
     maganeUsers() {
-        //All
         for (let i = 0; i < this.users.length; i++) {
             this.countedUsers++;
-            //Admins
             if (this.users[i].admin == 1) {
                 this.countedAdmins++;
             }
@@ -2054,9 +2002,6 @@ let IndexComponent = class IndexComponent {
                 this.countedCivils++;
             }
         }
-        // console.log(this.countedUsers);
-        // console.log(this.countedAdmins);
-        // console.log(this.countedCivils);
     }
     manageDonations() {
         for (let i = 0; i < this.donations.length; i++) {
@@ -2641,9 +2586,6 @@ let StatisticsComponent = class StatisticsComponent {
         this.orderStatus3 = 0;
         this.orderStatus4 = 0;
         this.orderStatus5 = 0;
-        this.statisticsService.readTableByQuery('users', {});
-        this.statisticsService.readTableByQuery('orders', {});
-        this.statisticsService.readTableByQuery('projects', {});
         this.users$.subscribe(data => {
             this.users = data;
             // console.log('Users: ', this.users);
@@ -2661,7 +2603,6 @@ let StatisticsComponent = class StatisticsComponent {
         });
     }
     countUsers() {
-        //All
         for (let i = 0; i < this.users.length; i++) {
             this.countedUsers++;
             //Admins
@@ -2672,16 +2613,8 @@ let StatisticsComponent = class StatisticsComponent {
                 this.countedCivils++;
             }
         }
-        // console.log(this.countedUsers);
-        // console.log(this.countedAdmins);
-        // console.log(this.countedCivils);
     }
     manageOrders() {
-        let status1 = 0;
-        let status2 = 0;
-        let status3 = 0;
-        let status4 = 0;
-        let status5 = 0;
         for (let i = 0; i < this.orders.length; i++) {
             this.countedOrders++;
             if (this.orders[i].status == 1) {
